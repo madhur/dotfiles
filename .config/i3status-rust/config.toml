@@ -40,7 +40,7 @@ block = "nvidia_gpu"
 label = "RTX 3060"
 show_memory = true
 show_clocks = false
-show_fan_speed = false
+show_fan_speed = true
 show_power_draw = false
 show_utilization = true
 interval = 1
@@ -62,10 +62,6 @@ device = "wlp1s0f0u1"
 format = "{ssid} {signal_strength} {ip} {speed_down;K*b} {speed_up;K*b}"
 interval = 5
 
-[[block]]
-block = "docker"
-interval = 2
-format = "{running}/{total}"
 
 [[block]]
 block = "sound"

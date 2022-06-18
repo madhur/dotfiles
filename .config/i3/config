@@ -56,6 +56,10 @@ set $ws10 "10"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# rename current workspace
+#bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+# rename current window
+#bindsym period exec i3-input -F 'exec i3-msg title_format "%s"' -P 'New name for this window: '
 
 #bindsym $mod+Delete exec i3-exit
 for_window [class="I3-exit"] floating enable border normal
@@ -155,6 +159,7 @@ assign [class="xpad"] $ws1
 #for_window [window_role="pop-up"] floating enable
 #for_window [window_role="task_dialog"] floating enable
 
+bindsym $mod+F12 exec flameshot gui
 ##########################################################################################################################
 ##################################### OPEN SPECIFIC APPLICATIONS IN FLOATING MODE ########################################
 
@@ -201,27 +206,27 @@ for_window [class="zoom"] move to workspace $ws10, focus
 assign [class="zoom"] $ws10
 
 # up
-exec --no-startup-id "killall nm-applet"
-exec --no-startup-id "nm-applet &"
 exec --no-startup-id "killall xfce-polkit"
 exec --no-startup-id "/usr/libexec/xfce-polkit &"
 exec --no-startup-id "killall gnome-keyring"
 exec --no-startup-id "gnome-keyring &"
 exec --no-startup-id "/home/madhur/.config/picom/launch.sh"
 exec --no-startup-id "/home/madhur/.config/conky/launch.sh"
-exec --no-startup-id feh --bg-fill /home/madhur/Desktop/wallpaper.jpg
+exec --no-startup-id feh  --randomize --bg-fill /home/madhur/Pictures/wallpapers/*
 exec --no-startup-id "killall dunst"
 exec --no-startup-id "dunst &"
 exec --no-startup-id "killall copyq"
 exec --no-startup-id "copyq &"
 exec --no-startup-id "killall guake"
 exec --no-startup-id "guake &"
-exec --no-startup-id "killall xpad"
-exec --no-startup-id "xpad &"
+#exec --no-startup-id "killall xpad"
+#exec --no-startup-id "xpad &"
 exec --no-startup-id "killall xfsettingsd"
 exec --no-startup-id "xfsettingsd --daemon &"
 exec --no-startup-id "killall indicator-sound-switcher"
 exec --no-startup-id "indicator-sound-switcher &"
 exec --no-startup-id "killall PanGPUI"
 exec --no-startup-id "/opt/paloaltonetworks/globalprotect/PanGPUI &"
-exec --no-startup-id "flashfocus &"
+#exec --no-startup-id "flashfocus &"
+exec --no-startup-id "killall nm-applet"
+exec --no-startup-id "nm-applet &"

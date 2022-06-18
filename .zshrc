@@ -133,7 +133,7 @@ export PATH=$ANDROID_HOME/platform-tools/bin:$PATHexport PATH=$ANDROID_HOME/tool
 export PATH=$ANDROID_HOME/tools/bin:$PATHexport PATH=$ANDROID_HOME/build-tools/32.0.0:$PATH
 export PATH=$ANDROID_HOME/build-tools/32.0.0/bin:$PATH
 
-export KUBECONFIG=~/.kube/config:~/.kube/eks-pt
+export KUBECONFIG=~/.kube/config:~/.kube/eks-pt:~/.kube/eks-prod
 
 export PATH=$ANDROID_HOME/bundle-tool:$PATH
 
