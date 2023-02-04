@@ -2,15 +2,17 @@
 
 ### Tools used
 
-* [i3](https://i3wm.org/)
-* [i3 Auto Workspace icons Rust](https://github.com/madhur/i3auto-ws-icons-rust)
+* [AwesomeWM](https://github.com/awesomeWM/awesome)
+* [AwesomeWM Lain Widgets](https://github.com/lcpz/lain)
+* [AwesomeWM Widgets](https://github.com/streetturtle/awesome-wm-widgets)
+* [AwesomeWM Madhur Widgets](https://github.com/madhur/madhur-awesome)
+* [AwesomeWM Bling layouts](https://github.com/BlingCorp/bling)
+* [AwesomeWM Vicious Widgets](https://github.com/vicious-widgets/vicious)
 * [sxhkd](https://github.com/baskerville/sxhkd)
 * [picom](https://github.com/yshui/picom)
 * [rofi](https://github.com/davatorium/rofi)
-* [i3 status rust](https://github.com/greshake/i3status-rust)
 * [Guake](https://github.com/Guake/guake)
 * [Conky](https://github.com/brndnmtthws/conky)
-* [dunst](https://github.com/dunst-project/dunst)
 * [Copyq](https://github.com/hluk/CopyQ)
 
 
