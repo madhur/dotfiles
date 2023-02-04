@@ -30,6 +30,12 @@ super + F3
     rofi -no-lazy-grab -show drun -theme "$HOME/.config/rofi/searcher.rasi" -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
 
 
+# show copy toggle
+#F2
+#    copyq toggle
+
+
+
 # Alt tab switcher
 #alt + Tab
 #    rofi -show windowcd -show-icons
@@ -47,6 +53,9 @@ super + F3
 #super + k
 #    sxhkd-cheat
 
+
+alt + F1
+    key-menu
 
 # new power menu
 super + x

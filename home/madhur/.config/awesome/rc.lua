@@ -64,6 +64,14 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
+local nice = require("nice")
+nice{
+    titlebar_items = {
+        left = {"close", "minimize", "maximize"},
+        middle = "title",
+        right = {},
+    }
+}
 --beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 
 -- awesome variables
@@ -104,13 +112,40 @@ end)
 -- Setup global keys
 require("keybindings.globalkeys")
 -- enable titlebars wherever required
-require("widgets.titlebars")
+--require("widgets.titlebars")
+
+
+local M = {}
+local wibox = require("wibox")
+M.widget = wibox.widget {
+    widget = wibox.widget.textbox
+}
+  
+  -- ## LOGIC ##
+  local clients = 0
+  local minimized = 0
+  
+  -- I want to run this function when the number of clients changes
+  M.update = function()
+    clients = awful.screen.focused().all_clients
+    minimized = 0
+  
+    for _, c in ipairs(clients) do
+      if c.minimized then
+        minimized = minimized + 1
+      end
+    end
+  
+    M.widget:set_text(" " .. tostring(#clients) .. " " .. tostring(minimized))
+  end
+
+awful.util.madhur = M
 
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(
     function(s)
         awful.tag(awful.util.tagnames, s, layouts)
-
+       
         -- Setup rules, which will set client keys as well
         awful.rules.rules = require("rules.client_rules")
         awful.screen.focused().tags[2].master_count = 0
@@ -119,10 +154,12 @@ awful.screen.connect_for_each_screen(
     end
 )
 
+
 -- Signal function to execute when a new client appears.
 client.connect_signal(
     "manage",
     function(c)
+        M.update()
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
         if not awesome.startup then
@@ -137,6 +174,13 @@ client.connect_signal(
         if c.class == "vlc" then
             awful.client.setmaster(c)
         end
+    end
+)
+
+client.connect_signal(
+    "unmanage",
+    function(c)
+        M.update()
     end
 )
 
@@ -173,6 +217,7 @@ client.connect_signal("focus", border_rules.border_adjust)
 client.connect_signal(
     "unfocus",
     function(c)
+        M.update()
         c.border_color = beautiful.border_normal
     end
 )

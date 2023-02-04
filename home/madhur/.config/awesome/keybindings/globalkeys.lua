@@ -3,11 +3,12 @@ local awesome, screen = awesome, screen
 local client, root = client, root
 local lain = require("lain")
 local gears = require("gears")
-local bling =  require("bling")
+local bling = require("bling")
 local madhur = require("madhur")
 local mymainmenu = require("widgets.menu")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local naughty = require("naughty")
+local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
 
 local modkey = "Mod4"
 local altkey = "Mod1"
@@ -296,69 +297,67 @@ local globalkeys =
             group = "layout"
         }
     ),
-
-awful.key(
-    {modkey},
-    "w",
-    function(_)
-        awful.screen.focused().selected_tag.master_count = 0
-        awful.layout.set(bling.layout.mstab)
-    end,
-    {
-        description = "Switch to tab layout",
-        group = "layout"
-    }
-),
-awful.key(
-    {modkey},
-    "e",
-    function(_)
-        awful.screen.focused().selected_tag.master_count = 1
-        awful.layout.set(madhur.layout.tallmagnified)
-    end,
-    {
-        description = "Switch to tall layout",
-        group = "layout"
-    }
-),
-
-awful.key(
-    {altkey},
-    "Tab",
-    function(_)
-        awful.client.focus.byidx(1)
-    end,
-    {
-        description = "cycle through clients",
-        group = "layout"
-    }
-),
-awful.key(
-    {modkey},
-    "g",
-    function(_)
-        local s = awful.screen.focused()
-        if s.padding.right == 500 then
-            s.padding = {
-                left = 0,
-                right = 0,
-                top = 0,
-                bottom = 0
-            }
-        else
-            s.padding = {
-                left = 500,
-                right = 500,
-                top = 0,
-                bottom = 0
-            }
-        end
-    end,
-    {
-        description = "set gaps 500 px",
-        group = "layout"
-    }
-),
+    awful.key(
+        {modkey},
+        "w",
+        function(_)
+            awful.screen.focused().selected_tag.master_count = 0
+            awful.layout.set(bling.layout.mstab)
+        end,
+        {
+            description = "Switch to tab layout",
+            group = "layout"
+        }
+    ),
+    awful.key(
+        {modkey},
+        "e",
+        function(_)
+            awful.screen.focused().selected_tag.master_count = 1
+            awful.layout.set(madhur.layout.tallmagnified)
+        end,
+        {
+            description = "Switch to tall layout",
+            group = "layout"
+        }
+    ),
+    awful.key(
+        {altkey},
+        "Tab",
+        function(_)
+            awful.client.focus.byidx(1)
+        end,
+        {
+            description = "cycle through clients",
+            group = "layout"
+        }
+    ),
+    awful.key(
+        {modkey},
+        "g",
+        function(_)
+            local s = awful.screen.focused()
+            if s.padding.right == 500 then
+                s.padding = {
+                    left = 0,
+                    right = 0,
+                    top = 0,
+                    bottom = 0
+                }
+            else
+                s.padding = {
+                    left = 500,
+                    right = 500,
+                    top = 0,
+                    bottom = 0
+                }
+            end
+        end,
+        {
+            description = "set gaps 500 px",
+            group = "layout"
+        }
+    ),
     -- Dropdown application
 
     -- ALSA volume control
@@ -386,6 +385,13 @@ awful.key(
             show_volume_notification()
         end
     )
+    -- awful.key(
+    --     {modkey},
+    --     "l",
+    --     function()
+    --         logout_popup.launch()
+    --     end
+    -- )
 )
 
 -- Bind all key numbers to tags.

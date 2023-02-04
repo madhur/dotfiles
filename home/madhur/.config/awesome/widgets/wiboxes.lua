@@ -499,6 +499,7 @@ function wiboxes.get(s)
             --pl(volume_bar_widget),
             pl(volume_widget, "true", "volume"),
             pl(f25a24, true),
+            awful.util.madhur.widget,
             wibox.container.margin(systray, 3, 3, 3, 3)
         }
     }

@@ -5,19 +5,22 @@ Randomize Wallpaper,feh  --randomize --bg-fill "/home/madhur/Pictures/wallpapers
 
 Terminal,kitty,utilities-terminal
 Sxhkd,sxhkd
-#Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
+Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
 Picom, /home/madhur/.config/picom/launch.sh
 Conky, /home/madhur/.config/conky/launch.sh
 Guake, "guake", terminal
-#Dunst, "dunst"
+Dunst, "dunst"
 Copyq, "flatpak run com.github.hluk.copyq"
+#Xfsettingsd, xfsettingsd --daemon, stock_folder
 Xsettingsd, xsettingsd
 Indicator Sound Switcher, "indicator-sound-switcher"
 GlobalProtect, "/opt/paloaltonetworks/globalprotect/PanGPUI"
 NMApplet, "nm-applet"
-#Autorename Workspace, "$HOME/github/personal/i3scripts/launch.sh"
-#Trayer, "/home/madhur/bin/start-trayer.sh"
+Autorename Workspace, "$HOME/github/personal/i3scripts/launch.sh"
+Trayer, "/home/madhur/bin/start-trayer.sh"
 Xfce Polkit,"/usr/libexec/xfce-polkit"
+Restart xmonad, "/home/madhur/scripts/restart_xmonad.sh"
+Restart awesome, "echo 'awesome.restart()' | awesome-client"
 Startup Apps,"/home/madhur/.config/awesome/autostart.sh"
 ^sep()
 
