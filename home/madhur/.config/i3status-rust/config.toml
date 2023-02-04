@@ -1,0 +1,146 @@
+[theme]
+theme = "nord-dark"
+
+[icons]
+icons = "awesome"
+
+[[block]]
+block = "focused_window"
+[block.format]
+full = "$title| "
+short = "$title.rot-str(10)| "
+
+
+[[block]]
+block = "time"
+interval = 5
+[block.format]
+full = "$icon %a %d %b %R "
+short = "$icon %R "
+[[block.click]]
+button = "left"
+cmd = "notify-send -u low -t 5000 \"$(date -u)\""
+[[block.click]]
+button = "right"
+cmd = "gsimplecal"
+[block.theme_overrides]
+idle_bg = "#5e81ac" # nord0
+idle_fg = "#2e3440" # nord0
+
+[[block]]
+block="custom"
+command="~/scripts/f25a24.sh"
+interval=600
+
+[[block]]
+block = "uptime"
+interval = 600 # update every hour
+
+[[block]]
+block = "cpu"
+interval = 1
+format_alt =  "$icon $frequency.eng() $utilization.eng() \\| $boost.str() "
+#format = "$icon $frequency.eng() $utilization.eng() \\| $boost.str() "
+format = "$icon $utilization.eng() $frequency.eng() \\| $boost.str() "
+[[block.click]]
+button="left"
+cmd="~/scripts/powersave.sh"
+[[block.click]]
+button="right"
+cmd="~/scripts/performance.sh"
+
+
+
+
+
+[[block]]
+block = "temperature"
+format = " $icon $max "
+format_alt = " $icon $average avg, $max max "
+interval = 5
+good=20
+idle=50
+info=70
+warning=80
+
+[[block]]
+block = "memory"
+#format_alt = "$icon $mem_used.eng(3,B,M) /$mem_total.eng(3,B,M)($mem_used_percents.eng(2)) "
+#format_mem = "$icon $mem_used_percents.eng(2) "
+format = "$icon $mem_used_percents.eng(2) "
+format_alt = "$icon $mem_used.eng(3,B,M) /$mem_total.eng(3,B,M)($mem_used_percents.eng(2)) "
+#format_alt = "^icon_memory_swap $swap_free.eng(3,B,M)/$swap_total.eng(3,B,M)($swap_used_percents.eng(2)) "
+#display_type = "memory"
+#clickable = true
+interval = 5
+warning_mem = 50
+warning_swap = 10
+critical_mem = 80
+critical_swap = 10
+
+[[block]]
+block = "nvidia_gpu"
+format = "$icon $temperature $memory $utilization "
+interval = 10
+idle=60
+good=70
+info=80
+warning=90
+
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "used"
+format_alt = "$icon $percentage ($used / $total) "
+format = "$icon $percentage "
+alert = 95
+warning = 90
+[[block.click]]
+button = "right"
+update = true
+
+
+
+
+[[block]]
+block = "net"
+device = "enp5s0"
+#format = "$ssid $speed_down.eng(3,B,K) $speed_up.eng(3,B,K) "
+format = "$icon {$ssid |}{^icon_net_up $speed_up.eng(3,B,K) ^icon_net_down $speed_down.eng(3,B,K)|Wired connection} "
+format_alt = "$icon $ip "
+interval = 5
+#[[block.click]]
+#button="left"
+#cmd = "notify-send -u low -t 5000 ip"
+
+
+
+[[block]]
+block = "sound"
+format = "$icon{ $volume|} "
+
+[block.mappings]
+"alsa_output.usb-Microsoft_Microsoft_LifeChat_LX-6000-00.analog-stereo" = "🎧"
+"alsa_output.pci-0000_05_00.1.hdmi-stereo" = "🔈"
+"alsa_output.pci-0000_05_00.1.hdmi-stereo-extra2" = "🔈"
+
+[[block]]
+block = "notify"
+format = " $icon $paused{Off}| $icon On "
+[[block.click]]
+button="right"
+cmd = "dunstctl close-all"
+
+[[block]]
+block = "dnf"
+interval = 600
+format = "$icon $count.eng(1) updates available"
+format_singular = "$icon One update available"
+format_up_to_date = ""
+critical_updates_regex = "(linux|linux-lts|linux-zen)"
+#hide_when_uptodate = true
+[[block.click]]
+button = "left"
+cmd = "dnf list -q --upgrades | tail -n +2 | rofi -dmenu"
+

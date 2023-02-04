@@ -1,0 +1,80 @@
+#! /bin/sh
+
+killall sxhkd
+sxhkd &
+sxhkd -c $HOME/.config/sxhkd/config_bspwm &
+
+$HOME/.config/picom/launch.sh &
+$HOME/.config/polybar/launch.sh &
+$HOME/.config/conky/launch.sh &
+feh --bg-fill $HOME/Desktop/wallpaper.png
+killall dunst
+
+dunst &
+killall gnome-keyring
+gnome-keyring &
+killall copyq
+copyq &
+killall guake
+guake &
+
+killall xfsettingsd
+xfsettingsd --daemon
+killall indicator-sound-switcher
+indicator-sound-switcher &
+killall PanGPUI
+/opt/paloaltonetworks/globalprotect/PanGPUI &
+killall nm-applet
+nm-applet &
+
+killall xfce-polkit
+/usr/libexec/xfce-polkit &
+
+sh ./floating.sh &
+
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         1
+bspc config window_gap          10
+
+
+bspc config top_padding 30
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+
+bspc config automataic_scheme longest_side
+bspc config initial_polarity second_child
+
+bspc config bottom_padding                0
+bspc config left_padding                  0
+bspc config right_padding                 0
+bspc config single_monocle                false
+bspc config click_to_focus                true
+bspc config focus_by_distance             true
+bspc config focus_follows_pointer         true
+bspc config history_aware_focus           true
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+
+bspc rule -a xpad state=floating desktop=1
+bspc rule -a zoom state=floating desktop=1
+bspc rule -a Guake state=floating
+bspc rule -a copyq state=floating
+
+#### BSPWM coloring ####
+bspc config normal_border_color		      "#4c566a"
+bspc config active_border_color	          "#1e1e1e"
+bspc config focused_border_color	      "#5e81ac"
+bspc config presel_feedback_color	      "#5e81ac"
+bspc config urgent_border_color 	      "#dd2727"
+
+
+killall xpad
+xpad &

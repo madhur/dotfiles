@@ -1,0 +1,57 @@
+# CentOS-Stream-Sources.repo
+
+[baseos-source]
+name=CentOS Stream $releasever - BaseOS - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/BaseOS/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[appstream-source]
+name=CentOS Stream $releasever - AppStream - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/AppStream/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[powertools-source]
+name=CentOS Stream $releasever - PowerTools - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/PowerTools/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[extras-source]
+name=CentOS Stream $releasever - Extras - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/extras/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[ha-source]
+name=CentOS Stream $releasever - HighAvailability - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/HighAvailability/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[rt-source]
+name=CentOS Stream $releasever - RT - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/RT/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[resilientstorage-source]
+name=CentOS Stream $releasever - ResilientStorage - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/ResilientStorage/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[nfv-source]
+name=CentOS Stream $releasever - NFV - Source
+baseurl=http://vault.centos.org/$contentdir/$stream/NFV/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial

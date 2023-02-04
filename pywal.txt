@@ -1,0 +1,55 @@
+defautl colors
+
+#000000
+#555753
+
+#cc0000   #c54b46  
+#ef2929   #be6c63
+
+#4e9a06   #b1e869 
+#8ae234   #abc270 
+
+#c4a000
+#fce94f
+
+#3465a4
+#729fcf
+
+#75507b
+#ad7fa8
+
+#06989a
+#34e2e2
+
+#d3d7cf  #c7ccd1
+#eeeeec  #f3f4f5
+
+
+0 	black
+1 	red
+2 	green
+3 	yellow
+4 	blue
+5 	magenta
+6 	cyan
+7 	white
+
+Foreground
+30
+31
+32
+33
+34
+35
+36
+37
+
+Background
+40
+41
+42
+43
+44
+45
+46
+47

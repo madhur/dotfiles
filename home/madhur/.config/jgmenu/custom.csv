@@ -1,0 +1,39 @@
+
+Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
+Randomize Wallpaper,feh  --randomize --bg-fill "/home/madhur/Pictures/wallpapers/",phototonic
+^sep()
+
+Terminal,kitty,utilities-terminal
+Sxhkd,sxhkd
+#Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
+Picom, /home/madhur/.config/picom/launch.sh
+Conky, /home/madhur/.config/conky/launch.sh
+Guake, "guake", terminal
+#Dunst, "dunst"
+Copyq, "flatpak run com.github.hluk.copyq"
+Xsettingsd, xsettingsd
+Indicator Sound Switcher, "indicator-sound-switcher"
+GlobalProtect, "/opt/paloaltonetworks/globalprotect/PanGPUI"
+NMApplet, "nm-applet"
+#Autorename Workspace, "$HOME/github/personal/i3scripts/launch.sh"
+#Trayer, "/home/madhur/bin/start-trayer.sh"
+Xfce Polkit,"/usr/libexec/xfce-polkit"
+Startup Apps,"/home/madhur/.config/awesome/autostart.sh"
+^sep()
+
+
+Apps,^checkout(apps-dir-Apps),applications
+System,^checkout(apps-dir-System),applications-system
+
+^tag(apps-dir-Apps)
+Firefox, "firefox"
+
+
+
+^tag(apps-dir-System)
+Shutdown, "systemctl poweroff"
+Restart, "systemctl reboot"
+Logout, "pkill -KILL -u $USER"
+
+
+

@@ -1,0 +1,136 @@
+#------------------------------------------------------------------------------
+#----- WINDOW LAYOUT
+#------------------------------------------------------------------------------
+
+super + shift + c
+	i3-msg kill
+
+
+~button2
+    i3-msg kill
+
+super + shift + r
+	i3-msg restart
+
+super + h
+	i3-msg split h
+
+super + v
+	i3-msg split v
+
+super + m
+	i3-msg gaps horizontal current toggle 400
+
+
+super + s
+	i3-msg layout toggle stacking tabbed
+
+super + w
+	i3-msg layout toggle tabbed stacking
+	
+super + e
+	i3-msg layout toggle split
+
+super + f
+	i3-msg fullscreen toggle
+
+super + shift + space
+	i3-msg floating toggle
+
+super + shift + t
+	i3-msg sticky toggle
+
+super + space
+	i3-msg focus mode_toggle
+
+super + c
+	i3-msg move position center
+
+super + shift + r
+	i3-msg restart
+
+super + a
+	i3-msg focus parent
+
+#------------------------------------------------------------------------------
+#----- WINDOW CHANGE FOCUS
+#------------------------------------------------------------------------------
+
+super + {Left,Down,Up,Right}
+	i3-msg focus {left,down,up,right}
+
+#------------------------------------------------------------------------------
+#----- CHANGE WORKSPACE 
+#------------------------------------------------------------------------------
+
+super + {1-9,0}
+	i3-msg workspace number {1-9,10}
+
+super + grave
+	i3-msg workspace next_on_output
+
+super + Tab
+	i3-msg workspace back_and_forth
+
+super + Left
+	i3-msg workspace prev
+
+super + Right
+	i3-msg workspace next
+
+#------------------------------------------------------------------------------
+#----- WINDOW MOVEMENT
+#------------------------------------------------------------------------------
+
+super + shift + {h,j,k,l}
+	i3-msg move {left,down,up,right}
+
+super + shift + {Left,Down,Up,Right}
+	i3-msg move {left,down,up,right}
+
+super + shift + {1-9,0}
+	i3-msg move container to workspace number {1-9,10}
+
+super + shift + F{1-4}
+	i3-msg move container to workspace {5-8}
+
+#------------------------------------------------------------------------------
+#----- WINDOW SIZE ADJUSTMENT
+#------------------------------------------------------------------------------
+
+i3_RESIZE_DELTA=10
+
+super + ctrl + {h,Left}
+	i3-msg resize shrink width  5 px or 5 ppt
+
+super + ctrl + {j,Down}
+	i3-msg resize grow   height 5 px or 5 ppt
+
+super + ctrl + {k,Up}
+	i3-msg resize shrink height 5 px or 5 ppt
+
+super + ctrl + {l,Right}
+	i3-msg resize grow   width  5 px or 5 ppt
+
+#------------------------------------------------------------------------------
+#----- WINDOW GAP ADJUSTMENT
+#------------------------------------------------------------------------------
+
+#super + h
+#	i3-msg gaps outer current plus  $i3_GAP_DELTA 
+
+#super + j
+#	i3-msg gaps inner current minus $i3_GAP_DELTA
+
+#super + k
+#	i3-msg gaps inner current plus  $i3_GAP_DELTA
+
+#super + l
+#	i3-msg gaps outer current minus $i3_GAP_DELTA
+
+#super + shift + 0
+#	i3-msg gaps inner current set $i3_GAP_INNER
+
+
+% super + Escape
+% 	i3-msg bar mode toggle

@@ -1,0 +1,76 @@
+#
+# wm independent hotkeys
+#
+#chrome Work
+#F12
+#    tdrop -ma -w 100% -y 30 -h 80% kitty
+
+# terminal emulator
+super + Return
+    kitty
+
+#calculator
+super + c
+    rofi -show calc -modi calc -no-show-match -no-sort
+
+# program launcher
+super + d
+    rofi -show drun -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+
+# program launcher
+super + shift + d
+    rofi  -show run -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+
+# make sxhkd reload its configuration files:
+#super + Escape
+#	pkill -USR1 -x sxhkd
+
+# app listing
+super + F3
+    rofi -no-lazy-grab -show drun -theme "$HOME/.config/rofi/searcher.rasi" -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+
+
+# Alt tab switcher
+#alt + Tab
+#    rofi -show windowcd -show-icons
+
+
+
+#XF86AudioLowerVolume
+#    amixer set Master 5%-
+#XF86AudioRaiseVolume
+#    amixer set Master 5%+
+#XF86AudioMute
+#    amixer set Master toggle
+
+
+#super + k
+#    sxhkd-cheat
+
+
+# new power menu
+super + x
+    key-power
+
+XF86MonBrightness{Up,Down}
+    brightness{ --up, --down}
+
+# run flameshot
+super + F12
+    flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry
+
+#dunstctl history pop
+super + comma
+    dunstctl history-pop
+
+#dunstctl close all
+super + semicolon
+    dunstctl close-all
+
+~button2
+    echo -n | xsel -n -i
+
+super + Print
+    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+

@@ -1,0 +1,78 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$docker_context\
+$package\
+$helm\
+$java\
+$nodejs\
+$python\
+$aws\
+$custom\
+$cmd_duration\
+$line_break\
+$status\
+$character"""
+
+right_format = """$kubernetes"""
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[x](bold red)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[kubernetes]
+disabled = false
+#format = 'on [⛵ ($cluster in )$context \($namespace\)](dimmed green) '
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[java]
+format = '\[[$symbol($version)]($style)\]'
+
+[cmd_duration]
+format = '\[[⏱ $duration]($style)\]'
+
+[nodejs]
+format = '\[[$symbol($version)]($style)\]'
+
+[ruby]
+format = '\[[$symbol($version)]($style)\]'
+
+[rust]
+format = '\[[$symbol($version)]($style)\]'
+disabled=true
+
+[aws]
+disabled = true
+
+
+[git_metrics]
+disabled=true
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+
+[directory]
+truncation_length = 100
+truncate_to_repo=false
+
+[git_branch]
+format="[$symbol$branch(:$remote_branch)]($style) "
+
+
+[python]
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'

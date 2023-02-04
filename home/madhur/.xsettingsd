@@ -1,0 +1,32 @@
+Gdk/WindowScalingFactor 1
+Gtk/ColorPalette "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90"
+Net/CursorBlinkTime 1200
+Gtk/DialogsUseHeader 1
+Net/IconThemeName "Papirus-Dark"
+Gtk/TitlebarMiddleClick "lower"
+Gtk/ButtonImages 1
+Gtk/MenuBarAccel "F10"
+Net/CursorBlink 1
+Net/ThemeName "Sweet-Ambar-Blue"
+Gtk/DecorationLayout "close,minimize,maximize:"
+Net/DndDragThreshold 8
+Xft/HintStyle "hintfull"
+Net/DoubleClickTime 400
+Xft/Hinting -1
+Net/EnableEventSounds 1
+Gtk/CursorThemeName "Simp1e-Tokyo-Night"
+Gtk/CanChangeAccels 0
+Net/EnableInputFeedbackSounds 1
+Xft/RGBA "rgb"
+Gtk/KeyThemeName ""
+Gtk/ToolbarIconSize 3
+Gtk/FontName "Noto Sans 11"
+Net/DoubleClickDistance 5
+Gtk/MonospaceFontName "JetBrainsMono Nerd Font 11"
+Xft/DPI 122880
+Gtk/IconSizes ""
+Gtk/CursorThemeSize 48
+Net/SoundThemeName "default"
+Xft/Antialias 1
+Gtk/ToolbarStyle "icons"
+Gtk/MenuImages 1

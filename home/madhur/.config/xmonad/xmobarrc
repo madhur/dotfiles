@@ -1,0 +1,131 @@
+Config { 
+
+   -- appearance
+     font =         "xft:DejaVu Sans Mono:size=12:bold:antialias=true"
+       , additionalFonts = [ 
+                            "xft:Font Awesome 5 Pro:size=12:antialias=true"
+                         ,"xft:UbuntuMono Nerd Font:size=12:antialias=true"
+                           ]
+
+ , bgColor = "#1a1b26"
+       , fgColor = "#ff6c6b"
+
+   , position = TopSize L 100 30
+   , border =       BottomB
+   , borderColor =  "#1a1b26"
+
+   -- layout
+   , sepChar =  "%"   -- delineator between plugin names and straight text
+   , alignSep = "}{"  -- separator between left-right alignment
+
+   , template ="<fc=#5294e2> <action=`jgmenu_run`><fn=2></fn></action></fc>\
+                   \ <fn=2> %UnsafeXMonadLog% </fn>}{\
+                   \<fn=2><fc=#2b2f40,#1a1b26:0></fc></fn><fc=#81a1c1,#2b2f40:0>%date% </fc>\
+                   \<fn=2><fc=#1a1b26,#2b2f40:0></fc></fn><fc=#81a1c1,#1a1b26:0>%f25a24%</fc>\
+                   \<fn=2><fc=#2b2f40,#1a1b26:0></fc></fn><fc=#81a1c1,#2b2f40:0>%enp5s0% </fc>\
+                   \<fn=2><fc=#1a1b26,#2b2f40:0></fc></fn><fc=#81a1c1,#1a1b26:0>%uptime% </fc>\
+                   \<fn=2><fc=#2b2f40,#1a1b26:0></fc></fn><fc=#81a1c1,#2b2f40:0>%k10temp% </fc>\
+                   \<fn=2><fc=#1a1b26,#2b2f40:0></fc></fn><fc=#81a1c1,#1a1b26:0>%multicpu% </fc>\
+                   \<fn=2><fc=#2b2f40,#1a1b26:0></fc></fn><fc=#81a1c1,#2b2f40:0>%memory% </fc>\
+                   \<fn=2><fc=#1a1b26,#2b2f40:0></fc></fn><fc=#81a1c1,#1a1b26:0>%disku% </fc>\
+                   \<fn=2><fc=#2b2f40,#1a1b26:0></fc></fn><fc=#81a1c1,#2b2f40:0>%alsa:default:Master% </fc>%trayerpad%"
+                   
+
+   -- general behavior
+   , lowerOnStart =     True    -- send to bottom of window stack on start
+   , hideOnStart =      False   -- start with window unmapped (hidden)
+   , allDesktops =      True    -- show on all desktops
+   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+   , pickBroadest =     False   -- choose widest display (multi-monitor)
+   , persistent =       True    -- enable/disable hiding (True = disabled)
+
+   -- plugins
+   --   Numbers can be automatically colored according to their value. xmobar
+   --   decides color based on a three-tier/two-cutoff system, controlled by
+   --   command options:
+   --     --Low sets the low cutoff
+   --     --High sets the high cutoff
+   --
+   --     --low sets the color below --Low cutoff
+   --     --normal sets the color between --Low and --High cutoffs
+   --     --High sets the color above --High cutoff
+   --
+   --   The --template option controls how the plugin is displayed. Text
+   --   color can be set by enclosing in <fc></fc> tags. For more details
+   --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
+
+   
+   , commands = 
+
+        -- -- weather monitor
+        -- [ Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+        --                      ] 36000
+
+        -- network activity monitor (dynamic interface resolution)
+        [Run Network "enp5s0"     [ "--template" , "<fn=1>\xf1eb</fn> <fn=1>\xf357</fn> <tx> kB/s <fn=1>\xf354</fn> <rx> kB/s"
+                             , "--Low"      , "100000"       -- units: B/s
+                             , "--High"     , "500000"       -- units: B/s
+                             -- , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 10
+
+        -- cpu activity monitor
+        , Run MultiCpu       [ "--template" , "<fn=1>\xf2db</fn> <total>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             -- , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 10
+
+        -- cpu core temperature monitor
+        , Run CoreTemp       [ "--template" , "<fn=1>\xf769</fn> <core0>°C|<core1>°C"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             -- , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 50
+
+      , Run DiskU [("/", "<fn=1>\xf0c7</fn><usedp>%")] ["-L", "80", "-H", "90", "-m", "1", "-p", "3", "--high" , "darkred"] 60
+                        -- Echos an "up arrow" icon in front of the uptime output.
+
+      , Run K10Temp "0000:00:18.3" ["--template", "<fn=1>\xf769</fn> <Tdie>ºC",  "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             -- , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred" ] 60                          
+        -- memory usage monitor
+        , Run Memory         [ "--template" ,"<fn=1>\xf538</fn> <usedratio>%"
+                             , "--Low"      , "50"        -- units: %
+                             , "--High"     , "90"        -- units: %
+                          --   , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 10
+
+        , Run Alsa "default" "Master"
+                        [ "--template", "<fn=1>\xf6a8</fn> <volumestatus>"
+                        , "--suffix"  , "True"
+                        , "--"
+                        , "--on", ""
+                        ]
+        ,  Run UnsafeXMonadLog
+        ,  Run XMonadLog
+
+         , Run Com "/home/madhur/.config/xmonad/tray-padding-icon.sh" [] "trayerpad" 20
+
+        ,Run Com "sh" ["-c", "f25a24.sh "] "f25a24" 600
+
+        ,Run Uptime ["-t", "<fn=1>\xf017</fn> <hours>h <minutes>m"] 600
+        -- time and date indicator 
+        --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+        , Run Date           "<fn=1>\xf133</fn> %a %b %d - %R " "date" 50
+
+        -- keyboard layout indicator
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
+                             , ("us"         , "<fc=#8B0000>US</fc>")
+                             ]
+        ]
+   }

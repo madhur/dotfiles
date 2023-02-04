@@ -1,0 +1,11 @@
+[Settings]
+gtk-application-prefer-dark-theme=1
+gtk-enable-animations=0
+gtk-cursor-theme-size=48
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintslight"
+gtk-xft-rgba="rgb"
+gtk-theme-name="Arc-Dark"
+gtk-icon-theme-name="Qogir-dark"
+gtk-cursor-theme-name="Simp1e-Tokyo-Night"

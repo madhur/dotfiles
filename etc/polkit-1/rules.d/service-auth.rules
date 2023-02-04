@@ -1,0 +1,9 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.systemd1.manage-unit-files" && subject.user == "madhur") {
+        return polkit.Result.YES;
+    } 
+    if (action.id == "org.freedesktop.systemd1.reload-daemon" && subject.user == "madhur") {
+        return polkit.Result.YES;
+    } 
+    
+});

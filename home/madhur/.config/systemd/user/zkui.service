@@ -1,0 +1,17 @@
+[Unit]
+Description=zkui-2.0 service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+TimeoutSec=0
+Environment="ZKUI_HOME=/home/madhur/github/personal/zkui/target"
+WorkingDirectory=/home/madhur/github/personal/zkui/target
+ExecStart=java -Xms128m -Xmx512m -XX:MaxMetaspaceSize=256m -jar /home/madhur/github/personal/zkui/target/zkui-2.0-SNAPSHOT-jar-with-dependencies.jar
+RestartSec=5
+LimitNOFILE=1000000
+Slice=-.slice
+
+[Install]
+WantedBy=multi-user.target

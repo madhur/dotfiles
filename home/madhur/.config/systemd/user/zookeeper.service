@@ -1,0 +1,18 @@
+[Unit]
+Description=Zookeeper Daemon
+Documentation=http://zookeeper.apache.org
+After=network-online.target
+Wants=network-online.target
+
+[Service]    
+Type=forking
+WorkingDirectory=/home/madhur/zookeeper
+ExecStart=/home/madhur/zookeeper/bin/zkServer.sh start /home/madhur/zookeeper/conf/zoo.cfg
+ExecStop=/home/madhur/zookeeper/bin/zkServer.sh stop /home/madhur/zookeeper/conf/zoo.cfg
+ExecReload=/home/madhur/zookeeper/bin/zkServer.sh restart /home/madhur/zookeeper/conf/zoo.cfg
+TimeoutSec=30
+Restart=on-failure
+Slice=-.slice
+
+[Install]
+WantedBy=default.target

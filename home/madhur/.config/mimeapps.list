@@ -1,0 +1,33 @@
+[Added Associations]
+video/x-matroska=org.videolan.VLC.desktop;org.gnome.Totem.desktop;vlc_vlc.desktop;
+video/mp4=org.videolan.VLC.desktop;mpv.desktop;vlc_vlc.desktop;
+x-scheme-handler/http=xfce4-web-browser.desktop;
+x-scheme-handler/https=xfce4-web-browser.desktop;
+application/vnd.rar=org.gnome.FileRoller.desktop;
+application/x-7z-compressed=p7zip-desktop_p7zip-desktop.desktop;org.gnome.FileRoller.desktop;
+application/json=code.desktop;nvim.desktop;
+image/png=pinta_pinta.desktop;
+text/html=code.desktop;
+text/csv=code.desktop;libreoffice_writer.desktop;
+text/plain=nvim.desktop;code.desktop;
+application/pdf=koodo-reader.desktop;org.pwmt.zathura.desktop;
+inode/directory=thunar.desktop;
+text/x-lua=code.desktop;geany.desktop;nvim.desktop;
+application/x-theme=code.desktop;com.sublimemerge.App.desktop;
+text/x-log=code.desktop;
+image/webp=feh.desktop;google-chrome.desktop;
+application/sql=code.desktop;
+application/x-shellscript=nvim.desktop;
+
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+video/x-matroska=vlc_vlc.desktop
+video/mp4=vlc_vlc.desktop
+application/json=nvim.desktop
+application/x-shellscript=nvim.desktop
+text/x-lua=nvim.desktop
+inode/directory=Thunar.desktop

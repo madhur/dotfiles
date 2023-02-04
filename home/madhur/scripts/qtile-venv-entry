@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ~/pyenv3/bin/activate
+python ~/pyenv3/bin/qtile start 2> ~/log.txt
