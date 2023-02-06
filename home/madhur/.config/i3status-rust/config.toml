@@ -8,7 +8,7 @@ icons = "awesome"
 block = "focused_window"
 [block.format]
 full = "$title| "
-short = "$title.rot-str(10)| "
+#short = "$title.rot-str(10)| "
 
 
 [[block]]
@@ -39,9 +39,9 @@ interval = 600 # update every hour
 [[block]]
 block = "cpu"
 interval = 1
-format_alt =  "$icon $frequency.eng() $utilization.eng() \\| $boost.str() "
+format_alt =  "$icon $frequency $utilization \\| $boost "
 #format = "$icon $frequency.eng() $utilization.eng() \\| $boost.str() "
-format = "$icon $utilization.eng() $frequency.eng() \\| $boost.str() "
+format = "$icon $utilization $frequency \\| $boost "
 [[block.click]]
 button="left"
 cmd="~/scripts/powersave.sh"
@@ -67,8 +67,8 @@ warning=80
 block = "memory"
 #format_alt = "$icon $mem_used.eng(3,B,M) /$mem_total.eng(3,B,M)($mem_used_percents.eng(2)) "
 #format_mem = "$icon $mem_used_percents.eng(2) "
-format = "$icon $mem_used_percents.eng(2) "
-format_alt = "$icon $mem_used.eng(3,B,M) /$mem_total.eng(3,B,M)($mem_used_percents.eng(2)) "
+format = "$icon $mem_used_percents.eng(w:2) "
+format_alt = "$icon $mem_used.eng(w:3) /$mem_total.eng(w:3)($mem_used_percents.eng(w:2)) "
 #format_alt = "^icon_memory_swap $swap_free.eng(3,B,M)/$swap_total.eng(3,B,M)($swap_used_percents.eng(2)) "
 #display_type = "memory"
 #clickable = true
@@ -107,7 +107,7 @@ update = true
 block = "net"
 device = "enp5s0"
 #format = "$ssid $speed_down.eng(3,B,K) $speed_up.eng(3,B,K) "
-format = "$icon {$ssid |}{^icon_net_up $speed_up.eng(3,B,K) ^icon_net_down $speed_down.eng(3,B,K)|Wired connection} "
+format = "$icon {$ssid |}{^icon_net_up $speed_up.eng(w:3) ^icon_net_down $speed_down.eng(w:3)|Wired connection} "
 format_alt = "$icon $ip "
 interval = 5
 #[[block.click]]
@@ -135,7 +135,7 @@ cmd = "dunstctl close-all"
 [[block]]
 block = "dnf"
 interval = 600
-format = "$icon $count.eng(1) updates available"
+format = "$icon $count.eng(w:1) updates available"
 format_singular = "$icon One update available"
 format_up_to_date = ""
 critical_updates_regex = "(linux|linux-lts|linux-zen)"

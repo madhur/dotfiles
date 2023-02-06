@@ -18,11 +18,11 @@ local naughty = require("naughty")
   naughty.config.defaults.hover_timeout = 300
   --naughty.config.defaults.title = 'System Notification Title'
   naughty.config.defaults.margin = dpi(16)
-  naughty.config.defaults.border_width = 0
-  naughty.config.defaults.position = 'top_middle'
-  naughty.config.defaults.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, dpi(6))
-  end
+  naughty.config.defaults.border_width = 1
+  naughty.config.defaults.position = 'top_right'
+  -- naughty.config.defaults.shape = function(cr, w, h)
+  --   gears.shape.rounded_rect(cr, w, h, dpi(6))
+  -- end
 
 theme.tabbed_spawn_in_tab = false -- whether a new client should spawn into the focused tabbing container
 

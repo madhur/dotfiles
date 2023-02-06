@@ -82,3 +82,5 @@ function scsu() {
 function scru() {
     systemctl restart "$1" --user
 }
+
+alias vg="~/github/personal/vagrant/exec/vagrant"

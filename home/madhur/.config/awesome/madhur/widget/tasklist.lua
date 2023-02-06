@@ -286,6 +286,7 @@ local function tasklist_label(c, args, tb)
     local ontop = args.ontop or theme.tasklist_ontop or '⌃'
     local above = args.above or theme.tasklist_above or '▴'
     local below = args.below or theme.tasklist_below or '▾'
+    local minimized = '<b>-</b>'
     local floating = args.floating or theme.tasklist_floating or '✈'
     local maximized = args.maximized or theme.tasklist_maximized or '<b>+</b>'
     local maximized_horizontal = args.maximized_horizontal or theme.tasklist_maximized_horizontal or '⬌'
@@ -373,7 +374,7 @@ local function tasklist_label(c, args, tb)
         end
     elseif c.minimized then
         bg = bg_minimize
-        text = text .. "<span color='"..fg_minimize.."'>"..short_name.."</span>"
+        text = text .. "<span color='"..fg_minimize.."'>"..minimized..short_name.."</span>"
         bg_image = bg_image_minimize
         font = font_minimized
 

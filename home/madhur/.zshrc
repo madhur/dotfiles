@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
-    PATH="$HOME/.local/bin:$HOME/bin:$HOME/scripts:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:$HOME/scripts:$HOME/company:$PATH"
 fi
 PATH="$PATH:$HOME/maven/bin:$HOME/gradle/bin"
 export PATH

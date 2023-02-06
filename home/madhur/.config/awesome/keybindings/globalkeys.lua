@@ -76,16 +76,27 @@ local globalkeys =
         function()
             for s in screen do
                 s.mywibox.visible = not s.mywibox.visible
-                if s.mybottomwibox then
-                    s.mybottomwibox.visible = not s.mybottomwibox.visible
-                end
             end
         end,
         {
             description = "Show/hide wibox (bar)",
             group = "awesome"
         }
-    ), -- Run launcher
+    ),
+    awful.key(
+        {altkey},
+        "Escape",
+        function()
+            for s in screen do
+                --naughty.notify({text=tostring(s.mywibox.widget.third)})
+                s.mywibox.widget.third.visible = not s.mywibox.widget.third.visible
+            end
+        end,
+        {
+            description = "Show/hide right wibox (bar)",
+            group = "awesome"
+        }
+    ),
     awful.key(
         {modkey},
         "Tab",

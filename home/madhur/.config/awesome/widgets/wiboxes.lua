@@ -26,7 +26,7 @@ local cw =
         theme = "nord",
         placement = "top",
         start_sunday = false,
-        radius = 0,
+        radius = 0
     }
 )
 
@@ -62,7 +62,7 @@ local mem =
     lain.widget.mem(
     {
         settings = function()
-            widget:set_markup(markup.font(beautiful.font, " " .. mem_now.perc .. " %"))
+            widget:set_markup(markup.font(beautiful.font, " " .. mem_now.perc .. " %"))
         end
     }
 )
@@ -90,7 +90,7 @@ local cpu =
     lain.widget.cpu(
     {
         settings = function()
-            widget:set_markup(markup.font(beautiful.font, "  " .. cpu_now.usage .. " %"))
+            widget:set_markup(markup.font(beautiful.font, " " .. cpu_now.usage .. " %"))
         end
     }
 )
@@ -115,7 +115,7 @@ cpu.widget:buttons(
 )
 
 local cpufreqwidget = wibox.widget.textbox()
-vicious.register(cpufreqwidget, vicious.widgets.cpufreq, " $2 Ghz $5 ", 2, "cpu0")
+vicious.register(cpufreqwidget, vicious.widgets.cpufreq, "$2 Ghz $5 ", 2, "cpu0")
 cpufreqwidget:buttons(
     awful.util.table.join(
         awful.button(
@@ -146,7 +146,16 @@ local uptime_widget_madhur =
 
 local f25a24 =
     awful.widget.watch(
-    "f25a24.sh",
+    "f25a24.sh f25a24",
+    60,
+    function(widget, stdout)
+        widget:set_markup(markup.font(beautiful.font, " " .. stdout))
+    end
+)
+
+local sffd39 =
+    awful.widget.watch(
+    "f25a24.sh sffd39",
     60,
     function(widget, stdout)
         widget:set_markup(markup.font(beautiful.font, " " .. stdout))
@@ -161,6 +170,16 @@ local temp_madhur =
         end
     }
 )
+
+local notification =
+    madhur.widget.notification(
+    {
+        settings = function()
+            widget:set_markup(markup.font(beautiful.font, result))
+        end
+    }
+)
+
 local fs =
     lain.widget.fs(
     {
@@ -334,7 +353,7 @@ local hr_spr =
     widget = wibox.widget.separator
 }
 
-function powerline_rl(cr, width, height)
+local function powerline_rl(cr, width, height)
     local arrow_depth, offset = height / 2, 0
 
     -- Avoid going out of the (potential) clip area
@@ -430,24 +449,52 @@ awesome_icon:connect_signal(
     end
 )
 
-local mypromptbox = awful.widget.prompt()
+local systray = wibox.widget.systray()
+--local mypromptbox = awful.widget.prompt()
+local right_widgets = {
+    -- Right widgets
+    layout = wibox.layout.fixed.horizontal,
+    pl(clock),
+    -- pl(mytasklist),
+    pl(cpu.widget, true, "cpu"),
+    pl(cpufreqwidget, true),
+    pl(temp_madhur.widget, false, "temp"),
+    pl(mem.widget, true, "mem"),
+    pl(mygpu.widget, false, "gpu"),
+    pl(fs.widget, true, "fs"),
+    --pl(net.widget, false, "net"),
+    pl(net_widget, true, "net_new"),
+    pl(uptime_widget_madhur.widget, true),
+    -- pl(
+    --     volume_widget {
+    --         widget_type = "icon_and_text"
+    --     }
+    -- ),
+    -- pl(volume, true, "volume"),
+    --pl(volume_bar_widget),
+    pl(volume_widget, "true", "volume"),
+    pl(f25a24, true),
+    pl(sffd39, true),
+    pl(notification, true),
+    wibox.container.margin(systray, 3, 3, 3, 3)
+}
 
 function wiboxes.get(s)
     local mywibox =
         awful.wibar(
         {
             position = "top",
+            stretch = true,
+            margins = 0,
             screen = s,
             height = 30,
-            bg = beautiful.bg_normal,
+            bg = "#1a1b2600",
             fg = beautiful.fg_normal,
-            opacity = 1,
-            ontop = false,
-            visible = true
+            ontop = false
         }
     )
 
-    local systray = wibox.widget.systray()
+    s.right_widgets = right_widgets
     systray:set_base_size(24)
 
     local mylayoutbox = require("widgets.layoutbox").get(s)
@@ -457,18 +504,21 @@ function wiboxes.get(s)
     mywibox:setup {
         layout = wibox.layout.align.horizontal,
         {
-            -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(awesome_icon, 5, 5, 5, 5),
-            --awesome_icon,
-            mypromptbox,
-            hr_spr,
-            mytaglist,
-            hr_spr,
-            spr,
-            wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
-            spr,
-            mytasklist
+            widget = wibox.container.background,
+            bg = "#1a1b26",
+            {
+                -- Left widgets
+                layout = wibox.layout.fixed.horizontal,
+                wibox.container.margin(awesome_icon, 5, 5, 5, 5),
+                hr_spr,
+                mytaglist,
+                hr_spr,
+                spr,
+                --mylayoutbox,
+                wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
+                spr,
+                mytasklist
+            }
         },
         {
             layout = wibox.layout.align.horizontal,
@@ -477,31 +527,11 @@ function wiboxes.get(s)
             jgmenu_right_click
         },
         {
-            -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            pl(clock),
-            -- pl(mytasklist),
-            pl(cpu.widget, true, "cpu"),
-            pl(cpufreqwidget, true),
-            pl(temp_madhur.widget, false, "temp"),
-            pl(mem.widget, true, "mem"),
-            pl(mygpu.widget, false, "gpu"),
-            pl(fs.widget, true, "fs"),
-            --pl(net.widget, false, "net"),
-            pl(net_widget, true, "net_new"),
-            pl(uptime_widget_madhur.widget, true),
-            -- pl(
-            --     volume_widget {
-            --         widget_type = "icon_and_text"
-            --     }
-            -- ),
-            -- pl(volume, true, "volume"),
-            --pl(volume_bar_widget),
-            pl(volume_widget, "true", "volume"),
-            pl(f25a24, true),
-            awful.util.madhur.widget,
-            wibox.container.margin(systray, 3, 3, 3, 3)
+            widget = wibox.container.background,
+            bg = "#1a1b26",
+            right_widgets
         }
+        
     }
     return mywibox
 end
