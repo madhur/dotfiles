@@ -5,7 +5,6 @@
 * [AwesomeWM](https://github.com/awesomeWM/awesome)
 * [AwesomeWM Lain Widgets](https://github.com/lcpz/lain)
 * [AwesomeWM Widgets](https://github.com/streetturtle/awesome-wm-widgets)
-* [AwesomeWM Madhur Widgets](https://github.com/madhur/madhur-awesome)
 * [AwesomeWM Bling layouts](https://github.com/BlingCorp/bling)
 * [AwesomeWM Vicious Widgets](https://github.com/vicious-widgets/vicious)
 * [sxhkd](https://github.com/baskerville/sxhkd)
@@ -19,7 +18,7 @@
 
 
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/screenshot.png />
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/awesome-screenshot.png />
 </div>
 <div style="float:clear"></div>
 <p/><p/><p/>
