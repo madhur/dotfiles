@@ -9,6 +9,7 @@ local naughty = require("naughty")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local markup = lain.util.markup
+require('awesome-glorious-widgets.hot-corners')
 local wiboxes = {}
 
 local clock =
@@ -162,6 +163,15 @@ local sffd39 =
     end
 )
 
+local pf3f5a =
+    awful.widget.watch(
+    "f25a24.sh pf3f5a",
+    60,
+    function(widget, stdout)
+        widget:set_markup(markup.font(beautiful.font, " " .. stdout))
+    end
+)
+
 local temp_madhur =
     madhur.widget.temp(
     {
@@ -218,7 +228,20 @@ net_widget:buttons(
             {},
             3,
             function()
-                -- left click
+                -- right click
+                awful.spawn.easy_async_with_shell(
+                    "sudo netstat -ntpe | grep -v '127.0.0.1' | grep 'ESTABLISHED'",
+                    function(stdout, stderr, reason, exit_code)
+                        naughty.notify {text = tostring(stdout)}
+                    end
+                )
+            end
+        ),
+        awful.button(
+            {},
+            2,
+            function()
+                -- middle click
                 awful.spawn.easy_async_with_shell(
                     "conky -c ~/.config/conky/io.conf",
                     function(stdout, stderr, reason, exit_code)
@@ -475,6 +498,7 @@ local right_widgets = {
     pl(volume_widget, "true", "volume"),
     pl(f25a24, true),
     pl(sffd39, true),
+    pl(pf3f5a, true),
     pl(notification, true),
     wibox.container.margin(systray, 3, 3, 3, 3)
 }
@@ -529,7 +553,8 @@ function wiboxes.get(s)
         {
             widget = wibox.container.background,
             bg = "#1a1b26",
-            right_widgets
+            right_widgets,
+            opacity = 1,
         }
         
     }

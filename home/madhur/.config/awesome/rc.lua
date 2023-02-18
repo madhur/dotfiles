@@ -105,6 +105,7 @@ tag.connect_signal("request::default_layouts", function()
         madhur.layout.centermaster,
         madhur.layout.grid,
         madhur.layout.resizedmagnifier,
+        awful.layout.suit.tile.left
     })
 end)
 -- }}}
@@ -135,9 +136,9 @@ client.connect_signal(
     function(c)
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
-        if not awesome.startup then
-            awful.client.setslave(c)
-        end
+        -- if not awesome.startup then
+        --     awful.client.setslave(c)
+        -- end
 
         if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
             -- Prevent clients from being unreachable after screen count changes.

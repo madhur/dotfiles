@@ -2,7 +2,7 @@ local awful = require("awful")
 local naughty = require("naughty")
 
 local helpers = {
-    resize_master = true
+    resize_master = false
 }
 local capi = {
     client = client

@@ -76,6 +76,11 @@ function centermaster.arrange(p)
     -- We take master as the magnified client, instead of focussed one.
     local master = awful.client.getmaster(awful.screen.focused())
 
+    -- we dont want to touch floating masters
+    if master.floating then
+        return
+    end
+
     if not master then
         return
     end
