@@ -2,6 +2,7 @@ local awful = require("awful")
 local madhur = require("madhur")
 local wibox = require("wibox")
 local gears = require("gears")
+local beautiful = require("beautiful")
 local client = client
 
 local tasklist = {}
@@ -65,10 +66,11 @@ tasklist.tasklist_buttons =
 )
 
 function tasklist.get(s)
+
     return madhur.widget.tasklist {
         screen = s,
         filter = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist.tasklist_buttons ,
+        buttons = tasklist.tasklist_buttons,
         style = {
             shape_border_width = 0,
             shape = gears.shape.rectangle
@@ -89,21 +91,21 @@ function tasklist.get(s)
         -- Notice that there is *NO* wibox.wibox prefix, it is a template,
         -- not a widget instance.
         widget_template = {
-            {
                 {
                     {
-                        id = "text_role",
-                        widget = wibox.widget.textbox
+                        {
+                            id = "text_role",
+                            widget = wibox.widget.textbox
+                        },
+                        layout = wibox.layout.fixed.horizontal
                     },
-                    layout = wibox.layout.fixed.horizontal
+                    left = 10,
+                    right = 10,
+                    widget = wibox.container.margin
                 },
-                left = 10,
-                right = 10,
-                widget = wibox.container.margin
-            },
-            id = "background_role",
-            widget = wibox.container.background,
-        },
+                id = "background_role",
+                widget = wibox.container.background
+            }
     }
 end
 

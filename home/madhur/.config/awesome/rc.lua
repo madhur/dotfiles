@@ -104,8 +104,8 @@ tag.connect_signal("request::default_layouts", function()
         madhur.layout.threecolmid,
         madhur.layout.centermaster,
         madhur.layout.grid,
-        madhur.layout.resizedmagnifier,
-        awful.layout.suit.tile.left
+        madhur.layout.resizedmagnifier
+        -- awful.layout.suit.tile.left
     })
 end)
 -- }}}
@@ -124,6 +124,7 @@ awful.screen.connect_for_each_screen(
         -- Setup rules, which will set client keys as well
         awful.rules.rules = require("rules.client_rules")
         awful.screen.focused().tags[2].master_count = 0
+        awful.util.smart_wibar_hide = true
         --beautiful.at_screen_connect(s)
         s.mywibox = require("widgets.wiboxes").get(s)
     end
@@ -136,9 +137,9 @@ client.connect_signal(
     function(c)
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
-        -- if not awesome.startup then
-        --     awful.client.setslave(c)
-        -- end
+        if not awesome.startup then
+            awful.client.setslave(c)
+        end
 
         if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
             -- Prevent clients from being unreachable after screen count changes.

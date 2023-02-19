@@ -127,10 +127,12 @@ function module.new(config)
 					self:get_children_by_id("tasklist_placeholder")[1]:add(fancytasklist(cfg, tag))
 					update_tag_border_selected(self, tag)
 					handle_name(tag)
+					-- self.bg = '#000000'
 				end,
 				update_callback = function(self, tag, _, _)
 					update_tag_border_selected(self, tag)
 					handle_name(tag)
+					-- self.bg = '#000000'
 				end
 			},
 			buttons = taglist_buttons

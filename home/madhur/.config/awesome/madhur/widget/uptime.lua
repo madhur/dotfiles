@@ -71,6 +71,8 @@ local function factory(args)
             end
             widget = uptime.widget
 
+            awesome.emit_signal("normal", "uptime")
+
             settings()
         end)
     end

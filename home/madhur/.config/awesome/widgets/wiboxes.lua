@@ -3,7 +3,7 @@ local lain = require("lain")
 local madhur = require("madhur")
 local beautiful = require("beautiful")
 local awful = require("awful")
-local vicious = require("vicious")
+local helpers = require("madhur.helpers")
 local gears = require("gears")
 local naughty = require("naughty")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
@@ -18,6 +18,7 @@ local clock =
     60,
     function(widget, stdout)
         widget:set_markup(" " .. markup.font(beautiful.font, " " .. stdout))
+        awesome.emit_signal("normal", "calendar")
     end
 )
 
@@ -91,6 +92,7 @@ local cpu =
     lain.widget.cpu(
     {
         settings = function()
+            --helpers.debug("cpu widget called.."..cpu_now.usage)
             widget:set_markup(markup.font(beautiful.font, " " .. cpu_now.usage .. " %"))
         end
     }
@@ -115,9 +117,16 @@ cpu.widget:buttons(
     )
 )
 
-local cpufreqwidget = wibox.widget.textbox()
-vicious.register(cpufreqwidget, vicious.widgets.cpufreq, "$2 Ghz $5 ", 2, "cpu0")
-cpufreqwidget:buttons(
+-- local cpufreqwidget = wibox.widget.textbox()
+-- vicious.register(cpufreqwidget, vicious.widgets.cpufreq, "$2 Ghz $5 ", 2, "cpu0")
+local cpufreqwidget = madhur.widget.cpufreq({
+    settings = function()
+        widget:set_markup(markup.font(beautiful.font, governor.." "..freqv.ghz.."Ghz "))
+    end
+})
+
+
+cpufreqwidget.widget:buttons(
     awful.util.table.join(
         awful.button(
             {},
@@ -150,7 +159,12 @@ local f25a24 =
     "f25a24.sh f25a24",
     60,
     function(widget, stdout)
-        widget:set_markup(markup.font(beautiful.font, " " .. stdout))
+        if tonumber(stdout) > 10 then
+            awesome.emit_signal("warning", "f25a24")
+        else
+            awesome.emit_signal("normal", "f25a24")
+        end
+        widget:set_markup(markup.font(beautiful.font, " f25a24:" .. stdout))
     end
 )
 
@@ -159,7 +173,12 @@ local sffd39 =
     "f25a24.sh sffd39",
     60,
     function(widget, stdout)
-        widget:set_markup(markup.font(beautiful.font, " " .. stdout))
+        if tonumber(stdout) > 10 then
+            awesome.emit_signal("warning", "sffd39")
+        else
+            awesome.emit_signal("normal", "sffd39")
+        end
+        widget:set_markup(markup.font(beautiful.font, " sffd39:" .. stdout))
     end
 )
 
@@ -168,7 +187,12 @@ local pf3f5a =
     "f25a24.sh pf3f5a",
     60,
     function(widget, stdout)
-        widget:set_markup(markup.font(beautiful.font, " " .. stdout))
+        if tonumber(stdout) > 10 then
+            awesome.emit_signal("warning", "pf3f5a")
+        else
+            awesome.emit_signal("normal", "pf3f5a")
+        end
+        widget:set_markup(markup.font(beautiful.font, " pf3f5a:" .. stdout))
     end
 )
 
@@ -288,8 +312,9 @@ local volume =
         end
     }
 )
+awful.util.volume = volume
 
-local volume_bar = lain.widget.pulsebar()
+-- local volume_bar = lain.widget.pulsebar()
 --local volume_bar_widget = volume_bar.bar
 
 local volume_widget =
@@ -315,7 +340,7 @@ volume_widget:buttons(
             function()
                 -- middle click
                 os.execute(string.format("pactl set-sink-volume %d 100%%", volume_bar.device))
-                volume_bar.update()
+                -- volume_bar.update()
                 volume.update()
             end
         ),
@@ -325,7 +350,7 @@ volume_widget:buttons(
             function()
                 -- right click
                 os.execute(string.format("pactl set-sink-mute %d toggle", volume_bar.device))
-                volume_bar.update()
+                -- volume_bar.update()
                 volume.update()
             end
         ),
@@ -335,7 +360,7 @@ volume_widget:buttons(
             function()
                 -- scroll up
                 os.execute(string.format("pactl set-sink-volume %d +1%%", volume_bar.device))
-                volume_bar.update()
+                -- volume_bar.update()
                 volume.update()
             end
         ),
@@ -407,7 +432,8 @@ local function pl(widget, reverse, widget_type)
         color = beautiful.dark
     end
 
-    local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), color, powerline_rl)
+    --local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), color, powerline_rl)
+    local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), nil, powerline_rl)
     if widget_type then
         widget_types[widget_type] = finalWidget
     end
@@ -417,26 +443,43 @@ end
 awesome.connect_signal(
     "warning",
     function(widget_type)
-        --  helpers.debug(widget_type.."warning")
-        widget_types[widget_type].bg = beautiful.warning_bg
-        widget_types[widget_type].fg = beautiful.warning_fg
+        --helpers.debug(widget_type.."warning")
+        --widget_types[widget_type].bg = beautiful.warning_bg
+        --widget_types[widget_type].fg = beautiful.warning_fg
+        widget_types[widget_type].fg = beautiful.warning_bg
+        if awful.util.smart_wibar_hide then
+            widget_types[widget_type].visible = true
+        end
     end
 )
 awesome.connect_signal(
     "critical",
     function(widget_type)
         -- helpers.debug(widget_type.."critical")
-        widget_types[widget_type].bg = beautiful.critical_bg
-        widget_types[widget_type].fg = beautiful.critical_fg
+        --widget_types[widget_type].bg = beautiful.critical_bg
+        --widget_types[widget_type].fg = beautiful.critical_fg
+        widget_types[widget_type].fg = beautiful.critical_bg
+        if awful.util.smart_wibar_hide then
+            widget_types[widget_type].visible = true
+        end
     end
 )
 
 awesome.connect_signal(
     "normal",
     function(widget_type)
-        -- helpers.debug(widget_type.."normal")
-        widget_types[widget_type].bg = beautiful.dark
+        --helpers.debug(widget_type.."normal")
+        --widget_types[widget_type].bg = beautiful.dark
+        if not widget_types[widget_type] then return end
+
+        widget_types[widget_type].bg = nil
         widget_types[widget_type].fg = beautiful.fg_normal
+        if awful.util.smart_wibar_hide then
+            widget_types[widget_type].visible = false
+        else
+           -- helpers.debug(widget_types["cpu"])
+            widget_types[widget_type].visible = true
+        end
     end
 )
 
@@ -477,17 +520,17 @@ local systray = wibox.widget.systray()
 local right_widgets = {
     -- Right widgets
     layout = wibox.layout.fixed.horizontal,
-    pl(clock),
+    pl(clock, true, "calendar"),
     -- pl(mytasklist),
     pl(cpu.widget, true, "cpu"),
-    pl(cpufreqwidget, true),
+    pl(cpufreqwidget.widget, true, "cpufreq"),
     pl(temp_madhur.widget, false, "temp"),
     pl(mem.widget, true, "mem"),
     pl(mygpu.widget, false, "gpu"),
     pl(fs.widget, true, "fs"),
     --pl(net.widget, false, "net"),
     pl(net_widget, true, "net_new"),
-    pl(uptime_widget_madhur.widget, true),
+    pl(uptime_widget_madhur.widget, true, "uptime"),
     -- pl(
     --     volume_widget {
     --         widget_type = "icon_and_text"
@@ -496,12 +539,13 @@ local right_widgets = {
     -- pl(volume, true, "volume"),
     --pl(volume_bar_widget),
     pl(volume_widget, "true", "volume"),
-    pl(f25a24, true),
-    pl(sffd39, true),
-    pl(pf3f5a, true),
-    pl(notification, true),
+    pl(f25a24, true, "f25a24"),
+    pl(sffd39, true, "sffd39"),
+    pl(pf3f5a, true, "pf3f5a"),
+    pl(notification, true, "notification"),
     wibox.container.margin(systray, 3, 3, 3, 3)
 }
+
 
 function wiboxes.get(s)
     local mywibox =
@@ -512,7 +556,7 @@ function wiboxes.get(s)
             margins = 0,
             screen = s,
             height = 30,
-            bg = "#1a1b2600",
+            bg = "#1a1b26aa",
             fg = beautiful.fg_normal,
             ontop = false
         }
@@ -524,39 +568,43 @@ function wiboxes.get(s)
     local mylayoutbox = require("widgets.layoutbox").get(s)
     local mytaglist = require("widgets.taglist").get(s)
     local mytasklist = require("widgets.tasklist").get(s)
+
+    local left_widgets = {
+        -- Left widgets
+        layout = wibox.layout.fixed.horizontal,
+        wibox.container.margin(awesome_icon, 5, 5, 5, 5),
+        hr_spr,
+        mytaglist,
+        hr_spr,
+        spr,
+        --mylayoutbox,
+        wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
+        spr,
+      --  mytasklist
+    }
     -- Add widgets to the wibox
     mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        {
-            widget = wibox.container.background,
-            bg = "#1a1b26",
-            {
-                -- Left widgets
-                layout = wibox.layout.fixed.horizontal,
-                wibox.container.margin(awesome_icon, 5, 5, 5, 5),
-                hr_spr,
-                mytaglist,
-                hr_spr,
-                spr,
-                --mylayoutbox,
-                wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
-                spr,
-                mytasklist
-            }
-        },
+        -- {
+        --     widget = wibox.container.background,
+        --     bg = "#1a1b26",
+        --     left_widgets
+        -- },
+        left_widgets,
         {
             layout = wibox.layout.align.horizontal,
             expand = "none",
             nil,
             jgmenu_right_click
         },
-        {
-            widget = wibox.container.background,
-            bg = "#1a1b26",
-            right_widgets,
-            opacity = 1,
-        }
-        
+        right_widgets,
+       
+        -- {
+        --     widget = wibox.container.background,
+        --     bg = "#1a1b26",
+        --     right_widgets,
+        --     opacity = 1,
+        -- }
     }
     return mywibox
 end

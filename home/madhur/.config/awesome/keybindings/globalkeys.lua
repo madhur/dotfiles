@@ -98,6 +98,17 @@ local globalkeys =
         }
     ),
     awful.key(
+        {ctrlkey},
+        "Escape",
+        function()
+            awful.util.smart_wibar_hide = not awful.util.smart_wibar_hide
+        end,
+        {
+            description = "Smart hide right wibox (bar)",
+            group = "awesome"
+        }
+    ),
+    awful.key(
         {modkey},
         "Tab",
         awful.tag.history.restore,
@@ -377,7 +388,8 @@ local globalkeys =
         "XF86AudioRaiseVolume",
         function()
             awful.util.spawn("amixer -D pulse sset Master 2%+", false)
-            show_volume_notification()
+            -- show_volume_notification()
+            awful.util.volume.update(nil, true)
         end
     ),
     awful.key(
@@ -385,7 +397,8 @@ local globalkeys =
         "XF86AudioLowerVolume",
         function()
             awful.util.spawn("amixer -D pulse sset Master 2%-", false)
-            show_volume_notification()
+            -- show_volume_notification()
+            awful.util.volume.update(nil, true)
         end
     ),
     awful.key(
@@ -393,7 +406,8 @@ local globalkeys =
         "XF86AudioMute",
         function()
             awful.util.spawn("amixer -D pulse sset Master toggle", false)
-            show_volume_notification()
+            -- show_volume_notification()
+            awful.util.volume.update(nil, true)
         end
     )
     -- awful.key(

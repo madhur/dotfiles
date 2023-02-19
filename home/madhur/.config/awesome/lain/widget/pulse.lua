@@ -5,9 +5,11 @@
 
 --]]
 local helpers = require("lain.helpers")
+local helpers2 = require("madhur.helpers")
 local shell = require("awful.util").shell
 local wibox = require("wibox")
 local awful = require("awful")
+local naughty = require("naughty")
 local string = string
 local type = type
 
@@ -29,7 +31,7 @@ local function factory(args)
             pulse.devicetype ..
                 "s | sed -n -e '/*/,$!d' -e '/index/p' -e '/base volume/d' -e '/volume:/p' -e '/muted:/p' -e '/device\\.string/p'"
 
-    function pulse.update()
+    function pulse.update(force, force2)
         helpers.async(
             {shell, "-c", type(pulse.cmd) == "string" and pulse.cmd or pulse.cmd()},
             function(s)
@@ -54,9 +56,13 @@ local function factory(args)
                 widget = pulse.widget
                 if volume_now.muted == "yes" then
                     awesome.emit_signal("critical", "volume")
+                elseif force2 then
+                    awesome.emit_signal("warning", "volume")
                 else
                     awesome.emit_signal("normal", "volume")
                 end
+                -- helpers2.debug(force2)
+
 
                 -- widget:buttons(
                 --     awful.util.table.join(

@@ -66,17 +66,21 @@ theme.bg_focus = "#81a1c1"
 theme.bg_urgent = "#3F3F3F"
 --theme.taglist_fg_focus = "#f0f0f0"
 --theme.taglist_bg_focus = "#5e81ac"
+theme.taglist_bg_focus = "00"
 theme.taglist_fg_focus = "#81a1c1"
-theme.taglist_bg_focus = "#2e3440"
+--theme.taglist_bg_focus = "#2e3440"
 --theme.taglist_shape_border_width_focus = 2
 theme.taglist_shape_border_color_focus = "#81a1c1"
 --theme.taglist_shape_focus = 
 
 -- Generate taglist squares:
 
-theme.taglist_bg_occupied = "#1a1b26"
+--theme.taglist_bg_occupied = "#1a1b26"
+--theme.taglist_bg_occupied = "00"
 theme.taglist_fg_occupied = "#81a1c1"
 theme.taglist_spacing = 3
+--theme.tasklist_bg_focus = "#2b2f40"
+theme.tasklist_bg_normal = "00"
 theme.tasklist_bg_focus = "#2b2f40"
 theme.tasklist_fg_focus = "#81a1c1"
 theme.border_width = 1

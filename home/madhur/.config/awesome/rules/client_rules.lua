@@ -81,13 +81,11 @@ return {
     },
     {
         rule_any = {
-           
             class = {
                 "kruler",
                 "Kruler",
                 "Guake"       
             },
-          
         },
         properties = {
             floating = true,
@@ -97,29 +95,23 @@ return {
     },
     {
         rule_any = {
-           
             class = {
                 "copyq",
-              
             },
-          
         },
         properties = {
             floating = true,
             titlebars_enabled = false,
-            
         },
         callback = function(c)
             local clnt = awful.client.focused
             awful.placement.centered(c, {parent =clnt})
         end
-            
     },
     {
         rule_any = {
             instance = {
                 "DTA", -- Firefox addon DownThemAll.
-               
             },
             class = {
                 "Arandr",
