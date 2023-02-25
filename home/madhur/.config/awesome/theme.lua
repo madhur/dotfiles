@@ -173,6 +173,9 @@ theme.warning_fg = "#2e3440"
 theme.critical_bg = "#bf616a"
 theme.critical_fg = "#2e3440"
 
+theme.hotkeys_font = "JetBrains Mono Nerd Font 12"
+theme.hotkeys_description_font = "JetBrains Mono Nerd Font 12"
+
 -- Set different colors for urgent notifications.
 rnotification.connect_signal('request::rules', function()
     rnotification.append_rule {

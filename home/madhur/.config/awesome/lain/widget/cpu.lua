@@ -62,8 +62,23 @@ local function factory(args)
             end
         end
 
+         -- Read the frequency at which the CPUs are operating
+        -- This info is found in /proc/cpuinfo
+        -- local freq_sum = 0
+        -- local cpu_count = 0
+        -- for coreid,line in pairs(helpers.lines_match("cpu MHz", "/proc/cpuinfo")) do
+        --     local frequency = tonumber(string.match(line, "%d+%.%d+"))
+        --     cpu.core[coreid].frequency = frequency
+        --     freq_sum = freq_sum + frequency
+        --     cpu_count = cpu_count + 1
+        -- end
+        -- cpu.core[0].frequency = freq_sum / cpu_count  -- coreid 0 is for average
+
+
+
         cpu_now = cpu.core
         cpu_now.usage = cpu_now[0].usage
+        -- cpu_now.frequency = cpu_now[0].frequency
 
         if tonumber(cpu_now.usage) > 90 then
             crit_count = crit_count + 1

@@ -18,7 +18,7 @@ local clock =
     60,
     function(widget, stdout)
         widget:set_markup(" " .. markup.font(beautiful.font, " " .. stdout))
-        awesome.emit_signal("normal", "calendar")
+        -- awesome.emit_signal("normal", "calendar")
     end
 )
 
@@ -126,7 +126,69 @@ local cpufreqwidget = madhur.widget.cpufreq({
 })
 
 
-cpufreqwidget.widget:buttons(
+
+
+local uptime_widget_madhur =
+    madhur.widget.uptime(
+    {
+        settings = function()
+            widget:set_markup(markup.font(beautiful.font, " " .. result))
+        end
+    }
+)
+
+local f25a24 =
+    awful.widget.watch(
+    "f25a24.sh f25a24",
+    60,
+    function(widget, stdout)
+        if tonumber(stdout) > 1 then
+            awesome.emit_signal("warning", "f25a24")
+        else
+            awesome.emit_signal("normal", "f25a24")
+        end
+        widget:set_markup(markup.font(beautiful.font, " f25a24:" .. stdout))
+    end
+)
+
+local sffd39 =
+    awful.widget.watch(
+    "f25a24.sh sffd39",
+    60,
+    function(widget, stdout)
+        if tonumber(stdout) > 1 then
+            awesome.emit_signal("warning", "sffd39")
+        else
+            awesome.emit_signal("normal", "sffd39")
+        end
+        widget:set_markup(markup.font(beautiful.font, " sffd39:" .. stdout))
+    end
+)
+
+local pf3f5a =
+    awful.widget.watch(
+    "f25a24.sh pf3f5a",
+    60,
+    function(widget, stdout)
+        if tonumber(stdout) > 1 then
+            awesome.emit_signal("warning", "pf3f5a")
+        else
+            awesome.emit_signal("normal", "pf3f5a")
+        end
+        widget:set_markup(markup.font(beautiful.font, " pf3f5a:" .. stdout))
+    end
+)
+
+local temp_madhur =
+    madhur.widget.temp(
+    {
+        settings = function()
+            widget:set_markup(markup.font(beautiful.font, " " .. result .. "°C "))
+        end
+    }
+)
+
+temp_madhur.widget:buttons(
     awful.util.table.join(
         awful.button(
             {},
@@ -145,64 +207,23 @@ cpufreqwidget.widget:buttons(
     )
 )
 
-local uptime_widget_madhur =
-    madhur.widget.uptime(
-    {
-        settings = function()
-            widget:set_markup(markup.font(beautiful.font, " " .. result))
-        end
-    }
-)
-
-local f25a24 =
-    awful.widget.watch(
-    "f25a24.sh f25a24",
-    60,
-    function(widget, stdout)
-        if tonumber(stdout) > 10 then
-            awesome.emit_signal("warning", "f25a24")
-        else
-            awesome.emit_signal("normal", "f25a24")
-        end
-        widget:set_markup(markup.font(beautiful.font, " f25a24:" .. stdout))
-    end
-)
-
-local sffd39 =
-    awful.widget.watch(
-    "f25a24.sh sffd39",
-    60,
-    function(widget, stdout)
-        if tonumber(stdout) > 10 then
-            awesome.emit_signal("warning", "sffd39")
-        else
-            awesome.emit_signal("normal", "sffd39")
-        end
-        widget:set_markup(markup.font(beautiful.font, " sffd39:" .. stdout))
-    end
-)
-
-local pf3f5a =
-    awful.widget.watch(
-    "f25a24.sh pf3f5a",
-    60,
-    function(widget, stdout)
-        if tonumber(stdout) > 10 then
-            awesome.emit_signal("warning", "pf3f5a")
-        else
-            awesome.emit_signal("normal", "pf3f5a")
-        end
-        widget:set_markup(markup.font(beautiful.font, " pf3f5a:" .. stdout))
-    end
-)
-
-local temp_madhur =
-    madhur.widget.temp(
-    {
-        settings = function()
-            widget:set_markup(markup.font(beautiful.font, " " .. result .. "°C "))
-        end
-    }
+cpufreqwidget.widget:buttons(
+    awful.util.table.join(
+        awful.button(
+            {},
+            1,
+            function()
+                awful.spawn.with_shell("~/scripts/powersave.sh")
+            end
+        ),
+        awful.button(
+            {},
+            3,
+            function()
+                awful.spawn.with_shell("~/scripts/performance.sh")
+            end
+        )
+    )
 )
 
 local notification =
@@ -568,6 +589,7 @@ function wiboxes.get(s)
     local mylayoutbox = require("widgets.layoutbox").get(s)
     local mytaglist = require("widgets.taglist").get(s)
     local mytasklist = require("widgets.tasklist").get(s)
+    awful.util.mytasklist = mytasklist
 
     local left_widgets = {
         -- Left widgets
@@ -577,10 +599,9 @@ function wiboxes.get(s)
         mytaglist,
         hr_spr,
         spr,
-        --mylayoutbox,
         wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
         spr,
-      --  mytasklist
+        mytasklist
     }
     -- Add widgets to the wibox
     mywibox:setup {

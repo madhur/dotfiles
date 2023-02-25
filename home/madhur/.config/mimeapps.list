@@ -17,7 +17,7 @@ application/x-theme=code.desktop;com.sublimemerge.App.desktop;
 text/x-log=code.desktop;
 image/webp=feh.desktop;google-chrome.desktop;
 application/sql=code.desktop;
-application/x-shellscript=nvim.desktop;
+application/x-shellscript=code.desktop;nvim.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop

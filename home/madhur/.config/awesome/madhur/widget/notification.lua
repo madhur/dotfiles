@@ -43,7 +43,7 @@ local function factory(args)
         if naughty.expiration_paused then
             result = result .. " "
         end
-        awesome.emit_signal("normal", "notification")
+        --awesome.emit_signal("normal", "notification")
         settings()
     end
 

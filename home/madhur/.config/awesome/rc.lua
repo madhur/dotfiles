@@ -64,14 +64,14 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
-local nice = require("nice")
-nice{
-    titlebar_items = {
-        left = {"close", "minimize", "maximize"},
-        middle = "title",
-        right = {},
-    }
-}
+-- local nice = require("nice")
+-- nice{
+--     titlebar_items = {
+--         left = {"close", "minimize", "maximize"},
+--         middle = "title",
+--         right = {},
+--     }
+-- }
 --beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 
 -- awesome variables
@@ -104,7 +104,8 @@ tag.connect_signal("request::default_layouts", function()
         madhur.layout.threecolmid,
         madhur.layout.centermaster,
         madhur.layout.grid,
-        madhur.layout.resizedmagnifier
+        madhur.layout.resizedmagnifier,
+        madhur.layout.max
         -- awful.layout.suit.tile.left
     })
 end)
@@ -149,9 +150,35 @@ client.connect_signal(
         if c.class == "vlc" then
             awful.client.setmaster(c)
         end
+
+        -- hide tasklist if only single client on tag
+        if #awful.screen.focused().clients < 2 then
+            awful.util.mytasklist.visible = false
+        else
+            awful.util.mytasklist.visible = true
+        end
     end
 )
 
+client.connect_signal(
+    "unmanage",
+    function(c)
+        -- hide tasklist if only single client on tag
+        if #awful.screen.focused().clients < 2 then
+            awful.util.mytasklist.visible = false
+        else
+            awful.util.mytasklist.visible = true
+        end
+    end
+)
+
+tag.connect_signal("property::selected", function()
+    if #awful.screen.focused().clients < 2 then
+        awful.util.mytasklist.visible = false
+    else
+        awful.util.mytasklist.visible = true
+    end
+end)
 
 
 client.connect_signal(
