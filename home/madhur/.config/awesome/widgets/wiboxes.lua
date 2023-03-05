@@ -26,7 +26,7 @@ local cw =
     calendar_widget(
     {
         theme = "nord",
-        placement = "top",
+        placement = "top_right",
         start_sunday = false,
         radius = 0
     }
@@ -39,6 +39,19 @@ clock:buttons(
             1,
             function()
                 cw.toggle()
+            end
+        ),
+        awful.button(
+            {},
+            3,
+            function()
+                 -- left click
+                 awful.spawn.easy_async_with_shell(
+                    "date -u",
+                    function(stdout, stderr, reason, exit_code)
+                        naughty.notify {text = tostring(stdout)}
+                    end
+                )
             end
         )
     )
