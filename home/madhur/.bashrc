@@ -96,3 +96,5 @@ eval "$(starship init bash)"
 
 source ~/.aliases
 source ~/.functions
+
+[[ -s "/home/madhur/.gvm/scripts/gvm" ]] && source "/home/madhur/.gvm/scripts/gvm"

@@ -150,47 +150,34 @@ local uptime_widget_madhur =
     }
 )
 
-local f25a24 =
+local v15661 =
     awful.widget.watch(
-    "f25a24.sh f25a24",
+    "f25a24.sh v15661",
     60,
     function(widget, stdout)
         if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "f25a24")
+            awesome.emit_signal("warning", "v15661")
         else
-            awesome.emit_signal("normal", "f25a24")
+            awesome.emit_signal("normal", "v15661")
         end
-        widget:set_markup(markup.font(beautiful.font, " f25a24:" .. stdout))
+        widget:set_markup(markup.font(beautiful.font, " v15661:" .. stdout))
     end
 )
 
-local sffd39 =
+local ka49f9 =
     awful.widget.watch(
-    "f25a24.sh sffd39",
+    "f25a24.sh ka49f9",
     60,
     function(widget, stdout)
         if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "sffd39")
+            awesome.emit_signal("warning", "ka49f9")
         else
-            awesome.emit_signal("normal", "sffd39")
+            awesome.emit_signal("normal", "ka49f9")
         end
-        widget:set_markup(markup.font(beautiful.font, " sffd39:" .. stdout))
+        widget:set_markup(markup.font(beautiful.font, " ka49f9:" .. stdout))
     end
 )
 
-local pf3f5a =
-    awful.widget.watch(
-    "f25a24.sh pf3f5a",
-    60,
-    function(widget, stdout)
-        if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "pf3f5a")
-        else
-            awesome.emit_signal("normal", "pf3f5a")
-        end
-        widget:set_markup(markup.font(beautiful.font, " pf3f5a:" .. stdout))
-    end
-)
 
 local temp_madhur =
     madhur.widget.temp(
@@ -318,6 +305,33 @@ local mygpu =
             widget:set_markup(markup.font(beautiful.font, " " .. gpu.usage .. " " .. gpu.temp .. "°C"))
         end
     }
+)
+
+local switchtag = madhur.widget.switchtag(
+    {
+        settings = function()
+            local icon = nil
+            if awful.util.switch_tag then
+                icon = "10s"
+            else
+                icon = "0s"
+            end
+
+            widget:set_markup(markup.font(beautiful.font, icon))
+        end
+    }
+)
+switchtag.widget:buttons(
+    awful.util.table.join(
+        awful.button(
+            {},
+            1,
+            function()
+                awful.util.switch_tag = not awful.util.switch_tag
+                switchtag.update()
+            end
+        )
+    )
 )
 
 -- ALSA volume
@@ -573,10 +587,10 @@ local right_widgets = {
     -- pl(volume, true, "volume"),
     --pl(volume_bar_widget),
     pl(volume_widget, "true", "volume"),
-    pl(f25a24, true, "f25a24"),
-    pl(sffd39, true, "sffd39"),
-    pl(pf3f5a, true, "pf3f5a"),
+    pl(v15661, true, "v15661"),
+    pl(ka49f9, true, "ka49f9"),
     pl(notification, true, "notification"),
+    pl(switchtag, true, "switchtag"),
     wibox.container.margin(systray, 3, 3, 3, 3)
 }
 

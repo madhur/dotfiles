@@ -64,7 +64,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig
 
-[ -f "$HOME/passwords.env" ] && source ~/passwords.env
+[ -f "$HOME/company/passwords.env" ] && source ~/company/passwords.env
 
 [[ -s /home/madhur/.autojump/etc/profile.d/autojump.sh ]] && source /home/madhur/.autojump/etc/profile.d/autojump.sh
 
@@ -88,3 +88,6 @@ source ~/.functions
 # unsetopt XTRACE
 # exec 2>&3 3>&-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /home/madhur/.gvm/scripts/gvm
+export GOPATH="$GOPATH:/home/madhur/go"

@@ -31,14 +31,14 @@ return {
     },
     -- Set applications to always map on the tag 1 on screen 1.
     -- find class or role via xprop command
-    {
-        rule = {class = "Chrome"},
-        properties = {screen = 1, tag = awful.screen.focused().tags[1]}
-    },
-    {
-        rule = {class = "Google-chrome"},
-        properties = {screen = 1, tag = awful.screen.focused().tags[1]}
-    },
+    -- {
+    --     rule = {class = "Chrome"},
+    --     properties = {screen = 1, tag = awful.screen.focused().tags[1]}
+    -- },
+    -- {
+    --     rule = {class = "Google-chrome"},
+    --     properties = {screen = 1, tag = awful.screen.focused().tags[1]}
+    -- },
     {
         rule = {class = "jetbrains-idea-ce"},
         properties = {screen = 1, tag = awful.screen.focused().tags[2]}
@@ -61,10 +61,10 @@ return {
         rule = {class = "install4j-com-kafkatool-ui-MainApp"},
         properties = {screen = 1, tag = awful.screen.focused().tags[6]}
     },
-    {
-        rule = {class = "firefox"},
-        properties = {screen = 1, tag = awful.screen.focused().tags[9]}
-    },
+    -- {
+    --     rule = {class = "firefox"},
+    --     properties = {screen = 1, tag = awful.screen.focused().tags[9]}
+    -- },
     {
         rule = {class = "Slack"},
         properties = {screen = 1, tag = awful.screen.focused().tags[10]}

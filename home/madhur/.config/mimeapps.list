@@ -18,6 +18,7 @@ text/x-log=code.desktop;
 image/webp=feh.desktop;google-chrome.desktop;
 application/sql=code.desktop;
 application/x-shellscript=code.desktop;nvim.desktop;
+video/quicktime=org.videolan.VLC.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
