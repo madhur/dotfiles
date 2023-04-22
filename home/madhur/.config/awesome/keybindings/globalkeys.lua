@@ -9,7 +9,8 @@ local mymainmenu = require("widgets.menu")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local naughty = require("naughty")
 local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
-
+local mouse = require("awful.mouse")
+local gfs = require("gears.filesystem")
 local modkey = "Mod4"
 local altkey = "Mod1"
 local ctrlkey = "Control"
@@ -352,6 +353,42 @@ local globalkeys =
         {
             description = "cycle through clients",
             group = "layout"
+        }
+    ),
+    -- awful.key(
+    --     {modkey},
+    --     "r",
+    --     function(_)
+    --         awful.util.myprompt:run()
+    --     end,
+    --     {
+    --         description = "Run prompt",
+    --         group = "wibar"
+    --     }
+    -- ),
+    awful.key(
+        {modkey},
+        "r",
+        function()
+            awful.prompt.run(
+                {
+                    prompt       = "<b>Run: </b>",
+                    textbox = awful.util.text_box_prompt,
+                    history_path  = gfs.get_cache_dir() .. "/history",
+                    exe_callback = function(...)
+                        awful.spawn.easy_async(..., function(stdout, stderr, reason, exit_code)
+                            local textbox = awful.util.text_box_prompt
+                            if type(stdout) == "string" then
+                                textbox:set_text(stdout)
+                            end
+                        end)
+                    end
+                }
+            )
+        end,
+        {
+            description = "Run command in prompt",
+            group = "prompt"
         }
     ),
     awful.key(

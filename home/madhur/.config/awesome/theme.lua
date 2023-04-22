@@ -158,6 +158,8 @@ theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/m
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
 theme.useless_gap = 0
+theme.master_width_factor = 0.5
+theme.master_fill_policy = "expand"
 theme.gap_single_client = false
 theme.notification_opacity = 100
 theme.notification_icon_size = 80

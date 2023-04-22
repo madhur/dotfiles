@@ -84,6 +84,7 @@ return {
             class = {
                 "kruler",
                 "Kruler",
+                "Slack",
                 "Guake"       
             },
         },

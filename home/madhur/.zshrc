@@ -91,3 +91,9 @@ source ~/.functions
 
 source /home/madhur/.gvm/scripts/gvm
 export GOPATH="$GOPATH:/home/madhur/go"
+
+#zstyle ':completion:*' menu select
+zstyle ':completion:*:*:*:default' menu yes select search
+# all Tab widgets
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+#bindkey -M menuselect '\r' .accept-line

@@ -100,6 +100,8 @@ mem.widget:buttons(
     )
 )
 
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+
 -- CPU
 local cpu =
     lain.widget.cpu(
@@ -150,31 +152,31 @@ local uptime_widget_madhur =
     }
 )
 
-local v15661 =
+local g50ad0 =
     awful.widget.watch(
-    "f25a24.sh v15661",
+    "f25a24.sh g50ad0",
     60,
     function(widget, stdout)
         if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "v15661")
+            awesome.emit_signal("warning", "g50ad0")
         else
-            awesome.emit_signal("normal", "v15661")
+            awesome.emit_signal("normal", "g50ad0")
         end
-        widget:set_markup(markup.font(beautiful.font, " v15661:" .. stdout))
+        widget:set_markup(markup.font(beautiful.font, " g50ad0:" .. stdout))
     end
 )
 
-local ka49f9 =
+local n5c719 =
     awful.widget.watch(
-    "f25a24.sh ka49f9",
+    "f25a24.sh n5c719",
     60,
     function(widget, stdout)
         if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "ka49f9")
+            awesome.emit_signal("warning", "n5c719")
         else
-            awesome.emit_signal("normal", "ka49f9")
+            awesome.emit_signal("normal", "n5c719")
         end
-        widget:set_markup(markup.font(beautiful.font, " ka49f9:" .. stdout))
+        widget:set_markup(markup.font(beautiful.font, " n5c719:" .. stdout))
     end
 )
 
@@ -563,6 +565,24 @@ awesome_icon:connect_signal(
     end
 )
 
+local myprompt = awful.widget.prompt {
+    prompt = 'Execute: ',
+    with_shell = true,
+    exe_callback = function(input)
+        if not input or #input == 0 then return end
+        naughty.notify{ text = 'The input was: '..input }
+    end
+}
+awful.util.myprompt = myprompt
+
+local text_box = wibox.widget{
+    markup = "",
+    halign = "center",
+    valign = "center",
+    widget = wibox.widget.textbox
+}
+awful.util.text_box_prompt = text_box
+
 local systray = wibox.widget.systray()
 --local mypromptbox = awful.widget.prompt()
 local right_widgets = {
@@ -571,6 +591,12 @@ local right_widgets = {
     pl(clock, true, "calendar"),
     -- pl(mytasklist),
     pl(cpu.widget, true, "cpu"),
+    pl(cpu_widget({
+        width = 70,
+        step_width = 2,
+        step_spacing = 0,
+        color = '#434c5e'
+    }), true, "cpu_widget"),
     pl(cpufreqwidget.widget, true, "cpufreq"),
     pl(temp_madhur.widget, false, "temp"),
     pl(mem.widget, true, "mem"),
@@ -587,8 +613,8 @@ local right_widgets = {
     -- pl(volume, true, "volume"),
     --pl(volume_bar_widget),
     pl(volume_widget, "true", "volume"),
-    pl(v15661, true, "v15661"),
-    pl(ka49f9, true, "ka49f9"),
+    pl(g50ad0, true, "g50ad0"),
+    pl(n5c719, true, "n5c719"),
     pl(notification, true, "notification"),
     pl(switchtag, true, "switchtag"),
     wibox.container.margin(systray, 3, 3, 3, 3)
@@ -628,7 +654,9 @@ function wiboxes.get(s)
         spr,
         wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
         spr,
-        mytasklist
+        mytasklist,
+        myprompt,
+        text_box
     }
     -- Add widgets to the wibox
     mywibox:setup {

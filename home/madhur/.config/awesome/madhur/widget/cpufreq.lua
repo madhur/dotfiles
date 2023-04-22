@@ -66,7 +66,7 @@ local function factory(args)
             end
         end
     
-        if freqv.ghz >= 4.0 then
+        if freqv.ghz >= 4.5 then
             awesome.emit_signal("warning", "cpufreq")    
         elseif freqv.ghz < 3.0 then
             awesome.emit_signal("warning", "cpufreq")    

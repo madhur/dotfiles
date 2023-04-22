@@ -92,7 +92,7 @@ local layouts = {
     madhur.layout.tallmagnified,
     madhur.layout.resizedmagnifier,  -- custom written
     madhur.layout.max,           --awesome.layout.suit.max
-    madhur.layout.centermaster  -- fork of awesome.layout.suit.magnified , where magnification happens to moster window, not the focused window
+    madhur.layout.threecolmid  -- fork of awesome.layout.suit.magnified , where magnification happens to moster window, not the focused window
 }
 
 -- {{{ Tag layout
@@ -122,6 +122,8 @@ require("keybindings.globalkeys")
 awful.screen.connect_for_each_screen(
     function(s)
         awful.tag(awful.util.tagnames, s, layouts)
+        s.mypromptbox = {}
+        s.mypromptbox[s] = awful.widget.prompt()
         -- Setup rules, which will set client keys as well
         awful.rules.rules = require("rules.client_rules")
         awful.screen.focused().tags[2].master_count = 0

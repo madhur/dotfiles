@@ -2,7 +2,6 @@
 alias cd..='cd ..'
 #alias pwd='pwd && pwd | xclip -sel clipboard'
 alias unin='sudo dnf remove'
-alias install="sudo dnf install"
 alias repo="cd ~/github"
 alias repop="cd ~/github/personal"
 alias c="clear"
@@ -84,3 +83,6 @@ function scru() {
 }
 
 alias vg="~/github/personal/vagrant/exec/vagrant"
+
+alias j11="~/.sdkman/candidates/java/11.0.12-open/bin/java"
+alias j8="~/.sdkman/candidates/java/8.0.302-open/bin/java"

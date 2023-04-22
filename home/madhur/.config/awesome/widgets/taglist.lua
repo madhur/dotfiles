@@ -8,6 +8,7 @@ local taglist = {}
 
 taglist.taglist_buttons =
     gears.table.join(
+        
     awful.button(
         {},
         1,

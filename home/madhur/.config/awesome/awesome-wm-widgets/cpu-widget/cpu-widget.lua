@@ -68,7 +68,7 @@ local function create_process_header(params)
         create_textbox{markup = '<b>Name</b>'},
         {
             create_textbox{markup = '<b>%CPU</b>'},
-            create_textbox{markup = '<b>%MEM</b>'},
+            --create_textbox{markup = '<b>%MEM</b>'},
             params.with_action_column and create_textbox{forced_width = 20} or nil,
             layout = wibox.layout.align.horizontal
         },
@@ -102,17 +102,23 @@ local function worker(user_args)
     local color = args.color or beautiful.fg_normal
     local background_color = args.background_color or "#00000000"
     local enable_kill_button = args.enable_kill_button or false
-    local process_info_max_length = args.process_info_max_length or -1
+    local process_info_max_length = args.process_info_max_length or 10
     local timeout = args.timeout or 1
+    local warn_count = 0
+    local crit_count = 0
 
+    -- local cpugraph_widget = wibox.widget {
+    --     max_value = 100,
+    --     background_color = background_color,
+    --     forced_width = width,
+    --     step_width = step_width,
+    --     step_spacing = step_spacing,
+    --     widget = wibox.widget.graph,
+    --     color = "linear:0,0:0,20:0,#FF0000:0.3,#FFFF00:0.6," .. color
+    -- }
     local cpugraph_widget = wibox.widget {
-        max_value = 100,
-        background_color = background_color,
-        forced_width = width,
-        step_width = step_width,
-        step_spacing = step_spacing,
-        widget = wibox.widget.graph,
-        color = "linear:0,0:0,20:0,#FF0000:0.3,#FFFF00:0.6," .. color
+        markup = "",
+        widget = wibox.widget.textbox
     }
 
     -- This timer periodically executes the heavy command while the popup is open.
@@ -129,7 +135,7 @@ local function worker(user_args)
         shape = gears.shape.rounded_rect,
         border_width = 1,
         border_color = beautiful.bg_normal,
-        maximum_width = 300,
+        maximum_width = 500,
         offset = { y = 5 },
         widget = {}
     }
@@ -157,16 +163,17 @@ local function worker(user_args)
     )
 
     --- By default graph widget goes from left to right, so we mirror it and push up a bit
-    cpu_widget = wibox.widget {
-        {
-            cpugraph_widget,
-            reflection = {horizontal = true},
-            layout = wibox.container.mirror
-        },
-        bottom = 2,
-        color = background_color,
-        widget = wibox.container.margin
-    }
+    cpu_widget = cpugraph_widget
+    -- cpu_widget = wibox.widget {
+    --     {
+    --         cpugraph_widget,
+    --         reflection = {horizontal = true},
+    --         layout = wibox.container.mirror
+    --     },
+    --     bottom = 2,
+    --     color = background_color,
+    --     widget = wibox.container.margin
+    -- }
 
     -- This part runs constantly, also when the popup is closed.
     -- It updates the graph widget in the bar.
@@ -185,7 +192,25 @@ local function worker(user_args)
         maincpu['total_prev'] = total
         maincpu['idle_prev'] = idle
 
-        widget:add_value(diff_usage)
+        local cpu_usage =  math.floor(diff_usage - 0.5)
+        widget.markup = " " ..  cpu_usage .. " %"
+
+        if tonumber(cpu_usage) > 90 then
+            crit_count = crit_count + 1
+            if crit_count > 3 then
+                awesome.emit_signal("critical", "cpu_widget")
+            end
+        elseif tonumber(cpu_usage) > 50 then
+            warn_count = warn_count + 1
+            if warn_count > 3 then
+                awesome.emit_signal("warning", "cpu_widget")            
+            end
+        else
+            warn_count = 0
+            crit_count = 0
+            awesome.emit_signal("normal", "cpu_widget")            
+        end
+        --widget:add_value(diff_usage)
     end,
     cpugraph_widget
     )
@@ -257,7 +282,7 @@ local function worker(user_args)
                             create_textbox{text = comm},
                             {
                                 create_textbox{text = cpu, align = 'center'},
-                                create_textbox{text = mem, align = 'center'},
+                             ---   create_textbox{text = mem, align = 'center'},
                                 kill_proccess_button,
                                 layout = wibox.layout.fixed.horizontal
                             },

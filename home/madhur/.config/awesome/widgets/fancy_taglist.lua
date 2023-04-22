@@ -24,7 +24,8 @@ local fancytasklist = function(cfg, t)
 		{
 			screen = cfg.screen or awful.screen.focused(),
 			filter = generate_filter(t),
-			buttons = cfg.tasklist_buttons,
+		-- Don't want client to minimize / hide when mistakenly click on tag again
+		--	buttons = cfg.tasklist_buttons,
 			widget_template = {
 				{
 					id = "clienttext",
