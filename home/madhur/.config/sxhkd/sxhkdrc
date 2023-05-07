@@ -19,7 +19,10 @@ super + d
 
 # program launcher
 super + shift + d
-    rofi  -show run -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+    rofi -show run -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+
+super + b
+     /home/madhur/scripts/rofi-bluetoth/rofi-bluetooth
 
 # make sxhkd reload its configuration files:
 #super + Escape

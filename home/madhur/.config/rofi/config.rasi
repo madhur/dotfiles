@@ -10,11 +10,7 @@ configuration {
     display-drun: "";
   drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
   location: 0;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-       display-window: " 﩯  Window ";
-     display-Network: " 󰤨  Network";
-    sidebar-mode: true;
+    sidebar-mode: false;
 }
 
 

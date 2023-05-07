@@ -28,43 +28,43 @@ XTerm*cursorColor:  #a2a8ba
 UXTerm*cursorColor: #a2a8ba
 URxvt*borderColor:  [100]#1f252d
 
-! Colors 0-15.
-*.color0: #1f252d
-*color0:  #1f252d
-*.color1: #cb8d56
-*color1:  #cb8d56
-*.color2: #8ba089
-*color2:  #8ba089
-*.color3: #a79c46
-*color3:  #a79c46
-*.color4: #8c9abe
-*color4:  #8c9abe
-*.color5: #b190af
-*color5:  #b190af
-*.color6: #8e9aba
-*color6:  #8e9aba
-*.color7: #a2a8ba
-*color7:  #a2a8ba
-*.color8: #a29899
-*color8:  #a29899
-*.color9: #d39d74
-*color9:  #d39d74
-*.color10: #80b48f
-*color10:  #80b48f
-*.color11: #bda75a
-*color11:  #bda75a
-*.color12: #9ca5de
-*color12:  #9ca5de
-*.color13: #c69ac6
-*color13:  #c69ac6
-*.color14: #8caeb6
-*color14:  #8caeb6
-*.color15: #a2a8ba
-*color15:  #a2a8ba
+# ! Colors 0-15.
+# *.color0: #1f252d
+# *color0:  #1f252d
+# *.color1: #cb8d56
+# *color1:  #cb8d56
+# *.color2: #8ba089
+# *color2:  #8ba089
+# *.color3: #a79c46
+# *color3:  #a79c46
+# *.color4: #8c9abe
+# *color4:  #8c9abe
+# *.color5: #b190af
+# *color5:  #b190af
+# *.color6: #8e9aba
+# *color6:  #8e9aba
+# *.color7: #a2a8ba
+# *color7:  #a2a8ba
+# *.color8: #a29899
+# *color8:  #a29899
+# *.color9: #d39d74
+# *color9:  #d39d74
+# *.color10: #80b48f
+# *color10:  #80b48f
+# *.color11: #bda75a
+# *color11:  #bda75a
+# *.color12: #9ca5de
+# *color12:  #9ca5de
+# *.color13: #c69ac6
+# *color13:  #c69ac6
+# *.color14: #8caeb6
+# *color14:  #8caeb6
+# *.color15: #a2a8ba
+# *color15:  #a2a8ba
 
-! Black color that will not be affected by bold highlighting.
-*.color66: #1f252d
-*color66:  #1f252d
+# ! Black color that will not be affected by bold highlighting.
+# *.color66: #1f252d
+# *color66:  #1f252d
 
 ! Xclock colors.
 XClock*foreground: #a2a8ba
@@ -77,3 +77,41 @@ XClock*secondColor: rgba:a2/a8/ba/ff
 
 ! Set depth to make transparency work.
 URxvt*depth: 32
+
+
+! special
+*.foreground:   #f2f0fd
+*.background:   #303942
+*.cursorColor:  #f5eb94
+
+! black
+*.color0:       #232a31
+*.color8:       #c4c3cd
+
+! red mars & pink chibi
+*.color1:       #f56684
+*.color9:       #fabdd4
+
+! green jupiter
+*.color2:       #7cd5a1
+*.color10:      #7cd5a1
+
+! yellow venus & moon
+*.color3:       #f7df6e
+*.color11:      #f5eb94
+
+! blue mercury
+*.color4:       #55b8e2
+*.color12:      #55b8e2
+
+! magenta saturn & garnet pluto
+*.color5:       #d7b8ea
+*.color13:      #efa3ce
+
+! cyan neptune
+*.color6:       #61d6c6
+*.color14:      #61d6c6
+
+! white
+*.color7:       #f2f0fd
+*.color15:      #f4f2ff

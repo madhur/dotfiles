@@ -154,11 +154,11 @@ client.connect_signal(
         end
 
         -- hide tasklist if only single client on tag
-        if #awful.screen.focused().clients < 2 then
-            awful.util.mytasklist.visible = false
-        else
-            awful.util.mytasklist.visible = true
-        end
+        -- if #awful.screen.focused().all_clients  < 2 then
+        --     awful.util.mytasklist.visible = false
+        -- else
+        --     awful.util.mytasklist.visible = true
+        -- end
     end
 )
 
@@ -166,20 +166,20 @@ client.connect_signal(
     "unmanage",
     function(c)
         -- hide tasklist if only single client on tag
-        if #awful.screen.focused().clients < 2 then
-            awful.util.mytasklist.visible = false
-        else
-            awful.util.mytasklist.visible = true
-        end
+        -- if #awful.screen.focused().all_clients < 2 then
+        --     awful.util.mytasklist.visible = false
+        -- else
+        --     awful.util.mytasklist.visible = true
+        -- end
     end
 )
 
 tag.connect_signal("property::selected", function()
-    if #awful.screen.focused().clients < 2 then
-        awful.util.mytasklist.visible = false
-    else
-        awful.util.mytasklist.visible = true
-    end
+    -- if #awful.screen.focused().all_clients  < 2 then
+    --     awful.util.mytasklist.visible = false
+    -- else
+    --     awful.util.mytasklist.visible = true
+    -- end
 end)
 
 

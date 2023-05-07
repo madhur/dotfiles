@@ -15,7 +15,7 @@ ZSH_THEME="madhur"
 #autoload -Uz compinit
 #compinit
 
-plugins=(zsh-syntax-highlighting zsh-autosuggestions autojump)
+plugins=(zsh-autosuggestions autojump autoswitch_virtualenv fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -51,6 +51,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export NODE_ENV=development
 export GLOBAL_AGENT_HTTP_PROXY=http://127.0.0.1:8888
+export ZK_URL=localhost:2181
+export startuser=100000
+export incrementuser=10000
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/go/bin:$HOME/.cabal/bin"
 export PATH=/usr/bin:$PATH:/usr/local/go/bin:$HOME/.cargo/bin
@@ -97,3 +100,43 @@ zstyle ':completion:*:*:*:default' menu yes select search
 # all Tab widgets
 zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
 #bindkey -M menuselect '\r' .accept-line
+
+
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+alias prev="fzf --preview 'bat --style numbers,changes --color=always {}'"
+
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'

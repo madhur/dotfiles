@@ -27,7 +27,7 @@ run "xsettingsd"
 run "/opt/paloaltonetworks/globalprotect/PanGPUI"
 run "xscreensaver"
 hours=`date +%H`
-if [[ $hours > 19 && $hours < 7 ]]; then
+if [[ $hours > 17 && $hours < 7 ]]; then
   echo "Executing redshift"
   run "redshift-gtk"
 fi
