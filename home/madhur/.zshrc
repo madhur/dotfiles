@@ -79,7 +79,10 @@ eval "$(starship init zsh)"
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
 # Not supported in the "fish" shell.
+if [[ $TERM == "xterm-256color" ]]
+then
 (cat ~/.cache/wal/sequences &)
+fi
 
 source ~/.aliases
 source ~/.functions
@@ -127,7 +130,7 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-alias prev="fzf --preview 'bat --style numbers,changes --color=always {}'"
+
 
 
 # disable sort when completing `git checkout`
@@ -140,3 +143,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+
+eval "$(dircolors ~/.dircolors)"
+colorscript random
