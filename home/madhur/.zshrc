@@ -144,5 +144,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-eval "$(dircolors ~/.dircolors)"
+export EXA_COLORS="uu=0:gu=0"
+eval "$(dircolors ~/.dir_colors)"
 colorscript random

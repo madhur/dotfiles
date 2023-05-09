@@ -48,7 +48,7 @@ cp -r ~/Pictures/wallpapers $dfolder/Pictures/
 cp -r ~/.gitconfig $dfolder/
 cp -r ~/.gtkrc-2.0 $dfolder/
 cp ~/.stalonetrayrc $dfolder/
-cp ~/.dircolors $dfolder/
+cp ~/.dir_colors $dfolder/
 cp ~/.aliases $dfolder/
 cp ~/.functions $dfolder/
 
