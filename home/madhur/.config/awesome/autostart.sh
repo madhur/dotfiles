@@ -24,7 +24,8 @@ run "nm-applet"
 run "indicator-sound-switcher"
 run "guake"
 run "xsettingsd"
-run "/opt/paloaltonetworks/globalprotect/PanGPUI"
+#run "/opt/paloaltonetworks/globalprotect/PanGPUI"
+run "/usr/bin/gpclient"
 run "xscreensaver"
 hours=`date +%H`
 if [[ $hours > 17 && $hours < 7 ]]; then

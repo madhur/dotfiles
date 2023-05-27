@@ -131,20 +131,15 @@ grid     = renamed [Replace "grid"]
            $ Grid (16/10)
 
 
--- resizedMagnifier = renamed [Replace "resizedMagnifier"]
---                    $ smartBorders
---                    $ windowNavigation
---                    $ Mirror Accordion
+resizedMagnifier = renamed [Replace "resizedMagnifier"]
+                   $ smartBorders
+                   $ windowNavigation
+                   $ Mirror Accordion
 
 resizedMagnifier2 = renamed [Replace "resizedMagnifier"]
                    $ smartBorders
                    $ windowNavigation
-                   $ limitWindows 2
                    $ Mirror ResizedMagnifier
-
-centerMastered = renamed [Replace "centerMaster"]
-               $ centerMaster
-               $ grid
 
 tabsnew = renamed [Replace "Tabbed"]
 --          $ smartBorders      
@@ -153,7 +148,7 @@ tabsnew = renamed [Replace "Tabbed"]
             $ tabbedAlways shrinkText myTabTheme
 
 
-newLayout = mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ (named "tall" tall ||| named "tabsnew" tabsnew ||| named "threecolmid" threecolmid ||| named "fullgaps" fullgaps ||| named "grid" grid ||| centerMastered ||| named "ResizedMagnifier" resizedMagnifier2)
+newLayout = mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ (named "tall" tall ||| named "tabsnew" tabsnew ||| named "threecolmid" threecolmid ||| named "fullgaps" fullgaps ||| named "grid" grid |||  centerMaster threecolmid ||| named "Accordion" resizedMagnifier ||| named "ResizedMagnifier" resizedMagnifier2)
 
 -- setting colors for tabs layout and tabs sublayout.
 myTabTheme = def { fontName            = "xft:DejaVu Sans Mono:size=12:antialias=true"
@@ -181,11 +176,14 @@ myTabTheme = def { fontName            = "xft:DejaVu Sans Mono:size=12:antialias
 myStartupHook :: X ()
 myStartupHook = do
   
-  
+  --spawn "killall conky"   -- kill current conky on each restart
+  --spawn "killall trayer"  -- kill current trayer on each restart
+  spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true  --widthtype request  --transparent true --alpha 0 --height 30 --tint  0x000000"
   spawnOnce "sxhkd"
   spawnOnce "$HOME/.config/picom/launch.sh"
   spawnOnce "$HOME/.config/conky/launch.sh"
   spawnOnce "feh  --randomize --bg-fill $HOME/Pictures/wallpapers/"
+  spawnOnce "killall dunst"
   spawnOnce "dunst"
   spawnOnce "flatpak run com.github.hluk.copyq"
   spawnOnce "xsettingsd"
@@ -194,7 +192,6 @@ myStartupHook = do
   spawnOnce "guake"
   spawnOnce "indicator-sound-switcher"
   spawnOnce "/usr/libexec/xfce-polkit"
-  --spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true  --widthtype request  --transparent true --alpha 0 --height 30 --tint  0x000000"
   -- spawnOnce "stalonetray"
   
   setDefaultCursor xC_left_ptr
@@ -293,7 +290,7 @@ myKeys c =
     -- KB_GROUP Xmonad
         --[ ("M-C-r", spawn "xmonad --recompile")       -- Recompiles xmonad
         --, ("M-S-r", spawn "xmonad --restart")         -- Restarts xmonad
-  --,       ("M-S-q", addName "Quit XMonad"    $  io exitSuccess)                   -- Quits xmonad
+  ,       ("M-S-q", addName "Quit XMonad"    $  io exitSuccess)                   -- Quits xmonad
 
     -- KB_GROUP Get Help
         , ("M-S-/",  addName "CheatSheat"  $ spawn "~/.config/xmonad/xmonad-keys.sh") -- Get list of keybindings
@@ -304,8 +301,8 @@ myKeys c =
     --    , ("M-S-a", killAll)   -- Kill all windows on current workspace
 
     -- KB_GROUP Workspaces
-        , ("M1-<Left>", addName "Switch to previous workspace"   $ moveTo Prev(Not emptyWS))  -- Switch focus to previous workspace
-        , ("M1-<Right>", addName "Switch to next workspace"  $ moveTo Next(Not emptyWS))  -- Switch focus to next workspace
+        , ("M-M1-<Left>", addName "Switch to previous workspace"   $ moveTo Prev(Not emptyWS))  -- Switch focus to previous workspace
+        , ("M-M1-<Right>", addName "Switch to next workspace"  $ moveTo Next(Not emptyWS))  -- Switch focus to next workspace
          , ("M-<Left>", addName "Switch to left window"   $ sendMessage $ Go L)  
         , ("M-<Right>", addName "Switch to right window"   $ sendMessage $ Go R)  
         , ("M-<Up>", addName "Switch to right window"   $ sendMessage $ Go U) 
@@ -338,7 +335,7 @@ myKeys c =
          , ("M-f", addName "Toggle noborders/full" $ sendMessage (MT.Toggle NBFULL)) -- Toggles noborder/full
          --, ("M-f", addName "Toggle noborders/full" $ sendMessage $ JumpToLayout "full") -- Toggles noborder/full
         -- ("M-f", sendMessage (TL.Toggle "Full"))
-        , ("M1-`", addName "Toggle Magnifier"  $ sendMessage Mag.Toggle     )
+        , ("M-`", addName "Toggle Magnifier"  $ sendMessage Mag.Toggle     )
          , ("M-g", addName "Toggle Gaps" $ sendMessage $ JumpToLayout "fullgaps")  -- Move focus to the master windo
          ,("M-<Escape>", addName "Toggle xmobar" $ sendMessage ToggleStruts)
          ,("M-e", addName "Jump to tiled" $ sendMessage $ JumpToLayout "tall")
@@ -402,10 +399,9 @@ myManageHook = composeAll
       className =? "kruler" --> doCenterFloat,
       className =? "Yad" --> doCenterFloat,
       className =? "feh" --> doCenterFloat,
-      className =? "indicator-sound-switcher" --> doCenterFloat,
     --  resource =? "stalonetray" --> doIgnore,
      -- classNameH =? "trayer" --> doIgnore,
-      className =? "Guake" --> hasBorder False,
+
       className =? "PanGPUI" --> doRectFloat (W.RationalRect 0.85 0 0.9 0.25) ,
     
      className =? "Firefox" --> doShift (myWorkspaces !!8),

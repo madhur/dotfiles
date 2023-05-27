@@ -12,7 +12,6 @@ Restart=on-failure
 ExecStart=/home/madhur/prometheus/prometheus \
   --config.file=/home/madhur/prometheus/prometheus.yml \
   --storage.tsdb.path=/home/madhur/prometheus/data
-Slice=-.slice
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

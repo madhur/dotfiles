@@ -1,4 +1,3 @@
-#!/usr/bin/bash
 xsettingsd &
 
 ~/.config/picom/launch.sh

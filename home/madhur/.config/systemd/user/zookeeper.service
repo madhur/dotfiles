@@ -12,7 +12,6 @@ ExecStop=/home/madhur/zookeeper/bin/zkServer.sh stop /home/madhur/zookeeper/conf
 ExecReload=/home/madhur/zookeeper/bin/zkServer.sh restart /home/madhur/zookeeper/conf/zoo.cfg
 TimeoutSec=30
 Restart=on-failure
-Slice=-.slice
 
 [Install]
 WantedBy=default.target

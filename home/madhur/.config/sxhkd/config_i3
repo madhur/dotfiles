@@ -16,7 +16,7 @@ super + h
 	i3-msg split h
 
 super + v
-	i3-msg split v
+	i3-msg split v`'
 
 super + m
 	i3-msg gaps horizontal current toggle 400

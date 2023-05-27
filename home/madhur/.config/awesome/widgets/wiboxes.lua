@@ -8,6 +8,8 @@ local gears = require("gears")
 local naughty = require("naughty")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local aw_volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
+local pacman_widget = require('awesome-wm-widgets.pacman-widget.pacman')
 local markup = lain.util.markup
 require('awesome-glorious-widgets.hot-corners')
 local wiboxes = {}
@@ -154,9 +156,9 @@ local uptime_widget_madhur =
 
 local g50ad0 =
     awful.widget.watch(
-    "f25a24.sh g50ad0",
-    60,
-    function(widget, stdout)
+    "/home/madhur/company/f25a24.sh g50ad0",
+    5,
+    function(widget, stdout, stderr)
         if tonumber(stdout) > 1 then
             awesome.emit_signal("warning", "g50ad0")
         else
@@ -165,21 +167,6 @@ local g50ad0 =
         widget:set_markup(markup.font(beautiful.font, " g50ad0:" .. stdout))
     end
 )
-
-local n5c719 =
-    awful.widget.watch(
-    "f25a24.sh n5c719",
-    60,
-    function(widget, stdout)
-        if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "n5c719")
-        else
-            awesome.emit_signal("normal", "n5c719")
-        end
-        widget:set_markup(markup.font(beautiful.font, " n5c719:" .. stdout))
-    end
-)
-
 
 local temp_madhur =
     madhur.widget.temp(
@@ -363,6 +350,7 @@ local volume =
     }
 )
 awful.util.volume = volume
+awful.util.volume_new = aw_volume_widget
 
 -- local volume_bar = lain.widget.pulsebar()
 --local volume_bar_widget = volume_bar.bar
@@ -373,6 +361,7 @@ local volume_widget =
     -- volume_bar_widget,
     layout = wibox.layout.align.horizontal
 }
+
 
 volume_widget:buttons(
     awful.util.table.join(
@@ -584,6 +573,11 @@ local text_box = wibox.widget{
 awful.util.text_box_prompt = text_box
 
 local systray = wibox.widget.systray()
+local pactl_widget = aw_volume_widget {
+    widget_type = 'icon_and_text'
+}
+pl(volume_widget, "true", "volume");
+
 --local mypromptbox = awful.widget.prompt()
 local right_widgets = {
     -- Right widgets
@@ -612,11 +606,21 @@ local right_widgets = {
     -- ),
     -- pl(volume, true, "volume"),
     --pl(volume_bar_widget),
-    pl(volume_widget, "true", "volume"),
-    pl(g50ad0, true, "g50ad0"),
-    pl(n5c719, true, "n5c719"),
+    
+    pl(pactl_widget, "true", "volume_new"),
+    --pl(g50ad0, true, "g50ad0"),
+    --pl(n5c719, true, "n5c719"),
     pl(notification, true, "notification"),
     pl(switchtag, true, "switchtag"),
+     pl(pacman_widget {
+            interval = 600,	-- Refresh every 10 minutes
+            popup_bg_color = '#222222',
+            popup_border_width = 1,
+            popup_border_color = '#7e7e7e',
+            popup_height = 50,	-- 10 packages shown in scrollable window
+            popup_width = 500,
+            polkit_agent_path = '/usr/bin/lxpolkit'
+        }, true, "pacman"),
     wibox.container.margin(systray, 3, 3, 3, 3)
 }
 

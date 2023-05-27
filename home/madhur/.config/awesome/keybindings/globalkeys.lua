@@ -396,7 +396,8 @@ local globalkeys =
         "g",
         function(_)
             local s = awful.screen.focused()
-            if s.padding.right == 500 then
+            awful.util.expanded = not awful.util.expanded
+            if awful.util.expanded then
                 s.padding = {
                     left = 0,
                     right = 0,
@@ -411,6 +412,7 @@ local globalkeys =
                     bottom = 0
                 }
             end
+            awful.screen.focused():emit_signal("property::layout")
         end,
         {
             description = "set gaps 500 px",
@@ -424,18 +426,20 @@ local globalkeys =
         {},
         "XF86AudioRaiseVolume",
         function()
-            awful.util.spawn("amixer -D pulse sset Master 2%+", false)
+            awful.util.spawn("amixer -D pulse sset Master 5%+", false)
             -- show_volume_notification()
             awful.util.volume.update(nil, true)
+            awful.util.volume_new:inc(5, true)
         end
     ),
     awful.key(
         {},
         "XF86AudioLowerVolume",
         function()
-            awful.util.spawn("amixer -D pulse sset Master 2%-", false)
+            awful.util.spawn("amixer -D pulse sset Master 5%-", false)
             -- show_volume_notification()
             awful.util.volume.update(nil, true)
+            awful.util.volume_new:dec(5, true)
         end
     ),
     awful.key(
@@ -445,6 +449,7 @@ local globalkeys =
             awful.util.spawn("amixer -D pulse sset Master toggle", false)
             -- show_volume_notification()
             awful.util.volume.update(nil, true)
+            awful.util.volume_new:toggle(true)
         end
     )
     -- awful.key(

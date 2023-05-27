@@ -57,10 +57,7 @@ super + F3
 #    sxhkd-cheat
 
 
-alt + F1
-    key-menu
-
-# new power menu
+#new power menu
 super + x
     key-power
 
@@ -72,17 +69,25 @@ super + F12
     flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry
 
 #dunstctl history pop
-super + comma
-    dunstctl history-pop
+# super + comma
+#     dunstctl history-pop
 
-#dunstctl close all
-super + semicolon
-    dunstctl close-all
+# #dunstctl close all
+# super + semicolon
+#     dunstctl close-all
+
+super + Print
+    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+super + m
+    echo -n madhur.ahuja | xclip -selection clipboard
+
+super + p
+    echo -n ksfWSGDNXY0Svtx | xclip -selection clipboard
 
 ~button2
     echo -n | xsel -n -i
 
-super + Print
-    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
 
 

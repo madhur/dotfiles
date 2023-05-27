@@ -11,6 +11,7 @@ local madhur = require("madhur")
 local border_rules  = require("rules.borders")
 local ruled = require("ruled")
 require("awful.hotkeys_popup.keys")
+--local freedesktop = require("freedesktop")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -74,6 +75,13 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 -- }
 --beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 
+-- for s in screen do
+--     freedesktop.desktop.add_icons({
+--         screen = s
+--     })
+-- end
+
+
 -- awesome variables
 awful.util.terminal = "kitty"
 -- awful.screen.focused().tags = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
@@ -114,7 +122,7 @@ end)
 -- Setup global keys
 require("keybindings.globalkeys")
 -- enable titlebars wherever required
---require("widgets.titlebars")
+require("widgets.titlebars")
 
 
 
@@ -128,8 +136,10 @@ awful.screen.connect_for_each_screen(
         awful.rules.rules = require("rules.client_rules")
         awful.screen.focused().tags[2].master_count = 0
         awful.util.smart_wibar_hide = true
+        awful.util.expanded = true
         --beautiful.at_screen_connect(s)
         s.mywibox = require("widgets.wiboxes").get(s)
+        
     end
 )
 

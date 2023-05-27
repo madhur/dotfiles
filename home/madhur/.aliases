@@ -68,12 +68,12 @@ alias jssh="ssh -J jump "
 alias jscp="scp -o 'ProxyJump jump'"
 alias duh='du --all --human-readable --one-file-system --max-depth=1 | sort -h'
 
-function scs() {
-    systemctl status "$1"
-}
-function scr() {
-    systemctl restart "$1"
-}
+# function scs() {
+#     systemctl status "$1"
+# }
+# function scr() {
+#     systemctl restart "$1"
+# }
 
 function scsu() {
     systemctl status "$1" --user
@@ -82,8 +82,31 @@ function scru() {
     systemctl restart "$1" --user
 }
 
-alias vg="~/github/personal/vagrant/exec/vagrant"
+alias scs='sudo systemctl status'
+alias sc='sudo systemctl'
+alias scrr='sudo systemctl reload-or-restart'
+alias scr='sudo systemctl reload'
+alias sct='sudo systemctl start'
+
+alias vg="vagrant"
 
 alias j11="~/.sdkman/candidates/java/11.0.12-open/bin/java"
 alias j8="~/.sdkman/candidates/java/8.0.302-open/bin/java"
 alias prev="fzf --preview 'bat --style numbers,changes --color=always {}'"
+
+alias pacman='sudo pacman'
+alias pac='pacman -S'   # install
+alias pacu='pacman -Syu'    # update, add 'a' to the list of letters to update AUR packages if you use yaourt
+alias pacr='pacman -Rs'   # remove
+alias pacs='pacman -Ss'      # search
+alias paci='pacman -Si'      # info
+alias paclo='pacman -Qdt'    # list orphans
+alias pacro='paclo && sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
+alias pacc='pacman -Scc'    # clean cache
+alias paclf='pacman -Ql'   # list files
+
+# friggin cool utility using fzf to list installed packages showing a preview of each
+
+alias pzf="yay -Qq | fzf --preview 'yay -Qil {}' --height=97% --layout=reverse --bind 'enter:execute(yay -Qil {} | less)'"
+
+alias search="grep -rnw '.' -e"

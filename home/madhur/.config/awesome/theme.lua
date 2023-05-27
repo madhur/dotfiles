@@ -174,6 +174,8 @@ theme.warning_bg = "#ebcb8b"
 theme.warning_fg = "#2e3440"
 theme.critical_bg = "#bf616a"
 theme.critical_fg = "#2e3440"
+--theme.icon_theme = "Papirus-Dark"
+
 
 theme.hotkeys_font = "JetBrains Mono Nerd Font 12"
 theme.hotkeys_description_font = "JetBrains Mono Nerd Font 12"

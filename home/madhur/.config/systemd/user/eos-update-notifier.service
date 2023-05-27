@@ -1,0 +1,10 @@
+[Unit]
+Description=EOS update notifier service
+
+[Service]
+Type=oneshot
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/eos-update-notifier -systemd
+
+[Install]
+WantedBy=eos-update-notifier.timer

@@ -11,6 +11,7 @@ local tonumber = tonumber
 
 local GOVERNOR_STATE = {
     ["ondemand\n"]     = "↯",
+    ["schedutil\n"]     = "↯",
     ["powersave\n"]    = "⌁",
     ["userspace\n"]    = "¤",
     ["performance\n"]  = "⚡",
@@ -69,7 +70,7 @@ local function factory(args)
         if freqv.ghz >= 4.5 then
             awesome.emit_signal("warning", "cpufreq")    
         elseif freqv.ghz < 3.0 then
-            awesome.emit_signal("warning", "cpufreq")    
+            awesome.emit_signal("normal", "cpufreq")    
         else
             awesome.emit_signal("normal", "cpufreq")    
         end

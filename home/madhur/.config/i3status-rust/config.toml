@@ -15,7 +15,7 @@ full = "$title| "
 block = "time"
 interval = 5
 [block.format]
-full = "$icon %a %d %b %R "
+full = "$icon $timestamp.datetime(f:'%a %Y-%m-%d %R %Z', l:fr_BE) "
 short = "$icon %R "
 [[block.click]]
 button = "left"
@@ -118,7 +118,7 @@ interval = 5
 
 [[block]]
 block = "sound"
-format = "$icon{ $volume|} "
+format = " $icon $output_name{ $volume|} "
 
 [block.mappings]
 "alsa_output.usb-Microsoft_Microsoft_LifeChat_LX-6000-00.analog-stereo" = "🎧"

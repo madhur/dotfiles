@@ -70,10 +70,17 @@ return {
         properties = {screen = 1, tag = awful.screen.focused().tags[10]}
     },
     {
-        rule = {class = "PanGPUI"},
+        rule_any = {
+            class = {
+                "PanGPUI", 
+                "gpclient"
+            }
+        },
         properties = {
             floating = true,
-            titlebars_enabled = false
+            titlebars_enabled = false,
+            minimized = true
+            
         },
         callback = function(c)
             awful.placement.top_right(c, nil)
@@ -84,8 +91,7 @@ return {
             class = {
                 "kruler",
                 "Kruler",
-                "Slack",
-                "Guake"       
+                "Slack"
             },
         },
         properties = {
@@ -98,11 +104,27 @@ return {
         rule_any = {
             class = {
                 "copyq",
+                "feh"
             },
         },
         properties = {
             floating = true,
             titlebars_enabled = false,
+        },
+        callback = function(c)
+            local clnt = awful.client.focused
+            awful.placement.centered(c, {parent =clnt})
+        end
+    },
+     {
+        rule_any = {
+            class = {
+                "Guake"
+            },
+        },
+        properties = {
+            floating = true,
+            titlebars_enabled = true,
         },
         callback = function(c)
             local clnt = awful.client.focused

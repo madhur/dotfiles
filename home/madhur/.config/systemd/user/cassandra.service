@@ -13,7 +13,6 @@ LimitNPROC=32768
 LimitAS=infinity
 #Restart=always
 Environment="JAVA_HOME=/home/madhur/.sdkman/candidates/java/8.0.302-open"
-Slice=-.slice
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
