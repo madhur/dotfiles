@@ -1,0 +1,11 @@
+contexts:
+    default:
+        brokers:
+            - localhost:9092
+        kafkaVersion: 2.1.1
+    remote-cluster:
+        brokers:
+        - remote-cluster001:9092
+        - remote-cluster002:9092
+        - remote-cluster003:9092
+current-context: default

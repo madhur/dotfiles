@@ -1,0 +1,5 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "Ctrl-r": "lua:initlua.gorun",
+    "CtrlUnderscore": "lua:comment.comment"
+}
