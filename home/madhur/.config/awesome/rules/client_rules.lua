@@ -91,7 +91,8 @@ return {
             class = {
                 "kruler",
                 "Kruler",
-                "Slack"
+                "Slack",
+                "Audacious"
             },
         },
         properties = {
@@ -104,7 +105,8 @@ return {
         rule_any = {
             class = {
                 "copyq",
-                "feh"
+                "feh",
+                "Viewnior"
             },
         },
         properties = {
@@ -158,7 +160,8 @@ return {
                 "Gsimplecal",
                 "Indicator-sound-switcher",
                 "Pavucontrol",
-                "pavucontrol"
+                "pavucontrol",
+                "Blueman-manager"
             },
             name = {
                 "Event Tester" -- xev.

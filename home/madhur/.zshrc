@@ -141,3 +141,4 @@ eval "$(dircolors ~/.dir_colors)"
 
 colorscript random
 
+export EDITOR=micro

@@ -80,31 +80,33 @@ local function factory(args)
         local notifypaths = {}
         for _, mount in ipairs(Gio.unix_mounts_get()) do
             local path = Gio.unix_mount_get_mount_path(mount)
-            local root = Gio.File.new_for_path(path)
-            local info = root:query_filesystem_info(query)
+            if not string.find(path, "snapd") then
+                local root = Gio.File.new_for_path(path)
+                local info = root:query_filesystem_info(query)
 
-            if info then
-                local size = info:get_attribute_uint64(query_size)
-                local used = info:get_attribute_uint64(query_used)
-                local free = info:get_attribute_uint64(query_free)
+                if info then
+                    local size = info:get_attribute_uint64(query_size)
+                    local used = info:get_attribute_uint64(query_used)
+                    local free = info:get_attribute_uint64(query_free)
 
-                if size > 0 then
-                    local units = math.floor(math.log(size)/math.log(1024))
+                    if size > 0 then
+                        local units = math.floor(math.log(size)/math.log(1024))
 
-                    fs_now[path] = {
-                        units      = fs.units[units],
-                        percentage = math.floor(100 * used / size), -- used percentage
-                        size       = size / math.pow(1024, units),
-                        used       = used / math.pow(1024, units),
-                        free       = free / math.pow(1024, units)
-                    }
+                        fs_now[path] = {
+                            units      = fs.units[units],
+                            percentage = math.floor(100 * used / size), -- used percentage
+                            size       = size / math.pow(1024, units),
+                            used       = used / math.pow(1024, units),
+                            free       = free / math.pow(1024, units)
+                        }
 
-                
-                    if fs_now[path].percentage > 0 then -- don't notify unused file systems
-                        notifypaths[#notifypaths+1] = path
+                    
+                        if fs_now[path].percentage > 0 then -- don't notify unused file systems
+                            notifypaths[#notifypaths+1] = path
 
-                        if #path > pathlen then
-                            pathlen = #path
+                            if #path > pathlen then
+                                pathlen = #path
+                            end
                         end
                     end
                 end

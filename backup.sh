@@ -10,6 +10,12 @@ cp -r ~/.config/gtk-{2,3,4}.0 $dfolder/.config/
 #cp -r ~/.config/i3 $dfolder/.config/
 #cp -r ~/.config/i3status-rust $dfolder/.config/
 cp  ~/.config/jgmenu/* $dfolder/.config/jgmenu/
+cp  ~/.config/cava/* $dfolder/.config/cava/
+cp  ~/.config/zathura/* $dfolder/.config/zathura/
+cp  ~/.config/viewnior/* $dfolder/.config/viewnior/
+cp  ~/.config/micro/* $dfolder/.config/micro/
+cp -r ~/.config/eg/ $dfolder/.config/
+cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
 cp -r ~/.config/neofetch $dfolder/.config/
 cp -r ~/.config/picom $dfolder/.config/

@@ -632,6 +632,7 @@ function wiboxes.get(s)
             position = "top",
             stretch = true,
             margins = 0,
+            border_width = 0,
             screen = s,
             height = 30,
             bg = "#1a1b26aa",

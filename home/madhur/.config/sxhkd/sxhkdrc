@@ -53,14 +53,15 @@ super + F3
 #    amixer set Master toggle
 
 
-#super + k
-#    sxhkd-cheat
+super + k
+   sxhkd-cheat
 
 
 #new power menu
 super + x
     key-power
 
+# Do brightness
 XF86MonBrightness{Up,Down}
     brightness{ --up, --down}
 
@@ -76,13 +77,16 @@ super + F12
 # super + semicolon
 #     dunstctl close-all
 
+# Take screenshot
 super + Print
     scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
 
-super + m
+# Copy VPN username
+ctrl + m
     echo -n madhur.ahuja | xclip -selection clipboard
 
-super + p
+# Copy VPN Password
+ctrl + p
     echo -n ksfWSGDNXY0Svtx | xclip -selection clipboard
 
 ~button2

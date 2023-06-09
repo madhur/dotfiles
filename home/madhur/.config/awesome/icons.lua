@@ -3,6 +3,7 @@ local icons = {}
 icons["kitty"] = ""
 icons["Google-chrome"] = ""
 icons["firefox"] = ""
+icons["Brave-browser"] = ""
 icons["Slack"] = ""
 icons["Code"] = ""
 icons["jetbrains-idea-ce"] = ""

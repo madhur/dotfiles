@@ -99,7 +99,7 @@ local layouts = {
     madhur.layout.tallmagnified,
     madhur.layout.tallmagnified,
     madhur.layout.resizedmagnifier,  -- custom written
-    madhur.layout.max,           --awesome.layout.suit.max
+    madhur.layout.tallmagnified,           --awesome.layout.suit.max
     madhur.layout.threecolmid  -- fork of awesome.layout.suit.magnified , where magnification happens to moster window, not the focused window
 }
 
