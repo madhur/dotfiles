@@ -85,9 +85,7 @@ super + Print
 ctrl + m
     echo -n madhur.ahuja | xclip -selection clipboard
 
-# Copy VPN Password
-ctrl + p
-    echo -n ksfWSGDNXY0Svtx | xclip -selection clipboard
+
 
 ~button2
     echo -n | xsel -n -i
