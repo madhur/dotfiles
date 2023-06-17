@@ -25,7 +25,10 @@ awful.key(
     {modkey},
     "f",
     function(c)
-        c.maximized = not c.maximized
+        c.fullscreen = not c.fullscreen
+        c:raise()
+
+        --c.maximized = not c.maximized
        -- c:raise()
     end,
     {
@@ -45,14 +48,14 @@ awful.key(
     }
 ),
 awful.key(
-    {modkey, shiftkey},
-    "f",
+    {modkey,},
+    "m",
     function(c)
-        c.fullscreen = not c.fullscreen
+        c.maximized = not c.maximized
         c:raise()
     end,
     {
-        description = "toggle fullscreen",
+        description = "toggle maximize",
         group = "client"
     }
 ),

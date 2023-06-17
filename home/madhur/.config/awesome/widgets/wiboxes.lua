@@ -105,34 +105,34 @@ mem.widget:buttons(
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 -- CPU
-local cpu =
-    lain.widget.cpu(
-    {
-        settings = function()
-            --helpers.debug("cpu widget called.."..cpu_now.usage)
-            widget:set_markup(markup.font(beautiful.font, " " .. cpu_now.usage .. " %"))
-        end
-    }
-)
+-- local cpu =
+--     lain.widget.cpu(
+--     {
+--         settings = function()
+--             --helpers.debug("cpu widget called.."..cpu_now.usage)
+--             widget:set_markup(markup.font(beautiful.font, " " .. cpu_now.usage .. " %"))
+--         end
+--     }
+-- )
 
-cpu.widget:buttons(
-    awful.util.table.join(
-        awful.button(
-            {},
-            1,
-            function()
-                -- left click
-                awful.spawn.easy_async_with_shell(
-                    "ps -Ao comm,pcpu,pid --sort=-pcpu | head -n 6",
-                    --awful.spawn.easy_async_with_shell("conky -c ~/.config/conky/cpu.conf",
-                    function(stdout, stderr, reason, exit_code)
-                        naughty.notify {text = tostring(stdout)}
-                    end
-                )
-            end
-        )
-    )
-)
+-- cpu.widget:buttons(
+--     awful.util.table.join(
+--         awful.button(
+--             {},
+--             1,
+--             function()
+--                 -- left click
+--                 awful.spawn.easy_async_with_shell(
+--                     "ps -Ao comm,pcpu,pid --sort=-pcpu | head -n 6",
+--                     --awful.spawn.easy_async_with_shell("conky -c ~/.config/conky/cpu.conf",
+--                     function(stdout, stderr, reason, exit_code)
+--                         naughty.notify {text = tostring(stdout)}
+--                     end
+--                 )
+--             end
+--         )
+--     )
+-- )
 
 -- local cpufreqwidget = wibox.widget.textbox()
 -- vicious.register(cpufreqwidget, vicious.widgets.cpufreq, "$2 Ghz $5 ", 2, "cpu0")
@@ -154,17 +154,17 @@ local uptime_widget_madhur =
     }
 )
 
-local g50ad0 =
+local lb760d =
     awful.widget.watch(
-    "/home/madhur/company/f25a24.sh g50ad0",
+    "/home/madhur/company/f25a24.sh lb760d",
     5,
     function(widget, stdout, stderr)
         if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "g50ad0")
+            awesome.emit_signal("warning", "lb760d")
         else
-            awesome.emit_signal("normal", "g50ad0")
+            awesome.emit_signal("normal", "lb760d")
         end
-        widget:set_markup(markup.font(beautiful.font, " g50ad0:" .. stdout))
+        widget:set_markup(markup.font(beautiful.font, " lb760d:" .. stdout))
     end
 )
 
@@ -494,7 +494,7 @@ awesome.connect_signal(
 awesome.connect_signal(
     "critical",
     function(widget_type)
-        -- helpers.debug(widget_type.."critical")
+        --helpers.debug(widget_type.."critical")
         --widget_types[widget_type].bg = beautiful.critical_bg
         --widget_types[widget_type].fg = beautiful.critical_fg
         widget_types[widget_type].fg = beautiful.critical_bg
@@ -554,15 +554,15 @@ awesome_icon:connect_signal(
     end
 )
 
-local myprompt = awful.widget.prompt {
-    prompt = 'Execute: ',
-    with_shell = true,
-    exe_callback = function(input)
-        if not input or #input == 0 then return end
-        naughty.notify{ text = 'The input was: '..input }
-    end
-}
-awful.util.myprompt = myprompt
+-- local myprompt = awful.widget.prompt {
+--     prompt = 'Execute: ',
+--     with_shell = true,
+--     exe_callback = function(input)
+--         if not input or #input == 0 then return end
+--         naughty.notify{ text = 'The input was: '..input }
+--     end
+-- }
+-- awful.util.myprompt = myprompt
 
 local text_box = wibox.widget{
     markup = "",
@@ -584,7 +584,7 @@ local right_widgets = {
     layout = wibox.layout.fixed.horizontal,
     pl(clock, true, "calendar"),
     -- pl(mytasklist),
-    pl(cpu.widget, true, "cpu"),
+   -- pl(cpu.widget, true, "cpu"),
     pl(cpu_widget({
         width = 70,
         step_width = 2,
@@ -609,7 +609,7 @@ local right_widgets = {
     
     pl(pactl_widget, "true", "volume_new"),
     --pl(g50ad0, true, "g50ad0"),
-    --pl(n5c719, true, "n5c719"),
+    pl(lb760d, true, "lb760d"),
     pl(notification, true, "notification"),
     pl(switchtag, true, "switchtag"),
      pl(pacman_widget {
@@ -660,7 +660,7 @@ function wiboxes.get(s)
         wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
         spr,
         mytasklist,
-        myprompt,
+        --myprompt,
         text_box
     }
     -- Add widgets to the wibox

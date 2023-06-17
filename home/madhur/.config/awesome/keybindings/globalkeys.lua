@@ -366,31 +366,31 @@ local globalkeys =
     --         group = "wibar"
     --     }
     -- ),
-    awful.key(
-        {modkey},
-        "r",
-        function()
-            awful.prompt.run(
-                {
-                    prompt       = "<b>Run: </b>",
-                    textbox = awful.util.text_box_prompt,
-                    history_path  = gfs.get_cache_dir() .. "/history",
-                    exe_callback = function(...)
-                        awful.spawn.easy_async(..., function(stdout, stderr, reason, exit_code)
-                            local textbox = awful.util.text_box_prompt
-                            if type(stdout) == "string" then
-                                textbox:set_text(stdout)
-                            end
-                        end)
-                    end
-                }
-            )
-        end,
-        {
-            description = "Run command in prompt",
-            group = "prompt"
-        }
-    ),
+    -- awful.key(
+    --     {modkey},
+    --     "r",
+    --     function()
+    --         awful.prompt.run(
+    --             {
+    --                 prompt       = "<b>Run: </b>",
+    --                 textbox = awful.util.text_box_prompt,
+    --                 history_path  = gfs.get_cache_dir() .. "/history",
+    --                 exe_callback = function(...)
+    --                     awful.spawn.easy_async(..., function(stdout, stderr, reason, exit_code)
+    --                         local textbox = awful.util.text_box_prompt
+    --                         if type(stdout) == "string" then
+    --                             textbox:set_text(stdout)
+    --                         end
+    --                     end)
+    --                 end
+    --             }
+    --         )
+    --     end,
+    --     {
+    --         description = "Run command in prompt",
+    --         group = "prompt"
+    --     }
+    -- ),
     awful.key(
         {modkey},
         "g",
@@ -406,7 +406,7 @@ local globalkeys =
                 }
             else
                 s.padding = {
-                    left = 500,
+                    left = 0,
                     right = 500,
                     top = 0,
                     bottom = 0

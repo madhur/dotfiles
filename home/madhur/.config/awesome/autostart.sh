@@ -22,7 +22,7 @@ run "/usr/libexec/xfce-polkit"
 #sleep 10
 run "nm-applet"
 run "indicator-sound-switcher"
-run "guake"
+#run "guake"
 run "xsettingsd"
 #run "/opt/paloaltonetworks/globalprotect/PanGPUI"
 run "/usr/bin/gpclient"

@@ -9,6 +9,10 @@
 super + Return
     kitty
 
+super + grave
+#    kitty
+    tdrop -ma -w 100%  -y 30 -h 80% kitty
+
 #calculator
 super + c
     rofi -show calc -modi calc -no-show-match -no-sort
@@ -85,7 +89,9 @@ super + Print
 ctrl + m
     echo -n madhur.ahuja | xclip -selection clipboard
 
-
+# Copy VPN Password
+ctrl + shift + p
+    echo -n ksfWSGDNXY0Svtx | xclip -selection clipboard
 
 ~button2
     echo -n | xsel -n -i

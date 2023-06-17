@@ -27,14 +27,14 @@ use-popup=true
 use-scrollbar=true
 use-trayicon=true
 window-halignment=1
-window-height=68
+window-height=75
 window-horizontal-displacement=0
 window-losefocus=false
 window-refocus=false
 window-tabbar=true
 window-valignment=0
 window-vertical-displacement=0
-window-width=94
+window-width=100
 
 [keybindings/global]
 show-hide='<Super>grave'

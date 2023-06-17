@@ -130,8 +130,8 @@ require("widgets.titlebars")
 awful.screen.connect_for_each_screen(
     function(s)
         awful.tag(awful.util.tagnames, s, layouts)
-        s.mypromptbox = {}
-        s.mypromptbox[s] = awful.widget.prompt()
+        -- s.mypromptbox = {}
+        -- s.mypromptbox[s] = awful.widget.prompt()
         -- Setup rules, which will set client keys as well
         awful.rules.rules = require("rules.client_rules")
         awful.screen.focused().tags[2].master_count = 0
