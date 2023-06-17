@@ -64,4 +64,5 @@ cp /etc/pacman.conf ./etc/pacman.conf
 cp /etc/my.cnf ./etc/my.cnf
 cp /etc/fstab ./etc/fstab
 
-pacman -Q > pacman.txt
+pacman -Qnqe > pacman.txt
+pacman -Qqem > foreignpkglist.txt
