@@ -51,7 +51,7 @@ cp -r ~/.vimrc $dfolder/
 cp -r ~/.Xresources $dfolder/
 cp -r ~/.tmux.conf $dfolder/
 cp -r ~/Pictures/wallpapers $dfolder/Pictures/
-cp -r ~/.gitconfig $dfolder/
+#cp -r ~/.gitconfig $dfolder/
 cp -r ~/.gtkrc-2.0 $dfolder/
 #cp ~/.stalonetrayrc $dfolder/
 cp ~/.dir_colors $dfolder/
