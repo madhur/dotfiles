@@ -1,0 +1,24 @@
+WINDOW MANAGER || TMUX || Kitty
+-------------- || ---- || -----  
+
+ALT + ` | Enable Magnifier | c | create window | CTRL + SHIFT + ENTER | Split pane
+CTRL + Escape  | Toggle wibar widgets | f | find window | CTRL + SHIFT + t | New Tab
+SUPER + t | Make tiled | n | next window | CTRL + SHIFT + w | Close Tab / Pane
+SUPER + Esc | Toggle wibar | p | previous window | CTRL + SHIFT + k | Clear scrollback
+SUPER + SHIFT + m | Move to Master | , | rename current window | CTRL + f | Launch fzf
+SUPER + e | Switch to Tall | " | Split pane horizontally | CTRL + a | Copy scrollback to clipboard
+SUPER + w | Switch to Tab | % | Split pane vertically | CTRL + SHIFT + +- | Zoom
+CTRL + m | VPN Username | Space | Toggle between layouts | CTRL + SHIFT + c | Copy
+CTRL + , | VPN password | CTRL + s | Synchronize Panes | CTRL + SHIFT + v | Paste
+|| x | Close current pane
+
+Apps
+----
+
+SUPER + ~ | Dropdown terminal
+SUPER + F12 | Flameshot | 
+SUPER + c | Calculator
+SUPER + RETURN | Terminal
+SUPER + d | dmenu
+F2 | Copyq
+SUPER + s | Show the hotkey popup
