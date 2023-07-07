@@ -5,16 +5,17 @@
 * [AwesomeWM](https://github.com/awesomeWM/awesome)
 * [AwesomeWM Lain Widgets](https://github.com/lcpz/lain)
 * [AwesomeWM Widgets](https://github.com/streetturtle/awesome-wm-widgets)
-* [AwesomeWM Bling layouts](https://github.com/BlingCorp/bling)
-* [AwesomeWM Vicious Widgets](https://github.com/vicious-widgets/vicious)
 * [sxhkd](https://github.com/baskerville/sxhkd)
-* [picom](https://github.com/yshui/picom)
+* [picom](https://github.com/FT-Labs/picom)
 * [rofi](https://github.com/davatorium/rofi)
-* [Guake](https://github.com/Guake/guake)
+* [Kitty](https://sw.kovidgoyal.net/kitty/)
 * [Conky](https://github.com/brndnmtthws/conky)
 * [Copyq](https://github.com/hluk/CopyQ)
-
-
+* [Flameshot](https://github.com/flameshot-org/flameshot)
+* [Sound switcher indicator](https://github.com/yktoo/indicator-sound-switcher)
+* [Xsettingsd](https://codeberg.org/derat/xsettingsd)
+* [eww](https://github.com/elkowar/eww)
+* [micro](https://github.com/zyedidia/micro)
 
 
 <div style="float:left">
