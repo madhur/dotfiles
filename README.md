@@ -21,5 +21,27 @@
 <div style="float:left">
 <img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/awesome-screenshot.png />
 </div>
+
+<div style="float:clear"></div>
+
+<div style="float:left">
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/rofi.png />
+</div>
+
+
+<div style="float:clear"></div>
+
+<div style="float:left">
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/eww.png />
+</div>
+
+
+<div style="float:clear"></div>
+
+<div style="float:left">
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/fastfetch.png />
+</div>
+
+
 <div style="float:clear"></div>
 <p/><p/><p/>
