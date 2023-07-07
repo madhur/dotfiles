@@ -123,31 +123,31 @@ awful.key(
         group = "client"
     }
 ),
-awful.key(
-    {modkey},
-    "n",
-    function(c)
-        -- The client currently has the input focus, so it cannot be
-        -- minimized, since minimized clients can't have the focus.
-        c.minimized = true
-    end,
-    {
-        description = "minimize",
-        group = "client"
-    }
-),
--- all minimized clients are restored
-awful.key(
-    {modkey, shiftkey},
-    "n",
-    function()
-        local tag = awful.tag.selected()
-        for i = 1, #tag:clients() do
-            tag:clients()[i].minimized = false
-            tag:clients()[i]:redraw()
-        end
-    end
-),
+-- awful.key(
+--     {modkey},
+--     "n",
+--     function(c)
+--         -- The client currently has the input focus, so it cannot be
+--         -- minimized, since minimized clients can't have the focus.
+--         c.minimized = true
+--     end,
+--     {
+--         description = "minimize",
+--         group = "client"
+--     }
+-- ),
+-- -- all minimized clients are restored
+-- awful.key(
+--     {modkey, shiftkey},
+--     "n",
+--     function()
+--         local tag = awful.tag.selected()
+--         for i = 1, #tag:clients() do
+--             tag:clients()[i].minimized = false
+--             tag:clients()[i]:redraw()
+--         end
+--     end
+-- ),
 
 awful.key(
     {modkey, shiftkey},

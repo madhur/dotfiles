@@ -6,9 +6,9 @@ Wants=network-online.target
 [Service]
 Type=simple
 TimeoutSec=0
-Environment="ZKUI_HOME=/home/madhur/github/personal/zkui/target"
-WorkingDirectory=/home/madhur/github/personal/zkui/target
-ExecStart=java -Xms128m -Xmx512m -XX:MaxMetaspaceSize=256m -jar /home/madhur/github/personal/zkui/target/zkui-2.0-SNAPSHOT-jar-with-dependencies.jar
+Environment="ZKUI_HOME=/home/madhur/bin/"
+WorkingDirectory=/home/madhur/bin/
+ExecStart=java -Xms128m -Xmx512m -XX:MaxMetaspaceSize=256m -jar /home/madhur/bin/zkui-2.0-SNAPSHOT-jar-with-dependencies.jar
 RestartSec=5
 LimitNOFILE=1000000
 

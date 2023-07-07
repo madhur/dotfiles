@@ -110,3 +110,4 @@ alias paclf='pacman -Ql'   # list files
 alias pzf="yay -Qq | fzf --preview 'yay -Qil {}' --height=97% --layout=reverse --bind 'enter:execute(yay -Qil {} | less)'"
 
 alias search="grep -rnw '.' -e"
+alias pbat="bat -p"

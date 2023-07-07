@@ -25,6 +25,7 @@ flat-remix-gtk
 gnome-icon-theme
 google-chrome
 indicator-sound-switcher
+jd-gui-bin
 kafkactl
 mkinitcpio-openswap
 ncurses5-compat-libs

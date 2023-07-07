@@ -4,7 +4,6 @@ Documentation=https://prometheus.io/docs/introduction/overview/
 After=network-online.target
 
 [Service]
-#User=prometheus
 Restart=on-failure
 
 #Change this line if you download the 

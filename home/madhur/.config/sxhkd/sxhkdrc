@@ -3,7 +3,7 @@
 #
 #chrome Work
 #F12
-#    tdrop -ma -w 100% -y 30 -h 80% kitty
+#    tdrop -ma -w 100% -y 30 -h 80% wezterm
 
 # terminal emulator
 super + Return
@@ -60,6 +60,8 @@ super + F3
 super + k
    sxhkd-cheat
 
+super + shift + s
+    eww open bindkeys --toggle
 
 #new power menu
 super + x
@@ -90,7 +92,7 @@ ctrl + m
     echo -n madhur.ahuja | xclip -selection clipboard
 
 # Copy VPN Password
-ctrl + shift + p
+ctrl + comma
     echo -n ksfWSGDNXY0Svtx | xclip -selection clipboard
 
 ~button2

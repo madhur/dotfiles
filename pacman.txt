@@ -150,6 +150,7 @@ lightdm-slick-greeter
 linux
 linux-firmware
 linux-headers
+lnav
 logrotate
 lsb-release
 lsscsi
@@ -206,6 +207,7 @@ papirus-icon-theme
 patch
 pavucontrol
 perl
+perl-rename
 pigz
 pipewire-alsa
 pipewire-jack
@@ -254,6 +256,7 @@ sof-firmware
 splix
 sshfs
 sshpass
+starship
 stress
 sudo
 sxhkd
@@ -274,6 +277,7 @@ ttf-dejavu
 ttf-font-awesome
 ttf-jetbrains-mono
 ttf-liberation
+ttf-nerd-fonts-symbols
 ttf-opensans
 tumbler
 unrar
@@ -290,6 +294,7 @@ vpnc
 vulkan-tools
 waybar
 wayland-protocols
+wezterm
 wget
 which
 whois

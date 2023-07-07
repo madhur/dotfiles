@@ -154,17 +154,17 @@ local uptime_widget_madhur =
     }
 )
 
-local lb760d =
+local edd7b0 =
     awful.widget.watch(
-    "/home/madhur/company/f25a24.sh lb760d",
+    "/home/madhur/company/f25a24.sh edd7b0",
     5,
     function(widget, stdout, stderr)
         if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", "lb760d")
+            awesome.emit_signal("warning", "edd7b0")
         else
-            awesome.emit_signal("normal", "lb760d")
+            awesome.emit_signal("normal", "edd7b0")
         end
-        widget:set_markup(markup.font(beautiful.font, " lb760d:" .. stdout))
+        widget:set_markup(markup.font(beautiful.font, " edd7b0:" .. stdout))
     end
 )
 
@@ -609,7 +609,7 @@ local right_widgets = {
     
     pl(pactl_widget, "true", "volume_new"),
     --pl(g50ad0, true, "g50ad0"),
-    pl(lb760d, true, "lb760d"),
+    pl(edd7b0, true, "edd7b0"),
     pl(notification, true, "notification"),
     pl(switchtag, true, "switchtag"),
      pl(pacman_widget {
