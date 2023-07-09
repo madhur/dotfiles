@@ -111,3 +111,4 @@ alias pzf="yay -Qq | fzf --preview 'yay -Qil {}' --height=97% --layout=reverse -
 
 alias search="grep -rnw '.' -e"
 alias pbat="bat -p"
+alias yay="yay -Pw; yay"

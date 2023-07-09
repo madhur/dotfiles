@@ -63,7 +63,7 @@ local globalkeys =
         }
     ),
     awful.key(
-        {modkey},
+        {modkey, shiftkey},
         "s",
         hotkeys_popup.show_help,
         {

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1644127602027770-1</unique-id>
+	<command>kitty %f</command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Copy File path</name>
+	<submenu></submenu>
+	<unique-id>1684859487429541-1</unique-id>
+	<command>echo &quot;%F&quot;| tr -d &apos;\n&apos; | xclip -selection c</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+</actions>

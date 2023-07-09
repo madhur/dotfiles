@@ -10,7 +10,6 @@ endeavouros-keyring
 endeavouros-mirrorlist
 endeavouros-skel-i3wm
 endeavouros-theming
-endeavouros-xfce4-terminal-colors
 eos-apps-info
 eos-hooks
 eos-lightdm-slick-theme
@@ -40,6 +39,7 @@ powerline-fonts-git
 python2
 qogir-gtk-theme
 reflector-simple
+rofi-file-browser-extended-git
 shell-color-scripts
 snapd
 sway-git

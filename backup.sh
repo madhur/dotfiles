@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 dfolder=$HOME/github/personal/dotfiles/home/madhur
-guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
+#guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
 
 cp ~/.config/conky/* $dfolder/.config/conky/
 #cp -r ~/.config/dunst $dfolder/.config/
@@ -18,6 +18,7 @@ cp -r ~/.config/eg/ $dfolder/.config/
 cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
 cp -r ~/.config/neofetch $dfolder/.config/
+cp -r ~/.config/Thunar $dfolder/.config/
 cp -r ~/.config/picom $dfolder/.config/
 #cp -r ~/.config/polybar $dfolder/.config/
 #cp -r ~/.config/xmonad $dfolder/.config/

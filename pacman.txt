@@ -106,7 +106,6 @@ gst-plugins-bad
 gst-plugins-ugly
 gthumb
 gtk-engine-murrine
-guake
 gutenprint
 gvfs
 gzip
@@ -142,6 +141,7 @@ libfido2
 libgsf
 libopenraw
 libre
+libretro-core-info
 libtool
 libwnck3
 libxcrypt-compat
@@ -239,6 +239,7 @@ redis
 redshift
 reflector
 reiserfsprogs
+retroarch
 ripgrep
 rofi
 rofi-calc
@@ -294,14 +295,12 @@ vpnc
 vulkan-tools
 waybar
 wayland-protocols
-wezterm
 wget
 which
 whois
 wireless-regdb
 wireless_tools
 wireplumber
-wofi
 wpa_supplicant
 xbindkeys
 xclip
@@ -311,7 +310,6 @@ xdg-utils
 xdotool
 xed
 xf86-input-libinput
-xfce4-terminal
 xfsprogs
 xl2tpd
 xmlto

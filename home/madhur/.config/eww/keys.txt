@@ -6,11 +6,18 @@ CTRL + Escape  | Toggle wibar widgets | f | find window | CTRL + SHIFT + t | New
 SUPER + t | Make tiled | n | next window | CTRL + SHIFT + w | Close Tab / Pane
 SUPER + Esc | Toggle wibar | p | previous window | CTRL + SHIFT + k | Clear scrollback
 SUPER + SHIFT + m | Move to Master | , | rename current window | CTRL + f | Launch fzf
-SUPER + e | Switch to Tall | " | Split pane horizontally | CTRL + a | Copy scrollback to clipboard
-SUPER + w | Switch to Tab | % | Split pane vertically | CTRL + SHIFT + +- | Zoom
-CTRL + m | VPN Username | Space | Toggle between layouts | CTRL + SHIFT + c | Copy
-CTRL + , | VPN password | CTRL + s | Synchronize Panes | CTRL + SHIFT + v | Paste
-|| x | Close current pane
+SUPER + e | Switch to Tall | " | Split pane horizontally | CTRL + a | Copy scrollback
+SUPER + w | Switch to Tab | % | Split pane vertically | CTRL + SHIFT + +/- | Zoom
+SUPER  + h/l | Resize master width factor | space | Toggle between layouts | CTRL + SHIFT + c | Copy
+SUPER + CTRL + Up/Down | Inc/Dec num masters | CTRL + s | Synchronize Panes | CTRL + SHIFT + v | Paste
+CTRL + Tab | Switch current/old tags | x | Close current pane | CTRL + SHIFT + F5 | Reload Config
+ALT + Tab | Switch current/old clients | | | CTRL + SHIFT + l | Next Layout
+ALT + Left/Right | Go to left tag | | | CTRL + SHIFT + f | Stack Layout
+ALT + Right | Go to right tag | | | CTRL + SHIFT + [ | Previous Window
+SUPER + Shift + Left/Right | Switch position of clients | | | CTRL + SHIFT + ] | Next Window
+SUPER + g | Add conky gaps
+SUPER + SHIFT + a | Add titlebar
+SUPER + SHIFT + space | Make floating
 
 Apps
 ----
@@ -22,3 +29,6 @@ SUPER + RETURN | Terminal
 SUPER + d | dmenu
 F2 | Copyq
 SUPER + s | Show the hotkey popup
+CTRL + m | VPN Username
+CTRL + , | VPN password
+SUPER + x | Power Menu

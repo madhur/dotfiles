@@ -57,10 +57,10 @@ super + F3
 #    amixer set Master toggle
 
 
-super + k
-   sxhkd-cheat
+#super + k
+#   sxhkd-cheat
 
-super + shift + s
+super  + s
     eww open bindkeys --toggle
 
 #new power menu
@@ -73,7 +73,7 @@ XF86MonBrightness{Up,Down}
 
 # run flameshot
 super + F12
-    flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry
+    flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry -d 5000
 
 #dunstctl history pop
 # super + comma
@@ -84,8 +84,8 @@ super + F12
 #     dunstctl close-all
 
 # Take screenshot
-super + Print
-    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+#super + Print
+#    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
 
 # Copy VPN username
 ctrl + m
