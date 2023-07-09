@@ -3,6 +3,11 @@
 	font-family: "JetBrains Mono";
 }
 
+@import "colors.scss";
+@import "calendar.scss";
+@import "powermenu.scss";
+@import "calculator.scss"
+
 .genwin {
 	background-color: #1a1b26;
 	border-radius: 0px;

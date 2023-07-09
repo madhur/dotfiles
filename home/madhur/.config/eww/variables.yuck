@@ -1,0 +1,8 @@
+
+(defpoll calendar_day :interval "10h" "date '+%d'")
+(defpoll calendar_month :interval "10h" "./scripts/getCalendarMonth")
+(defpoll calendar_year :interval "10h" "date '+%Y'")
+
+(defpoll lithour :interval "30m" "date +%H")
+(defpoll litmin :interval "30s" "date +%M")
+(defpoll completeday :interval "1h" "date '+%A, %d %B'")

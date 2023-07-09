@@ -8,17 +8,19 @@ Sxhkd,sxhkd
 #Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
 Picom, /home/madhur/.config/picom/launch.sh
 Conky, /home/madhur/.config/conky/launch.sh
-Guake, "guake", terminal
+Eww, "eww daemon"
+Flameshot, "flameshot"
+#Guake, "guake", terminal
 #Dunst, "dunst"
 Copyq, "flatpak run com.github.hluk.copyq"
 #Xfsettingsd, xfsettingsd --daemon, stock_folder
 Xsettingsd, xsettingsd
 Indicator Sound Switcher, "indicator-sound-switcher"
-GlobalProtect, "/opt/paloaltonetworks/globalprotect/PanGPUI"
+#GlobalProtect, "/opt/paloaltonetworks/globalprotect/PanGPUI"
 NMApplet, "nm-applet"
 #Autorename Workspace, "$HOME/github/personal/i3scripts/launch.sh"
 #Trayer, "/home/madhur/bin/start-trayer.sh"
-Xfce Polkit,"/usr/libexec/xfce-polkit"
+#Xfce Polkit,"/usr/libexec/xfce-polkit"
 #Restart xmonad, "/home/madhur/scripts/restart_xmonad.sh"
 #Restart awesome, "echo 'awesome.restart()' | awesome-client"
 Startup Apps,"/home/madhur/.config/awesome/autostart.sh"
@@ -29,7 +31,8 @@ Apps,^checkout(apps-dir-Apps),applications
 System,^checkout(apps-dir-System),applications-system
 
 ^tag(apps-dir-Apps)
-Firefox, "firefox"
+#Firefox, "firefox"
+Brave,"brave"
 
 
 

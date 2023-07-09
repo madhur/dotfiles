@@ -15,15 +15,17 @@ super + grave
 
 #calculator
 super + c
-    rofi -show calc -modi calc -no-show-match -no-sort
-
-# program launcher
-super + d
-    rofi -show drun -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+    eww open calculator --toggle
+    #rofi -show calc -modi calc -no-show-match -no-sort
 
 # program launcher
 super + shift + d
-    rofi -show run -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+    rofi -show drun -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+
+
+# program launcher
+super + d
+    rofi -show drun -show-icons -theme "appmnu" -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
 
 super + b
      /home/madhur/scripts/rofi-bluetoth/rofi-bluetooth
@@ -65,7 +67,8 @@ super  + s
 
 #new power menu
 super + x
-    key-power
+    eww open-many powermenu-closer powermenu --toggle 
+    #key-power
 
 # Do brightness
 XF86MonBrightness{Up,Down}
@@ -99,5 +102,6 @@ ctrl + comma
     echo -n | xsel -n -i
 
 
-
+~button3
+   xqp 0 $(xdo id -N "" -n root) &&  jgmenu
 

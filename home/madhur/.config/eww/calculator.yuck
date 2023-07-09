@@ -1,0 +1,28 @@
+
+(defvar result 50)
+
+(defwidget calculator []
+  (box :orientation "v"
+       :class "calculator-container"
+    (box :class "calculator-input-box"
+         :orientation "h"
+      (input :class "input" :onchange "/home/madhur/.config/eww/scripts/calc.sh {}"  :onaccept "/home/madhur/.config/eww/scripts/calc_copy.sh")
+    )
+    (box :class "calculator-label-box"
+         :orientation "h"
+      (label :class "label" :text "${result}" :xalign 0) 
+    )
+  )
+)
+
+(defwindow calculator
+   :windowtype "normal"
+    :reserve (struts :distance "0px" :side "bottom")
+    :stacking "fg"
+   :wm-ignore false
+  :geometry (geometry :x "0px"
+                      :y "0px"
+                      :width "1000px"
+                      :height "150px"
+                      :anchor "top center")
+(calculator))

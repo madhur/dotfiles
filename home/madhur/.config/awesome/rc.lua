@@ -249,10 +249,6 @@ end)
 
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 
--- naughty.notify {
---     text = "test",
---     position = "middle"
--- }
 
 --- Enable for lower memory consumption
 collectgarbage("setpause", 110)

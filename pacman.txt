@@ -33,6 +33,7 @@ bluez
 bluez-utils
 btop
 btrfs-progs
+calc
 cantarell-fonts
 clang
 conky
@@ -247,7 +248,6 @@ rp-pppoe
 rpcsvc-proto
 rsync
 rtkit
-rust
 s-nail
 scrot
 sed

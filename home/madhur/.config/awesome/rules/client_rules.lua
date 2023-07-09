@@ -106,7 +106,8 @@ return {
             class = {
                 "copyq",
                 "feh",
-                "Viewnior"
+                "Viewnior",
+                "eww-calculator"
             },
         },
         properties = {

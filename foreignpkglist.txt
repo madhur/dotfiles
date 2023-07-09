@@ -51,5 +51,6 @@ wlroots-git
 wscat
 xcursor-simp1e-tokyo-night
 xfce-polkit
+xqp
 yay
 yt-dlp-drop-in

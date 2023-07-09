@@ -1,3 +1,8 @@
+(include "./variables.yuck")
+(include "./calendar.yuck")
+(include "./powermenu.yuck")
+(include "./calculator.yuck")
+
 ;; Keybinds var
 (defpoll KEYS :interval "30s" `column -t -L -s "|" keys.txt`)
 

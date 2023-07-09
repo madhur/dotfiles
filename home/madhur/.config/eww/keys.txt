@@ -15,7 +15,7 @@ ALT + Tab | Switch current/old clients | | | CTRL + SHIFT + l | Next Layout
 ALT + Left/Right | Go to left tag | | | CTRL + SHIFT + f | Stack Layout
 ALT + Right | Go to right tag | | | CTRL + SHIFT + [ | Previous Window
 SUPER + Shift + Left/Right | Switch position of clients | | | CTRL + SHIFT + ] | Next Window
-SUPER + g | Add conky gaps
+SUPER + g | Add conky gaps | | | F1 | Broadcast
 SUPER + SHIFT + a | Add titlebar
 SUPER + SHIFT + space | Make floating
 

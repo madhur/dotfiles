@@ -1,0 +1,99 @@
+.date {
+    background-color: $bg;
+    color: $fg;
+    border-radius: 4px;
+}
+
+.timebox {
+    margin: 30px 0px;
+
+    .time-container {
+        .content {
+            font-family: Product Sans;
+            font-weight: bolder;
+            font-size: 60px;
+        }
+
+        .divider {
+            margin: 8px 15px;
+            padding: 0px 1px;
+            background: linear-gradient($red, $magenta, $blue, $cyan);
+        }
+    }
+
+    .date-container {
+        font-family: Product Sans;
+        margin-top: 2px;
+    }
+}
+
+.date-box {
+    background: $contrastbg;
+    margin: 7px 7px 7px 0;
+    padding: 0 8px 0 12px;
+    border-radius: 7px;
+
+    .content {
+        color: $fg;
+        font-size: 14px;
+        padding-right: 3px;
+    }
+
+    .date-dropdown {
+        background-color: inherit;
+        margin: 0;
+        padding: 0 5px 0 3px;
+        color: $fg;
+    }
+}
+
+.sep {
+    color: $black;
+    padding: 0 5px;
+}
+
+
+
+// calendar
+.cal-box {
+    font-family: Iosevka Nerd Font;
+    background-color: $bg;
+    border-radius: 8px;
+    padding: 1rem 1rem .2rem;
+
+    .cal {
+        background-color: inherit;
+        padding: .8rem .25rem 0rem;
+        margin-left: 10px;
+
+        &>* {
+            border: solid 0px transparent;
+        }
+
+        &.highlight {
+            padding: 10rem;
+        }
+    }
+}
+
+calendar:selected {
+    color: $accent;
+}
+
+calendar.header {
+    color: $cyan;
+    font-weight: bold;
+}
+
+calendar.button {
+    color: $cyan;
+}
+
+calendar.highlight {
+    color: $green;
+    font-weight: bold;
+}
+
+calendar:indeterminate {
+    color: rgba(205, 219, 249, 0.3);
+}
