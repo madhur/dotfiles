@@ -157,6 +157,7 @@ lsb-release
 lsscsi
 lvm2
 m4
+maim
 make
 malcontent
 man-db

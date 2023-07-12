@@ -16,7 +16,7 @@ run feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
 run sxhkd
 run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf
 run picom --config ~/.config/picom/picom.conf -b
-run "/usr/libexec/xfce-polkit"
+#run "/usr/libexec/xfce-polkit"
 #run "dunst"
 
 #sleep 10
@@ -26,7 +26,8 @@ run "indicator-sound-switcher"
 run "xsettingsd"
 #run "/opt/paloaltonetworks/globalprotect/PanGPUI"
 run "/usr/bin/gpclient"
-run "xscreensaver"
+#run "xscreensaver"
+run "eww daemon"
 hours=`date +%H`
 if [[ $hours > 17 && $hours < 7 ]]; then
   echo "Executing redshift"

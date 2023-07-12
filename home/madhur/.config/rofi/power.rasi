@@ -1,116 +1,130 @@
-configuration{
-    modi: "run,drun,window";
-    lines: 5;
-    font: "JetBrainsMono Nerd Font Medium 14";
-    /* show-icons: true; */
-    icon-theme: "Papirus";
-    terminal: "xfce4-terminal";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: " 﩯  Window ";
-    display-Network: " 󰤨  Network";
-    /* sidebar-mode: true; */
+@import "appmnu_colors.rasi"
+
+configuration {
+    show-icons:                     true;
+     display-drun: 					"Applications";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+    me-select-entry: "MousePrimary";                                                                           
+  me-accept-entry: "MouseDPrimary";                                                                                 
+  me-accept-custom: "Control+MouseDPrimary";
+  location: 0;
 }
 
-@theme "tokyonight"
-
-element-text, element-icon , mode-switcher {
-    background-color: inherit;
-    text-color:       inherit;
+window {    
+   
+    font: "JetBrains Mono 14";
+	width:						    36%;
+   
+      background-color: @bg-trans;
+      
 }
 
-window {
-    height: 20%;
-    width: 10%;
-    /* border: 3px; */
-    location: east;
-	  x-offset: -0.45%;
-	  y-offset: -29.75%;
-    border-color: @border-col;
-    background-color: @bg-col;
-    border-radius: 12px;
-}
 
-mainbox {
-    background-color: @bg-col;
-}
 
-inputbar {
-    children: [prompt,entry];
-    background-color: @bg-col;
-    border-radius: 5px;
-    padding: 2px;
-}
-
-prompt {
-    background-color: @red;
-    padding: 5px 15px 0px 10px;
-    text-color: @bg-col;
-    border-radius: 8px;
-    margin: 20px 0px 0px 20px;
-}
-
-textbox-prompt-colon {
-    expand: false;
-    str: ":";
+textbox {
+  
+  expand: false;
+  padding: 0 8px 0px 4px;
+  margin: 0px -2px 0px 0px;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+  text-color: @foreground;
+  background-color: @background-alt;
+  font: "JetBrains Mono 14";
+   enabled: false;
 }
 
 entry {
-    padding: 6px;
-    margin: 20px 0px 0px 10px;
-    text-color: @fg-col;
-    background-color: @bg-col;
+  expand: true;
+  padding: 1%;
+  placeholder: "";
+  text-color: @foreground;
+  background-color: @background-alt;
+  enabled: false;
+}
+
+inputbar {
+	children: 						[ textbox, entry ];
+  background-color:               @transparent;
+  text-color:                     @foreground;
+  expand:                         false;
+  margin:                         0px;
+  padding:                        0%;
+  border-radius: 0px;
+  enabled: false;
+  
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 10px 0px 10px;
-    columns: 2;
-    background-color: @bg-col;
-    font: "JetBrainsMono Nerd Font Medium 12";
+     background-color:              @transparent;
+    padding:                        0px;
+    columns:                        5;
+    lines:                          1;
+    spacing:                        1%;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+     scrollbar: false;
+     flow: horizontal;
+     fixed-columns: true;
+     border: 0px;
+      border-color:                   @selected-bg;
+}
 
+mainbox {
+      background-color:            @transparent;
+    children:                       [ inputbar, listview ];
+    spacing:                       	0%;
+    padding:                        0px;
 }
 
 element {
-    padding: 10;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
+    orientation:                    vertical;
+      background-color:             @transparent;
+    text-color:                     @foreground;
+    border-radius:                  0%;
+    padding:                        0px;
+    cursor:                      pointer;
+    
+}
+
+
+element-icon, element-text {
+    background-color:                @transparent;
+    text-color:                     inherit;
+    cursor:                      pointer;
 }
 
 element-icon {
-    size: 32px;
-}
-
-element selected {
-    background-color:  @selected-col ;
-    text-color: @blue ;
-    border-radius: 8px;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    size:                           60px ;
+    border:                         16px;
+    border-color:                   transparent;
+    cursor:                      pointer;
+    
 }
 
 element-text {
-    vertical-align: 0.5;
-    font: "JetBrainsMono Nerd Font Medium 14";
-  }
-
-mode-switcher {
-    spacing: 0;
-  }
-
-button {
-    padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
-    vertical-align: 0.5; 
-    horizontal-align: 0.5;
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         -12px 0px 12px 0px;
+      cursor:                      pointer;
+   
 }
 
-button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+element selected.normal {
+     background-color:              @selected-bg;
+    text-color:                      @foreground;
+    border:                         0px 0px 2px 0px;
+    border-color:                   @border;
+    border-radius:                  0px;
+       cursor:                      pointer;
 }
+
+
 

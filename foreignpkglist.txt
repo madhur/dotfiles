@@ -37,6 +37,7 @@ papirus-folders-git
 pipes.sh
 powerline-fonts-git
 python2
+qimgv-git
 qogir-gtk-theme
 reflector-simple
 rofi-file-browser-extended-git

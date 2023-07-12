@@ -107,7 +107,9 @@ return {
                 "copyq",
                 "feh",
                 "Viewnior",
-                "eww-calculator"
+                "Gpicview",
+                "eww-calculator",
+                "qimgv"
             },
         },
         properties = {

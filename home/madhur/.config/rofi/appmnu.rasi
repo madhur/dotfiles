@@ -78,7 +78,7 @@ element {
     orientation:                    vertical;
       background-color:             @transparent;
     text-color:                     @foreground;
-    border-radius:                  0%;
+    border-radius:                  0px;
     padding:                        6px;
 }
 

@@ -67,8 +67,7 @@ super  + s
 
 #new power menu
 super + x
-    eww open-many powermenu-closer powermenu --toggle 
-    #key-power
+    key-power
 
 # Do brightness
 XF86MonBrightness{Up,Down}
@@ -76,7 +75,10 @@ XF86MonBrightness{Up,Down}
 
 # run flameshot
 super + F12
-    flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry -d 5000
+    flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry
+
+super + F11
+    /home/madhur/.config/rofi/applets/bin/screenshot.sh
 
 #dunstctl history pop
 # super + comma

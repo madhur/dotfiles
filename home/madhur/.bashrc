@@ -92,7 +92,7 @@ export PATH=/usr/bin:$PATH:/usr/local/go/bin:$HOME/.cargo/bin
 export PATH=$HOME/etcd:/usr/local/vitess/bin:${PATH}
 
 
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 
 source ~/.aliases
 source ~/.functions
