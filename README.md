@@ -16,20 +16,20 @@
 
 
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/awesome-screenshot.png />
-</div>
-
-<div style="float:clear"></div>
-
-<div style="float:left">
 <img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/rofi.png />
 </div>
 
+<div style="float:clear"></div>
+
+<div style="float:left">
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/powermenu.png />
+</div>
+
 
 <div style="float:clear"></div>
 
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/eww.png />
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/hokey_popup.png />
 </div>
 
 
@@ -37,6 +37,18 @@
 
 <div style="float:left">
 <img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/fastfetch.png />
+</div>
+
+<div style="float:clear"></div>
+
+<div style="float:left">
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/jgmenu.png />
+</div>
+
+
+
+<div style="float:left">
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/popup_calculator.png />
 </div>
 
 
