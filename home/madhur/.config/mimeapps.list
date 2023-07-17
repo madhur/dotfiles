@@ -36,3 +36,4 @@ image/png=qimgv.desktop;gpicview.desktop;viewnior.desktop;
 application/sql=code.desktop;
 audio/x-opus+ogg=mpv.desktop;
 application/x-zerosize=xed.desktop;
+text/x-opml+xml=code.desktop;

@@ -1,0 +1,22 @@
+@theme "~/.config/rofi/power.rasi"
+
+configuration {
+  window-format : "{title}";
+}
+
+listview {
+     background-color:              @transparent;
+    padding:                        0px;
+    columns:                        5;
+    lines:                          2;
+    spacing:                        1%;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+     scrollbar: false;
+     flow: horizontal;
+     fixed-columns: false;
+     border: 0px;
+      border-color:                   @selected-bg;
+      
+}

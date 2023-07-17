@@ -26,7 +26,7 @@ run "indicator-sound-switcher"
 run "xsettingsd"
 #run "/opt/paloaltonetworks/globalprotect/PanGPUI"
 run "/usr/bin/gpclient"
-#run "xscreensaver"
+run "xscreensaver"
 run "eww daemon"
 hours=`date +%H`
 if [[ $hours > 17 && $hours < 7 ]]; then

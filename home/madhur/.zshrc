@@ -11,7 +11,8 @@
 ## Zsh initialization
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="madhur"
-plugins=(zsh-syntax-highlighting zsh-autosuggestions autojump autoswitch_virtualenv fzf-tab  zsh-history-substring-search)
+#plugins=(zsh-syntax-highlighting zsh-autosuggestions autoswitch_virtualenv fzf-tab  zsh-history-substring-search zsh-fzf-history-search) 
+plugins=(zsh-syntax-highlighting zsh-autosuggestions autoswitch_virtualenv fzf-tab zsh-fzf-history-search) 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 ## 
@@ -86,8 +87,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 [ -f "$HOME/company/passwords.env" ] && source ~/company/passwords.env
 
-## Auto jump script
-[[ -s /home/madhur/.autojump/etc/profile.d/autojump.sh ]] && source /home/madhur/.autojump/etc/profile.d/autojump.sh
+## Auto jump script (Replaced by zoxide for now)
+#[[ -s /home/madhur/.autojump/etc/profile.d/autojump.sh ]] && source /home/madhur/.autojump/etc/profile.d/autojump.sh
 ##
 
 ## Initialize starship prompt
@@ -99,11 +100,11 @@ eval "$(starship init zsh)"
 # ( ) # Hide shell job control messages.
 if [[ $TERM == "xterm-256color" ]]
 then
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 fi
 
-## ghcup for haskell
-[ -f "/home/madhur/.ghcup/env" ] && source "/home/madhur/.ghcup/env" # ghcup-env
+## ghcup for haskell (Not using haskell for now)
+#[ -f "/home/madhur/.ghcup/env" ] && source "/home/madhur/.ghcup/env" # ghcup-env
 ##
 
 ## Fzf
@@ -143,3 +144,4 @@ colorscript random
 
 export EDITOR=micro
 [[ -s "/home/madhur/.gvm/scripts/gvm" ]] && source "/home/madhur/.gvm/scripts/gvm"
+eval "$(zoxide init zsh)"

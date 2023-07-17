@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# config
+[ $(command -v ffmpeg) ] || exit 1
+vid=$1
+start_time=00:00:01
+duration=60
+height=ih        # input height halved , can replace with pixils . 
+width=-5         # keeps aspect ratio . can replace with pixils . 
+fps=10           # frames per a second .
+
+filters="fps=$fps,scale=$width:$height:flags=lanczos"
+
+ffmpeg -ss $start_time                             \
+       -t  $duration                               \
+       -i  "$vid"                                  \
+       -vf "$filters,palettegen"                   \
+       -y  palette.png                             \
+       && ffmpeg -ss $start_time                   \
+                 -t  $duration                               \
+                 -i  "$vid"                                  \
+                 -i  palette.png                             \
+                 -lavfi "$filters [x]; [x][1:v] paletteuse"  \
+                 -y  "$vid".gif                              \
+                             && rm palette.png 
+
+[ $(command -v gifsicle) ] || exit 0
+gifsicle -O3 --lossy=35 -o "$vid"-opz.gif "$vid".gif

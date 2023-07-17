@@ -1,6 +1,7 @@
 apache-tools
 arc-gtk-theme-eos
 autojump
+autokey-gtk
 awesome-git
 brave-bin
 cava
@@ -18,6 +19,7 @@ eos-packagelist
 eos-qogir-icons
 eos-quickstart
 eos-rankmirrors
+eyedropper
 fastfetch
 flat-remix-git
 flat-remix-gtk

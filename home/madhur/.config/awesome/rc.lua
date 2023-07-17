@@ -91,7 +91,7 @@ awful.util.tagnames = {"  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "
 
 local bling = require("bling")
 local layouts = {
-    madhur.layout.tallmagnified, -- awesome.layout.suit.tile
+    madhur.layout.max, -- awesome.layout.suit.tile
     bling.layout.mstab,
     madhur.layout.tallmagnified,
     madhur.layout.threecolmid,           -- bling.layouts.centered

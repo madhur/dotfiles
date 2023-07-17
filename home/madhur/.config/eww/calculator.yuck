@@ -1,5 +1,5 @@
 
-(defvar result 50)
+(defvar result 0)
 
 (defwidget calculator []
   (box :orientation "v"

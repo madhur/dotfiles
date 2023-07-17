@@ -4,6 +4,7 @@ Randomize Wallpaper,feh  --randomize --bg-fill "/home/madhur/Pictures/wallpapers
 ^sep()
 
 Terminal,kitty,utilities-terminal
+Connect VPN, "/home/madhur/company/connect_vpn.sh"
 Sxhkd,sxhkd
 #Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
 Picom, /home/madhur/.config/picom/launch.sh

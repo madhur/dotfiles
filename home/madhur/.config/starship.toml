@@ -1,11 +1,16 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Timeout for starship to scan files (in milliseconds)
+scan_timeout = 30
+
 # Inserts a blank line between shell prompts
 add_newline = true
 
 format = """
 $directory\
 $git_branch\
+$git_commit\
+$git_state\
 $git_status\
 $docker_context\
 $package\
@@ -13,11 +18,15 @@ $helm\
 $java\
 $nodejs\
 $python\
-$go\
+$golang\
+$ruby\
+$rust\
 $aws\
 $custom\
+$env_var\
 $cmd_duration\
 $line_break\
+$jobs\
 $status\
 $character"""
 
@@ -25,8 +34,11 @@ right_format = """$kubernetes"""
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[x](bold red)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+#success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+#error_symbol = "[x](bold red)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+success_symbol = "[](bold green)"
+error_symbol = "[x](bold red)"
+vicmd_symbol = "[❮](bold green)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -36,22 +48,38 @@ disabled = true
 disabled = false
 #format = 'on [⛵ ($cluster in )$context \($namespace\)](dimmed green) '
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
+symbol = "☸ "
 
 [java]
 format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+style = "red dimmed"
 
 [cmd_duration]
 format = '\[[⏱ $duration]($style)\]'
+min_time = 2_000
+show_milliseconds = false
+style = "yellow bold"
+show_notifications = false
+min_time_to_notify = 45_000
 
 [nodejs]
 format = '\[[$symbol($version)]($style)\]'
+disabled = false
+#symbol = " "
+style = "bold green"
 
 [ruby]
 format = '\[[$symbol($version)]($style)\]'
+#symbol = " "
+style = "bold red"
 
 [rust]
 format = '\[[$symbol($version)]($style)\]'
-disabled=true
+disabled = false
+#format = "via [$symbol$version]($style) "
+symbol = " "
+style = "bold red"
 
 [aws]
 disabled = true
@@ -61,22 +89,111 @@ disabled = true
 disabled=true
 
 [git_status]
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-format = '([\[$all_status$ahead_behind\]]($style))'
+disabled = false
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "red bold"
+stashed = '\$'
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+conflicted = "="
+deleted = "✘"
+renamed = "»"
+modified = "!"
+staged = "+"
+untracked = "?"
 
 
 [directory]
 truncation_length = 100
 truncate_to_repo=false
+disabled = false
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "cyan bold"
+read_only = ""
+read_only_style = "red"
+truncation_symbol = ""
 
 [git_branch]
 format="[$symbol$branch(:$remote_branch)]($style) "
+disabled = false
+#format = "on [$symbol$branch]($style) "
+symbol = " "
+style = "bold purple"
+# truncation_length = 7 # default = 2^63 - 1
+truncation_symbol = "…"
 
 
 [python]
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+symbol = " "
 
 [golang]
-format = 'via [$symbol($version )($mod_version )]($style)'
+format = '[$symbol($version )($mod_version )]($style)'
+symbol = " "
+style = "bold cyan"
+disabled = false
+
+
+[docker_context]
+disabled = false
+symbol = " "
+style = "blue bold"
+format = "via [$symbol$context]($style) "
+only_with_files = true
+
+[env_var]
+disabled = false
+symbol = ""
+style = "black bold dimmed"
+# variable = ""
+# default = ""
+format = "with [$env_value]($style) "
+
+
+[git_commit]
+disabled = false
+commit_hash_length = 7
+format = '[\($hash\)]($style) '
+style = "green bold"
+only_detached = true
+
+[git_state]
+disabled = false
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style = "bold yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[status]
+disabled = true
+format = "[$symbol$status]($style) "
+symbol = "✖"
+style = "bold red"
+
+[terraform]
+disabled = false
+format = "via [$symbol$workspace]($style) "
+symbol = "ﰉ "
+style = "bold 105"
+
+[memory_usage]
+disabled = true
+threshold = 75
+format = "via $symbol[$ram( | $swap)]($style) "
+style = "white bold dimmed"
+symbol = " "
+
+[jobs]
+disabled = false
+threshold = 1
+format = "[$symbol$number]($style) "
+symbol = "✦"
+style = "bold blue"

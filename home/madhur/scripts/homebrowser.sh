@@ -1,0 +1,1 @@
+rofi -show file-browser-extended -file-browser-depth 2 -file-browser-show-hidden  -file-browser-only-dirs  -file-browser-dir /home/madhur/ -file-browser-no-descend -file-browser-exclude ".git"  -file-browser-exclude "github"  -file-browser-exclude ".cache"  -hover-select -me-select-entry '' -me-accept-entry MousePrimary

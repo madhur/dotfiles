@@ -111,7 +111,9 @@ local globalkeys =
     awful.key(
         {modkey},
         "Tab",
-        awful.tag.history.restore,
+        function()
+             awful.tag.history.restore()
+        end,
         {
             description = "go back",
             group = "tag"
@@ -347,7 +349,15 @@ local globalkeys =
         {altkey},
         "Tab",
         function(_)
-            awful.client.focus.byidx(1)
+            if #awful.screen.focused().clients > 2 then
+                awful.spawn.easy_async_with_shell("/home/madhur/scripts/alt_tab.sh", function(stdout, stderr, reason, exit_code)
+                
+                end)
+
+            else
+                awful.client.focus.byidx(1)
+            end
+            
         end,
         {
             description = "cycle through clients",

@@ -1,0 +1,1 @@
+rofi -show window -hover-select -me-select-entry '' -me-accept-entry MousePrimary -config ~/.config/rofi/alt_tab.rasi

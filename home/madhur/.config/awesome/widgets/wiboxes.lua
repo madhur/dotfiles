@@ -376,7 +376,7 @@ end)
 local jgmenu_right_click = wibox.widget {
     resize = true,
     widget = wibox.widget.imagebox,
-    forced_width = 3000
+    forced_width = 300
 }
 
 jgmenu_right_click:connect_signal("button::press", function(_, _, _, button)
@@ -425,9 +425,10 @@ pl(volume_widget, "true", "volume");
 local right_widgets = {
     -- Right widgets
     layout = wibox.layout.fixed.horizontal,
-    pl(clock, true, "calendar"),
+   
     -- pl(mytasklist),
     -- pl(cpu.widget, true, "cpu"),
+    jgmenu_right_click,
     pl(cpu_widget({
         width = 70,
         step_width = 2,
@@ -505,6 +506,7 @@ function wiboxes.get(s)
     -- Add widgets to the wibox
     mywibox:setup{
         layout = wibox.layout.align.horizontal,
+        expand = "none",
         -- {
         --     widget = wibox.container.background,
         --     bg = "#1a1b26",
@@ -515,7 +517,8 @@ function wiboxes.get(s)
             layout = wibox.layout.align.horizontal,
             expand = "none",
             nil,
-            jgmenu_right_click
+             pl(clock, true, "calendar"),
+           -- jgmenu_right_click
         },
         right_widgets
 
