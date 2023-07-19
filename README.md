@@ -15,7 +15,7 @@
 * [Xsettingsd](https://codeberg.org/derat/xsettingsd)
 
 
-Rofi:
+dmenu:
 <div style="float:left">
 <img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/rofi.png />
 </div>
@@ -37,7 +37,7 @@ Hotkey popup widget:
 
 <div style="float:clear"></div>
 
-Calendar and menu:
+Calendar and right click menu:
 <div style="float:left">
 <img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/jgmenu.png />
 </div>
