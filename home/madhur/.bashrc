@@ -98,3 +98,6 @@ source ~/.aliases
 source ~/.functions
 
 [[ -s "/home/madhur/.gvm/scripts/gvm" ]] && source "/home/madhur/.gvm/scripts/gvm"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

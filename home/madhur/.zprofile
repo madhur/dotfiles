@@ -1,6 +1,6 @@
 
 # Get the aliases and functions
-PATH="$HOME/.local/bin:$HOME/bin:$HOME/scripts:$HOME/company:$PATH"
+PATH="$HOME/.local/bin:$HOME/bin:$HOME/scripts:$HOME/company:/home/madhur/.gem/ruby/3.0.0/bin:$PATH"
 export PATH
 #eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 

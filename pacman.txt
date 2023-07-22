@@ -15,10 +15,10 @@ archlinux-keyring
 archlinux-xdg-menu
 asciidoc
 asciidoctor
+atuin
 audacious
 autoconf
 automake
-awesome-terminal-fonts
 aws-cli
 b43-fwcutter
 base
@@ -106,7 +106,6 @@ gst-libav
 gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-ugly
-gthumb
 gtk-engine-murrine
 gutenprint
 gvfs
@@ -189,7 +188,6 @@ newsboat
 nfs-utils
 nginx
 nilfs-utils
-nitrogen
 nmap
 nnn
 noto-fonts
@@ -235,7 +233,6 @@ python-capng
 python-contourpy
 python-cycler
 python-defusedxml
-python-fonttools
 python-imagesize
 python-kiwisolver
 python-matplotlib
@@ -318,7 +315,6 @@ vim
 virtualbox
 vpnc
 vulkan-tools
-waybar
 wayland-protocols
 wget
 which

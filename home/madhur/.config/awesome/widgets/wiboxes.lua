@@ -16,7 +16,6 @@ local wiboxes = {}
 
 local clock = awful.widget.watch("date +'%a %d %b %R'", 60, function(widget, stdout)
     widget:set_markup(" " .. markup.font(beautiful.font, " " .. stdout))
-    -- awesome.emit_signal("normal", "calendar")
 end)
 
 local cw = calendar_widget({
@@ -26,10 +25,11 @@ local cw = calendar_widget({
     radius = 0
 })
 
+
 clock:buttons(awful.util.table.join(awful.button({}, 1, function()
     -- cw.toggle()
     awful.spawn.easy_async_with_shell("eww open calendar --toggle", function(stdout, stderr, reason, exit_code)
-       
+
     end)
 
 end), awful.button({}, 3, function()
@@ -320,37 +320,95 @@ end
 
 local widget_types = {}
 
-local function pl(widget, reverse, widget_type)
-    local color = nil
-    if reverse then
-        -- color = theme.darker
-        color = beautiful.dark
-    else
-        color = beautiful.dark
+-- generic function to apply background / forecolor on widget, the widget is expected to be wrapped in wibox.container.background, so that just bg and fg properties can be altered.
+-- otherwise, each widget has its own way to set bg/ fg
+local function styleWidget(background_container_widget, widget_type, background_color, foreground_color, normalize, warning_critical)
+
+    -- normalize property is expected to be passed from when widgets is being changed from warning / critical signal to normal, so that it can restore back to default state
+    if normalize then
+        background_color = beautiful.darker
+        foreground_color = beautiful.fg_normal
     end
 
-    -- local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), color, powerline_rl)
-    local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), nil, powerline_rl)
+    -- widget specific overrides, for default scenarios only.
+    -- warning / critical styles are global for now
+
+    if warning_critical == nil or warning_critical == false then
+        if widget_type == "calendar" then
+            background_color = beautiful.darker
+            foreground_color = "#94f7c5"
+        elseif widget_type == "mem" then
+            foreground_color = "#8cc1ff"
+        elseif widget_type == "cpu_widget" then
+            foreground_color = "#f28fad"
+
+        elseif widget_type == "cpufreq" then
+            foreground_color = "#f28fad"
+        elseif widget_type == "temp" then
+            foreground_color = "#f28fad"
+
+        elseif widget_type == "gpu" then
+            foreground_color = "#94f7c5"
+
+        elseif widget_type == "fs" then
+            foreground_color = "#e2a6ff"
+        elseif widget_type == "net_new" then
+            foreground_color = "#90daff"
+        elseif widget_type == "volume_new" then
+            foreground_color = "#ffeba6"
+        elseif widget_type == "uptime" then
+            foreground_color = "#fafdff"
+        end
+    end
+
+    -- we can change the bg / fg color in case of warning / critical if not passed from signal
+    if warning_critical then
+        foreground_color = beautiful.darker
+    end
+    -- if the properties are nil, the child widget will retain its background / foreground property. Useful when we dont want to override
+    if background_color then
+        background_container_widget.bg = background_color
+    end
+
+    if foreground_color then
+        background_container_widget.fg = foreground_color
+    end
+
+end
+
+local function pl(widget, reverse, widget_type)
+    -- Uncomment below to have alternating background colors
+    -- if reverse then
+    --      color = beautiful.darker
+    -- else
+    --     color = beautiful.dark
+    -- end
+
+    -- Uncomment to enable powerline
+    -- local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), background_color, powerline_rl)
+    local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), nil, nil)
+    styleWidget(finalWidget, widget_type, background_color, foreground_color, true)
+
+    -- Add margin if required
+    local fw = wibox.container.margin(finalWidget, 0, 0, 0, 0)
+    
+    -- we do not pass fw to widget_types because signal manipulators manipulate bg / bg which are only available on background widget
     if widget_type then
         widget_types[widget_type] = finalWidget
     end
-    return finalWidget
+    return fw
 end
 
 awesome.connect_signal("warning", function(widget_type)
     -- helpers.debug(widget_type.."warning")
-    -- widget_types[widget_type].bg = beautiful.warning_bg
-    -- widget_types[widget_type].fg = beautiful.warning_fg
-    widget_types[widget_type].fg = beautiful.warning_bg
+    styleWidget(widget_types[widget_type], widget_type, beautiful.warning_bg, nil, false, true)
     if awful.util.smart_wibar_hide then
         widget_types[widget_type].visible = true
     end
 end)
 awesome.connect_signal("critical", function(widget_type)
     -- helpers.debug(widget_type.."critical")
-    -- widget_types[widget_type].bg = beautiful.critical_bg
-    -- widget_types[widget_type].fg = beautiful.critical_fg
-    widget_types[widget_type].fg = beautiful.critical_bg
+    styleWidget(widget_types[widget_type], widget_type, beautiful.critical_bg, nil, false, true)
     if awful.util.smart_wibar_hide then
         widget_types[widget_type].visible = true
     end
@@ -358,13 +416,12 @@ end)
 
 awesome.connect_signal("normal", function(widget_type)
     -- helpers.debug(widget_type.."normal")
-    -- widget_types[widget_type].bg = beautiful.dark
     if not widget_types[widget_type] then
         return
     end
 
-    widget_types[widget_type].bg = nil
-    widget_types[widget_type].fg = beautiful.fg_normal
+    styleWidget(widget_types[widget_type], widget_type, nil, nil, true, false)
+
     if awful.util.smart_wibar_hide then
         widget_types[widget_type].visible = false
     else
@@ -397,6 +454,7 @@ awesome_icon:connect_signal("button::press", function(_, _, _, button)
     end
 end)
 
+-- Uncomment belwo to have prompt on wibar
 -- local myprompt = awful.widget.prompt {
 --     prompt = 'Execute: ',
 --     with_shell = true,
@@ -425,10 +483,10 @@ pl(volume_widget, "true", "volume");
 local right_widgets = {
     -- Right widgets
     layout = wibox.layout.fixed.horizontal,
-   
+
     -- pl(mytasklist),
     -- pl(cpu.widget, true, "cpu"),
-    jgmenu_right_click,
+    -- jgmenu_right_click,
     pl(cpu_widget({
         width = 70,
         step_width = 2,
@@ -438,7 +496,7 @@ local right_widgets = {
     pl(cpufreqwidget.widget, true, "cpufreq"),
     pl(temp_madhur.widget, false, "temp"),
     pl(mem.widget, true, "mem"),
-    pl(mygpu.widget, false, "gpu"),
+    --pl(mygpu.widget, false, "gpu"),
     pl(fs.widget, true, "fs"),
     -- pl(net.widget, false, "net"),
     pl(net_widget, true, "net_new"),
@@ -455,7 +513,7 @@ local right_widgets = {
     -- pl(g50ad0, true, "g50ad0"),
     pl(edd7b0, true, "edd7b0"),
     pl(notification, true, "notification"),
-    pl(switchtag, true, "switchtag"),
+    --  pl(switchtag, true, "switchtag"),
     pl(pacman_widget {
         interval = 600, -- Refresh every 10 minutes
         popup_bg_color = '#222222',
@@ -477,7 +535,7 @@ function wiboxes.get(s)
         screen = s,
         height = 30,
         bg = "#1a1b26aa",
-        fg = beautiful.fg_normal,
+        -- fg = beautiful.fg_normal,
         ontop = false
     })
 
@@ -517,8 +575,8 @@ function wiboxes.get(s)
             layout = wibox.layout.align.horizontal,
             expand = "none",
             nil,
-             pl(clock, true, "calendar"),
-           -- jgmenu_right_click
+            pl(clock, true, "calendar")
+            -- jgmenu_right_click
         },
         right_widgets
 

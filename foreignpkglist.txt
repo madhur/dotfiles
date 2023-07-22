@@ -1,6 +1,5 @@
 apache-tools
 arc-gtk-theme-eos
-autojump
 autokey-gtk
 awesome-git
 brave-bin

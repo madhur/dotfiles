@@ -135,7 +135,7 @@ awful.screen.connect_for_each_screen(
         -- Setup rules, which will set client keys as well
         awful.rules.rules = require("rules.client_rules")
         awful.screen.focused().tags[2].master_count = 0
-        awful.util.smart_wibar_hide = true
+        awful.util.smart_wibar_hide = false
         awful.util.expanded = true
         --beautiful.at_screen_connect(s)
         s.mywibox = require("widgets.wiboxes").get(s)

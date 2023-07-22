@@ -36,8 +36,8 @@ right_format = """$kubernetes"""
 [character] # The name of the module we are configuring is "character"
 #success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 #error_symbol = "[x](bold red)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
-success_symbol = "[](bold green)"
-error_symbol = "[x](bold red)"
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
 vicmd_symbol = "[❮](bold green)"
 
 # Disable the package module, hiding it from the prompt completely

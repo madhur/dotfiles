@@ -80,7 +80,7 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib64/pkgconfig:/usr/local/li
 ##
 
 ## More paths
-export PATH=$HOME/etcd:/usr/local/vitess/bin:${PATH}
+export PATH=$HOME/etcd:/usr/local/vitess/bin:/home/madhur/.gem/ruby/3.0.0/bin:${PATH}
 
 ## Tiling window manager
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -145,3 +145,6 @@ colorscript random
 export EDITOR=micro
 [[ -s "/home/madhur/.gvm/scripts/gvm" ]] && source "/home/madhur/.gvm/scripts/gvm"
 eval "$(zoxide init zsh)"
+
+#eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
