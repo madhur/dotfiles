@@ -51,6 +51,7 @@ trayer-srg-git
 visual-studio-code-bin
 wlroots-git
 wscat
+xcolorsel
 xcursor-simp1e-tokyo-night
 xfce-polkit
 xqp

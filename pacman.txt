@@ -209,6 +209,7 @@ pacman-contrib
 papirus-icon-theme
 patch
 pavucontrol
+pdftk
 perl
 perl-rename
 pigz
@@ -292,6 +293,7 @@ the_silver_searcher
 thunar
 thunar-archive-plugin
 thunar-volman
+tig
 tldr
 tmux
 ttf-bitstream-vera
@@ -343,6 +345,7 @@ xorg-xinit
 xorg-xinput
 xorg-xkill
 xorg-xrandr
+xorg-xsetroot
 xsane
 xscreensaver
 xsel

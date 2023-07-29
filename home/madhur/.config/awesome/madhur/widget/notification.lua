@@ -36,12 +36,12 @@ local function factory(args)
     function notification.update()
         widget = notification.widget
         if naughty.suspended then
-            result = " "
+            result = "  "
         else
-            result = " "
+            result = "  "
         end
         if naughty.expiration_paused then
-            result = result .. " "
+            result = result .. ""
         end
         --awesome.emit_signal("normal", "notification")
         settings()

@@ -3,7 +3,7 @@ WINDOW MANAGER || TMUX || Kitty
 
 ALT + ` | Enable Magnifier | c | create window | CTRL + SHIFT + ENTER | Split pane
 CTRL + Escape  | Toggle wibar widgets | f | find window | CTRL + SHIFT + t | New Tab
-SUPER + t | Make tiled | n | next window | CTRL + SHIFT + w | Close Tab / Pane
+ALT + Escape| Hide right wibar | n | next window | CTRL + SHIFT + w | Close Tab / Pane
 SUPER + Esc | Toggle wibar | p | previous window | CTRL + SHIFT + k | Clear scrollback
 SUPER + SHIFT + m | Move to Master | , | rename current window | CTRL + f | Launch fzf
 SUPER + e | Switch to Tall | " | Split pane horizontally | CTRL + a | Copy scrollback

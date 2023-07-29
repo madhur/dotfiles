@@ -29,15 +29,6 @@ local function worker(user_args)
 
     pacman_widget = wibox.widget {
         {
-            {
-                id = "icon",
-                resize = false,
-                widget = wibox.widget.imagebox,
-            },
-            valign = "center",
-            layout = wibox.container.place,
-        },
-        {
             id = "txt",
             font = args.font,
             widget = wibox.widget.textbox
@@ -46,10 +37,10 @@ local function worker(user_args)
         layout = wibox.layout.fixed.horizontal,
     }
     function pacman_widget.set(new_value)
-        pacman_widget:get_children_by_id("txt")[1]:set_text(new_value)
-        pacman_widget:get_children_by_id("icon")[1]:set_image(
-            ICON_DIR .. (tonumber(new_value) > 0 and "pacman" or "pacman-full") .. ".svg"
-        )
+        pacman_widget:get_children_by_id("txt")[1]:set_text("  "..new_value)
+        -- pacman_widget:get_children_by_id("icon")[1]:set_image(
+        --     ICON_DIR .. (tonumber(new_value) > 0 and "pacman" or "pacman-full") .. ".svg"
+        -- )
     end
 
     local rows, ptr = wibox.layout.fixed.vertical(), 0
@@ -197,9 +188,9 @@ local function worker(user_args)
                 right = 20,
                 layout = wibox.container.margin
             }
-            if #upgrades_tbl == 0 then
+            if #upgrades_tbl < 10 then
                 awesome.emit_signal("normal", "pacman")
-            elseif #upgrades_tbl< 10 then
+            elseif #upgrades_tbl< 50 then
                 awesome.emit_signal("warning", "pacman")
             else
                 awesome.emit_signal("critical", "pacman")

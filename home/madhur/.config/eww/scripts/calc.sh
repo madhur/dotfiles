@@ -1,10 +1,9 @@
-input=$@
-echo $input
+input="$*"
 res=$(calc "$input")
+echo $res
 if [ $? -eq 0 ] 
 then 
-    result=$(echo $res | sed -e 's/^[[:space:]]*//')
-    eww update result="$result"
+    eww update result="$res"
 else 
   exit 0
 fi

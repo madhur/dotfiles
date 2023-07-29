@@ -25,7 +25,6 @@ local cw = calendar_widget({
     radius = 0
 })
 
-
 clock:buttons(awful.util.table.join(awful.button({}, 1, function()
     -- cw.toggle()
     awful.spawn.easy_async_with_shell("eww open calendar --toggle", function(stdout, stderr, reason, exit_code)
@@ -106,11 +105,13 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 -- local cpufreqwidget = wibox.widget.textbox()
 -- vicious.register(cpufreqwidget, vicious.widgets.cpufreq, "$2 Ghz $5 ", 2, "cpu0")
-local cpufreqwidget = madhur.widget.cpufreq({
-    settings = function()
-        widget:set_markup(markup.font(beautiful.font, governor .. " " .. freqv.ghz .. "Ghz "))
-    end
-})
+-- local cpufreqwidget = madhur.widget.cpufreq({
+--     settings = function()
+--         widget:set_markup(markup.font(beautiful.font, governor .. " " .. freqv.ghz .. "Ghz "))
+--     end
+-- })
+
+-- 
 
 local uptime_widget_madhur = madhur.widget.uptime({
     settings = function()
@@ -139,12 +140,6 @@ end), awful.button({}, 3, function()
     awful.spawn.with_shell("~/scripts/performance.sh")
 end)))
 
-cpufreqwidget.widget:buttons(awful.util.table.join(awful.button({}, 1, function()
-    awful.spawn.with_shell("~/scripts/powersave.sh")
-end), awful.button({}, 3, function()
-    awful.spawn.with_shell("~/scripts/performance.sh")
-end)))
-
 local notification = madhur.widget.notification({
     settings = function()
         widget:set_markup(markup.font(beautiful.font, result))
@@ -166,7 +161,6 @@ local fs = lain.widget.fs({
 -- ]]
 
 local net_widget = net_speed_widget()
-
 net_widget:buttons(awful.util.table.join(awful.button({}, 1, function()
     -- left click
     awful.spawn.easy_async_with_shell(
@@ -285,11 +279,13 @@ end)))
 --     }
 -- )
 
+-- simple vertical separator widget
 local spr = wibox.widget {
     markup = "<span font='JetBrains Mono Nerd Font 12'>|</span>",
     widget = wibox.widget.textbox
 }
 
+-- A transparent separataor widget with width of 10 pixels
 local hr_spr = wibox.widget {
     color = "#000000",
     thickness = 2,
@@ -322,7 +318,8 @@ local widget_types = {}
 
 -- generic function to apply background / forecolor on widget, the widget is expected to be wrapped in wibox.container.background, so that just bg and fg properties can be altered.
 -- otherwise, each widget has its own way to set bg/ fg
-local function styleWidget(background_container_widget, widget_type, background_color, foreground_color, normalize, warning_critical)
+local function styleWidget(background_container_widget, widget_type, background_color, foreground_color, normalize,
+    warning_critical)
 
     -- normalize property is expected to be passed from when widgets is being changed from warning / critical signal to normal, so that it can restore back to default state
     if normalize then
@@ -332,20 +329,22 @@ local function styleWidget(background_container_widget, widget_type, background_
 
     -- widget specific overrides, for default scenarios only.
     -- warning / critical styles are global for now
-
     if warning_critical == nil or warning_critical == false then
         if widget_type == "calendar" then
-            background_color = beautiful.darker
-            foreground_color = "#94f7c5"
+            background_color = "#11161b"
+            -- foreground_color = "#94f7c5"
+            foreground_color = "#85dfa8"
         elseif widget_type == "mem" then
-            foreground_color = "#8cc1ff"
+            --foreground_color = "#8cc1ff"
+            foreground_color = "#297639"
         elseif widget_type == "cpu_widget" then
-            foreground_color = "#f28fad"
+            --foreground_color = "#f46521"
+            foreground_color = "#f06a2b"
 
         elseif widget_type == "cpufreq" then
-            foreground_color = "#f28fad"
+            foreground_color = "#f06a2b"
         elseif widget_type == "temp" then
-            foreground_color = "#f28fad"
+            foreground_color = "#f06a2b"
 
         elseif widget_type == "gpu" then
             foreground_color = "#94f7c5"
@@ -357,7 +356,9 @@ local function styleWidget(background_container_widget, widget_type, background_
         elseif widget_type == "volume_new" then
             foreground_color = "#ffeba6"
         elseif widget_type == "uptime" then
-            foreground_color = "#fafdff"
+            foreground_color = "#85dfa8"
+        elseif widget_type == "pacman" then
+            foreground_color = "#1793d1"
         end
     end
 
@@ -387,11 +388,27 @@ local function pl(widget, reverse, widget_type)
     -- Uncomment to enable powerline
     -- local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), background_color, powerline_rl)
     local finalWidget = wibox.container.background(wibox.container.margin(widget, 16, 16), nil, nil)
-    styleWidget(finalWidget, widget_type, background_color, foreground_color, true)
+    styleWidget(finalWidget, widget_type, nil, nil, true)
+
+    local tempWidget = wibox.widget {
+
+        finalWidget,
+        {
+            id = "top_border",
+            widget = wibox.widget.separator,
+            forced_height = 2,
+            thickness = 2,
+            forced_width = 80,
+            orientation = "horizontal",
+            color = finalWidget.fg
+        },
+        layout = wibox.layout.fixed.vertical
+    }
 
     -- Add margin if required
-    local fw = wibox.container.margin(finalWidget, 0, 0, 0, 0)
-    
+    -- local fw = finalWidget
+    local fw = wibox.container.margin(finalWidget, 10, 10, 0, 0)
+
     -- we do not pass fw to widget_types because signal manipulators manipulate bg / bg which are only available on background widget
     if widget_type then
         widget_types[widget_type] = finalWidget
@@ -493,10 +510,10 @@ local right_widgets = {
         step_spacing = 0,
         color = '#434c5e'
     }), true, "cpu_widget"),
-    pl(cpufreqwidget.widget, true, "cpufreq"),
+    -- pl(cpufreqwidget.widget, true, "cpufreq"),
     pl(temp_madhur.widget, false, "temp"),
     pl(mem.widget, true, "mem"),
-    --pl(mygpu.widget, false, "gpu"),
+    -- pl(mygpu.widget, false, "gpu"),
     pl(fs.widget, true, "fs"),
     -- pl(net.widget, false, "net"),
     pl(net_widget, true, "net_new"),
@@ -511,7 +528,7 @@ local right_widgets = {
 
     pl(pactl_widget, "true", "volume_new"),
     -- pl(g50ad0, true, "g50ad0"),
-    pl(edd7b0, true, "edd7b0"),
+   -- pl(edd7b0, true, "edd7b0"),
     pl(notification, true, "notification"),
     --  pl(switchtag, true, "switchtag"),
     pl(pacman_widget {
