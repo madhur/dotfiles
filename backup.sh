@@ -5,7 +5,8 @@ dfolder=$HOME/github/personal/dotfiles/home/madhur
 # guake is deprecated
 #guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
 
-cp ~/.config/conky/* $dfolder/.config/conky/
+rsync -avh --delete --exclude='.git/,.vscode' --exclude='.vscode/' ~/.config/conky $dfolder/.config/
+#cp ~/.config/conky/* $dfolder/.config/conky/
 #cp -r ~/.config/dunst $dfolder/.config/
 #cp -r ~/.config/gsimplecal $dfolder/.config/
 cp -r ~/.config/gtk-{2,3,4}.0 $dfolder/.config/
@@ -14,9 +15,10 @@ cp -r ~/.config/gtk-{2,3,4}.0 $dfolder/.config/
 cp  ~/.config/jgmenu/* $dfolder/.config/jgmenu/
 cp  ~/.config/cava/* $dfolder/.config/cava/
 cp  ~/.config/zathura/* $dfolder/.config/zathura/
-cp  ~/.config/viewnior/* $dfolder/.config/viewnior/
+#cp  ~/.config/viewnior/* $dfolder/.config/viewnior/
 cp  ~/.config/micro/* $dfolder/.config/micro/
-cp -r ~/.config/eg/ $dfolder/.config/
+rsync -avh --delete --exclude='.git/' ~/.config/eg $dfolder/.config/
+#cp -r ~/.config/eg/ $dfolder/.config/
 cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
 cp -r ~/.config/neofetch $dfolder/.config/
@@ -27,12 +29,14 @@ rsync -avh --delete --exclude='.git/' ~/.config/xmonad $dfolder/.config/
 #cp -r ~/.config/awesome $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/awesome $dfolder/.config/
 cp -r ~/.config/qtile $dfolder/.config/
-cp -r ~/.config/systemd $dfolder/.config/
+rsync -avh --delete --exclude='.git/' ~/.config/systemd $dfolder/.config/
+#cp -r ~/.config/systemd $dfolder/.config/
 # do not want rofi subfolder themes
 rsync -avh --delete --exclude='.git/' ~/.config/rofi $dfolder/.config/
 #cp ~/.config/rofi/* $dfolder/.config/rofi/
 cp -r ~/.config/sxhkd $dfolder/.config/
-cp -r ~/.config/eww $dfolder/.config/
+rsync -avh --delete --exclude='.git/' ~/.config/eww $dfolder/.config/
+#cp -r ~/.config/eww $dfolder/.config/
 cp -r ~/.config/qimgv $dfolder/.config/
 cp -r ~/.config/ripgrep $dfolder/.config/
 cp -r ~/.config/bat $dfolder/.config/
