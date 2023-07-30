@@ -5,7 +5,7 @@ dfolder=$HOME/github/personal/dotfiles/home/madhur
 # guake is deprecated
 #guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
 
-rsync -avh --delete --exclude='.git/,.vscode' --exclude='.vscode/' ~/.config/conky $dfolder/.config/
+rsync -avh --delete --exclude='.git/' ~/.config/conky $dfolder/.config/
 #cp ~/.config/conky/* $dfolder/.config/conky/
 #cp -r ~/.config/dunst $dfolder/.config/
 #cp -r ~/.config/gsimplecal $dfolder/.config/
