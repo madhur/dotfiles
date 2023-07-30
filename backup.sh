@@ -29,7 +29,8 @@ rsync -avh --delete --exclude='.git/' ~/.config/awesome $dfolder/.config/
 cp -r ~/.config/qtile $dfolder/.config/
 cp -r ~/.config/systemd $dfolder/.config/
 # do not want rofi subfolder themes
-cp ~/.config/rofi/* $dfolder/.config/rofi/
+rsync -avh --delete --exclude='.git/' ~/.config/rofi $dfolder/.config/
+#cp ~/.config/rofi/* $dfolder/.config/rofi/
 cp -r ~/.config/sxhkd $dfolder/.config/
 cp -r ~/.config/eww $dfolder/.config/
 cp -r ~/.config/qimgv $dfolder/.config/
