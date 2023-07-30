@@ -1,9 +1,9 @@
 [Default Applications]
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
+text/html=browser.desktop
+x-scheme-handler/http=browser.desktop
+x-scheme-handler/https=browser.desktop
+x-scheme-handler/about=browser.desktop
+x-scheme-handler/unknown=browser.desktop
 application/x-zerosize=xed.desktop
 x-scheme-handler/mailto=brave-browser.desktop
 image/bmp=gpicview.desktop
@@ -30,7 +30,7 @@ application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 text/plain=code.desktop;visual-studio-code.desktop;
 text/x-lua=code.desktop;
 text/html=code.desktop;
-image/jpeg=viewnior.desktop;feh.desktop;
+image/jpeg=qimgv.desktop;viewnior.desktop;feh.desktop;
 application/json=code.desktop;
 image/png=qimgv.desktop;gpicview.desktop;viewnior.desktop;
 application/sql=code.desktop;

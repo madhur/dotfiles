@@ -93,6 +93,7 @@ gettext
 ghostscript
 git
 git-delta
+gitui
 glances
 glava
 globalprotect-openconnect
@@ -308,6 +309,7 @@ tumbler
 unrar
 unzip
 upower
+urlwatch
 usb_modeswitch
 usbutils
 uthash

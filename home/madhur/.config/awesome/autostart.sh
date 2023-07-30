@@ -12,7 +12,7 @@ run() {
 }
 
 #sleep 5
-#run feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
+xbgdump ||  feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
 run sxhkd
 run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf
 run picom --config ~/.config/picom/picom.conf -b

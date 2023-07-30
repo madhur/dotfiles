@@ -7,7 +7,7 @@ ALT + Escape| Hide right wibar | n | next window | CTRL + SHIFT + w | Close Tab 
 SUPER + Esc | Toggle wibar | p | previous window | CTRL + SHIFT + k | Clear scrollback
 SUPER + SHIFT + m | Move to Master | , | rename current window | CTRL + f | Launch fzf
 SUPER + e | Switch to Tall | " | Split pane horizontally | CTRL + a | Copy scrollback
-SUPER + w | Switch to Tab | % | Split pane vertically | CTRL + SHIFT + +/- | Zoom
+SUPER + w | Switch to Tab | % | Split pane vertically | CTRL + SHIFT + +/-/0 | Set font sizes
 SUPER  + h/l | Resize master width factor | space | Toggle between layouts | CTRL + SHIFT + c | Copy
 SUPER + CTRL + Up/Down | Inc/Dec num masters | CTRL + s | Synchronize Panes | CTRL + SHIFT + v | Paste
 CTRL + Tab | Switch current/old tags | x | Close current pane | CTRL + SHIFT + F5 | Reload Config
@@ -16,7 +16,7 @@ ALT + Left/Right | Go to left tag | | | CTRL + SHIFT + f | Stack Layout
 ALT + Right | Go to right tag | | | CTRL + SHIFT + [ | Previous Window
 SUPER + Shift + Left/Right | Switch position of clients | | | CTRL + SHIFT + ] | Next Window
 SUPER + g | Add conky gaps | | | F1 | Broadcast
-SUPER + SHIFT + a | Add titlebar
+SUPER + SHIFT + a | Add titlebar | | | CTRL + SHIFT + e | Search for urls
 SUPER + SHIFT + space | Make floating
 
 Apps

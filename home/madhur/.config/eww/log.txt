@@ -1,0 +1,72 @@
+2
+calc "2"
+"2"
+23
+calc "23"
+"23"
+233
+calc "233"
+"233"
+2334
+calc "2334"
+"2334"
+233
+calc "233"
+"233"
+23
+calc "23"
+"23"
+2
+calc "2"
+"2"
+2+
+calc "2+"
+"2+"
+2+2
+calc "2+2"
+"2+2"
+2
+calc "2"
+"2"
+2*
+calc "2*"
+"2*"
+2*3
+calc "2*3"
+"2*3"
+2*
+calc "2*"
+"2*"
+2
+calc "2"
+"2"
+
+calc ""
+""
+calculator.scss calculator.yuck calendar.scss calendar.yuck colors.scss eww.scss eww.yuck keys.txt log.txt powermenu.scss powermenu.yuck scripts variables.yuck
+calc "calculator.scss calculator.yuck calendar.scss calendar.yuck colors.scss eww.scss eww.yuck keys.txt log.txt powermenu.scss powermenu.yuck scripts variables.yuck"
+"calculator.scss calculator.yuck calendar.scss calendar.yuck colors.scss eww.scss eww.yuck keys.txt log.txt powermenu.scss powermenu.yuck scripts variables.yuck"
+
+calc ""
+""
+"2"
+"2+"
+"2+3"
+"2+"
+"2+4"
+"2+"
+"2"
+""
+"4"
+"4_"
+"4_2"
+"4_"
+"4"
+"4+"
+"4+2"
+"5"
+"5+"
+"5+2"
+"5"
+"5+"
+"5+2"
