@@ -31,6 +31,7 @@ cp -r ~/.config/systemd $dfolder/.config/
 cp ~/.config/rofi/* $dfolder/.config/rofi/
 cp -r ~/.config/sxhkd $dfolder/.config/
 cp -r ~/.config/eww $dfolder/.config/
+cp -r ~/.config/bat $dfolder/.config/
 cp -r ~/.config/starship.toml $dfolder/.config/
 cp -r ~/.config/redshift.conf $dfolder/.config/
 #cp -r ~/.config/betterlockscreenrc $dfolder/.config/
