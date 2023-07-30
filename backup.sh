@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 dfolder=$HOME/github/personal/dotfiles/home/madhur
+
+# guake is deprecated
 #guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
 
 cp ~/.config/conky/* $dfolder/.config/conky/
@@ -18,7 +20,6 @@ cp -r ~/.config/eg/ $dfolder/.config/
 cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
 cp -r ~/.config/neofetch $dfolder/.config/
-cp -r ~/.config/Thunar $dfolder/.config/
 cp -r ~/.config/picom $dfolder/.config/
 #cp -r ~/.config/polybar $dfolder/.config/
 #cp -r ~/.config/xmonad $dfolder/.config/
@@ -31,7 +32,11 @@ cp -r ~/.config/systemd $dfolder/.config/
 cp ~/.config/rofi/* $dfolder/.config/rofi/
 cp -r ~/.config/sxhkd $dfolder/.config/
 cp -r ~/.config/eww $dfolder/.config/
+cp -r ~/.config/qimgv $dfolder/.config/
+cp -r ~/.config/ripgrep $dfolder/.config/
 cp -r ~/.config/bat $dfolder/.config/
+cp -r ~/.config/btop $dfolder/.config/
+cp -r ~/.config/mpv $dfolder/.config/
 cp -r ~/.config/starship.toml $dfolder/.config/
 cp -r ~/.config/redshift.conf $dfolder/.config/
 #cp -r ~/.config/betterlockscreenrc $dfolder/.config/
@@ -39,7 +44,8 @@ cp -r ~/.cache/wal $dfolder/.cache/
 cp -r ~/.config/mimeapps.list $dfolder/.config/
 
 #tmux contain company data
-cp -r ~/tmux $dfolder/
+#tmux contains company data
+#cp -r ~/tmux $dfolder/
 
 #Scripts contain company data
 rsync -avh --delete  ~/scripts ./home/madhur/
