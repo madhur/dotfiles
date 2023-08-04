@@ -528,7 +528,7 @@ local right_widgets = {
 
     pl(pactl_widget, "true", "volume_new"),
     -- pl(g50ad0, true, "g50ad0"),
-   -- pl(edd7b0, true, "edd7b0"),
+    pl(edd7b0, true, "edd7b0"),
     pl(notification, true, "notification"),
     --  pl(switchtag, true, "switchtag"),
     pl(pacman_widget {

@@ -61,7 +61,6 @@ dunst
 e2fsprogs
 efibootmgr
 efitools
-emacs
 ethtool
 exa
 exfatprogs
