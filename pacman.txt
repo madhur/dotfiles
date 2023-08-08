@@ -98,6 +98,7 @@ glava
 globalprotect-openconnect
 gnome-video-effects
 gnu-netcat
+gobject-introspection
 grep
 groff
 grub
@@ -117,11 +118,13 @@ hey
 hplip
 htop
 httpie
+hugo
 hwdetect
 hwinfo
 i3-wm
 iftop
 inetutils
+inter-font
 inxi
 iotop
 iptables-nft
@@ -145,6 +148,7 @@ libretro-core-info
 libtool
 libwnck3
 libxcrypt-compat
+light
 lightdm
 lightdm-slick-greeter
 linux
@@ -179,6 +183,7 @@ nbd
 ncdu
 ndisc6
 neofetch
+neovim
 net-tools
 netctl
 network-manager-applet

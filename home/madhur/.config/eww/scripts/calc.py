@@ -4,6 +4,8 @@ import sys
 from subprocess import Popen
 import subprocess
 
+
+
 args = ' '.join(sys.argv[1:])+"\n"
 #print(args)
 p = Popen("bc", stdin=subprocess.PIPE, shell=True,  stdout=subprocess.PIPE, stderr=subprocess.PIPE)

@@ -364,42 +364,6 @@ local globalkeys =
             group = "layout"
         }
     ),
-    -- awful.key(
-    --     {modkey},
-    --     "r",
-    --     function(_)
-    --         awful.util.myprompt:run()
-    --     end,
-    --     {
-    --         description = "Run prompt",
-    --         group = "wibar"
-    --     }
-    -- ),
-    -- awful.key(
-    --     {modkey},
-    --     "r",
-    --     function()
-    --         awful.prompt.run(
-    --             {
-    --                 prompt       = "<b>Run: </b>",
-    --                 textbox = awful.util.text_box_prompt,
-    --                 history_path  = gfs.get_cache_dir() .. "/history",
-    --                 exe_callback = function(...)
-    --                     awful.spawn.easy_async(..., function(stdout, stderr, reason, exit_code)
-    --                         local textbox = awful.util.text_box_prompt
-    --                         if type(stdout) == "string" then
-    --                             textbox:set_text(stdout)
-    --                         end
-    --                     end)
-    --                 end
-    --             }
-    --         )
-    --     end,
-    --     {
-    --         description = "Run command in prompt",
-    --         group = "prompt"
-    --     }
-    -- ),
     awful.key(
         {modkey},
         "g",
@@ -437,7 +401,6 @@ local globalkeys =
         function()
             awful.util.spawn("amixer -D pulse sset Master 5%+", false)
             -- show_volume_notification()
-            awful.util.volume.update(nil, true)
             awful.util.volume_new:inc(5, true)
         end
     ),
@@ -447,7 +410,6 @@ local globalkeys =
         function()
             awful.util.spawn("amixer -D pulse sset Master 5%-", false)
             -- show_volume_notification()
-            awful.util.volume.update(nil, true)
             awful.util.volume_new:dec(5, true)
         end
     ),
@@ -457,7 +419,6 @@ local globalkeys =
         function()
             awful.util.spawn("amixer -D pulse sset Master toggle", false)
             -- show_volume_notification()
-            awful.util.volume.update(nil, true)
             awful.util.volume_new:toggle(true)
         end
     )
@@ -553,16 +514,4 @@ end
 -- Set keys
 root.keys(globalkeys)
 
--- root.buttons(
---     gears.table.join(
---         awful.button(
---             {},
---             3,
---             function()
---                 mymainmenu:toggle()
---             end
---         ),
---         awful.button({}, 4, awful.tag.viewnext),
---         awful.button({}, 5, awful.tag.viewprev)
---     )
--- )
+

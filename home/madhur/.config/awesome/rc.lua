@@ -91,7 +91,7 @@ awful.util.tagnames = {"  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "
 
 local bling = require("bling")
 local layouts = {
-    madhur.layout.max, -- awesome.layout.suit.tile
+    madhur.layout.tallmagnified, -- awesome.layout.suit.tile
     bling.layout.mstab,
     madhur.layout.tallmagnified,
     madhur.layout.threecolmid,           -- bling.layouts.centered
@@ -103,17 +103,25 @@ local layouts = {
     madhur.layout.threecolmid  -- fork of awesome.layout.suit.magnified , where magnification happens to moster window, not the focused window
 }
 
+
 -- {{{ Tag layout
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
+       
         madhur.layout.tallmagnified,
-        bling.layout.mstab,
+        --bling.layout.mstab,
         madhur.layout.threecolmid,
-        madhur.layout.centermaster,
-        madhur.layout.grid,
-        madhur.layout.resizedmagnifier,
-        madhur.layout.max
+        awful.layout.suit.floating,
+        --madhur.layout.centermaster,
+        awful.layout.suit.magnifier,
+        awful.layout.suit.max,
+        awful.layout.suit.max.fullscreen,
+        --madhur.layout.grid,
+       -- madhur.layout.resizedmagnifier,
+        --madhur.layout.max,
+        awful.layout.fullscreen,
+       
         -- awful.layout.suit.tile.left
     })
 end)
@@ -122,24 +130,21 @@ end)
 -- Setup global keys
 require("keybindings.globalkeys")
 -- enable titlebars wherever required
-require("widgets.titlebars")
+--require("widgets.titlebars")
 
+-- Setup rules, which will set client keys as well
+awful.rules.rules = require("rules.client_rules")
 
+awful.util.smart_wibar_hide = false
+awful.util.expanded = true
 
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(
     function(s)
         awful.tag(awful.util.tagnames, s, layouts)
-        -- s.mypromptbox = {}
-        -- s.mypromptbox[s] = awful.widget.prompt()
-        -- Setup rules, which will set client keys as well
-        awful.rules.rules = require("rules.client_rules")
-        awful.screen.focused().tags[2].master_count = 0
-        awful.util.smart_wibar_hide = false
-        awful.util.expanded = true
-        --beautiful.at_screen_connect(s)
-        s.mywibox = require("widgets.wiboxes").get(s)
         
+        awful.screen.focused().tags[2].master_count = 0
+        s.mywibox = require("widgets.wiboxes").get(s)
     end
 )
 
@@ -162,35 +167,9 @@ client.connect_signal(
         if c.class == "vlc" then
             awful.client.setmaster(c)
         end
-
-        -- hide tasklist if only single client on tag
-        -- if #awful.screen.focused().all_clients  < 2 then
-        --     awful.util.mytasklist.visible = false
-        -- else
-        --     awful.util.mytasklist.visible = true
-        -- end
     end
 )
 
-client.connect_signal(
-    "unmanage",
-    function(c)
-        -- hide tasklist if only single client on tag
-        -- if #awful.screen.focused().all_clients < 2 then
-        --     awful.util.mytasklist.visible = false
-        -- else
-        --     awful.util.mytasklist.visible = true
-        -- end
-    end
-)
-
-tag.connect_signal("property::selected", function()
-    -- if #awful.screen.focused().all_clients  < 2 then
-    --     awful.util.mytasklist.visible = false
-    -- else
-    --     awful.util.mytasklist.visible = true
-    -- end
-end)
 
 
 client.connect_signal(
@@ -203,29 +182,6 @@ client.connect_signal(
                 raise = true
             }
         )
-    end
-)
-
--- keep floating windows on top
-client.connect_signal(
-    "property::floating",
-    function(c)
-        if c.floating then
-            c.ontop = true
-            --awful.titlebar.show(c)
-        else
-            c.ontop = false
-            --awful.titlebar.hide(c)
-        end
-    end
-)
-
-client.connect_signal("focus", border_rules.border_adjust)
---mclient.connect_signal("property::maximized", border_rules.border_adjust)
-client.connect_signal(
-    "unfocus",
-    function(c)
-        c.border_color = beautiful.border_normal
     end
 )
 

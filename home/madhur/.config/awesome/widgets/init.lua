@@ -5,5 +5,6 @@ gears.table.join(
     require("widgets.taglist"),
     require("widgets.tasklist"),
     require("widgets.layoutbox"),
-    require("widgets.wiboxes")
+    require("widgets.wiboxes"),
+    require("widgets.helper")
 )

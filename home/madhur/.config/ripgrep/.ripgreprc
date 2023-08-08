@@ -1,0 +1,14 @@
+# Search hidden files and directories.
+--hidden
+
+# Follow symbolic links.
+--follow
+
+# Don't respect ignore files (.gitignore, .ignore, etc.).
+--no-ignore
+
+# Exclude directories.
+--glob=!{.git,node_modules}
+
+# Sort by file path.
+--sort=path

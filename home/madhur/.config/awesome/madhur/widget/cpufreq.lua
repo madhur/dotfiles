@@ -1,6 +1,5 @@
 
 -- uptime info
--- madhur.widget.uptime
 local timer  = require("gears.timer")
 local spawn  = require("awful.spawn")
 local wibox    = require("wibox")

@@ -1,6 +1,8 @@
 
 (defvar result 0)
 
+(defvar color  "#4A7F87")
+
 (defwidget calculator []
   (box :orientation "v"
        :class "calculator-container"

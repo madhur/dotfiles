@@ -110,10 +110,10 @@ local function worker(user_args)
         },
         layout = wibox.layout.fixed.horizontal,
         set_rx_text = function(self, new_rx_speed)
-            self:get_children_by_id('rx_speed')[1]:set_text(""..tostring(new_rx_speed).. " ↓ ")
+            self:get_children_by_id('rx_speed')[1]:set_text(" 󰶡 "..tostring(new_rx_speed).." ")
         end,
         set_tx_text = function(self, new_tx_speed)
-            self:get_children_by_id('tx_speed')[1]:set_text(""..tostring(new_tx_speed).. " ↑")
+            self:get_children_by_id('tx_speed')[1]:set_text(" 󰶣 "..tostring(new_tx_speed))
         end
     }
 

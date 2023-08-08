@@ -1,10 +1,13 @@
 
 Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
+Xprop,dunstify -t 10000 -i window_list "" "$(xprop  | xclip -selection 'clipboard' -f)",window_list
 Randomize Wallpaper,feh  --randomize --bg-fill "/home/madhur/Pictures/wallpapers/",phototonic
 ^sep()
 
 Terminal,kitty,utilities-terminal
 Connect VPN, "/home/madhur/company/connect_vpn.sh"
+
+
 Sxhkd,sxhkd
 #Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
 Picom, /home/madhur/.config/picom/launch.sh
@@ -40,7 +43,7 @@ Brave,"brave"
 ^tag(apps-dir-System)
 Shutdown, "systemctl poweroff"
 Restart, "systemctl reboot"
-Logout, "pkill -KILL -u $USER"
+Logout, "/home/madhur/scripts/logout.sh"
 
 
 

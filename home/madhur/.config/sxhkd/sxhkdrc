@@ -10,13 +10,16 @@ super + Return
     kitty
 
 super + grave
-#    kitty
-    tdrop -ma -w 100%  -y 30 -h 80% kitty
+    tdrop -a -w 100%  -y 30 -h 90% kitty
 
 #calculator
 super + c
-    eww open calculator --toggle
+    /home/madhur/scripts/start_calc.sh
+    #eww open calculator --toggle
     #rofi -show calc -modi calc -no-show-match -no-sort
+
+ctrl + shift + c
+    eww open calculator --toggle
 
 # program launcher
 super + shift + d
