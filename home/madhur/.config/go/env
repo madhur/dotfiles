@@ -1,0 +1,3 @@
+GO111MODULE=auto
+GOMODCACHE=/home/madhur/.cache/go-cache
+GOPATH=/home/madhur/go

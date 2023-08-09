@@ -42,6 +42,12 @@ cp -r ~/.config/ripgrep $dfolder/.config/
 cp -r ~/.config/bat $dfolder/.config/
 cp -r ~/.config/btop $dfolder/.config/
 cp -r ~/.config/mpv $dfolder/.config/
+cp -r ~/.config/go $dfolder/.config/
+cp -r ~/.config/newsboat $dfolder/.config/
+cp -r ~/.config/lazygit $dfolder/.config/
+rsync -avh --delete --exclude='.git/.' ~/.config/nvim $dfolder/.config/
+rsync -avh --delete --exclude='.git/.' ~/.config/fontconfig $dfolder/.config/
+
 cp -r ~/.config/starship.toml $dfolder/.config/
 cp -r ~/.config/redshift.conf $dfolder/.config/
 #cp -r ~/.config/betterlockscreenrc $dfolder/.config/
@@ -64,7 +70,7 @@ cp -r ~/.nanorc $dfolder/
 cp -r ~/.vimrc $dfolder/
 cp -r ~/.Xresources $dfolder/
 cp -r ~/.tmux.conf $dfolder/
-cp -r ~/Pictures/wallpapers $dfolder/Pictures/
+#cp -r ~/Pictures/wallpapers $dfolder/Pictures/
 #cp -r ~/.gitconfig $dfolder/
 cp -r ~/.gtkrc-2.0 $dfolder/
 #cp ~/.stalonetrayrc $dfolder/
