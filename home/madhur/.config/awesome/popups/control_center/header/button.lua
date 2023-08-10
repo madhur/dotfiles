@@ -4,10 +4,9 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
-local color = require("popups.color")
+local color = require("madhur.widget.colors")
 local icon_path = os.getenv("HOME") .. "/.config/awesome/popups/control_center/assets/"
 
-local powermenu = require("popups.powermenu.main")
 local notif_center = require("popups.notif_center.main")
 
 --Powerbutton
@@ -55,7 +54,7 @@ end)
 
 power:connect_signal("button::press", function(_, _, _, button)
   if button == 1 then
-    powermenu.visible = not powermenu.visible
+    -- launch powermenu and close this
     awesome.emit_signal("widget::control")
   end
 end)

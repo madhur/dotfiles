@@ -5,6 +5,7 @@ local awful = require("awful")
 local helpers = require("madhur.helpers")
 local gears = require("gears")
 local naughty = require("naughty")
+local top_left = require("madhur.widget.top_left")
 local wiboxes = {}
 
 local widget_types = {}
@@ -152,9 +153,12 @@ local right_widgets = {
     pl((require("widgets.topbar.uptime")), true, "uptime"),
     pl((require("widgets.topbar.volume")), "true", "volume_new"),
     pl((require("widgets.topbar.aws")), true, "edd7b0"),
-    pl((require("widgets.topbar.notification")), true, "notification"),
+    
     pl((require("widgets.topbar.pacman")), true, "pacman"),
-    wibox.container.margin((require("widgets.topbar.systray")), 3, 3, 3, 3)
+    pl(top_left, true, ""),
+    pl((require("widgets.topbar.notification")), true, "notification"),
+  --  require("widgets.topbar.systray_new"),
+    wibox.container.margin((require("widgets.topbar.systray_new")), 3, 3, 3, 3)
 }
 
 local hr_spr = require("widgets.helper").hr_spr

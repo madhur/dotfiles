@@ -6,7 +6,7 @@ local wibox = require("wibox")
 local dpi = beautiful.xresources.apply_dpi
 
 -- Custom modules
-local color = require("popups.color")
+local color = require("madhur.widget.colors")
 local slider = require("popups.control_center.sliders.volume_slider")
 
 

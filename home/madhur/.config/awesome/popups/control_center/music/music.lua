@@ -7,7 +7,7 @@ local dpi = beautiful.xresources.apply_dpi
 
 --Custom Modules
 local bling = require("bling")
-local color = require("popups.color")
+local color = require("madhur.widget.colors")
 
 
 

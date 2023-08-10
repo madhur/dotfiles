@@ -3,11 +3,11 @@ local awful = require("awful")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
-local color = require("layout.topbar.colors")
+local color = require("madhur.widget.colors")
 local dpi = beautiful.xresources.apply_dpi
 
-local separator = wibox.widget.textbox("   ")
-local separator2 = wibox.widget.textbox("    ")
+local separator = wibox.widget.textbox("  ")
+local separator2 = wibox.widget.textbox("  ")
 
 local ss_tool = require("popups.screen_record.screenshot.main")
 
@@ -22,23 +22,11 @@ local media = require("popups.media_player.main")
 
 --Screenshot button
 local screenshot = wibox.widget {
-  {
-    {
-      widget = wibox.widget.imagebox,
-      image = os.getenv("HOME") .. "/.config/awesome/layout/topbar/icons/screenshot.png",
-      resize = true,
-      opacity = 1,
-    },
-    left   = dpi(6),
-    right  = dpi(6),
-    top    = dpi(6),
-    bottom = dpi(6),
-    widget = wibox.container.margin
-  },
-  bg = color.background_lighter,
-  shape = gears.shape.rounded_rect,
-  widget = wibox.container.background,
-}
+      widget = wibox.widget.textbox,
+      --image = os.getenv("HOME") .. "/.config/awesome/layout/topbar/icons/screenshot.png",
+      text = " 󰹑 ",
+      font = beautiful.font,
+  }
 
 screenshot:connect_signal("button::press", function(_, _, _, button)
   if button == 1 then
@@ -55,22 +43,9 @@ end)
 
 
 local settings = wibox.widget {
-  {
-    {
-      widget = wibox.widget.imagebox,
-      image = os.getenv("HOME") .. "/.config/awesome/layout/topbar/icons/settings.png",
-      resize = true,
-      opacity = 1,
-    },
-    left   = dpi(5),
-    right  = dpi(5),
-    top    = dpi(5),
-    bottom = dpi(5),
-    widget = wibox.container.margin
-  },
-  bg = color.background_lighter,
-  shape = gears.shape.rounded_rect,
-  widget = wibox.container.background,
+      widget = wibox.widget.textbox,
+      text = "  ",
+      font = beautiful.font,
 }
 
 settings:connect_signal("button::release", function()
@@ -81,23 +56,10 @@ end)
 
 
 local music = wibox.widget {
-  {
-    {
-      widget = wibox.widget.imagebox,
-      image = os.getenv("HOME") .. "/.config/awesome/layout/topbar/icons/music-icon.png",
-      resize = true,
-      opacity = 1,
-    },
-    left   = dpi(5),
-    right  = dpi(5),
-    top    = dpi(5),
-    bottom = dpi(5),
-    widget = wibox.container.margin
-  },
-  bg = color.background_lighter,
-  shape = gears.shape.rounded_rect,
-  widget = wibox.container.background,
-}
+      widget = wibox.widget.textbox,
+      text = "  ",
+      font = beautiful.font,
+  }
 
 music:connect_signal("button::release", function()
   media.visible = not media.visible
@@ -108,27 +70,14 @@ end)
 
 --Main Window
 local system_tray = wibox.widget {
-  {
-    {
-      separator,
-      music,
-      separator,
+   --   music,
+   --   separator,
       settings,
-      separator,
+   --   separator,
       screenshot,
-      separator,
 
       layout = wibox.layout.fixed.horizontal,
-    },
-    widget = wibox.container.background,
-    shape  = gears.shape.rounded_rect,
-    bg     = color.background_lighter
-  },
-  left   = dpi(3),
-  right  = dpi(3),
-  top    = dpi(3),
-  bottom = dpi(3),
-  widget = wibox.container.margin
+ 
 
 }
 

@@ -3,7 +3,7 @@ local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local color = require("popups.color")
+local color = require("madhur.widget.colors")
 local dpi = beautiful.xresources.apply_dpi
 
 --Spacer
@@ -62,10 +62,9 @@ local volume_container = {
   {
     {
       id = "volume",
-      widget = wibox.widget.imagebox,
-      image = os.getenv("HOME") .. "/.icons/papirus-icon-theme-20230301/Papirus/audio2.png",
-      resize = true,
-      opacity = 1,
+      widget = wibox.widget.textbox,
+      text = "   ",
+      font = beautiful.font,
     },
     widget = wibox.container.margin,
     top = 0,

@@ -11,7 +11,6 @@ local madhur = require("madhur")
 local border_rules  = require("rules.borders")
 local ruled = require("ruled")
 require("awful.hotkeys_popup.keys")
---local freedesktop = require("freedesktop")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -65,28 +64,10 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
--- local nice = require("nice")
--- nice{
---     titlebar_items = {
---         left = {"close", "minimize", "maximize"},
---         middle = "title",
---         right = {},
---     }
--- }
---beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
-
--- for s in screen do
---     freedesktop.desktop.add_icons({
---         screen = s
---     })
--- end
 
 
 -- awesome variables
 awful.util.terminal = "kitty"
--- awful.screen.focused().tags = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
---awful.screen.focused().tags = {"  1:    ", " 2:   ", " 3:    ", " 4:    ", " 5:    ", " 6:   ", " 7:   ", " 8:   ", " 9:   ", "  0:   "}
---awful.screen.focused().tags = {"  1:", " 2:", " 3:", " 4:", " 5:", " 6:", " 7:", " 8:", " 9:", "  0:"}
 awful.util.tagnames = {"  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", "  0"}
 
 local bling = require("bling")
@@ -133,7 +114,7 @@ require("keybindings.globalkeys")
 --require("widgets.titlebars")
 
 -- Setup rules, which will set client keys as well
-awful.rules.rules = require("rules.client_rules")
+
 
 awful.util.smart_wibar_hide = false
 awful.util.expanded = true
@@ -143,6 +124,8 @@ awful.screen.connect_for_each_screen(
     function(s)
         awful.tag(awful.util.tagnames, s, layouts)
         
+        
+        awful.rules.rules = require("rules.client_rules") -- if this call is outside of this block, the  programs starting will not move to tags correctly accoring to rules
         awful.screen.focused().tags[2].master_count = 0
         s.mywibox = require("widgets.wiboxes").get(s)
     end

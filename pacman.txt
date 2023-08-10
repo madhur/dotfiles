@@ -252,12 +252,7 @@ python-snowballstemmer
 python-soupsieve
 python-sphinx-alabaster-theme
 python-sphinx-basic-ng
-python-sphinxcontrib-applehelp
-python-sphinxcontrib-devhelp
-python-sphinxcontrib-htmlhelp
 python-sphinxcontrib-jsmath
-python-sphinxcontrib-qthelp
-python-sphinxcontrib-serializinghtml
 python-virtualenv
 qhull
 qt5ct

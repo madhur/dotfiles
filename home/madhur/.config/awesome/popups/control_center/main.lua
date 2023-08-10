@@ -6,7 +6,7 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
 --Custom Modules
-local color = require("popups.color")
+local color = require("madhur.widget.colors")
 
 --Widgets
 local Separator = wibox.widget.textbox("    ")

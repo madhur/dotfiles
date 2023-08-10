@@ -9,6 +9,7 @@ local spawn = require("awful.spawn")
 local timer  = require("gears.timer")
 local naughty = require("naughty")
 local awful = require("awful")
+local notif_center = require("popups.notif_center.main")
 
 local timer_table = {}
 local function newtimer(name, timeout, fun, nostart, stoppable)
@@ -54,8 +55,9 @@ local function factory(args)
             {},
             1,
             function()
-                naughty.suspended = not naughty.suspended
-                notification.update()
+               -- naughty.suspended = not naughty.suspended
+               -- notification.update()
+               notif_center.visible = not notif_center.visible
             end
         ),
         awful.button(

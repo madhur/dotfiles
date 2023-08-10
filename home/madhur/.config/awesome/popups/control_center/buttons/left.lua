@@ -8,7 +8,7 @@ local naughty = require("naughty")
 
 --Custom Modules
 local user = require("popups.user_profile")
-local color = require("popups.color")
+local color = require("madhur.widget.colors")
 
 --Separator
 local Separator = wibox.widget.textbox("    ")
