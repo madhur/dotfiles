@@ -74,7 +74,7 @@ local system_tray = wibox.widget {
    --   separator,
       settings,
    --   separator,
-      screenshot,
+   --   screenshot,
 
       layout = wibox.layout.fixed.horizontal,
  

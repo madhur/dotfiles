@@ -65,17 +65,29 @@ local image_blf = wibox.widget {
 --Button Functionality
 local blf_on = false
 
+local naughty = require("naughty")
+
+awful.spawn.easy_async_with_shell("~/.config/awesome/is_running.sh", function(stdout, stderr, reason, exit_code)
+  if exit_code == 0 then
+    blf_on = true
+    image:set_bg("#5680b8")
+    blf_status:set_markup_silently('<span color="' ..color.white .. '" font="Ubuntu Nerd Font 11">' .. "On" .. '</span>')
+  else
+    blf_on = false
+    image:set_bg(color.grey)
+    blf_status:set_markup_silently('<span color="' ..color.white .. '" font="Ubuntu Nerd Font 11">' .. "Off" .. '</span>')
+  end
+end)
+
 image:connect_signal("button::press", function()
   blf_on = not blf_on
   if blf_on then
     image:set_bg("#5680b8")
-    blf_status:set_markup_silently('<span color="' ..
-      color.white .. '" font="Ubuntu Nerd Font 11">' .. "On" .. '</span>')
-    awful.spawn.with_shell('redshift -l 0:0 -t 4500:4500 -r')
+    blf_status:set_markup_silently('<span color="' ..color.white .. '" font="Ubuntu Nerd Font 11">' .. "On" .. '</span>')
+    awful.spawn.with_shell('~/.config/awesome/start_redshift.sh')
   else
     image:set_bg(color.grey)
-    blf_status:set_markup_silently('<span color="' ..
-      color.white .. '" font="Ubuntu Nerd Font 11">' .. "Off" .. '</span>')
+    blf_status:set_markup_silently('<span color="' ..color.white .. '" font="Ubuntu Nerd Font 11">' .. "Off" .. '</span>')
     awful.spawn.with_shell("redshift -x && killall redshift")
   end
 end)
