@@ -23,4 +23,15 @@
 	<patterns>*</patterns>
 	<text-files/>
 </action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Remove password</name>
+	<submenu></submenu>
+	<unique-id>1691727763458077-1</unique-id>
+	<command>~/scripts/remove_password_pdf.sh %f</command>
+	<description>Remove password</description>
+	<range>*</range>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
 </actions>
