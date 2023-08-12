@@ -136,6 +136,7 @@ function update_tabbar(
 end
 
 function mylayout.arrange(p)
+
     local area = p.workarea
     local t = p.tag or screen[p.screen].selected_tag
     local s = t.screen
@@ -203,6 +204,11 @@ function mylayout.arrange(p)
     local slave_clients = {}
     for idx = 1, nslaves do
         local c = p.clients[idx + nmaster]
+        -- if c.floating then
+        --     naughty.notify({text="Ignoring floating"})
+        --     goto continue
+        -- end
+       
         slave_clients[#slave_clients + 1] = c
         if c == client.focus then
             t.top_idx = #slave_clients
@@ -222,6 +228,7 @@ function mylayout.arrange(p)
             }
         end
         p.geometries[c] = g
+        ::continue::
     end
 
     if not tabbar_disable then

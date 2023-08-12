@@ -16,8 +16,8 @@ return { -- All clients will match this rule.
         screen = awful.screen.preferred,
         placement = awful.placement.no_overlap + awful.placement.no_offscreen,
         --size_hints_honor = false,
-        --maximized_vertical = false,
-        --maximized_horizontal = false
+        maximized_vertical = false,
+        maximized_horizontal = false
     }
 }, -- Titlebars
 {
@@ -137,11 +137,11 @@ return { -- All clients will match this rule.
     end
 }, {
     rule_any = {
-        class = {"Guake"}
+        class = {"Guake", "kitty-tdrop"}
     },
     properties = {
         floating = true,
-        titlebars_enabled = true
+        titlebars_enabled = false
     },
     callback = function(c)
         local clnt = awful.client.focused

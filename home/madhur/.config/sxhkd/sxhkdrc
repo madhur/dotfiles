@@ -1,25 +1,17 @@
 #
 # wm independent hotkeys
 #
-#chrome Work
-#F12
-#    tdrop -ma -w 100% -y 30 -h 80% wezterm
 
 # terminal emulator
 super + Return
     kitty
 
 super + grave
-    tdrop -a -w 100%  -y 30 -h 90% kitty
+    /home/madhur/scripts/tdrop.sh
 
 #calculator
 super + c
     /home/madhur/scripts/start_calc.sh
-    #eww open calculator --toggle
-    #rofi -show calc -modi calc -no-show-match -no-sort
-
-ctrl + shift + c
-    eww open calculator --toggle
 
 # program launcher
 super + shift + d
@@ -28,42 +20,10 @@ super + shift + d
 
 # program launcher
 super + d
-    rofi -show drun -show-icons -theme "appmnu" -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+    /home/madhur/scripts/launcher.sh
 
 super + b
      /home/madhur/scripts/rofi-bluetoth/rofi-bluetooth
-
-# make sxhkd reload its configuration files:
-#super + Escape
-#	pkill -USR1 -x sxhkd
-
-# app listing
-#super + F3
-#    rofi -no-lazy-grab -show drun -theme "$HOME/.config/rofi/searcher.rasi" -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
-
-
-# show copy toggle
-#F2
-#    copyq toggle
-
-
-
-# Alt tab switcher
-#alt + Tab
-#    rofi -show windowcd -show-icons
-
-
-
-#XF86AudioLowerVolume
-#    amixer set Master 5%-
-#XF86AudioRaiseVolume
-#    amixer set Master 5%+
-#XF86AudioMute
-#    amixer set Master toggle
-
-
-#super + k
-#   sxhkd-cheat
 
 super  + s
     eww open bindkeys --toggle
@@ -90,18 +50,6 @@ super + F4
     /home/madhur/scripts/homebrowser.sh
 
 
-#dunstctl history pop
-# super + comma
-#     dunstctl history-pop
-
-# #dunstctl close all
-# super + semicolon
-#     dunstctl close-all
-
-# Take screenshot
-#super + Print
-#    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
-
 # Copy VPN username
 ctrl + m
     echo -n madhur.ahuja | xclip -selection clipboard
@@ -112,7 +60,6 @@ ctrl + comma
 
 ~button2
     echo -n | xsel -n -i
-
 
 ~button3
    xqp 0 $(xdo id -N "" -n root) &&  jgmenu

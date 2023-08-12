@@ -1,7 +1,7 @@
 #!/bin/sh
 
 run() {
-  if pgrep -f redshift ;
+  if pgrep redshift ;
   then
     echo "`date` Executing $@\n" >> ~/logs/log.txt
     "$@" >>~/logs/log.txt 2>&1 &
@@ -12,4 +12,4 @@ run() {
 }
 
 
-run redshift -l 0:0 -t 4500:4500 -r
+run redshift
