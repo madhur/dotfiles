@@ -14,8 +14,8 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local gears = require("gears")
 
-local CMD = [[sh -c "grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu ]]
-    .. [[| head -11 | tail -n +2"]]
+local CMD = [[sh -c "grep '^cpu.' /proc/stat; ps -eo 'pid:10,pcpu:5,pmem:5,comm:30,cmd' --sort=-pcpu ]]
+    .. [[| grep -v [p]s | grep -v [g]rep | head -11 | tail -n +2"]]
 
 -- A smaller command, less resource intensive, used when popup is not shown.
 local CMD_slim = [[grep --max-count=1 '^cpu.' /proc/stat]]
@@ -45,6 +45,11 @@ local function split(string_to_split, separator)
 
     return t
 end
+
+-- Remove spaces at end and beggining of a string
+function trim(s)
+    return (s:gsub("^%s*(.-)%s*$", "%1"))
+ end
 
 -- Checks if a string starts with a another string
 local function starts_with(str, start)
@@ -102,7 +107,7 @@ local function worker(user_args)
     local color = args.color or beautiful.fg_normal
     local background_color = args.background_color or "#00000000"
     local enable_kill_button = args.enable_kill_button or false
-    local process_info_max_length = args.process_info_max_length or 10
+    local process_info_max_length = args.process_info_max_length or -1
     local timeout = args.timeout or 1
     local warn_count = 0
     local crit_count = 0
@@ -267,13 +272,11 @@ local function worker(user_args)
                 else
                     if is_update == true then
 
-                        local columns = split(line, '|')
-
-                        local pid = columns[1]
-                        local comm = columns[2]
-                        local cpu = columns[3]
-                        local mem = columns[4]
-                        local cmd = columns[5]
+                        local pid = trim(string.sub(line, 1, 10))
+                        local cpu = trim(string.sub(line, 12, 16))
+                        local mem = trim(string.sub(line, 18, 22))
+                        local comm = trim(string.sub(line, 24, 53))
+                        local cmd = trim(string.sub(line, 54))
 
                         local kill_proccess_button = enable_kill_button and create_kill_process_button() or nil
 

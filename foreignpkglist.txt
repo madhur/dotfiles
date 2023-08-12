@@ -46,6 +46,7 @@ shell-color-scripts
 snapd
 sway-git
 swhkd-git
+tabbed-flexipatch-git
 tmux-xpanes
 trayer-srg-git
 visual-studio-code-bin

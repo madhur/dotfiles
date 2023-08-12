@@ -4,6 +4,7 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
+local naughty = require("naughty")
 
 --Custom Modules
 local color = require("madhur.widget.colors")
@@ -193,15 +194,21 @@ local update_length_text = function()
       if stdout == nil then
         return
       end
-      local length = tonumber(stdout) / 1000000
-      local minutes = math.floor(length / 60)
-      local formattedminutes = string.format("%02d", minutes)
-      local seconds = math.floor(length % 60)
-      local formattedseconds = string.format("%02d", seconds)
+      local stdout_num = tonumber(stdout)
+      if type(stdout_num)=="number" then
+       
+        local length = tonumber(stdout_num) / 1000000
+        local minutes = math.floor(length / 60)
+        local formattedminutes = string.format("%02d", minutes)
+        local seconds = math.floor(length % 60)
+        local formattedseconds = string.format("%02d", seconds)
 
-      length_text:set_markup_silently('<span color="' ..
-        color.blueish_white ..
-        '" font="Ubuntu Nerd Font 11">' .. formattedminutes .. ':' .. formattedseconds .. '</span>')
+        length_text:set_markup_silently('<span color="' ..
+          color.blueish_white ..
+          '" font="Ubuntu Nerd Font 11">' .. formattedminutes .. ':' .. formattedseconds .. '</span>')
+        
+      end
+    
     end
   end)
 end

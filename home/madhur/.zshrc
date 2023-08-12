@@ -149,3 +149,8 @@ eval "$(zoxide init zsh)"
 #eval "$(atuin init zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 export PATH="/home/madhur/github/personal/git-fuzzy/bin:$PATH"
+
+# nnn env variables
+source ~/.config/nnn/config
+
+export HOST=$(hostname)

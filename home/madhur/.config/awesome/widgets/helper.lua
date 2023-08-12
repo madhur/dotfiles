@@ -38,6 +38,9 @@ local hr_spr = wibox.widget {
     widget = wibox.widget.separator
 }
 
+local separator = wibox.widget.textbox(" ")
+local separator2 = wibox.widget.textbox("  ")
+
 local function powerline_rl(cr, width, height)
     local arrow_depth, offset = height / 2, 0
 
@@ -60,5 +63,7 @@ end
 
 return {
     spr= spr,
-    hr_spr = hr_spr
+    hr_spr = hr_spr,
+    separator = separator,
+    separator2 = separator2
 }

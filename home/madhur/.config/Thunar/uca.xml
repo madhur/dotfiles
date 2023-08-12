@@ -31,7 +31,7 @@
 	<command>~/scripts/remove_password_pdf.sh %f</command>
 	<description>Remove password</description>
 	<range>*</range>
-	<patterns>*.pdf</patterns>
+	<patterns>*</patterns>
 	<other-files/>
 </action>
 </actions>

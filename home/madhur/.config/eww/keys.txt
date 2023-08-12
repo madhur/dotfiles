@@ -19,16 +19,16 @@ SUPER + g | Add conky gaps | | | F1 | Broadcast
 SUPER + SHIFT + a | Add titlebar | | | CTRL + SHIFT + e | Search for urls
 SUPER + SHIFT + space | Make floating
 
-Apps
-----
+Apps || nnn
+---- || ---
 
-SUPER + ~ | Dropdown terminal
-SUPER + F12 | Flameshot | 
-SUPER + c | Calculator
-SUPER + RETURN | Terminal
-SUPER + d | dmenu
-F2 | Copyq
-SUPER + s | Show the hotkey popup
-CTRL + m | VPN Username
-CTRL + , | VPN password
+SUPER + ~ | Dropdown terminal | Alt + key | Select plugin
+SUPER + F12 | Flameshot | b | Go to bookmark
+SUPER + c | Calculator | Alt + z | Fuzzy cd 
+SUPER + RETURN | Terminal | x | Delete file 
+SUPER + d | dmenu | * | Make executable
+F2 | Copyq | t[t][s][e] | Sort by time, size, extension
+SUPER + s | Show the hotkey popup | Shift + Tab | Create new session
+CTRL + m | VPN Username | Tab | cycle through session
+CTRL + , | VPN password | . | Toggle hidden files
 SUPER + x | Power Menu

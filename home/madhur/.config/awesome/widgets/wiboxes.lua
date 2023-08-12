@@ -31,7 +31,7 @@ local function styleWidget(background_container_widget, widget_type, background_
         elseif widget_type == "mem" then
             --foreground_color = "#8cc1ff"
             foreground_color = "#297639"
-        elseif widget_type == "cpu_widget" then
+        elseif widget_type == "cpu_widget" or widget_type == "cpu_temp1" then
             --foreground_color = "#f46521"
             foreground_color = "#f06a2b"
 
@@ -100,7 +100,7 @@ local function pl(widget, reverse, widget_type)
     }
 
     -- Add margin if required
-    -- local fw = finalWidget
+    --local fw = finalWidget
     local fw = wibox.container.margin(finalWidget, 10, 10, 0, 0)
 
     -- we do not pass fw to widget_types because signal manipulators manipulate bg / bg which are only available on background widget
@@ -141,10 +141,17 @@ awesome.connect_signal("normal", function(widget_type)
     end
 end)
 
+local cpu_temp =  wibox.widget {
+    require("widgets.topbar.cpu"),
+    require("widgets.helper").separator2,
+    require("widgets.topbar.temp"),
+    layout = wibox.layout.fixed.horizontal,
+}
+
 local right_widgets = {
     -- Right widgets
     layout = wibox.layout.fixed.horizontal,
-
+    --pl (cpu_temp, true, "cpu_temp1"),
     pl((require("widgets.topbar.cpu")), true, "cpu_widget"),
     pl((require("widgets.topbar.temp")), false, "temp"),
     pl((require("widgets.topbar.memory")), true, "mem"),
@@ -153,11 +160,10 @@ local right_widgets = {
     pl((require("widgets.topbar.uptime")), true, "uptime"),
     pl((require("widgets.topbar.volume")), "true", "volume_new"),
     pl((require("widgets.topbar.aws")), true, "edd7b0"),
-    
+    --require("widgets.topbar.aws"),
     pl((require("widgets.topbar.pacman")), true, "pacman"),
     pl(top_left, true, ""),
-    pl((require("widgets.topbar.notification")), true, "notification"),
-  --  require("widgets.topbar.systray_new"),
+    --pl((require("widgets.topbar.notification")), true, "notification"),
     wibox.container.margin((require("widgets.topbar.systray_new")), 3, 3, 3, 3)
 }
 

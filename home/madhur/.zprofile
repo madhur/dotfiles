@@ -7,10 +7,17 @@ export PATH
 alias jssh="ssh -J jump "
 alias jscp="scp -o 'ProxyJump jump'"
 
-
+#source ~/.zshrc
 
 ### START-Keychain ###
 # Let  re-use ssh-agent and/or gpg-agent between logins
-/usr/bin/keychain --quiet --nogui $HOME/.ssh/id_rsa
+if ! pgrep -x "ssh-agent" > /dev/null
+then
+    export HOST=$(hostname)
+    source ~/company/passwords.env
+    #/usr/bin/keychain --quiet --nogui $HOME/.ssh/id_rsa
+    /home/madhur/scripts/keyring.sh
+fi
 source $HOME/.keychain/$HOST-sh
+
 ### End-Keychain ###

@@ -28,9 +28,9 @@ run "xsettingsd"
 run "/usr/bin/gpclient"
 run "xscreensaver"
 run "eww daemon"
-# hours=`date +%H`
-# if [[ $hours > 17 && $hours < 7 ]]; then
-#   echo "Executing redshift"
-#   run "redshift-gtk"
-# fi
+currenttime=$(date +%H:%M)
+ if [[ "$currenttime" > "18:00" ]] || [[ "$currenttime" < "06:30" ]]; then
+  echo "Executing redshift"
+  run "/home/madhur/scripts/start_redshift.sh"
+fi
 flatpak run com.github.hluk.copyq

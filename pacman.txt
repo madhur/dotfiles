@@ -283,6 +283,7 @@ starship
 stress
 sudo
 sxhkd
+sxiv
 sysfsutils
 sysstat
 system-config-printer
@@ -296,6 +297,7 @@ thunar-volman
 tig
 tldr
 tmux
+trash-cli
 ttf-bitstream-vera
 ttf-dejavu
 ttf-font-awesome

@@ -186,7 +186,7 @@ naughty.connect_signal("request::display", function(n)
 end)
 
 
-awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+awful.spawn.with_shell("~/scripts/autostart.sh")
 
 
 --- Enable for lower memory consumption

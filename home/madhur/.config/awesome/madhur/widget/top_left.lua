@@ -15,6 +15,7 @@ local ss_tool = require("popups.screen_record.screenshot.main")
 local control = require("popups.control_center.main")
 local notif_center = require("popups.notif_center.main")
 local media = require("popups.media_player.main")
+local notification = require("widgets.topbar.notification")
 
 -- --Battery Widget
 -- local batteryarc_widget = require("deco.batteryarc")
@@ -73,7 +74,8 @@ local system_tray = wibox.widget {
    --   music,
    --   separator,
       settings,
-   --   separator,
+      separator,
+   notification,
    --   screenshot,
 
       layout = wibox.layout.fixed.horizontal,

@@ -7,8 +7,7 @@ local color = require("popups.color")
 local dpi = beautiful.xresources.apply_dpi
 
 --Separator
-local separator = wibox.widget.textbox("   ")
-local separator2 = wibox.widget.textbox("    ")
+
 
 local systray = wibox.widget.systray()
 systray:set_base_size(dpi(24))
@@ -17,9 +16,6 @@ systray:set_base_size(dpi(24))
 local widget = wibox.widget {
   id = "icon",
   widget = wibox.widget.textbox,
-  --image = os.getenv("HOME") .. "/.config/awesome/layout/topbar/icons/arrow-right.png",
-  --resize = true,
-  --opacity = 1,
   text = "  ",
   font = beautiful.font
 }

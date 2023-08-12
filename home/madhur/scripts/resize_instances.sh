@@ -1,0 +1,8 @@
+aws ec2 modify-instance-attribute --instance-id i-0a1821d4bdb9db818 --instance-type "{\"Value\": \"r5.8xlarge\"}"
+aws ec2 modify-instance-attribute --instance-id i-05a9dcb8c954300c0 --instance-type "{\"Value\": \"r5.8xlarge\"}"
+aws ec2 modify-instance-attribute --instance-id i-0f1a452539f4a5388 --instance-type "{\"Value\": \"r5.8xlarge\"}"
+aws ec2 modify-instance-attribute --instance-id i-007d0c011ce00bd56 --instance-type "{\"Value\": \"r5.8xlarge\"}"
+aws ec2 modify-instance-attribute --instance-id i-079cbbaab0510a375 --instance-type "{\"Value\": \"r5.8xlarge\"}"
+aws ec2 modify-instance-attribute --instance-id i-0ff9d1ea6d13bab72 --instance-type "{\"Value\": \"r5.8xlarge\"}"
+aws ec2 modify-instance-attribute --instance-id i-0a3b02cf76f061476 --instance-type "{\"Value\": \"r5.8xlarge\"}"
+aws ec2 modify-instance-attribute --instance-id i-0bd4b9277b429ea2d --instance-type "{\"Value\": \"r5.8xlarge\"}"

@@ -67,7 +67,7 @@ local blf_on = false
 
 local naughty = require("naughty")
 
-awful.spawn.easy_async_with_shell("~/.config/awesome/is_running.sh", function(stdout, stderr, reason, exit_code)
+awful.spawn.easy_async_with_shell("~/scripts/is_running.sh", function(stdout, stderr, reason, exit_code)
   if exit_code == 0 then
     blf_on = true
     image:set_bg("#5680b8")
@@ -84,7 +84,7 @@ image:connect_signal("button::press", function()
   if blf_on then
     image:set_bg("#5680b8")
     blf_status:set_markup_silently('<span color="' ..color.white .. '" font="Ubuntu Nerd Font 11">' .. "On" .. '</span>')
-    awful.spawn.with_shell('~/.config/awesome/start_redshift.sh')
+    awful.spawn.with_shell('~/scripts/start_redshift.sh')
   else
     image:set_bg(color.grey)
     blf_status:set_markup_silently('<span color="' ..color.white .. '" font="Ubuntu Nerd Font 11">' .. "Off" .. '</span>')
