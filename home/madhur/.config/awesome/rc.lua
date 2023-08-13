@@ -12,9 +12,6 @@ local border_rules  = require("rules.borders")
 local ruled = require("ruled")
 require("awful.hotkeys_popup.keys")
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
 naughty.connect_signal("request::display_error", function(message, startup)
     naughty.notification {
         urgency = "critical",
@@ -22,7 +19,6 @@ naughty.connect_signal("request::display_error", function(message, startup)
         message = message
     }
 end)
--- }}}
 
 if awesome.startup_errors then
     naughty.notify(
@@ -33,8 +29,6 @@ if awesome.startup_errors then
         }
     )
 end
-
-
 
 -- Handle runtime errors after startup
 do
@@ -60,61 +54,45 @@ do
     )
 end
 
-
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
-
-
 -- awesome variables
 awful.util.terminal = "kitty"
 awful.util.tagnames = {"  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", "  0"}
 
+
 local bling = require("bling")
 local layouts = {
-    madhur.layout.tallmagnified, -- awesome.layout.suit.tile
+    awful.layout.suit.tile.right,  -- Like tall layout, master on left
+    bling.layout.centered,    --three col mid
     bling.layout.mstab,
-    madhur.layout.tallmagnified,
-    madhur.layout.threecolmid,           -- bling.layouts.centered
-    madhur.layout.centerwork,
-    madhur.layout.tallmagnified,
-    madhur.layout.tallmagnified,
-    madhur.layout.resizedmagnifier,  -- custom written
-    madhur.layout.tallmagnified,           --awesome.layout.suit.max
-    madhur.layout.threecolmid  -- fork of awesome.layout.suit.magnified , where magnification happens to moster window, not the focused window
+    bling.layout.vertical, 
+    bling.layout.equalarea,   --grid
+    lain.layout.termfair.center,  -- start with center and then become tall layout, useful for ultrawide  (does not use full width)
+    lain.layout.termfair.center,  -- start with center and then become tall layout, useful for ultrawide  (does not use full width)
+    lain.layout.termfair,       -- (bad)
+    lain.layout.centerwork,   --  (good) start with center and then become three col mid, useful for ultrawide screens (does not use full width)
+    bling.layout.deck,      
 }
 
-
--- {{{ Tag layout
--- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
-       
-        madhur.layout.tallmagnified,
-        --bling.layout.mstab,
-        madhur.layout.threecolmid,
-        awful.layout.suit.floating,
-        --madhur.layout.centermaster,
-        awful.layout.suit.magnifier,
-        awful.layout.suit.max,
-        awful.layout.suit.max.fullscreen,
-        --madhur.layout.grid,
-       -- madhur.layout.resizedmagnifier,
-        --madhur.layout.max,
-        awful.layout.fullscreen,
-       
-        -- awful.layout.suit.tile.left
+        awful.layout.suit.tile.right, 
+        lain.layout.termfair,
+        bling.layout.mstab,
+        lain.layout.termfair.center,         
+        lain.layout.centerwork,
+        bling.layout.centered,
+        bling.layout.deck,
+        bling.layout.vertical, 
+        bling.layout.horizontal,           
+        bling.layout.equalarea
     })
 end)
--- }}}
 
 -- Setup global keys
 require("keybindings.globalkeys")
 -- enable titlebars wherever required
 --require("widgets.titlebars")
-
--- Setup rules, which will set client keys as well
-
 
 awful.util.smart_wibar_hide = false
 awful.util.expanded = true
@@ -126,11 +104,10 @@ awful.screen.connect_for_each_screen(
         
         
         awful.rules.rules = require("rules.client_rules") -- if this call is outside of this block, the  programs starting will not move to tags correctly accoring to rules
-        awful.screen.focused().tags[2].master_count = 0
+        awful.screen.focused().tags[3].master_count = 0
         s.mywibox = require("widgets.wiboxes").get(s)
     end
 )
-
 
 -- Signal function to execute when a new client appears.
 client.connect_signal(
@@ -153,8 +130,6 @@ client.connect_signal(
     end
 )
 
-
-
 client.connect_signal(
     "mouse::enter",
     function(c)
@@ -167,8 +142,6 @@ client.connect_signal(
         )
     end
 )
-
--- {{{ Notifications
 
 ruled.notification.connect_signal('request::rules', function()
     -- All notifications will match this rule.
@@ -185,10 +158,7 @@ naughty.connect_signal("request::display", function(n)
     naughty.layout.box { notification = n }
 end)
 
-
 awful.spawn.with_shell("~/scripts/autostart.sh")
-
-
 --- Enable for lower memory consumption
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)

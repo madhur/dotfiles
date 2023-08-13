@@ -115,3 +115,5 @@ alias yay="yay -Pw; yay"
 alias idea="flatpak run com.jetbrains.IntelliJ-IDEA-Community"
 alias cat='bat --paging=never --plain'
 alias nnn="nnn -P p"
+alias lg="lazygit"
+alias rg="kitty +kitten hyperlinked_grep"

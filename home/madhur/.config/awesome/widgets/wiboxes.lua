@@ -187,6 +187,7 @@ function wiboxes.get(s)
     local mylayoutbox = require("widgets.layoutbox").get(s)
     local mytaglist = require("widgets.taglist").get(s)
     local mytasklist = require("widgets.tasklist").get(s)
+    local jgmenu = require("widgets.topbar.jgmenu")
     awful.util.mytasklist = mytasklist
 
     local left_widgets = {
@@ -199,6 +200,7 @@ function wiboxes.get(s)
         wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
         spr,
         mytasklist,
+        jgmenu
     }
 
     mywibox:setup{

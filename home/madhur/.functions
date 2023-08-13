@@ -25,8 +25,8 @@ extract () {
 
 
 function java11() {
-sdk use java 11.0.12-open
-
+  sdk use java 11.0.12-open
+  export PATH=/home/madhur/.sdkman/candidates/java/11.0.12-open/bin:$PATH
 }
 
 function java8() {

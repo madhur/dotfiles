@@ -8,6 +8,7 @@ local theme = {}
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 local naughty = require("naughty")
+local lain = require("lain")
 
 --------------------------
   -- NAUGHTY CONFIGURATION
@@ -157,7 +158,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.useless_gap = 0
+theme.useless_gap = 4
 theme.master_width_factor = 0.5
 theme.master_fill_policy = "expand"
 theme.gap_single_client = false
@@ -187,6 +188,12 @@ rnotification.connect_signal('request::rules', function()
         properties = { bg = '#ff0000', fg = '#ffffff' }
     }
 end)
+
+lain.layout.termfair.nmaster = 2
+lain.layout.termfair.ncol    = 1
+
+lain.layout.termfair.center.nmaster = 2
+lain.layout.termfair.center.ncol    = 1
 
 
 return theme

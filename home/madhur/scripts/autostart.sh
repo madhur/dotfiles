@@ -12,10 +12,10 @@ run() {
 }
 
 #sleep 5
-xbgdump ||  feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
+/home/madhur/bin/xbgdump ||  feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
 run sxhkd
 run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf
-run picom --config ~/.config/picom/picom.conf -b
+run /home/madhur/bin/picom --config ~/.config/picom/picom.conf -b
 #run "/usr/libexec/xfce-polkit"
 #run "dunst"
 

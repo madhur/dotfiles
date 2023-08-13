@@ -16,7 +16,7 @@ super + h
 	i3-msg split h
 
 super + v
-	i3-msg split v`'
+	i3-msg split v
 
 super + m
 	i3-msg gaps horizontal current toggle 400
@@ -43,11 +43,8 @@ super + shift + t
 super + space
 	i3-msg focus mode_toggle
 
-super + c
-	i3-msg move position center
-
-super + shift + r
-	i3-msg restart
+#super + c
+#	i3-msg move position center
 
 super + a
 	i3-msg focus parent
