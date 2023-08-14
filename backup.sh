@@ -44,7 +44,7 @@ cp -r ~/.config/btop $dfolder/.config/
 cp -r ~/.config/mpv $dfolder/.config/
 cp -r ~/.config/go $dfolder/.config/
 cp -r ~/.config/newsboat $dfolder/.config/
-cp -r ~/.config/lazygit $dfolder/.config/
+#cp -r ~/.config/lazygit $dfolder/.config/
 cp -r ~/.config/Thunar $dfolder/.config/
 rsync -avh --delete --exclude='.git/.' ~/.config/nvim $dfolder/.config/
 rsync -avh --delete --exclude='.git/.' ~/.config/fontconfig $dfolder/.config/
@@ -54,6 +54,8 @@ cp -r ~/.config/redshift.conf $dfolder/.config/
 #cp -r ~/.config/betterlockscreenrc $dfolder/.config/
 cp -r ~/.cache/wal $dfolder/.cache/
 cp -r ~/.config/mimeapps.list $dfolder/.config/
+cp ~/.config/nnn/config $dfolder/.config/nnn/
+cp ~/.config/lazygit/config.yml $dfolder/.config/lazygit/
 
 #tmux contain company data
 #tmux contains company data

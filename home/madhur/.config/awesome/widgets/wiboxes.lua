@@ -159,7 +159,7 @@ local right_widgets = {
     pl((require("widgets.topbar.network")), true, "net_new"),
     pl((require("widgets.topbar.uptime")), true, "uptime"),
     pl((require("widgets.topbar.volume")), "true", "volume_new"),
-    pl((require("widgets.topbar.aws")), true, "edd7b0"),
+    pl((require("widgets.topbar.aws")), true, "aws"),
     --require("widgets.topbar.aws"),
     pl((require("widgets.topbar.pacman")), true, "pacman"),
     pl(top_left, true, ""),

@@ -6,10 +6,10 @@ local wibox = require("wibox")
 local function get_widget(stack_id)
     local widget = awful.widget.watch("/home/madhur/company/f25a24.sh "..stack_id, 5, function(widget, stdout, stderr)
         if tonumber(stdout) > 1 then
-            awesome.emit_signal("warning", stack_id)
+            awesome.emit_signal("warning", "aws")
             widget:set_markup(markup.font(beautiful.font, " "..stack_id..":" .. stdout))
-        else
-            awesome.emit_signal("normal", stack_id)
+        --else
+            --awesome.emit_signal("normal", "aws")
         end
         
     end)

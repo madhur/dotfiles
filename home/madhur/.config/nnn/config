@@ -1,0 +1,12 @@
+export NNN_OPTS="deHa"
+export NNN_PLUG='f:fzcd;o:fzopen;p:preview-tui;v:imgview;t:tabbed;z:autojump;x:pdfpassword'
+export NNN_FIFO=/tmp/nnn.fifo nnn
+
+alias ncp="cat ${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection} | tr '\0' '\n'"
+
+export NNN_COLORS="2136"
+export NNN_TRASH=1
+
+
+export NNN_BMS='g:~/github;G:~/github/personal/;p:~/Pictures;.:~/.dotfiles'
+
