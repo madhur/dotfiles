@@ -19,7 +19,7 @@ local lain = require("lain")
   naughty.config.defaults.hover_timeout = 300
   --naughty.config.defaults.title = 'System Notification Title'
   naughty.config.defaults.margin = dpi(16)
-  naughty.config.defaults.border_width = 1
+  naughty.config.defaults.border_width = dpi(1)
   naughty.config.defaults.position = 'top_right'
   -- naughty.config.defaults.shape = function(cr, w, h)
   --   gears.shape.rounded_rect(cr, w, h, dpi(6))
@@ -39,7 +39,7 @@ theme.mstab_bar_padding = "default" -- how much padding there should be between 
 -- by default it will adjust based on your useless gaps.
 -- If you want a custom value. Set it to the number of pixels (int)
 theme.mstab_border_radius = 0 -- border radius of the tabbar
-theme.tabbar_size = 25 -- height of the tabbar
+theme.tabbar_size = dpi(25) -- height of the tabbar
 theme.mstab_tabbar_position = "top" -- position of the tabbar (mstab currently does not support left,right)
 theme.tabbar_bg_normal = "#5f676a"
 theme.tabbar_fg_normal = "#ffffff"
@@ -158,7 +158,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.useless_gap = 4
+theme.useless_gap = dpi(4)
 theme.master_width_factor = 0.5
 theme.master_fill_policy = "expand"
 theme.gap_single_client = false

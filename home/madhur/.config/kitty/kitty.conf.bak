@@ -61,10 +61,11 @@ background_opacity 0.80
 
 
 #dim_opacity 0.75
-# active_tab_foreground   #282c34
-# active_tab_background   #979eab
-# inactive_tab_foreground #abb2bf
-# inactive_tab_background #282c34
+
+active_tab_foreground   #282c34
+active_tab_background   #979eab
+inactive_tab_foreground #abb2bf
+inactive_tab_background #282c34
 active_tab_font_style   bold
 inactive_tab_font_style normal
 
@@ -99,7 +100,8 @@ map ctrl+down resize_window shorter 3
 map ctrl+home resize_window reset
 
 detect_urls yes
-# url_color #7B8887
+
+url_color #7B8887
 url_style curly
 url_prefixes http https file ftp gemini irc gopher mailto news git
 confirm_os_window_close 0
@@ -108,15 +110,10 @@ window_padding_width  0
 
 term xterm-256color
 #draw_minimal_borders yes
-# active_border_color #4c7899
+
+active_border_color #4c7899
 
 text_composition_strategy legacy
 
 allow_remote_control yes
 listen_on unix:/tmp/kitty
-
-
-# BEGIN_KITTY_THEME
-# Onedark
-#include current-theme.conf
-# END_KITTY_THEME

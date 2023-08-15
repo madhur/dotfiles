@@ -91,15 +91,17 @@ return { -- All clients will match this rule.
 --     rule = {class = "firefox"},
 --     properties = {screen = 1, tag = awful.screen.focused().tags[9]}
 -- },
+-- {
+--     rule = {
+--         class = "Slack"
+--     },
+--     properties = {
+--         screen = 1,
+--         tag = awful.screen.focused().tags[10]
+--     }
+-- }, 
+
 {
-    rule = {
-        class = "Slack"
-    },
-    properties = {
-        screen = 1,
-        tag = awful.screen.focused().tags[10]
-    }
-}, {
     rule_any = {
         class = {"PanGPUI", "gpclient"}
     },
