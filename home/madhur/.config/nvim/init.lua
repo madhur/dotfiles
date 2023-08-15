@@ -12,5 +12,6 @@ require "user.nvim-tree"
 require "user.bufferline"
 require "user.lualine"
 require "user.toggleterm"
-
+require "user.nnn"
+require "user.which-key"
 --vim.cmd("colorscheme onedarker")

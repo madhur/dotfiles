@@ -43,7 +43,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-keymap("i", "<C-s>", "<ESC>:w<cr>i", opts)
+keymap("i", "<C-s>", "<ESC>:w<cr>", opts)
 keymap("i", "<C-q>", "<ESC>:qa!<cr>", opts)
 
 
@@ -74,6 +74,6 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
-
+--keymap("n", "<leader>F", ":Format<cr>", opts)
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
