@@ -87,19 +87,20 @@ return { -- All clients will match this rule.
         screen = 1,
         tag = awful.screen.focused().tags[6]
     }
-}, -- {
+}, 
+-- {
 --     rule = {class = "firefox"},
 --     properties = {screen = 1, tag = awful.screen.focused().tags[9]}
 -- },
--- {
---     rule = {
---         class = "Slack"
---     },
---     properties = {
---         screen = 1,
---         tag = awful.screen.focused().tags[10]
---     }
--- }, 
+{
+    rule = {
+        class = "Slack"
+    },
+    properties = {
+        screen = 1,
+        tag = awful.screen.focused().tags[10]
+    }
+}, 
 
 {
     rule_any = {
@@ -116,7 +117,7 @@ return { -- All clients will match this rule.
     end
 }, {
     rule_any = {
-        class = {"kruler", "Kruler", "Slack", "Audacious"}
+        class = {"kruler", "Kruler", "Audacious"}
     },
     properties = {
         floating = true,

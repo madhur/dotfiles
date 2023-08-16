@@ -14,4 +14,5 @@ require "user.lualine"
 require "user.toggleterm"
 require "user.nnn"
 require "user.which-key"
+require "user.indent_blankline"
 --vim.cmd("colorscheme onedarker")

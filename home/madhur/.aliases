@@ -118,3 +118,28 @@ alias nnn="nnn -P p"
 alias lg="lazygit"
 alias rg="kitty +kitten hyperlinked_grep"
 alias icat="kitten icat"
+alias e='nvim'
+alias g="git"
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias d="kitty +kitten diff"
+alias c="clear"
+alias l='exa --icons --group-directories-first'
+
+
+# kubectl
+alias k='kubectl'
+alias kd='kubectl describe'
+alias kdd='kubectl describe deployment'
+alias kdp='kubectl describe pod'
+alias kei='kubectl exec -it'
+alias kg='kubectl get'
+alias kgall='kubectl get --all-namespaces all'
+alias kgd='kubectl get deployments'
+alias kgp='kubectl get pod'
+alias kgsvc='kubectl get service'
+alias kl='kubectl logs --all-containers=true'
+alias krm='kubectl delete'
+
+

@@ -142,7 +142,7 @@ eval "$(dircolors ~/.dir_colors)"
 
 colorscript random
 
-export EDITOR=micro
+export EDITOR=nvim
 [[ -s "/home/madhur/.gvm/scripts/gvm" ]] && source "/home/madhur/.gvm/scripts/gvm"
 eval "$(zoxide init zsh)"
 

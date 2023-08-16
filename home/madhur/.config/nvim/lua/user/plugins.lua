@@ -53,7 +53,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
 	use("luukvbaal/nnn.nvim")
-
+--  use "lukas-reineke/indent-blankline.nvim"
 	-- Lua
 	use({
 		"folke/which-key.nvim",
