@@ -37,6 +37,7 @@ alias got='git '
 alias get='git '
 alias gpom='git pull origin master'
 alias gpor='git pull origin release'
+alias gpo='git push origin'
 alias gfom='git fetch upstream master'
 alias gfp='git fetch upstream master && git push'
 alias gpum='git pull upstream master'
@@ -126,7 +127,7 @@ alias vim='nvim'
 alias d="kitty +kitten diff"
 alias c="clear"
 alias l='exa --icons --group-directories-first'
-
+alias nb='newsboat'
 
 # kubectl
 alias k='kubectl'

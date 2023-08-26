@@ -13,11 +13,7 @@ local clientkeys = gears.table.join(awful.key({altkey, shiftkey}, "space", lain.
     group = "client"
 }), awful.key({modkey}, "f", function(c)
     c.fullscreen = not c.fullscreen
-    
     c:raise()
-
-    -- c.maximized = not c.maximized
-    -- c:raise()
 end, {
     description = "toggle fullscreen",
     group = "client"

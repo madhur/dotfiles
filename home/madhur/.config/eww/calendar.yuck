@@ -7,7 +7,7 @@
 
 (defwidget cal []
   (box :class "cal-box" :orientation "v"
-    (calendar :class "cal" :day calendar_day :month calendar_month :year calendar_year)
+    (calendar :show-heading true :show-day-names true :class "cal" :day calendar_day :month calendar_month :year calendar_year)
   )
 )
 

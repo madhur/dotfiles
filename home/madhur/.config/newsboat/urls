@@ -11,7 +11,6 @@ http://hexblog.com/atom.xml TechFun Blogs
 http://technotab.com/feed/ TechFun Blogs
 
 https://theupwardmind.com/feed/ Bipolar
-https://news.google.com/news/rss/search/section/q/http%3A%2F%2Fbluelightblue.com%2Fpick-yourself-up%2F/http%3A%2F%2Fbluelightblue.com%2Fpick-yourself-up%2F?ned=us&hl=en&gl=US Bipolar
 https://rachelmiller1511.wordpress.com/feed/ Bipolar
 https://thebipolarcuriousblog.com/feed/ Bipolar
 http://mentalhealthtalk.info/feed/ Bipolar
@@ -68,7 +67,6 @@ http://codeascraft.etsy.com/feed/ Engineering
 
 http://feeds.feedburner.com/HighScalability Scalability
 
-http://blog.chromium.org/feeds/posts/default Companies
 http://aws.typepad.com/aws/atom.xml Companies
 http://www.awsarchitectureblog.com/atom.xml Companies
 https://www.glassdoor.co.in/rss/reviews.rss?id=612822 Companies
@@ -151,6 +149,7 @@ http://blog.chromium.org/feeds/posts/default?alt=rss Official Blogs
 http://sourceforge.net/blog/feed/ Official Blogs
 http://blogs.msdn.com/b/powershell/rss.aspx Official Blogs
 http://blog.dropbox.com/?feed=rss2 Official Blogs
+https://planetscale.com/blog/rss.xml Blogs
 
 http://www.codingthearchitecture.com/rss.xml Programming
 https://packetzoom.com/blog/feeds/all.atom.xml Programming
@@ -162,7 +161,6 @@ http://feeds.feedburner.com/footle Programming
 http://blog.knatten.org/feed/ Programming
 http://feeds.feedburner.com/BenNorthrop Programming
 http://blog.nishtahir.com/rss/ Programming
-https://go.dev/blog/feed.atom Programming
 https://www.mikeash.com/pyblog/rss.py?mode=fulltext Programming
 http://ankit.im/feed.xml Programming
 http://codetunnel.com/rss/ Programming
@@ -195,7 +193,6 @@ http://blog.golang.org/feeds/posts/default Programming
 
 https://slicingpie.com/slicing-pie-offer-letter-template/feed/ Startups
 http://feeds.feedburner.com/collabfund Startups
-https://www.reddit.com/r/cofounder/.rss Startups
 
 https://ma.ttias.be/feed/ Devops
 
@@ -251,7 +248,6 @@ http://shivstories.blogspot.com/feeds/posts/default?alt=rss General
 http://williamedwardscoder.tumblr.com/rss General
 http://www.codereversing.com/blog/?feed=rss2 General
 http://feeds.feedburner.com/PixelMillBlogFeed General
-http://dotnetraj.wordpress.com/feed/ General
 http://feeds.feedburner.com/mischiefmayhemsoap General
 http://cyberbreeze.blogspot.com/feeds/posts/default General
 http://feeds.feedburner.com/remysharp General
@@ -296,3 +292,6 @@ https://www.farnamstreetblog.com/feed/ Enterpreneurs
 http://ankurwarikoo.com/feed/ Enterpreneurs
 http://steveblank.com/feed/ Enterpreneurs
 
+
+https://www.reddit.com/r/unixporn/.rss reddit
+https://www.reddit.com/r/programming/.rss reddit

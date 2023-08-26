@@ -3,7 +3,7 @@
 # feed options
 auto-reload yes
 reload-time 60
-reload-threads 8
+reload-threads 20
 download-retries 2
 download-timeout 10
 download-full-page yes
@@ -11,6 +11,9 @@ scrolloff 11
 always-display-description true
 text-width 120
 goto-next-feed no
+
+show-read-feeds no
+feed-sort-order unreadarticlecount-asc
 
 # keybindings
 #bind-key j down

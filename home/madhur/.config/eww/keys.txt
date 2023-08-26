@@ -26,9 +26,9 @@ SUPER + ~ | Dropdown terminal | Alt + key | Select plugin | CTRL + r | Recent re
 SUPER + F12 | Flameshot | b | Go to bookmark | CTRL + e | Diff Mode
 SUPER + c | Calculator | Alt + z | Fuzzy cd  | d | Delete branch, Discard changes
 SUPER + RETURN | Terminal | x | Delete file  | f | fast forward branch
-SUPER + d | dmenu | * | Make executable
-F2 | Copyq | t[t][s][e] | Sort by time, size, extension
-SUPER + s | Show the hotkey popup | Shift + Tab | Create new session
-CTRL + m | VPN Username | Tab | cycle through session
-CTRL + , | VPN password | . | Toggle hidden files
-SUPER + x | Power Menu
+SUPER + d | dmenu | * | Make executable | CTRL + s | Search for file for history
+F2 | Copyq | t[t][s][e] | Sort by time, size, extension | Shift + P | Push
+SUPER + s | Show the hotkey popup | Shift + Tab | Create new session | p | Pull
+CTRL + m | VPN Username | Tab | cycle through session | space | checkout highlighted
+CTRL + , | VPN password | . | Toggle hidden files | c | checkout by name
+SUPER + x | Power Menu | | | [,] | Switch tab

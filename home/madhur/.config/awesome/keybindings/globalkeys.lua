@@ -337,8 +337,14 @@ local globalkeys =
         {modkey},
         "e",
         function(_)
+            
+            local clients = awful.screen.focused().all_clients
+            for _i, c in ipairs(clients) do
+                c.maximized = false
+            end
+
             awful.screen.focused().selected_tag.master_count = 1
-            awful.layout.set(madhur.layout.tallmagnified)
+            awful.layout.set(awful.layout.suit.tile.right)
         end,
         {
             description = "Switch to tall layout",

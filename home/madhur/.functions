@@ -25,12 +25,13 @@ extract () {
 
 
 function java11() {
-  sdk use java 11.0.12-open
-  export PATH=/home/madhur/.sdkman/candidates/java/11.0.12-open/bin:$PATH
+  sdk use java 11.0.20-amzn
+  export PATH=/home/madhur/.sdkman/candidates/java/11.0.20-amzn/bin:$PATH
 }
 
 function java8() {
-  sdk use java 8.0.302-open
+  export PATH=/home/madhur/.sdkman/candidates/java/8.0.382-amzn/bin:$PATH
+  sdk use java 8.0.382-amzn
 }
 
 

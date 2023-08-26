@@ -34,3 +34,4 @@ run "eww daemon"
 #  run "/home/madhur/scripts/start_redshift.sh"
 #fi
 flatpak run com.github.hluk.copyq
+run /usr/bin/xscreensaver-command -lock
