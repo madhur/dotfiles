@@ -96,6 +96,7 @@ gitui
 glances
 glava
 globalprotect-openconnect
+glow
 gnome-video-effects
 gnu-netcat
 gobject-introspection
@@ -212,6 +213,7 @@ openvpn
 os-prober
 pacman
 pacman-contrib
+pandoc-cli
 papirus-icon-theme
 patch
 pavucontrol
@@ -248,9 +250,9 @@ python-packaging
 python-pyqt5
 python-pytz
 python-pywal
+python-readability-lxml
 python-reportlab
 python-snowballstemmer
-python-soupsieve
 python-sphinx-alabaster-theme
 python-sphinx-basic-ng
 python-sphinxcontrib-jsmath
@@ -274,6 +276,7 @@ s-nail
 scrot
 sed
 sg3_utils
+shellcheck
 smartmontools
 sof-firmware
 splix

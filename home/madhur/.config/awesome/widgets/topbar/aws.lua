@@ -8,8 +8,9 @@ local function get_widget(stack_id)
         if tonumber(stdout) > 1 then
             awesome.emit_signal("warning", "aws")
             widget:set_markup(markup.font(beautiful.font, " "..stack_id..":" .. stdout))
-        --else
-            --awesome.emit_signal("normal", "aws")
+        else
+            widget:set_markup(markup.font(beautiful.font, ""))
+            awesome.emit_signal("normal", "aws")
         end
         
     end)

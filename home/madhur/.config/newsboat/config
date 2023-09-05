@@ -3,9 +3,9 @@
 # feed options
 auto-reload yes
 reload-time 60
-reload-threads 20
+reload-threads 100
 download-retries 2
-download-timeout 10
+download-timeout 5
 download-full-page yes
 scrolloff 11
 always-display-description true
@@ -69,3 +69,6 @@ highlight article ":.*\\(embedded flash\\)$" magenta default
 feedlist-format "%?T?║%n %12u %t &╠ %t?"
 highlight feedlist "[║│]" color3 color0
 highlight feedlist "╠.*" color3 color0
+
+
+macro p set browser "/home/madhur/scripts/article-downloader.sh %u && /home/madhur/scripts/article-converter.sh"; open-in-browser;

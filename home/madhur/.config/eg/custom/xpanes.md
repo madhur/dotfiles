@@ -1,5 +1,5 @@
 Ssh into vagrant
-    xpanes -t -c 'vagrant ssh vttable{}' 1 2 3
+    xpanes -t -c 'vagrant ssh vttablet{}' 1 2 3
 
 A mini multiple websocket connector
     xpanes -t -c 'wscat -c ws://localhost:8080' 1 2 3 4 5 6 7 8 9
@@ -15,7 +15,6 @@ Generate sequences
 
 Simple multiple ssh
      xpanes -t -c 'ssh {}' 10.24.196.97 10.24.196.97
-
 
 Run multiple monitor
     xpanes  -e "top" "vmstat 1" "watch -n 1 df"

@@ -49,6 +49,7 @@ swhkd-git
 tabbed-flexipatch-git
 tmux-xpanes
 trayer-srg-git
+ulauncher
 visual-studio-code-bin
 wlroots-git
 wscat

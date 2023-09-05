@@ -142,5 +142,5 @@ alias kgp='kubectl get pod'
 alias kgsvc='kubectl get service'
 alias kl='kubectl logs --all-containers=true'
 alias krm='kubectl delete'
-
+alias cred="sh ~/.aws/renew_dev_token.sh"
 

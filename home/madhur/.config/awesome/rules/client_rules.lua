@@ -126,7 +126,7 @@ return { -- All clients will match this rule.
     }
 }, {
     rule_any = {
-        class = {"copyq", "feh", "Viewnior", "Gpicview", "eww-calculator", "qimgv"}
+        class = {"copyq", "feh", "Viewnior", "Gpicview", "eww-calculator", "qimgv", "Gcr-prompter"}
     },
     properties = {
         floating = true,
