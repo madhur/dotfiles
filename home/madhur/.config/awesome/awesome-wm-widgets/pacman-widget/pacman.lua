@@ -188,9 +188,9 @@ local function worker(user_args)
                 right = 20,
                 layout = wibox.container.margin
             }
-            if #upgrades_tbl < 10 then
+            if #upgrades_tbl < 100 then
                 awesome.emit_signal("normal", "pacman")
-            elseif #upgrades_tbl< 50 then
+            elseif #upgrades_tbl < 500 then
                 awesome.emit_signal("warning", "pacman")
             else
                 awesome.emit_signal("critical", "pacman")

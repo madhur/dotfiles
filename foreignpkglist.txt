@@ -27,6 +27,7 @@ google-chrome
 indicator-sound-switcher
 jd-gui-bin
 kafkactl
+lite-xl
 mkinitcpio-openswap
 ncurses5-compat-libs
 nerd-fonts-complete

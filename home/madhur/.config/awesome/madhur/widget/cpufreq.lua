@@ -66,13 +66,13 @@ local function factory(args)
             end
         end
     
-        if freqv.ghz >= 4.5 then
-            awesome.emit_signal("warning", "cpufreq")    
-        elseif freqv.ghz < 3.0 then
-            awesome.emit_signal("normal", "cpufreq")    
-        else
-            awesome.emit_signal("normal", "cpufreq")    
-        end
+        -- if freqv.ghz >= 4.5 then
+        --     awesome.emit_signal("warning", "cpufreq")    
+        -- elseif freqv.ghz < 3.0 then
+        --     awesome.emit_signal("normal", "cpufreq")    
+        -- else
+        --     awesome.emit_signal("normal", "cpufreq")    
+        -- end
         -- Get the current governor
         governor = _cpufreq.scaling_governor
         -- Represent the governor as a symbol

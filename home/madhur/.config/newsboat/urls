@@ -63,6 +63,7 @@ http://aws.typepad.com/aws/atom.xml Companies
 http://www.awsarchitectureblog.com/atom.xml Companies
 https://www.glassdoor.co.in/rss/reviews.rss?id=612822 Companies
 https://www.glassdoor.co.in/rss/reviews.rss?id=1337171 Companies
+https://blog.google/products/gmail/rss/ Companies
 
 http://www.psychalive.org/feed/ Health
 http://feeds.feedburner.com/MarcAndAngel Health
@@ -167,10 +168,13 @@ http://blog.golang.org/feeds/posts/default Programming
 https://nadh.in/index.xml Programming
 https://jdhao.github.io/index.xml Programming
 
+https://f1sty.github.io/feed.xml Linux
+
 https://slicingpie.com/slicing-pie-offer-letter-template/feed/ Startups
 http://feeds.feedburner.com/collabfund Startups
 
 https://ma.ttias.be/feed/ Devops
+https://www.wolfe.id.au/index.xml Devops
 
 http://davidwalsh.name/feed WebDev
 http://wickedlysmart.com/feed/ WebDev

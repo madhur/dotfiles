@@ -15,7 +15,9 @@ telescope.setup {
     path_display = { "truncate" },
    
     layout_config = {
-      vertical = { width = 1 }
+      vertical = { width = 1 },
+      dropdown = { width = 1 },
+      width = 0.8,
       -- other layout configuration here
     },
     
@@ -85,7 +87,7 @@ telescope.setup {
       },
     },
   },
-  -- pickers = {
+   pickers = {
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -93,7 +95,10 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
-  -- },
+    find_files = {
+            width = 1
+        }
+   },
   extensions = {
     media_files = {
         -- filetypes whitelist

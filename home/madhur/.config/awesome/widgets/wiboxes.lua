@@ -153,6 +153,7 @@ local right_widgets = {
     layout = wibox.layout.fixed.horizontal,
     --pl (cpu_temp, true, "cpu_temp1"),
     pl((require("widgets.topbar.cpu")), true, "cpu_widget"),
+    pl((require("widgets.topbar.cpufreq")), true, "cpufreq"),
     pl((require("widgets.topbar.temp")), false, "temp"),
     pl((require("widgets.topbar.memory")), true, "mem"),
     pl((require("widgets.topbar.disk")), true, "fs"),
