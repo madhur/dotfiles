@@ -12,7 +12,7 @@ return {
     "akinsho/toggleterm.nvim",
     "luukvbaal/nnn.nvim",
 
-    "folke/which-key.nvim",
+--    "folke/which-key.nvim",
 
     "hrsh7th/nvim-cmp", -- The completion plugin
     "hrsh7th/cmp-buffer", -- buffer completions

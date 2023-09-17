@@ -4,12 +4,8 @@ local client, root = client, root
 local lain = require("lain")
 local gears = require("gears")
 local bling = require("bling")
-local madhur = require("madhur")
-local hotkeys_popup = require("awful.hotkeys_popup").widget
+--local hotkeys_popup = require("awful.hotkeys_popup").widget
 local naughty = require("naughty")
-local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
-local mouse = require("awful.mouse")
-local gfs = require("gears.filesystem")
 local modkey = "Mod4"
 local altkey = "Mod1"
 local ctrlkey = "Control"
@@ -38,13 +34,6 @@ local globalkeys =
         "`",
         function()
             awful.util.magnifier = not awful.util.magnifier
-            -- c:emit_signal(
-            --     "request::activate",
-            --     "titlebar",
-            --     {
-            --         raise = true
-            --     }
-            -- )
             awful.screen.focused().selected_tag:emit_signal("property::layout")
         end,
         {
@@ -58,15 +47,6 @@ local globalkeys =
         awesome.restart,
         {
             description = "Reload awesome",
-            group = "awesome"
-        }
-    ),
-    awful.key(
-        {modkey, shiftkey},
-        "s",
-        hotkeys_popup.show_help,
-        {
-            description = "Show help",
             group = "awesome"
         }
     ),
@@ -337,7 +317,6 @@ local globalkeys =
         {modkey},
         "e",
         function(_)
-            
             local clients = awful.screen.focused().all_clients
             for _i, c in ipairs(clients) do
                 c.maximized = false
@@ -357,13 +336,11 @@ local globalkeys =
         function(_)
             if #awful.screen.focused().clients > 2 then
                 awful.spawn.easy_async_with_shell("/home/madhur/scripts/alt_tab.sh", function(stdout, stderr, reason, exit_code)
-                
                 end)
 
             else
                 awful.client.focus.byidx(1)
             end
-            
         end,
         {
             description = "cycle through clients",

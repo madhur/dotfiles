@@ -19,8 +19,8 @@ local function get_widget(stack_id)
 end
 
 local aws = wibox.widget {
-    get_widget("edd7b0"),
-    get_widget("a647b7"),
+    get_widget("pb876a"),
+    get_widget("fa84cf"),
     layout = wibox.layout.fixed.horizontal,
 }
 

@@ -71,4 +71,4 @@ highlight feedlist "[║│]" color3 color0
 highlight feedlist "╠.*" color3 color0
 
 
-macro p set browser "/home/madhur/scripts/article-downloader.sh %u && /home/madhur/scripts/article-converter.sh"; open-in-browser;
+macro p set browser "/home/madhur/scripts/article-downloader.sh %u && /home/madhur/scripts/article-converter.sh"; open-in-browser; set browser "brave %u"

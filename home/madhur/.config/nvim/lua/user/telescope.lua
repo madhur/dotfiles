@@ -16,7 +16,7 @@ telescope.setup {
    
     layout_config = {
       vertical = { width = 1 },
-      dropdown = { width = 1 },
+--      dropdown = { width = 1 },
       width = 0.8,
       -- other layout configuration here
     },

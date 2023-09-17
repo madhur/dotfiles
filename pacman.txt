@@ -137,6 +137,7 @@ jq
 keychain
 kubectl
 kubectx
+lapce
 lazygit
 less
 lib32-libglvnd
@@ -239,11 +240,9 @@ python
 python-babel
 python-beautifulsoup4
 python-capng
-python-contourpy
 python-cycler
 python-defusedxml
 python-imagesize
-python-matplotlib
 python-packaging
 python-pyqt5
 python-pywal

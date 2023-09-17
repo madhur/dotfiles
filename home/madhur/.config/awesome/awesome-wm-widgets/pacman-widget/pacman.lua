@@ -133,11 +133,11 @@ local function worker(user_args)
                 stderr = function(line)
                     if (line ~= nil and line ~= "") then
                         if string.find(line, "warning") then
-                            naughty.notify({
-                                title = "Warning!",
-                                text = line,
-                                timeout = 0
-                                })
+                            -- naughty.notify({
+                            --     title = "Warning!",
+                            --     text = line,
+                            --     timeout = 0
+                            --     })
                         else
                             naughty.notify({
                                 preset = naughty.config.presets.critical,

@@ -56,6 +56,7 @@ http://techblog.netflix.com/feeds/posts/default Engineering
 http://codeascraft.etsy.com/feed/ Engineering
 https://muhammadraza.me/feed.xml Engineering
 https://blogs.gnome.org/shell-dev/feed/ Engineering
+https://bytes.swiggy.com/feed Engineering
 
 http://feeds.feedburner.com/HighScalability Scalability
 
@@ -129,8 +130,6 @@ http://feeds.feedburner.com/LinkedInBlog Official Blogs
 http://blog.jquery.com/feed/ Official Blogs
 http://blog.chromium.org/feeds/posts/default?alt=rss Official Blogs
 http://sourceforge.net/blog/feed/ Official Blogs
-http://blogs.msdn.com/b/powershell/rss.aspx Official Blogs
-http://blog.dropbox.com/?feed=rss2 Official Blogs
 https://planetscale.com/blog/rss.xml Blogs
 
 http://www.codingthearchitecture.com/rss.xml Programming
@@ -167,6 +166,7 @@ http://thume.ca/atom.xml Programming
 http://blog.golang.org/feeds/posts/default Programming
 https://nadh.in/index.xml Programming
 https://jdhao.github.io/index.xml Programming
+https://www.hottakes.space/feed Programming
 
 https://f1sty.github.io/feed.xml Linux
 
