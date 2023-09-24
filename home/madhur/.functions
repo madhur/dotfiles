@@ -34,6 +34,11 @@ function java8() {
   sdk use java 8.0.382-amzn
 }
 
+function java21() {
+     export PATH=/home/madhur/.sdkman/candidates/java/21-amzn/bin:$PATH
+     sdk use java 21-amzn
+}
+
 
 emr-ssh(){
 	ssh -i ~/.ssh/mec-emr.pem "ec2-user@$1"

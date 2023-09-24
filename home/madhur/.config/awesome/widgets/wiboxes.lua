@@ -1,10 +1,6 @@
 local wibox = require("wibox")
-local madhur = require("madhur")
 local beautiful = require("beautiful")
 local awful = require("awful")
-local helpers = require("madhur.helpers")
-local gears = require("gears")
-local naughty = require("naughty")
 local top_left = require("madhur.widget.top_left")
 local wiboxes = {}
 
@@ -141,17 +137,12 @@ awesome.connect_signal("normal", function(widget_type)
     end
 end)
 
-local cpu_temp =  wibox.widget {
-    require("widgets.topbar.cpu"),
-    require("widgets.helper").separator2,
-    require("widgets.topbar.temp"),
-    layout = wibox.layout.fixed.horizontal,
-}
 
 local right_widgets = {
     -- Right widgets
     layout = wibox.layout.fixed.horizontal,
     --pl (cpu_temp, true, "cpu_temp1"),
+    pl(require("widgets.topbar.clock"), true, "calendar"),
     pl((require("widgets.topbar.cpu")), true, "cpu_widget"),
     pl((require("widgets.topbar.cpufreq")), true, "cpufreq"),
     pl((require("widgets.topbar.temp")), false, "temp"),
@@ -170,6 +161,11 @@ local right_widgets = {
 
 local hr_spr = require("widgets.helper").hr_spr
 local spr = require("widgets.helper").spr
+local empty = wibox.widget{
+    text = "",
+    widget = wibox.widget.textbox
+}
+
 
 function wiboxes.get(s)
     local mywibox = awful.wibar({
@@ -201,20 +197,16 @@ function wiboxes.get(s)
         wibox.container.margin(mylayoutbox, 5, 10, 5, 5),
         spr,
         mytasklist,
-        jgmenu
+       -- jgmenu
+        
     }
 
     mywibox:setup{
         layout = wibox.layout.align.horizontal,
-        expand = "none",
+        expand = "inside",
         left_widgets,
-        {
-            layout = wibox.layout.align.horizontal,
-            expand = "none",
-            nil,
-            pl(require("widgets.topbar.clock"), true, "calendar")
-        },
-        right_widgets
+        jgmenu,
+        right_widgets,
     }
     return mywibox
 end

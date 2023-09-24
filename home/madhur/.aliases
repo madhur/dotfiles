@@ -37,7 +37,7 @@ alias got='git '
 alias get='git '
 alias gpom='git pull origin master'
 alias gpor='git pull origin release'
-alias gpo='git push origin'
+alias gpo='git pull origin'
 alias gfom='git fetch upstream master'
 alias gfp='git fetch upstream master && git push'
 alias gpum='git pull upstream master'
@@ -144,3 +144,4 @@ alias kl='kubectl logs --all-containers=true'
 alias krm='kubectl delete'
 alias cred="sh ~/.aws/renew_dev_token.sh"
 
+#alias killf="kill -9 $(ps -u madhur a | fzf | awk '{print $2}')"

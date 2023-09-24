@@ -28,6 +28,9 @@ super + b
 super  + s
     eww open bindkeys --toggle
 
+super + shift + s
+    eww open bindkeys_nvim --toggle 
+
 #new power menu
 super + x
     key-power

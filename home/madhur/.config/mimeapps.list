@@ -1,9 +1,9 @@
 [Default Applications]
-text/html=browser.desktop
-x-scheme-handler/http=browser.desktop
-x-scheme-handler/https=browser.desktop
-x-scheme-handler/about=browser.desktop
-x-scheme-handler/unknown=browser.desktop
+text/html=brave-browser-work.desktop
+x-scheme-handler/http=brave-browser-work.desktop
+x-scheme-handler/https=brave-browser-work.desktop
+x-scheme-handler/about=brave-browser-work.desktop
+x-scheme-handler/unknown=brave-browser-work.desktop
 application/x-zerosize=xed.desktop
 x-scheme-handler/mailto=brave-browser.desktop
 image/bmp=gpicview.desktop
@@ -27,7 +27,7 @@ image/svg-xml=gpicview.desktop
 application/x-shellscript=code.desktop;visual-studio-code.desktop;vim.desktop;
 text/x-haskell=visual-studio-code.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
-text/plain=code.desktop;visual-studio-code.desktop;
+text/plain=nvim.desktop;org.lite_xl.lite_xl.desktop;micro.desktop;code.desktop;xed.desktop;dev.lapce.lapce.desktop;vim.desktop;visual-studio-code.desktop;
 text/x-lua=code.desktop;
 text/html=code.desktop;
 image/jpeg=qimgv.desktop;viewnior.desktop;feh.desktop;

@@ -23,7 +23,6 @@ fastfetch
 flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
-google-chrome
 indicator-sound-switcher
 jd-gui-bin
 kafkactl
@@ -38,6 +37,7 @@ oh-my-zsh-git
 papirus-folders-git
 pipes.sh
 powerline-fonts-git
+prettierd
 python2
 python310
 qimgv-git
@@ -45,15 +45,14 @@ qogir-gtk-theme
 reflector-simple
 rofi-file-browser-extended-git
 shell-color-scripts
+slack-desktop
 snapd
-sway-git
 swhkd-git
 tabbed-flexipatch-git
 tmux-xpanes
 trayer-srg-git
 ulauncher
 visual-studio-code-bin
-wlroots-git
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night

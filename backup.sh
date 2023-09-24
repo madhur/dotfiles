@@ -80,6 +80,7 @@ cp -r ~/.gtkrc-2.0 $dfolder/
 cp ~/.dir_colors $dfolder/
 cp ~/.aliases $dfolder/
 cp ~/.functions $dfolder/
+cp -r ~/.local/share/applications/ $dfolder/.local/share/
 
 
 sudo cp /root/.bashrc $HOME/github/personal/dotfiles/root/

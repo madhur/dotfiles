@@ -154,3 +154,6 @@ export PATH="/home/madhur/github/personal/git-fuzzy/bin:$PATH"
 source ~/.config/nnn/config
 
 #export HOST=$(hostname)
+
+export MANPAGER="nvim +Man!"
+export ZK_CLUSTER_URLS=localhost:2181

@@ -1,0 +1,24 @@
+Nvim
+----
+
+:%!jq . | Format Json
+set wrap | Set Wrap
+vsplit / split | Window Split
+
+gl | Show diagnosis
+gr | Show references
+gd | Show definitions
+[d, ]d | Diagnostics Navigation
+
+CTRL + h,j,kl | Window Navigation | Angle brackets  | Indent Navigation
+Shift + h,l | Buffer Navigation | Alt + j,k | Move text up/down
+CTRL + w | Close Buffer
+CTRL + t | Telescope grep
+Space + f | Telescope file finder
+Space + g | Lazygit
+Space + n | nnn
+Space + N | nnn (current file)
+Space + t | ToggleTerm
+
+G | Go To End
+gg | Go to Beginning

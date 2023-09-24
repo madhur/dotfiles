@@ -42,9 +42,9 @@ local function factory(args)
         if tonumber(mem_now.perc) > 80 then
             awesome.emit_signal("critical", "mem")
         elseif tonumber(mem_now.perc) > 50 then
-           awesome.emit_signal("warning", "mem")            
+           awesome.emit_signal("warning", "mem")
         else
-            awesome.emit_signal("normal", "mem")            
+            awesome.emit_signal("normal", "mem")
         end
 
         widget = mem.widget

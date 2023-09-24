@@ -235,6 +235,7 @@ power-profiles-daemon
 powertop
 ppp
 pptpclient
+prettier
 pv
 python
 python-babel

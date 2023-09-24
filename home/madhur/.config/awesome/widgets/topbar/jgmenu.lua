@@ -7,7 +7,7 @@ local empty = wibox.widget{
 }
 local jgmenu = wibox.widget {
     layout  = wibox.layout.flex.horizontal,
-    spacing = 1000,
+    spacing = 100,
     empty,
     empty,
     empty,
