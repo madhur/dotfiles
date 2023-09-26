@@ -22,3 +22,9 @@ Space + t | ToggleTerm
 
 G | Go To End
 gg | Go to Beginning
+
+gc | Linewise comment
+gb | Blockwise comment
+
+gcc | Linewise comment
+gbc | Blockwise comment

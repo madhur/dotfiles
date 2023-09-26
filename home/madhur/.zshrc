@@ -72,7 +72,7 @@ export incrementuser=10000
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/go/bin:$HOME/.cabal/bin"
-export PATH=/usr/bin:$PATH:/usr/local/go/bin:$HOME/.cargo/bin:/home/madhur/Downloads/mysql57/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/.cargo/bin:/home/madhur/Downloads/mysql57/bin:/usr/bin
 
 ## Linux handling
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig:/usr/share/wayland-protocols:/usr/local/include:/usr/local/include/libbamf3:/usr/local/share:/usr/local/share/vala/vapi
@@ -157,3 +157,4 @@ source ~/.config/nnn/config
 
 export MANPAGER="nvim +Man!"
 export ZK_CLUSTER_URLS=localhost:2181
+

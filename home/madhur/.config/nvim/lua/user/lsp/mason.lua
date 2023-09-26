@@ -1,9 +1,9 @@
 local servers = {
     "lua_ls",
 	"pyright",
-	--"jsonls",
+	"jsonls",
 	"gopls",
-	"yamlls",
+--	"yamlls",
     "tsserver",
     "jdtls",
     "bashls"

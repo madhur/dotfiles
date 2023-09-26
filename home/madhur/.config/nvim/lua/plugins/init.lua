@@ -1,48 +1,86 @@
 return {
 
-    "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
-    "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
-    "lunarvim/Onedarker.nvim",
-    "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-    "numToStr/Comment.nvim", -- Easily comment stuff
-    "kyazdani42/nvim-web-devicons",
-    'kyazdani42/nvim-tree.lua',
-    "akinsho/bufferline.nvim",
-    "nvim-lualine/lualine.nvim",
-    "akinsho/toggleterm.nvim",
-    "luukvbaal/nnn.nvim",
+	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
+	"nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
+	--  "lunarvim/Onedarker.nvim",
+	"navarasu/onedark.nvim",
+	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+	"numToStr/Comment.nvim", -- Easily comment stuff
+	"kyazdani42/nvim-web-devicons",
+	"kyazdani42/nvim-tree.lua",
+	"akinsho/bufferline.nvim",
+	"nvim-lualine/lualine.nvim",
+	"akinsho/toggleterm.nvim",
+	"luukvbaal/nnn.nvim",
 
---    "folke/which-key.nvim",
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("user.colorizer")
+		end,
+		ft = { "html", "css", "sass", "javascript", "typescriptreact", "javascriptreact" },
+		cmd = "ColorizerToggle",
+	},
+	{
+		"glepnir/dashboard-nvim",
+		config = function()
+			require("user.dashboard")
+		end,
+		-- Only load when no arguments
+		event = function()
+			if vim.fn.argc() == 0 then
+				return "VimEnter"
+			end
+		end,
+		cmd = "Dashboard",
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		ft = { "markdown" },
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview" },
+	},
 
-    "hrsh7th/nvim-cmp", -- The completion plugin
-   
-    -- I dont wan't buffer completion
-    --    "hrsh7th/cmp-buffer", -- buffer completions
-    "hrsh7th/cmp-path", -- path completions
-    "hrsh7th/cmp-cmdline", -- cmdline completion
-    "saadparwaiz1/cmp_luasnip", -- snippet compl
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
+    {
+        'lewis6991/gitsigns.nvim',
+        cmd = 'Gitsigns',
+        event = 'BufWinEnter',
+        config = function()
+            require('user.gitsigns')
+        end,
+    },
+	--    "folke/which-key.nvim",
 
-    -- snippets
-    "L3MON4D3/LuaSnip", -- snippet engine
-    "rafamadriz/friendly-snippets", -- a bunch o
+	"hrsh7th/nvim-cmp", -- The completion plugin
 
-    -- LSP
-    "neovim/nvim-lspconfig", -- enable LSP
-    "williamboman/mason.nvim", -- simple to use 
-    "williamboman/mason-lspconfig.nvim", -- simp
-    "jose-elias-alvarez/null-ls.nvim", -- LSP di
+	-- I dont wan't buffer completion
+	--    "hrsh7th/cmp-buffer", -- buffer completions
+	"hrsh7th/cmp-path", -- path completions
+	"hrsh7th/cmp-cmdline", -- cmdline completion
+	"saadparwaiz1/cmp_luasnip", -- snippet compl
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
 
-    -- telescope
-    "nvim-telescope/telescope.nvim",
-    "nvim-telescope/telescope-media-files.nvim",
+	-- snippets
+	"L3MON4D3/LuaSnip", -- snippet engine
+	"rafamadriz/friendly-snippets", -- a bunch o
 
-    "nvim-treesitter/nvim-treesitter",
-    build = function()
-        pcall(require('nvim-treesitter.install').update {
-            with_sync = true
-        })
-    end
+	-- LSP
+	"neovim/nvim-lspconfig", -- enable LSP
+	"williamboman/mason.nvim", -- simple to use
+	"williamboman/mason-lspconfig.nvim", -- simp
+	"jose-elias-alvarez/null-ls.nvim", -- LSP di
 
+	-- telescope
+	"nvim-telescope/telescope.nvim",
+	"nvim-telescope/telescope-media-files.nvim",
+
+	"nvim-treesitter/nvim-treesitter",
+	build = function()
+		pcall(require("nvim-treesitter.install").update({
+			with_sync = true,
+		}))
+	end,
 }

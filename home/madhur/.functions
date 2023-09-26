@@ -38,6 +38,7 @@ function java21() {
      export PATH=/home/madhur/.sdkman/candidates/java/21-amzn/bin:$PATH
      sdk use java 21-amzn
 }
+export PATH=/home/madhur/.sdkman/candidates/java/11.0.20-amzn/bin:$PATH
 
 
 emr-ssh(){
