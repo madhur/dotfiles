@@ -133,6 +133,7 @@ iptables-nft
 iwd
 jfsutils
 jgmenu
+jless
 jq
 keychain
 kubectl

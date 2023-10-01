@@ -1,5 +1,8 @@
 #grep
 
+Print only matched data
+    grep -o "playerIds" filename.txt
+
 Remove commented lines
     grep -v '^#' file1 file2 file3
 

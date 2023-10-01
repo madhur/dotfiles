@@ -1,3 +1,9 @@
+With Context
+    rg -C 10 "text to search"
+
+Do not treat string as regex
+    rg -F "getEx("
+
 List file types
     rg --type-list
 

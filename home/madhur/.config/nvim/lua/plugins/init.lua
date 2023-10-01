@@ -71,7 +71,9 @@ return {
 	"neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/mason.nvim", -- simple to use
 	"williamboman/mason-lspconfig.nvim", -- simp
-	"jose-elias-alvarez/null-ls.nvim", -- LSP di
+    "nvimtools/none-ls.nvim",
+	-- "jose-elias-alvarez/null-ls.nvim", -- LSP di
+--    "madhur/null-ls.nvim",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
