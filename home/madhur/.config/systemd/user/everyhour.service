@@ -1,0 +1,6 @@
+[Unit]
+Description=Script which runs every hour
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/wallpaper.sh

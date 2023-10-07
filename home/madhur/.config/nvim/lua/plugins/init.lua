@@ -42,15 +42,22 @@ return {
 		ft = { "markdown" },
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview" },
 	},
-
-    {
-        'lewis6991/gitsigns.nvim',
-        cmd = 'Gitsigns',
-        event = 'BufWinEnter',
-        config = function()
-            require('user.gitsigns')
-        end,
-    },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("user.indentline")
+		end,
+		main = "ibl",
+		event = "VeryLazy",
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		cmd = "Gitsigns",
+		event = "BufWinEnter",
+		config = function()
+			require("user.gitsigns")
+		end,
+	},
 	--    "folke/which-key.nvim",
 
 	"hrsh7th/nvim-cmp", -- The completion plugin
@@ -71,9 +78,9 @@ return {
 	"neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/mason.nvim", -- simple to use
 	"williamboman/mason-lspconfig.nvim", -- simp
-    "nvimtools/none-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	-- "jose-elias-alvarez/null-ls.nvim", -- LSP di
---    "madhur/null-ls.nvim",
+	--    "madhur/null-ls.nvim",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",

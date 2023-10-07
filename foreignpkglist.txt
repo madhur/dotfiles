@@ -28,6 +28,7 @@ jd-gui-bin
 kafkactl
 lite-xl
 mkinitcpio-openswap
+mongodb42-bin
 ncurses5-compat-libs
 nerd-fonts-complete
 nvidia-hook
@@ -43,6 +44,7 @@ python310
 qimgv-git
 qogir-gtk-theme
 reflector-simple
+robo3t-bin
 rofi-file-browser-extended-git
 shell-color-scripts
 slack-desktop

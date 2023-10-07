@@ -42,6 +42,7 @@ cryptsetup
 cups
 cups-filters
 cups-pdf
+daktilo
 debugedit
 device-mapper
 dex
@@ -74,6 +75,7 @@ file
 file-roller
 findutils
 firewalld
+flake8
 flameshot
 flatpak
 flex
@@ -115,6 +117,7 @@ gzip
 haveged
 hddtemp
 hdparm
+helm
 hey
 hplip
 htop
@@ -242,7 +245,6 @@ python
 python-babel
 python-beautifulsoup4
 python-capng
-python-cycler
 python-defusedxml
 python-imagesize
 python-packaging
