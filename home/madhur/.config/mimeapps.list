@@ -39,3 +39,4 @@ application/x-zerosize=xed.desktop;
 text/x-opml+xml=code.desktop;
 text/x-java=nvim.desktop;
 text/x-log=code.desktop;
+text/x-python=nvim.desktop;

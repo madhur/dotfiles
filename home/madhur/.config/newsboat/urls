@@ -40,7 +40,6 @@ http://www.linuxjournal.com/node/feed Linux
 http://www.archlinux.org/feeds/news/ Linux
 
 http://allzhere.in/feed/ Friends
-http://feeds2.feedburner.com/taranfx Friends
 http://technologiquepanorama.wordpress.com/feed/ Friends
 http://karankurani.com/rss Friends
 http://rockyj.in/feed.xml Friends
@@ -170,6 +169,7 @@ https://jdhao.github.io/index.xml Programming
 https://www.hottakes.space/feed Programming
 https://spring.io/blog.atom Programming
 https://inside.java/feed.xml Programming
+https://bun.sh/rss.xml Programming
 
 https://f1sty.github.io/feed.xml Linux
 
@@ -234,7 +234,6 @@ http://blog.nparashuram.com/feeds/posts/default General
 http://kwizcom.blogspot.com/feeds/posts/default?alt=rss General
 http://feeds.feedburner.com/ProgressiveImpactDouglasLabier General
 http://feeds.feedburner.com/goyello/uokR General
-http://minimgsi.blogspot.com/feeds/2212722760812541623/comments/default General
 http://jamesone111.wordpress.com/feed/ General
 http://feeds.feedburner.com/CarrerBlog General
 http://jeremiahgrossman.blogspot.com/feeds/posts/default?alt=rss General

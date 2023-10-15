@@ -9,4 +9,4 @@ contexts:
             - edd7b0-rev-kafka-slave1.stage-rc.in:9092
             - edd7b0-rev-kafka-slave2.stage-rc.in:9092
         kafkaversion: 2.1.1
-current-context: remote-cluster
+current-context: default

@@ -8,7 +8,7 @@ local floor = require("math").floor
 -- MEM
 local mem = lain.widget.mem({
 	settings = function()
-		widget:set_markup(markup.font(beautiful.font, " " .. mem_now.perc .. " %"))
+		widget:set_markup(markup.font(beautiful.font, " " .. floor(mem_now.used/1024) .. " GB"))
 	end,
 })
 

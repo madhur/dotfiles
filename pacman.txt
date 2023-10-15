@@ -42,7 +42,6 @@ cryptsetup
 cups
 cups-filters
 cups-pdf
-daktilo
 debugedit
 device-mapper
 dex
