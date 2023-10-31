@@ -2,6 +2,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local awful = require("awful")
 local top_left = require("madhur.widget.top_left")
+local gpick = require("popups.color_picker")
 local wiboxes = {}
 
 local widget_types = {}
@@ -155,6 +156,7 @@ local right_widgets = {
     --require("widgets.topbar.aws"),
     pl((require("widgets.topbar.pacman")), true, "pacman"),
     pl(top_left, true, ""),
+    gpick,
     --pl((require("widgets.topbar.notification")), true, "notification"),
     wibox.container.margin((require("widgets.topbar.systray_new")), 3, 3, 3, 3)
 }

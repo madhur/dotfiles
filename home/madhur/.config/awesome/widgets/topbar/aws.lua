@@ -21,6 +21,7 @@ end
 local aws = wibox.widget {
     get_widget("pb876a"),
     get_widget("fa84cf"),
+    get_widget("a4e71e"),
     layout = wibox.layout.fixed.horizontal,
 }
 

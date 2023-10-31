@@ -68,6 +68,7 @@ expect
 eza
 f2fs-tools
 fakeroot
+fastfetch
 feh
 ffmpegthumbnailer
 file
@@ -124,8 +125,6 @@ httpie
 hugo
 hwdetect
 hwinfo
-i3-wm
-i3status
 iftop
 inetutils
 inter-font
@@ -211,6 +210,8 @@ numlockx
 nvidia-dkms
 nvidia-settings
 nvme-cli
+obconf
+openbox
 openconnect
 openssl-1.1
 openvpn
@@ -298,6 +299,7 @@ thunar
 thunar-archive-plugin
 thunar-volman
 tig
+tint2
 tldr
 tmux
 trash-cli
