@@ -100,3 +100,41 @@ n ()
 klocal() {
     export KUBECONFIG=/home/madhur/vagrant/vagrant-kubeadm-kubernetes/configs/config
 }
+
+function view_csv_pretty {
+    if [ -z "$1" ]; then echo "Usage: view_csv_pretty <file.csv>"
+    else cat "$1" | column -s, -t | less -F -S -X -K
+    fi
+}
+
+function recently_modified() {
+    recent_file=$(ls -t | head -n1)
+    echo "Most recently modified file: $recent_file"
+}
+
+function compress_files() {
+    if [ -z "$1" ]; then echo "Usage: compress_files <archive_name.zip> <file1> <file2> ..."
+    else zip -r "$1" "${@:2}"
+    fi
+}
+
+function search_text_in_files() {
+    if [ -z "$1" ] || [ -z "$2" ]; then echo "Usage: search_text_in_files <directory> <search_term>"
+    else grep -rnw "$1" -e "$2"
+    fi
+}
+
+function process_with_most_memory() {
+    ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+}
+
+function list_open_ports() {
+    netstat -tuln
+}
+
+function find_listening_ports() {
+    if [ -z "$1" ]; then echo "Usage: find_listening_ports <pid>"
+    else ss -tulnp | grep "$1"
+    fi
+}
+

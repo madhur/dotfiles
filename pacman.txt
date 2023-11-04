@@ -68,7 +68,6 @@ expect
 eza
 f2fs-tools
 fakeroot
-fastfetch
 feh
 ffmpegthumbnailer
 file
@@ -139,7 +138,6 @@ jq
 keychain
 kubectl
 kubectx
-lapce
 lazygit
 less
 lib32-libglvnd

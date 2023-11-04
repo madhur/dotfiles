@@ -60,3 +60,4 @@ xfce-polkit
 xqp
 yay
 yt-dlp-drop-in
+zrok-bin
