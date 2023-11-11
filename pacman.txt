@@ -57,6 +57,7 @@ docker
 docker-compose
 dosfstools
 duf
+dune
 dunst
 e2fsprogs
 efibootmgr
@@ -100,6 +101,7 @@ globalprotect-openconnect
 glow
 gnome-video-effects
 gnu-netcat
+goaccess
 gobject-introspection
 grep
 groff
@@ -209,6 +211,7 @@ nvidia-dkms
 nvidia-settings
 nvme-cli
 obconf
+ocaml
 openbox
 openconnect
 openssl-1.1
