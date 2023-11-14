@@ -87,6 +87,9 @@ sudo cp /root/.bashrc $HOME/github/personal/dotfiles/root/
 cp /etc/pacman.conf ./etc/pacman.conf
 cp /etc/my.cnf ./etc/my.cnf
 cp /etc/fstab ./etc/fstab
+cp /etc/dnsmasq.conf ./etc/dnsmasq.conf
+cp /etc/resolvconf.conf ./etc/resolvconf.conf
+cp /etc/resolv.conf ./etc/resolv.conf
 
 pacman -Qnqe > pacman.txt
 pacman -Qqem > foreignpkglist.txt

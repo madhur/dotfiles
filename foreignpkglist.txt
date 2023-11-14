@@ -5,7 +5,6 @@ awesome-git
 brave-bin
 cava
 charles
-csvtools-git
 downgrade
 endeavouros-keyring
 endeavouros-mirrorlist
