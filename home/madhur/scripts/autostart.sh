@@ -12,8 +12,8 @@ run() {
 }
 
 #sleep 5
-#/home/madhur/bin/xbgdump ||  feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
-feh --bg-max /home/madhur/Desktop/World\ Cup\ 2023\ Schedule.png 
+/home/madhur/bin/xbgdump ||  feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
+#feh --bg-max /home/madhur/Desktop/World\ Cup\ 2023\ Schedule.png 
 run sxhkd
 run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf
 run /home/madhur/bin/picom --config ~/.config/picom/picom.conf -b

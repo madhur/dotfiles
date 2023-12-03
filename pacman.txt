@@ -65,7 +65,6 @@ ethtool
 exfatprogs
 expac
 expect
-eza
 f2fs-tools
 fakeroot
 feh
