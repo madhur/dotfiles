@@ -31,9 +31,11 @@ ncurses5-compat-libs
 nerd-fonts-complete
 nvidia-hook
 nvidia-inst
+offsetexplorer2
 oh-my-zsh-git
 papirus-folders-git
 pipes.sh
+plex-media-server
 powerline-fonts-git
 prettierd
 python2

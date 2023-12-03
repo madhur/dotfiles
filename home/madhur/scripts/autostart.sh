@@ -36,5 +36,6 @@ run "eww daemon"
 #fi
 run "redshift"
 flatpak run com.github.hluk.copyq
+run "mvp ~/Desktop/win95.mp3"
 
 #run /usr/bin/xscreensaver-command -lock

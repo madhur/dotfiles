@@ -41,3 +41,4 @@ text/x-java=nvim.desktop;
 text/x-log=code.desktop;
 text/x-python=nvim.desktop;
 text/x-maven+xml=code.desktop;
+video/mp4=mpv.desktop;

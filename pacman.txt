@@ -65,6 +65,7 @@ ethtool
 exfatprogs
 expac
 expect
+eza
 f2fs-tools
 fakeroot
 feh
@@ -141,7 +142,9 @@ lazygit
 less
 lib32-libglvnd
 lib32-ncurses
+libconfig
 libdvdcss
+libev
 libfido2
 libgsf
 libopenraw
@@ -249,6 +252,7 @@ python-pyqt5
 python-pywal
 python-readability-lxml
 python-reportlab
+python-setuptools
 python-snowballstemmer
 python-sphinx-alabaster-theme
 python-sphinx-basic-ng

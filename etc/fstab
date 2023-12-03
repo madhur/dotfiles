@@ -8,3 +8,4 @@
 UUID=70ef01d3-e8d3-464d-b6aa-2969c6f3d0dd /              ext4    defaults,noatime 0 1
 UUID=BE47-662D                            /boot/efi      vfat    defaults,noatime 0 2
 UUID=8b845589-bac6-484e-a3fd-f64ea787ff77    /run/media/madhur/centos            xfs    defaults,noatime 0 2
+UUID=26d11136-c13c-4766-a1e0-12422ee7160d  /data  ext4    rw,user
