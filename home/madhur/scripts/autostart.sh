@@ -11,8 +11,10 @@ run() {
   fi
 }
 
+
 #sleep 5
-/home/madhur/bin/xbgdump ||  feh --randomize --bg-fill /home/madhur/Pictures/wallpapers/
+/home/madhur/scripts/set_wallpaper.sh
+
 #feh --bg-max /home/madhur/Desktop/World\ Cup\ 2023\ Schedule.png 
 run sxhkd
 run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf

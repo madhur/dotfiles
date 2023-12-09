@@ -8,6 +8,7 @@ alsa-firmware
 alsa-plugins
 alsa-utils
 amd-ucode
+android-tools
 ansible
 arandr
 archiso
@@ -275,6 +276,7 @@ rsync
 rtkit
 s-nail
 scrot
+seahorse
 sed
 sg3_utils
 shellcheck
