@@ -30,30 +30,13 @@ Powermenu:
 
 <div style="float:clear"></div>
 
-Hotkey popup widget:
+Neovim:
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/hotkey_popup.png />
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/nvim.png />
 </div>
 
 <div style="float:clear"></div>
 
-Calendar and right click menu:
-<div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/jgmenu.png />
-</div>
-
-
-Quick Popup calculator:
-<div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/popup_calculator.png />
-</div>
-
-Kitty terminal:
-<div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/fastfetch.png />
-</div>
-
-<div style="float:clear"></div>
 
 
 <div style="float:clear"></div>
