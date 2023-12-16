@@ -114,7 +114,7 @@ alias search="grep -rnw '.' -e"
 alias pbat="bat -p"
 alias yay="yay -Pw; yay"
 alias idea="flatpak run com.jetbrains.IntelliJ-IDEA-Community"
-alias cat='bat --paging=never --plain'
+alias cat='bat -P -p'
 alias nnn="nnn -P p"
 alias lg="lazygit"
 alias rg="kitty +kitten hyperlinked_grep"

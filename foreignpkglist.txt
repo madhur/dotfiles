@@ -3,6 +3,7 @@ arc-gtk-theme-eos
 autokey-gtk
 awesome-git
 brave-bin
+caffeine-ng
 cava
 charles
 downgrade

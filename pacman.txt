@@ -62,6 +62,7 @@ dunst
 e2fsprogs
 efibootmgr
 efitools
+eslint_d
 ethtool
 exfatprogs
 expac
