@@ -102,6 +102,7 @@ globalprotect-openconnect
 glow
 gnome-video-effects
 gnu-netcat
+go
 gobject-introspection
 grep
 groff
@@ -297,6 +298,7 @@ sysstat
 system-config-printer
 systemd-sysvcompat
 tcpdump
+termshark
 texinfo
 the_silver_searcher
 thunar
@@ -338,6 +340,7 @@ whois
 wireless-regdb
 wireless_tools
 wireplumber
+wireshark-cli
 wpa_supplicant
 xbindkeys
 xclip

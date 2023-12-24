@@ -50,7 +50,6 @@ http://feeds.cyberciti.biz/Nixcraft-LinuxFreebsdSolarisTipsTricks Geeky
 http://feeds.feedburner.com/ankursethi_in Geeky
 
 http://inside.recruiterbox.com/rss Engineering
-https://www.confluent.io/feed/ Engineering
 http://www.codesimplicity.com/feed/atom/ Engineering
 http://techblog.netflix.com/feeds/posts/default Engineering
 http://codeascraft.etsy.com/feed/ Engineering
@@ -59,6 +58,7 @@ https://blogs.gnome.org/shell-dev/feed/ Engineering
 https://bytes.swiggy.com/feed Engineering
 https://newsletter.systemdesign.one/feed Engineering
 https://bharathkalyans.hashnode.dev/rss.xml Engineering
+https://zerodha.tech/index.xml Engineering
 
 http://feeds.feedburner.com/HighScalability Scalability
 
@@ -85,7 +85,6 @@ http://www.progressiveimpact.org/feed/ Health
 http://www.mindtools.com/import.rss Health
 #http://www.psychologytoday.com/collections/feed Health
 #http://www.psychologytoday.com/front/feed Health
-http://www.huffingtonpost.com/tag/love--sex/feed/ Health
 http://feeds.feedburner.com/The99Percent Health
 http://www.scienceofrelationships.com/home/rss.xml Health
 http://www.theglobalconversation.com/blog/?feed=rss2 Health
@@ -160,7 +159,6 @@ http://feeds.feedburner.com/codinghorror/ Programming
 https://cecilialee.github.io/atom.xml Programming
 http://codewithoutrules.com/atom.xml Programming
 http://amir.rachum.com/feed.xml Programming
-http://feeds.feedburner.com/JohnPapa Programming
 https://ketanbhatt.com/rss.xml Programming
 http://lambda-the-ultimate.org/rss.xml Programming
 http://feeds2.feedburner.com/9lesson Programming
