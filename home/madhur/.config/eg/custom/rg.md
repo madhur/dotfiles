@@ -12,3 +12,6 @@ Make search with specific file type
 
 Make search with wildcard
     rg python2 -g '*.sh'
+
+Print Stats, such as count
+    rg -c @Test

@@ -32,3 +32,14 @@ SUPER + s | Show the hotkey popup | Shift + Tab | Create new session | p | Pull
 CTRL + m | VPN Username | Tab | cycle through session | space | checkout highlighted
 CTRL + , | VPN password | . | Toggle hidden files | c | checkout by name
 SUPER + x | Power Menu | | | [,] | Switch tab
+
+mpv
+---
+[ and ] | Decrease/increase current playback speed by 10%.
+{ and } | Halve/double current playback speed.
+del | Cycle through nav
+v | Disable subtitles
+f | Fullscreen
+Shift + f/g | Adjust subtitles font
+r / R | Adjust subtitle vertical position
+s | Take screenshot

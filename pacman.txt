@@ -104,6 +104,7 @@ gnome-video-effects
 gnu-netcat
 go
 gobject-introspection
+gparted
 grep
 groff
 grub

@@ -22,6 +22,7 @@ image/x-portable-greymap=gpicview.desktop
 application/pcx=gpicview.desktop
 image/svg+xml=gpicview.desktop
 image/svg-xml=gpicview.desktop
+application/octet-stream=code.desktop
 
 [Added Associations]
 application/x-shellscript=code.desktop;visual-studio-code.desktop;vim.desktop;
@@ -42,3 +43,4 @@ text/x-log=code.desktop;
 text/x-python=nvim.desktop;
 text/x-maven+xml=code.desktop;
 video/mp4=mpv.desktop;
+application/octet-stream=code.desktop;
