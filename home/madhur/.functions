@@ -45,6 +45,12 @@ emr-ssh(){
 	ssh -i ~/.ssh/mec-emr.pem "ec2-user@$1"
 }
 
+aws-ip() {
+    hostname=$1
+    hostip=$(echo ${hostname%%.*} | sed -e 's/ip-//' -e 's/-/./g')
+    echo $hostip
+}
+
 ## Automatically invoke nvm use when .nvmrc is find
 load-nvmrc() {
   local nvmrc_path

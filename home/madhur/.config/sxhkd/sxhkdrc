@@ -15,7 +15,7 @@ super + c
 
 # program launcher
 super + shift + d
-    rofi -show drun -show-icons -icon-theme "Papirus" -hover-select -me-select-entry '' -me-accept-entry MousePrimary
+    /home/madhur/scripts/old_launcher.sh
 
 
 # program launcher
@@ -41,7 +41,7 @@ XF86MonBrightness{Up,Down}
 
 # run flameshot
 super + F12
-    flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry
+    /home/madhur/scripts/flameshot.sh
 
 super + F11
     /home/madhur/.config/rofi/applets/bin/screenshot.sh

@@ -42,7 +42,7 @@ cp -r ~/.config/ripgrep $dfolder/.config/
 cp -r ~/.config/bat $dfolder/.config/
 cp -r ~/.config/btop $dfolder/.config/
 cp -r ~/.config/mpv $dfolder/.config/
-cp -r ~/.config/go $dfolder/.config/
+#cp -r ~/.config/go $dfolder/.config/
 cp -r ~/.config/newsboat $dfolder/.config/
 #cp -r ~/.config/lazygit $dfolder/.config/
 cp -r ~/.config/Thunar $dfolder/.config/
