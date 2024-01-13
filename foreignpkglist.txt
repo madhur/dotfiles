@@ -23,9 +23,11 @@ eyedropper
 flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
+gotify-cli
 indicator-sound-switcher
 jd-gui-bin
 kafkactl
+light
 lite-xl
 mkinitcpio-openswap
 mongodb42-bin

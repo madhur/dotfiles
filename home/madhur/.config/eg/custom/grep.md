@@ -6,6 +6,9 @@ Print only matched data
 Remove commented lines
     grep -v '^#' file1 file2 file3
 
+Remove commented lines along with blank lines
+    grep -v '^#' redis.conf | grep -v -e '^$'
+
 Search for text in subfolders
     grep -rnw '.' -e <text>
 

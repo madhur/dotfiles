@@ -158,7 +158,6 @@ libretro-core-info
 libtool
 libwnck3
 libxcrypt-compat
-light
 lightdm
 lightdm-slick-greeter
 linux
@@ -259,7 +258,6 @@ python-readability-lxml
 python-reportlab
 python-setuptools
 python-snowballstemmer
-python-sphinx-alabaster-theme
 python-sphinx-basic-ng
 python-sphinxcontrib-jsmath
 python-virtualenv
