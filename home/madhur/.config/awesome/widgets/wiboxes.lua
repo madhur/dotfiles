@@ -158,7 +158,7 @@ local right_widgets = {
     pl(top_left, true, ""),
     gpick,
     --pl((require("widgets.topbar.notification")), true, "notification"),
-    wibox.container.margin((require("widgets.topbar.systray_new")), 3, 3, 3, 3)
+    wibox.container.margin((require("widgets.topbar.systray")), 3, 3, 3, 3)
 }
 
 local hr_spr = require("widgets.helper").hr_spr

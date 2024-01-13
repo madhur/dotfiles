@@ -45,6 +45,7 @@ cups-filters
 cups-pdf
 debugedit
 device-mapper
+devtools
 dex
 dhclient
 dialog
@@ -186,6 +187,7 @@ mlocate
 modemmanager
 mpv
 mtools
+namcap
 nano
 nano-syntax-highlighting
 nbd
@@ -246,7 +248,6 @@ pptpclient
 prettier
 pv
 python
-python-babel
 python-beautifulsoup4
 python-capng
 python-defusedxml

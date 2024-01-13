@@ -157,7 +157,4 @@ source ~/.config/nnn/config
 
 export MANPAGER="nvim +Man!"
 export ZK_CLUSTER_URLS=localhost:2181
-
-
-
-
+export CHROOT=$HOME/chroot

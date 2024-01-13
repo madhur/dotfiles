@@ -83,4 +83,5 @@ local system_tray = wibox.widget {
 
 }
 
-return system_tray
+-- return system_tray
+return notification

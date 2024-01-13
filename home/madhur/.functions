@@ -40,6 +40,9 @@ function java21() {
 }
 export PATH=/home/madhur/.sdkman/candidates/java/11.0.20-amzn/bin:$PATH
 
+function graal() {
+  sdk use java 21.0.1-graal
+}
 
 emr-ssh(){
 	ssh -i ~/.ssh/mec-emr.pem "ec2-user@$1"
@@ -69,6 +72,12 @@ load-nvmrc() {
     echo "Reverting to nvm default version"
     nvm use default
   fi
+}
+
+## Automatically invoke java version when pom.xml
+load-mvn() {
+
+
 }
 
 
