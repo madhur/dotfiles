@@ -1,0 +1,44 @@
+# Standard host addresses
+127.0.0.1  localhost
+::1        localhost ip6-localhost ip6-loopback
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+# This host address
+127.0.1.1  madhur-b550mds3h
+
+# Vagrant hosts
+192.168.56.2 vkc-zk1
+192.168.56.3 vkc-zk2
+192.168.56.4 vkc-zk3
+
+192.168.56.30 vkc-br1
+192.168.56.20 vkc-br2
+192.168.56.10 vkc-br3
+192.168.1.128 proxmox
+
+# Proxmox container hosts
+192.168.1.130 prometheus
+192.168.1.232 plex
+192.168.1.129 qbittorrent
+192.168.1.55 zk
+192.168.1.56 grafana
+192.168.1.51 kafka
+192.168.1.52 redis1
+192.168.1.53 redis2
+192.168.1.54 redis3
+192.168.1.60 cassandra
+192.168.1.27 jellyfin
+192.168.1.36 pihole
+192.168.1.195 commafeed
+192.168.1.252 mysql
+
+# Hosts for nginx proxy manager
+192.168.1.133 nginx
+192.168.1.133 plexui
+192.168.1.133 tui
+192.168.1.133 jellyfinui
+192.168.1.133 grafanaui
+192.168.1.133 promui
+192.168.1.133 zkui
+192.168.1.133 piholeui
+192.168.1.133 rssui

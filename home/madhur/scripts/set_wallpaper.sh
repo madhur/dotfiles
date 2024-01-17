@@ -14,13 +14,13 @@ folder=''
 if [ "$hour" -lt 05 ] # if hour is less than 05
 then
 folder="night"
-elif [ "$hour" -le 12 ] # if hour is less than equal to 12
+elif [ "$hour" -lt 12 ] # if hour is less than  12
 then
 folder="morning"
-elif [ "$hour" -le 16 ] # if hour is less than equal to 16
+elif [ "$hour" -lt 17 ] # if hour is less than  16
 then
 folder="day"
-elif [ "$hour" -le 20 ]
+elif [ "$hour" -lt 20 ] # if hour is less then 20
 then
 folder="evening"
 else

@@ -1,6 +1,6 @@
 [user]
-	email = 
-	name = Madhur
+	email = ahuja.madhur@gmail.com
+	name = Madhur Ahuja
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
@@ -19,9 +19,60 @@
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
     line-numbers = true
-
+    side-by-side = true
+    
 [merge]
     conflictstyle = diff3
 
 [diff]
     colorMoved = default
+[push]
+	autoSetupRemote = true
+
+[pull]
+
+    rebase = false
+
+
+[pager]
+
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+
+[color]
+
+    ui = true
+
+[color "branch"]
+
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+
+    meta = yellow
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    commit = yellow bold
+    whitespace = red reverse
+
+[color "status"]
+
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[color "diff-highlight"]
+
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+
+[includeIf "gitdir:~/github/**"]
+  path = .gitconfig-games

@@ -44,7 +44,7 @@ powerline-fonts-git
 prettierd
 python2
 python310
-qimgv-git
+qimgv
 qogir-gtk-theme
 reflector-simple
 robo3t-bin

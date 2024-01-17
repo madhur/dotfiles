@@ -1,1 +1,1 @@
-flatpak run org.flameshot.Flameshot gui -p ~/flameshot --clipboard --print-geometry
+flameshot gui -p ~/flameshot --clipboard --print-geometry

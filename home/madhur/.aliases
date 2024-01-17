@@ -64,7 +64,7 @@ alias k='kubectl'
 alias prettyjson='python -m json.tool'
 
 
-alias flameshot="flatpak run org.flameshot.Flameshot"
+#alias flameshot="flatpak run org.flameshot.Flameshot"
 alias jssh="ssh -J jump "
 alias jscp="scp -o 'ProxyJump jump'"
 alias duh='du --all --human-readable --one-file-system --max-depth=1 | sort -h'

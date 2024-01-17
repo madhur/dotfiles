@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dfolder=$HOME/github/personal/dotfiles/home/madhur
+dfolder=$HOME/gitpersonal/dotfiles/home/madhur
 
 # guake is deprecated
 #guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
@@ -74,7 +74,7 @@ cp -r ~/.vimrc $dfolder/
 cp -r ~/.Xresources $dfolder/
 cp -r ~/.tmux.conf $dfolder/
 #cp -r ~/Pictures/wallpapers $dfolder/Pictures/
-#cp -r ~/.gitconfig $dfolder/
+cp -r ~/.gitconfig $dfolder/
 cp -r ~/.gtkrc-2.0 $dfolder/
 #cp ~/.stalonetrayrc $dfolder/
 cp ~/.dir_colors $dfolder/
@@ -83,12 +83,14 @@ cp ~/.functions $dfolder/
 cp -r ~/.local/share/applications/ $dfolder/.local/share/
 
 
-sudo cp /root/.bashrc $HOME/github/personal/dotfiles/root/
+sudo cp /root/.bashrc $HOME/gitpersonal/dotfiles/root/
 cp /etc/pacman.conf ./etc/pacman.conf
 cp /etc/my.cnf ./etc/my.cnf
 cp /etc/fstab ./etc/fstab
+cp /etc/hosts ./etc/hosts
 sudo cp /etc/default/* ./etc/default/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
+
 
 #cp /etc/dnsmasq.conf ./etc/dnsmasq.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf

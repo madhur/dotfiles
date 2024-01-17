@@ -292,7 +292,6 @@ stress
 stylua
 sudo
 sxhkd
-sxiv
 sysfsutils
 sysstat
 system-config-printer
