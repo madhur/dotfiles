@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Bitwarden
+Exec=/opt/brave-bin/brave --profile-directory=Default --app-id=gneipglanmgpdhiohiogfnhdpoaafoob
+Icon=brave-gneipglanmgpdhiohiogfnhdpoaafoob-Default
+StartupWMClass=crx_gneipglanmgpdhiohiogfnhdpoaafoob

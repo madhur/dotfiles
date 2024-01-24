@@ -1,0 +1,9 @@
+[Unit]
+Description=Run unit every hour
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=timers.target

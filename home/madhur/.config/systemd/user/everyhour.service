@@ -1,6 +1,6 @@
 [Unit]
-Description=Script which runs every hour
+Description=Script to update wallpaper based on time
 
 [Service]
 Type=oneshot
-ExecStart=/home/madhur/scripts/wallpaper.sh
+ExecStart=/home/madhur/scripts/set_wallpaper.sh

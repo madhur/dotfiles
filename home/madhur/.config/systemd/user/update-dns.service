@@ -1,0 +1,10 @@
+[Unit]
+Description=Update DNS to pihole if required
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/update-dns.sh
+
+[Install]
+WantedBy=default.target

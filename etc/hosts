@@ -31,14 +31,3 @@ ff02::2    ip6-allrouters
 192.168.1.36 pihole
 192.168.1.195 commafeed
 192.168.1.252 mysql
-
-# Hosts for nginx proxy manager
-192.168.1.133 nginx
-192.168.1.133 plexui
-192.168.1.133 tui
-192.168.1.133 jellyfinui
-192.168.1.133 grafanaui
-192.168.1.133 promui
-192.168.1.133 zkui
-192.168.1.133 piholeui
-192.168.1.133 rssui

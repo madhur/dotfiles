@@ -39,7 +39,6 @@ offsetexplorer2
 oh-my-zsh-git
 papirus-folders-git
 pipes.sh
-plex-media-server
 powerline-fonts-git
 prettierd
 python2

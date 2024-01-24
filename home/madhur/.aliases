@@ -3,7 +3,7 @@ alias cd..='cd ..'
 #alias pwd='pwd && pwd | xclip -sel clipboard'
 alias unin='sudo dnf remove'
 alias repo="cd ~/github"
-alias repop="cd ~/github/personal"
+alias repop="cd ~/gitpersonal"
 alias c="clear"
 alias ls="eza -aG -s modified --color=auto  --icons --group-directories-first --hyperlink"
 alias ll="eza -al -s modified --color=auto  --icons --group-directories-first --hyperlink"

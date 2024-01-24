@@ -10,7 +10,7 @@ Restart=on-failure
 #Prometheus on different path user
 ExecStart=/home/madhur/prometheus/prometheus \
   --config.file=/home/madhur/prometheus/prometheus.yml \
-  --storage.tsdb.path=/home/madhur/prometheus/data
+  --storage.tsdb.path=/home/madhur/prometheus/data --web.enable-lifecycle
 
 [Install]
 WantedBy=default.target

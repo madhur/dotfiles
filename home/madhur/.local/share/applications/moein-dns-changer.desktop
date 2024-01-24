@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name= DNS changer
+Comment= simple gui linux DNS changer with python3 and PyQt By Moein Aghamirzaei
+Exec= dns_changer
+Icon= /home/madhur/gitpersonal/GUI-DNS-changer-for-linux/icon/dns-logo.png
+Terminal=false
+Type=Application
+StartupNotify=true

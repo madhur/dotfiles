@@ -57,6 +57,7 @@ dmraid
 dnsmasq
 docker
 docker-compose
+dos2unix
 dosfstools
 duf
 dunst
@@ -104,6 +105,7 @@ glow
 gnome-video-effects
 gnu-netcat
 go
+goaccess
 gobject-introspection
 gparted
 grep
@@ -281,10 +283,10 @@ scrot
 seahorse
 sed
 sg3_utils
-shellcheck
 smartmontools
 sof-firmware
 splix
+squid
 sshfs
 sshpass
 starship

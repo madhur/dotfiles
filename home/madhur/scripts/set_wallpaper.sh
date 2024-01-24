@@ -28,3 +28,4 @@ folder="night"
 fi
 
 feh --randomize --bg-fill $base_folder/$folder
+notify-send "Updated wallpaper $folder"
