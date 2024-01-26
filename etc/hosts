@@ -17,17 +17,16 @@ ff02::2    ip6-allrouters
 192.168.1.128 proxmox
 
 # Proxmox container hosts
-192.168.1.130 prometheus
-192.168.1.232 plex
-192.168.1.129 qbittorrent
-192.168.1.55 zk
-192.168.1.56 grafana
-192.168.1.51 kafka
-192.168.1.52 redis1
-192.168.1.53 redis2
-192.168.1.54 redis3
-192.168.1.60 cassandra
-192.168.1.27 jellyfin
-192.168.1.36 pihole
-192.168.1.195 commafeed
+192.168.100.15 prometheus
+192.168.100.10 qbittorrent
+192.168.100.17 zk
+192.168.100.56 grafana
+192.168.100.51 kafka
+192.168.100.52 redis1
+192.168.100.53 redis2
+192.168.100.54 redis3
+192.168.100.60 cassandra
+192.168.100.13 jellyfin
+192.168.100.12 pihole
+192.168.100.14 commafeed
 192.168.1.252 mysql

@@ -7,7 +7,7 @@ Gtk/TitlebarMiddleClick "lower"
 Gtk/ButtonImages 1
 Gtk/MenuBarAccel "F10"
 Net/CursorBlink 1
-Net/ThemeName "Sweet-Ambar-Blue"
+Net/ThemeName "Sweet-Ambar-Blue-Dark"
 Gtk/DecorationLayout "close,minimize,maximize:"
 Net/DndDragThreshold 8
 Xft/HintStyle "hintfull"

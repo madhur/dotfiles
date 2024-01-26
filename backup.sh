@@ -25,10 +25,10 @@ cp -r ~/.config/neofetch $dfolder/.config/
 cp -r ~/.config/picom $dfolder/.config/
 #cp -r ~/.config/polybar $dfolder/.config/
 #cp -r ~/.config/xmonad $dfolder/.config/
-rsync -avh --delete --exclude='.git/' ~/.config/xmonad $dfolder/.config/
+#rsync -avh --delete --exclude='.git/' ~/.config/xmonad $dfolder/.config/
 #cp -r ~/.config/awesome $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/awesome $dfolder/.config/
-cp -r ~/.config/qtile $dfolder/.config/
+#cp -r ~/.config/qtile $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/systemd $dfolder/.config/
 #cp -r ~/.config/systemd $dfolder/.config/
 # do not want rofi subfolder themes
@@ -89,6 +89,7 @@ cp /etc/my.cnf ./etc/my.cnf
 cp /etc/fstab ./etc/fstab
 cp /etc/hosts ./etc/hosts
 sudo cp /etc/default/* ./etc/default/
+sudo cp /etc/ssh/sshd_config.d/* ./etc/ssh/sshd_config.d/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
 
 

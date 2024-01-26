@@ -60,7 +60,6 @@ docker-compose
 dos2unix
 dosfstools
 duf
-dunst
 e2fsprogs
 efibootmgr
 efitools
@@ -286,7 +285,6 @@ sg3_utils
 smartmontools
 sof-firmware
 splix
-squid
 sshfs
 sshpass
 starship
