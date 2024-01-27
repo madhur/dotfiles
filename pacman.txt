@@ -97,11 +97,9 @@ ghostscript
 git
 git-delta
 gitui
-glances
 glava
 globalprotect-openconnect
 glow
-gnome-video-effects
 gnu-netcat
 go
 goaccess
@@ -299,15 +297,12 @@ systemd-sysvcompat
 tcpdump
 termshark
 texinfo
-the_silver_searcher
 thunar
 thunar-archive-plugin
 thunar-volman
 tig
-tint2
 tldr
 tmux
-trash-cli
 ttf-bitstream-vera
 ttf-dejavu
 ttf-font-awesome
@@ -317,7 +312,6 @@ ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 ttf-opensans
 tumbler
-ucblogo
 unrar
 unzip
 upower
@@ -332,7 +326,6 @@ virtualbox
 vpnc
 vulkan-tools
 w3m
-wayland-protocols
 wget
 which
 whois
@@ -367,7 +360,6 @@ xscreensaver
 xsel
 xsettingsd
 xterm
-yad
 yamllint
 ytfzf
 zathura

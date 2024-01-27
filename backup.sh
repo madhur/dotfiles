@@ -91,7 +91,7 @@ cp /etc/hosts ./etc/hosts
 sudo cp /etc/default/* ./etc/default/
 sudo cp /etc/ssh/sshd_config.d/* ./etc/ssh/sshd_config.d/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
-
+sudo cp /etc/exports.d/* ./etc/exports.d/
 
 #cp /etc/dnsmasq.conf ./etc/dnsmasq.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf
