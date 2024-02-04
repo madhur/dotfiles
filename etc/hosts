@@ -14,7 +14,7 @@ ff02::2    ip6-allrouters
 192.168.56.30 vkc-br1
 192.168.56.20 vkc-br2
 192.168.56.10 vkc-br3
-192.168.1.128 proxmox
+192.168.100.128 proxmox
 
 # Proxmox container hosts
 192.168.100.15 prometheus
@@ -29,4 +29,4 @@ ff02::2    ip6-allrouters
 192.168.100.13 jellyfin
 192.168.100.12 pihole
 192.168.100.14 commafeed
-192.168.1.252 mysql
+192.168.100.246 mysql

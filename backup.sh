@@ -99,5 +99,7 @@ sudo cp /etc/exports.d/* ./etc/exports.d/
 
 pacman -Qnqe > pacman.txt
 pacman -Qqem > foreignpkglist.txt
+snap list > snap.txt
+flatpak list > flatpak.txt
 
 sudo chown -R madhur:madhur .

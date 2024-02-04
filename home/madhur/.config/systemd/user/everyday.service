@@ -1,0 +1,6 @@
+[Unit]
+Description=Script to do anything every day
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/every_day.sh

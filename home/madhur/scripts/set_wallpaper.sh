@@ -4,7 +4,7 @@ base_folder="/home/madhur/Pictures/wallpapers"
 cd $base_folder || exit 1
 folder=$(date +%d_%m)
 if [ -d "$folder" ]; then
-    feh --randomize --bg-fill "$base_folder/$folder"
+    feh --randomize --bg-center "$base_folder/$folder"
     exit 0
 fi
 

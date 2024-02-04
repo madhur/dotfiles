@@ -334,6 +334,7 @@ wireless_tools
 wireplumber
 wireshark-cli
 wpa_supplicant
+x11vnc
 xbindkeys
 xclip
 xcolor

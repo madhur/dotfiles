@@ -9,6 +9,7 @@ Connect VPN, "/home/madhur/company/connect_vpn.sh"
 
 
 Sxhkd,sxhkd
+BraveBrowser, brave
 #Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
 Picom, /home/madhur/.config/picom/launch.sh
 Conky, /home/madhur/.config/conky/launch.sh
