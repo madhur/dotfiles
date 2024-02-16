@@ -74,5 +74,11 @@
     newNormal = green bold
     newHighlight = green bold 22
 
+[includeIf "gitdir:~/github/carrom/**"]
+  path = .gitconfig-games
+
+[includeIf "gitdir:~/github/poker/**"]
+  path = .gitconfig-games
+
 [includeIf "gitdir:~/github/**"]
   path = .gitconfig-games

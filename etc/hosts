@@ -16,15 +16,21 @@ ff02::2    ip6-allrouters
 192.168.56.10 vkc-br3
 192.168.100.128 proxmox
 
+
+127.0.0.1 redis
+127.0.0.1 kafka
+
 # Proxmox container hosts
 192.168.100.15 prometheus
 192.168.100.10 qbittorrent
 192.168.100.17 zk
 192.168.100.56 grafana
-192.168.100.51 kafka
-192.168.100.52 redis1
-192.168.100.53 redis2
-192.168.100.54 redis3
+#192.168.100.51 kafka
+
+127.0.0.1 redis1
+#192.168.100.52 redis1
+#192.168.100.53 redis2
+#192.168.100.54 redis3
 192.168.100.60 cassandra
 192.168.100.13 jellyfin
 192.168.100.12 pihole

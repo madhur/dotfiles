@@ -18,9 +18,11 @@ indicator-sound-switcher
 jd-gui-bin
 kafkactl
 mkinitcpio-openswap
+mongodb-tools-bin
 mongodb42-bin
 ncurses5-compat-libs
 nerd-fonts-complete
+ngrok
 nvidia-hook
 nvidia-inst
 offsetexplorer2
