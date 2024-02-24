@@ -82,3 +82,5 @@
 
 [includeIf "gitdir:~/github/**"]
   path = .gitconfig-games
+[safe]
+	directory = /home/madhur/gitpersonal/RediSearch

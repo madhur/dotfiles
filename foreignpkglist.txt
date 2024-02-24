@@ -17,6 +17,7 @@ gnome-icon-theme
 indicator-sound-switcher
 jd-gui-bin
 kafkactl
+lcov-git
 mkinitcpio-openswap
 mongodb-tools-bin
 mongodb42-bin

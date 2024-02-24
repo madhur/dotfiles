@@ -28,11 +28,12 @@ ff02::2    ip6-allrouters
 #192.168.100.51 kafka
 
 127.0.0.1 redis1
-#192.168.100.52 redis1
-#192.168.100.53 redis2
-#192.168.100.54 redis3
-192.168.100.60 cassandra
+127.0.0.1 cassandra
+127.0.0.1 mongo
+127.0.0.1 mysql
+
+#192.168.100.60 cassandra
 192.168.100.13 jellyfin
 192.168.100.12 pihole
 192.168.100.14 commafeed
-192.168.100.246 mysql
+#192.168.100.246 mysql
