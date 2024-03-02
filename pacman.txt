@@ -20,6 +20,7 @@ atuin
 audacious
 autoconf
 automake
+autorandr
 aws-cli
 b43-fwcutter
 base

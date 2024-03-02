@@ -99,7 +99,7 @@ awful.screen.connect_for_each_screen(function(s)
 	awful.tag(awful.util.tagnames, s, layouts)
 
 	awful.rules.rules = require("rules.client_rules") -- if this call is outside of this block, the  programs starting will not move to tags correctly accoring to rules
-	awful.screen.focused().tags[3].master_count = 0
+	--awful.screen.focused().tags[3].master_count = 0
 	s.mywibox = require("widgets.wiboxes").get(s)
 end)
 
