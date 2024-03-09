@@ -165,7 +165,7 @@ function mylayout.arrange(p)
             s.tabbar.visible = false
         end
         -- otherwise just do tile right
-        madhur.layout.tallmagnified.right.arrange(p)
+        -- madhur.layout.tallmagnified.right.arrange(p)
         return
     end
 
