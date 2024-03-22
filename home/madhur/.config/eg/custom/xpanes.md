@@ -1,3 +1,9 @@
+Open Redis console for multiple shards
+    xpanes -t -c 'redis-cli -h localhost -p {}' 6379 6380 6381
+
+Monitor redis cluster nodes
+    xpanes -t -c 'redis-cli -h localhost -p {} monitor' 6379 6380 6381 
+
 Ssh into vagrant
     xpanes -t -c 'vagrant ssh vttablet{}' 1 2 3
 

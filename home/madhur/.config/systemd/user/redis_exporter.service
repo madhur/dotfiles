@@ -1,0 +1,18 @@
+[Unit]
+Description=prometheus redis exporter
+After=network.target
+
+[Service]
+PrivateTmp=yes
+#User=prometheus
+#Group=prometheus
+RuntimeDirectory=redis_exporter
+ExecStart=/home/madhur/bin/redis_exporter -log-format txt -namespace redis -web.listen-address 0.0.0.0:9121 -web.telemetry-path /metrics 
+StandardOutput=journal
+StandardError=journal
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -42,6 +42,7 @@ clang
 conky
 cpupower
 cryptsetup
+csvlens
 cups
 cups-filters
 cups-pdf

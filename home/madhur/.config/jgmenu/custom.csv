@@ -1,6 +1,6 @@
 
-Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
-Xprop,dunstify -t 10000 -i window_list "" "$(xprop  | xclip -selection 'clipboard' -f)",window_list
+Find Window Class,notify-send -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
+Xprop,notify-send -t 10000 -i window_list "" "$(xprop  | xclip -selection 'clipboard' -f)",window_list
 Randomize Wallpaper,/home/madhur/scripts/set_wallpaper.sh,phototonic
 ^sep()
 

@@ -5,7 +5,6 @@ brave-bin
 caffeine-ng
 cava
 charles
-csvlens
 downgrade
 endeavouros-keyring
 endeavouros-mirrorlist
