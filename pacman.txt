@@ -249,7 +249,6 @@ pptpclient
 prettier
 pv
 python
-python-beautifulsoup4
 python-capng
 python-defusedxml
 python-imagesize

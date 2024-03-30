@@ -48,6 +48,6 @@ xcolorsel
 xcursor-simp1e-tokyo-night
 xfce-polkit
 xqp
-yay
+yay-git
 yt-dlp-drop-in
 zrok-bin
