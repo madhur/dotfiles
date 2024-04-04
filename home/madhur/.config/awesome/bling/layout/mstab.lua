@@ -2,12 +2,10 @@ local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local naughty = require("naughty")
-local helpers = require("madhur.helpers")
-local madhur = require("madhur")
+
 local mylayout = {}
 
-mylayout.name = "tabs"
+mylayout.name = "mstab"
 
 local tabbar_disable = beautiful.mstab_bar_disable or false
 local tabbar_ontop = beautiful.mstab_bar_ontop or false
@@ -30,7 +28,6 @@ local tabbar_size = bar.size
     or beautiful.tabbar_size
     or 40
 local dont_resize_slaves = beautiful.mstab_dont_resize_slaves or false
-
 
 -- The top_idx is the idx of the slave clients (excluding all master clients)
 -- that should be on top of all other slave clients ("the focused slave")
@@ -136,7 +133,6 @@ function update_tabbar(
 end
 
 function mylayout.arrange(p)
-
     local area = p.workarea
     local t = p.tag or screen[p.screen].selected_tag
     local s = t.screen
@@ -165,7 +161,7 @@ function mylayout.arrange(p)
             s.tabbar.visible = false
         end
         -- otherwise just do tile right
-        -- madhur.layout.tallmagnified.right.arrange(p)
+        awful.layout.suit.tile.right.arrange(p)
         return
     end
 
@@ -204,11 +200,6 @@ function mylayout.arrange(p)
     local slave_clients = {}
     for idx = 1, nslaves do
         local c = p.clients[idx + nmaster]
-        -- if c.floating then
-        --     naughty.notify({text="Ignoring floating"})
-        --     goto continue
-        -- end
-       
         slave_clients[#slave_clients + 1] = c
         if c == client.focus then
             t.top_idx = #slave_clients
@@ -228,7 +219,6 @@ function mylayout.arrange(p)
             }
         end
         p.geometries[c] = g
-        ::continue::
     end
 
     if not tabbar_disable then
@@ -241,8 +231,6 @@ function mylayout.arrange(p)
             slave_area_width
         )
     end
-
-    helpers.magnify(p.clients,  p.geometries, area)
 end
 
 return mylayout
