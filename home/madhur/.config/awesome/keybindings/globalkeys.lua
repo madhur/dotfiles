@@ -334,13 +334,13 @@ local globalkeys =
         {altkey},
         "Tab",
         function(_)
-            if #awful.screen.focused().clients > 2 then
-                awful.spawn.easy_async_with_shell("/home/madhur/scripts/alt_tab.sh", function(stdout, stderr, reason, exit_code)
-                end)
+            -- if #awful.screen.focused().clients > 2 then
+            --     awful.spawn.easy_async_with_shell("/home/madhur/scripts/alt_tab.sh", function(stdout, stderr, reason, exit_code)
+            --     end)
 
-            else
+            -- else
                 awful.client.focus.byidx(1)
-            end
+            --end
         end,
         {
             description = "cycle through clients",

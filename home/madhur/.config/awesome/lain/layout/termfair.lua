@@ -180,10 +180,12 @@ local function do_fair(p, orientation)
 
         if #cls < num_x then
             -- Less clients than the number of columns, let's center it!
-            local offset_x = wa.x + (wa.width - #cls*width) / 2
+            --local offset_x = wa.x + (wa.width - #cls*width) / 2
+            local offset_x = 0
             for i = 1, #cls do
                 local g = { y = wa.y }
-                g.width  = width
+                --g.width  = width
+                g.width = wa.width --give full width
                 g.height = wa.height
                 if g.width < 1 then g.width = 1 end
                 if g.height < 1 then g.height = 1 end

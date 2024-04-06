@@ -52,37 +52,29 @@ awful.util.tagnames = { "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", 
 
 local bling = require("bling")
 local layouts = {
-	awful.layout.suit.tile.right, -- Like tall layout, master on left
-	bling.layout.centered, -- three col mid
-	bling.layout.mstab,
-    bling.layout.deck,
-    bling.layout.deck,
-    bling.layout.deck,
-    bling.layout.deck,
-    bling.layout.deck,
+	lain.layout.termfair.center, -- Like tall layout, master on left
+	awful.layout.suit.tile.right, -- three col mid
+	lain.layout.termfair.center, -- Like tall layout, master on left
+	awful.layout.suit.tile.right, -- three col mid
 
-                                    
---	bling.layout.vertical,
+	awful.layout.suit.max,
+
+	lain.layout.termfair.center, -- Like tall layout, master on left
+	awful.layout.suit.tile.right, -- three col mid
+	lain.layout.termfair.center, -- Like tall layout, master on left
+	
 	bling.layout.equalarea, -- grid
---	lain.layout.termfair.center, -- start with center and then become tall layout, useful for ultrawide  (does not use full width)
---	lain.layout.termfair.center, -- start with center and then become tall layout, useful for ultrawide  (does not use full width)
---	lain.layout.termfair, -- (bad)
---	lain.layout.centerwork, --  (good) start with center and then become three col mid, useful for ultrawide screens (does not use full width)
 	bling.layout.deck,
 }
 
 tag.connect_signal("request::default_layouts", function()
 	awful.layout.append_default_layouts({
 		awful.layout.suit.tile.right,
-		--    lain.layout.termfair,
 		bling.layout.mstab,
-		--     lain.layout.termfair.center,
-		--   lain.layout.centerwork,
-		bling.layout.centered,
+		lain.layout.termfair.center,
 		bling.layout.deck,
-		--  bling.layout.vertical,
-		--  bling.layout.horizontal,
 		bling.layout.equalarea,
+		awful.layout.suit.max.name
 	})
 end)
 

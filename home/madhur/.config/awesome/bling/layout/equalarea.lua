@@ -64,7 +64,9 @@ function mylayout.arrange(p)
     if #cls == 0 then
         return
     end
-    local mwfact = t.master_width_factor * 2
+    
+    local mwfact = 0.5 * 2   --override master width factor
+    --local mwfact = t.master_width_factor * 2
     local mcount = t.master_count
     local g = {}
     g.height = wa.height
