@@ -8,6 +8,7 @@ gnome-3-28-1804             3.28.0-19-g98f9e67.98f9e67  198    latest/stable  ca
 gnome-3-34-1804             0+git.3556cb3               93     latest/stable  canonical**     -
 gnome-42-2204               0+git.ff35a85               141    latest/stable  canonical**     -
 gtk-common-themes           0.1-81-g442e511             1535   latest/stable  canonical**     -
+joplin-desktop              v2.14.20                    62     latest/stable  james-carroll*  -
 kate                        23.08.4                     171    latest/stable  kde**           classic
 kf5-5-104-qt-5-15-8-core22  5.104                       9      latest/stable  kde**           -
 notion-snap                 1.4.0                       16     latest/stable  steverydz       -

@@ -55,13 +55,15 @@ local layouts = {
 	lain.layout.termfair.center, -- Like tall layout, master on left
 	awful.layout.suit.tile.right, -- three col mid
 	lain.layout.termfair.center, -- Like tall layout, master on left
-	awful.layout.suit.tile.right, -- three col mid
-
+--	awful.layout.suit.tile.right, -- three col mid
+    awful.layout.suit.max,
 	awful.layout.suit.max,
-
-	lain.layout.termfair.center, -- Like tall layout, master on left
-	awful.layout.suit.tile.right, -- three col mid
-	lain.layout.termfair.center, -- Like tall layout, master on left
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+	--lain.layout.termfair.center, -- Like tall layout, master on left
+	--awful.layout.suit.tile.right, -- three col mid
+	--lain.layout.termfair.center, -- Like tall layout, master on left
 	
 	bling.layout.equalarea, -- grid
 	bling.layout.deck,
@@ -74,7 +76,7 @@ tag.connect_signal("request::default_layouts", function()
 		lain.layout.termfair.center,
 		bling.layout.deck,
 		bling.layout.equalarea,
-		awful.layout.suit.max.name
+		awful.layout.suit.max
 	})
 end)
 
