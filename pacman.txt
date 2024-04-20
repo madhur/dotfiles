@@ -296,6 +296,7 @@ sysfsutils
 sysstat
 system-config-printer
 systemd-sysvcompat
+tailscale
 tcpdump
 termshark
 texinfo
@@ -305,6 +306,7 @@ thunar-volman
 tig
 tldr
 tmux
+traceroute
 ttf-bitstream-vera
 ttf-dejavu
 ttf-font-awesome
@@ -331,6 +333,7 @@ w3m
 wget
 which
 whois
+wireguard-tools
 wireless-regdb
 wireless_tools
 wireplumber

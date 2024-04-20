@@ -43,6 +43,7 @@ snapd
 tabbed-flexipatch-git
 tmux-xpanes
 visual-studio-code-bin
+wireguird
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night

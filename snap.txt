@@ -14,5 +14,5 @@ kf5-5-104-qt-5-15-8-core22  5.104                       9      latest/stable  kd
 notion-snap                 1.4.0                       16     latest/stable  steverydz       -
 sdlpop                      1.23                        715    latest/stable  snapcrafters*   -
 snapcraft                   8.0.5                       11040  latest/stable  canonical**     classic
-snapd                       2.61.2                      21184  latest/stable  canonical**     snapd
+snapd                       2.62                        21465  latest/stable  canonical**     snapd
 trello-desktop              1.0.14                      21     latest/stable  joshua-redmond  -
