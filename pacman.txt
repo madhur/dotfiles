@@ -315,7 +315,6 @@ ttf-liberation
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 ttf-opensans
-tumbler
 unrar
 unzip
 upower

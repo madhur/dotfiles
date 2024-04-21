@@ -42,9 +42,9 @@ Brave,"brave"
 
 
 ^tag(apps-dir-System)
-Shutdown, "systemctl poweroff"
-Restart, "systemctl reboot"
-Logout, "/home/madhur/scripts/logout.sh"
+Shutdown, /home/madhur/scripts/system.sh poweroff
+Restart, /home/madhur/scripts/system.sh reboot
+Logout, /home/madhur/scripts/system.sh logoff
 
 
 
