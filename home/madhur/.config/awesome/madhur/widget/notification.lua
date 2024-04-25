@@ -78,8 +78,11 @@ local function factory(args)
             3,
             function()
                 -- right click
-                naughty.expiration_paused = not naughty.expiration_paused
+
+                naughty.suspended = not naughty.suspended
                 notification.update()
+                --naughty.expiration_paused = not naughty.expiration_paused
+                --notification.update()
             end
         )
     )

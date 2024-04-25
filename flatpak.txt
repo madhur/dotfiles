@@ -13,17 +13,18 @@ Apache JMeter	org.apache.jmeter	5.6	stable	system
 Help	org.apache.jmeter.Help		stable	system
 Freedesktop Platform	org.freedesktop.Platform	21.08.21	21.08	system
 Freedesktop Platform	org.freedesktop.Platform	22.08.20	22.08	system
-Freedesktop Platform	org.freedesktop.Platform	23.08.13	23.08	system
+Freedesktop Platform	org.freedesktop.Platform	23.08.16	23.08	system
 Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
 Mesa	org.freedesktop.Platform.GL.default	23.3.0	22.08	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	23.3.0	22.08-extra	system
-Mesa	org.freedesktop.Platform.GL.default	24.0.2	23.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	24.0.2	23.08-extra	system
+Mesa	org.freedesktop.Platform.GL.default	24.0.5	23.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	24.0.5	23.08-extra	system
 nvidia-530-41-03	org.freedesktop.Platform.GL.nvidia-530-41-03		1.4	system
 nvidia-535-104-05	org.freedesktop.Platform.GL.nvidia-535-104-05		1.4	system
 nvidia-535-54-03	org.freedesktop.Platform.GL.nvidia-535-54-03		1.4	system
 nvidia-535-86-05	org.freedesktop.Platform.GL.nvidia-535-86-05		1.4	system
 nvidia-545-29-06	org.freedesktop.Platform.GL.nvidia-545-29-06		1.4	system
+nvidia-550-67	org.freedesktop.Platform.GL.nvidia-550-67		1.4	system
 openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
 openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
 Freedesktop SDK	org.freedesktop.Sdk	21.08.19	21.08	system
@@ -42,5 +43,6 @@ KDE Application Platform	org.kde.Platform		5.15-23.08	system
 KDE Application Platform	org.kde.Platform		6.4	system
 KDE Application Platform	org.kde.Platform		6.5	system
 KRuler	org.kde.kruler	23.04.2	stable	system
+Firefox	org.mozilla.firefox	125.0.1	stable	system
 qBittorrent	org.qbittorrent.qBittorrent	4.5.4	stable	system
 Wireshark	org.wireshark.Wireshark	4.2.0	stable	system
