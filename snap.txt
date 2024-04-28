@@ -1,9 +1,9 @@
 Name                        Version                     Rev    Tracking       Publisher       Notes
 asana-snap                  1.5.0                       2      latest/stable  ahuja-madhur    -
 bare                        1.0                         5      latest/stable  canonical**     base
-core18                      20231027                    2812   latest/stable  canonical**     base
+core18                      20240416                    2823   latest/stable  canonical**     base
 core20                      20240227                    2264   latest/stable  canonical**     base
-core22                      20240111                    1122   latest/stable  canonical**     base
+core22                      20240408                    1380   latest/stable  canonical**     base
 gnome-3-28-1804             3.28.0-19-g98f9e67.98f9e67  198    latest/stable  canonical**     -
 gnome-3-34-1804             0+git.3556cb3               93     latest/stable  canonical**     -
 gnome-42-2204               0+git.ff35a85               141    latest/stable  canonical**     -

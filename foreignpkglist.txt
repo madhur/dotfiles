@@ -13,7 +13,6 @@ eyedropper
 flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
-indicator-sound-switcher
 jd-gui-bin
 kafkactl
 lcov-git

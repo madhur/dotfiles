@@ -251,16 +251,12 @@ pv
 python
 python-capng
 python-defusedxml
-python-imagesize
 python-packaging
 python-pyqt5
 python-pywal
 python-readability-lxml
 python-reportlab
 python-setuptools
-python-snowballstemmer
-python-sphinx-basic-ng
-python-sphinxcontrib-jsmath
 python-virtualenv
 qhull
 qt5ct
