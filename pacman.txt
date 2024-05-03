@@ -74,6 +74,7 @@ expect
 eza
 f2fs-tools
 fakeroot
+fastfetch
 feh
 ffmpegthumbnailer
 file
@@ -194,7 +195,6 @@ nano-syntax-highlighting
 nbd
 ncdu
 ndisc6
-neofetch
 neovim
 net-tools
 netctl
