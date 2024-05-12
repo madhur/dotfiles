@@ -50,7 +50,7 @@ return { -- All clients will match this rule.
         class = "jetbrains-idea-ce"
     },
     properties = {
-        screen = 1,
+       -- screen = 1,
         tag = awful.screen.focused().tags[2]
     }
 }, {
@@ -58,7 +58,7 @@ return { -- All clients will match this rule.
         class = "Code"
     },
     properties = {
-        screen = 1,
+       -- screen = 1,
         tag = awful.screen.focused().tags[3]
     }
 }, -- Set applications to always map on the tag 3 on screen 1.
@@ -67,7 +67,7 @@ return { -- All clients will match this rule.
         class = "DBeaver"
     },
     properties = {
-        screen = 1,
+        --screen = 1,
         tag = awful.screen.focused().tags[4]
     }
 }, {
@@ -75,7 +75,7 @@ return { -- All clients will match this rule.
         class = "Postman"
     },
     properties = {
-        screen = 1,
+        --screen = 1,
         tag = awful.screen.focused().tags[5]
     }
 }, -- Set applications to always map on the tag 4 on screen 1.
@@ -84,7 +84,7 @@ return { -- All clients will match this rule.
         class = "install4j-com-kafkatool-ui-MainApp"
     },
     properties = {
-        screen = 1,
+        --screen = 1,
         tag = awful.screen.focused().tags[6]
     }
 }, 
@@ -97,7 +97,7 @@ return { -- All clients will match this rule.
         class = "Slack"
     },
     properties = {
-        screen = 1,
+       -- screen = 1,
         tag = awful.screen.focused().tags[10]
     }
 }, 
@@ -126,7 +126,7 @@ return { -- All clients will match this rule.
     }
 }, {
     rule_any = {
-        class = {"copyq", "feh", "Viewnior", "Gpicview", "eww-calculator", "qimgv", "Gcr-prompter"}
+        class = {"copyq", "feh", "Viewnior", "Gpicview", "eww-calculator", "qimgv", "Gcr-prompter", "pavucontrol","Pavucontrol"}
     },
     properties = {
         floating = true,

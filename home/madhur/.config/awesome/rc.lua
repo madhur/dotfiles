@@ -52,9 +52,9 @@ awful.util.tagnames = { "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", 
 
 local bling = require("bling")
 local layouts = {
-	lain.layout.termfair.center, -- Like tall layout, master on left
+	awful.layout.suit.tile.right, -- Like tall layout, master on left
 	awful.layout.suit.tile.right, -- three col mid
-	lain.layout.termfair.center, -- Like tall layout, master on left
+	awful.layout.suit.tile.right, -- Like tall layout, master on left
 --	awful.layout.suit.tile.right, -- three col mid
     awful.layout.suit.max,
 	awful.layout.suit.max,
@@ -73,7 +73,7 @@ tag.connect_signal("request::default_layouts", function()
 	awful.layout.append_default_layouts({
 		awful.layout.suit.tile.right,
 		bling.layout.mstab,
-		lain.layout.termfair.center,
+		--lain.layout.termfair.center,
 		bling.layout.deck,
 		bling.layout.equalarea,
 		awful.layout.suit.max
