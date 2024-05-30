@@ -99,6 +99,7 @@ gettext
 ghostscript
 git
 git-delta
+github-cli
 gitui
 glava
 globalprotect-openconnect
