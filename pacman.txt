@@ -129,6 +129,7 @@ hey
 hplip
 htop
 httpie
+hugo
 hwdetect
 hwinfo
 iftop
@@ -252,6 +253,7 @@ python
 python-capng
 python-defusedxml
 python-packaging
+python-pipenv
 python-pyqt5
 python-pywal
 python-readability-lxml
@@ -278,6 +280,7 @@ scrot
 seahorse
 sed
 sg3_utils
+shellcheck
 smartmontools
 sof-firmware
 splix

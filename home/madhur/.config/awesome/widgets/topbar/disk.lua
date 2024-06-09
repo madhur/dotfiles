@@ -11,7 +11,7 @@ local fs = lain.widget.fs({
         font = beautiful.font
     },
     settings = function()
-        local fsp = string.format(" %d %s ", fs_now["/"].percentage, "%")
+        local fsp = string.format(" %d %s", fs_now["/"].percentage, "%")
         widget:set_markup(markup.font(beautiful.font, " " .. fsp))
     end
 })

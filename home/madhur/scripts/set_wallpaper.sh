@@ -13,7 +13,7 @@ hour=$(date +%H)
 folder=''
 if [ "$hour" -lt 05 ] # if hour is less than 05
 then
-folder="night"
+folder="midnight"
 elif [ "$hour" -lt 12 ] # if hour is less than  12
 then
 folder="morning"
@@ -23,6 +23,9 @@ folder="day"
 elif [ "$hour" -lt 20 ] # if hour is less then 20
 then
 folder="evening"
+elif [ "$hour" -le 23 ] # if hour is less then and equal to 23
+then
+folder="night"
 else
 folder="night"
 fi
