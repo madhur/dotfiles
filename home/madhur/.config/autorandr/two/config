@@ -18,7 +18,7 @@ x-prop-non_desktop 0
 output DP-2
 crtc 0
 mode 3840x2160
-pos 2212x0
+pos 2160x1106
 primary
 rate 60.00
 x-prop-non_desktop 0

@@ -45,30 +45,36 @@ return { -- All clients will match this rule.
 --     rule = {class = "Google-chrome"},
 --     properties = {screen = 1, tag = awful.screen.focused().tags[1]}
 -- },
-{
-    rule = {
-        class = "jetbrains-idea-ce"
-    },
-    properties = {
-       -- screen = 1,
-        tag = awful.screen.focused().tags[2]
-    }
-}, {
-    rule = {
-        class = "Code"
-    },
-    properties = {
-       -- screen = 1,
-        tag = awful.screen.focused().tags[3]
-    }
-}, -- Set applications to always map on the tag 3 on screen 1.
+-- {
+--     rule = {
+--         class = "jetbrains-idea-ce"
+--     },
+--     properties = {
+--        -- screen = 1,
+--         --tag = awful.screen.focused().tags[2]
+--         tag = function(c) 
+--                 return awful.screen.preferred(c).tags[2] 
+--             end
+--     }
+-- }, 
+-- {
+--     rule = {
+--         class = "Code"
+--     },
+--     properties = {
+--        -- screen = 1,
+--         tag = awful.screen.focused().tags[3]
+--     }
+-- }, -- Set applications to always map on the tag 3 on screen 1.
 {
     rule = {
         class = "DBeaver"
     },
     properties = {
         --screen = 1,
-        tag = awful.screen.focused().tags[4]
+        tag = function(c) 
+            return awful.screen.preferred(c).tags[4] 
+        end
     }
 }, {
     rule = {
@@ -76,7 +82,9 @@ return { -- All clients will match this rule.
     },
     properties = {
         --screen = 1,
-        tag = awful.screen.focused().tags[5]
+        tag = function(c) 
+            return awful.screen.preferred(c).tags[5] 
+        end
     }
 }, -- Set applications to always map on the tag 4 on screen 1.
 {
@@ -85,7 +93,9 @@ return { -- All clients will match this rule.
     },
     properties = {
         --screen = 1,
-        tag = awful.screen.focused().tags[6]
+        tag = function(c) 
+            return awful.screen.preferred(c).tags[6] 
+        end
     }
 }, 
 -- {
@@ -98,7 +108,9 @@ return { -- All clients will match this rule.
     },
     properties = {
        -- screen = 1,
-        tag = awful.screen.focused().tags[10]
+       tag = function(c) 
+            return awful.screen.preferred(c).tags[10] 
+       end
     }
 }, 
 

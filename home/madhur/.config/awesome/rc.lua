@@ -72,6 +72,7 @@ local layouts = {
 tag.connect_signal("request::default_layouts", function()
 	awful.layout.append_default_layouts({
 		awful.layout.suit.tile.right,
+		awful.layout.suit.tile.bottom,
 		bling.layout.mstab,
 		--lain.layout.termfair.center,
 		bling.layout.deck,
@@ -87,6 +88,7 @@ require("keybindings.globalkeys")
 
 awful.util.smart_wibar_hide = false
 awful.util.expanded = true
+awful.util.vertical_expanded = false
 
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s)
@@ -95,6 +97,15 @@ awful.screen.connect_for_each_screen(function(s)
 	awful.rules.rules = require("rules.client_rules") -- if this call is outside of this block, the  programs starting will not move to tags correctly accoring to rules
 	--awful.screen.focused().tags[3].master_count = 0
 	s.mywibox = require("widgets.wiboxes").get(s)
+	
+	if s.geometry.width == 2160 and s.geometry.height == 3840 then
+		s.padding = {
+			left = 0,
+			right = 0,
+			top = 600,
+			bottom = 0
+		}
+	end
 end)
 
 -- Signal function to execute when a new client appears.
@@ -110,9 +121,9 @@ client.connect_signal("manage", function(c)
 		awful.placement.no_offscreen(c)
 	end
 
-	if c.class == "vlc" then
-		awful.client.setmaster(c)
-	end
+	-- if c.class == "vlc" then
+	-- 	awful.client.setmaster(c)
+	-- end
 end)
 
 client.connect_signal("mouse::enter", function(c)

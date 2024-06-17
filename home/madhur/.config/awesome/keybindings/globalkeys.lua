@@ -352,21 +352,44 @@ local globalkeys =
         "g",
         function(_)
             local s = awful.screen.focused()
-            awful.util.expanded = not awful.util.expanded
-            if awful.util.expanded then
-                s.padding = {
-                    left = 0,
-                    right = 0,
-                    top = 0,
-                    bottom = 0
-                }
+            naughty.notify({
+                title = s.geometry.width .. "x" .. s.geometry.height,
+                message = "Have a great day!",
+            })
+            if s.geometry.width == 2160 and s.geometry.height == 3840  then
+                awful.util.vertical_expanded = not awful.util.vertical_expanded
+                if awful.util.vertical_expanded then
+                    s.padding = {
+                        left = 0,
+                        right = 0,
+                        top = 0,
+                        bottom = 0
+                    }
+                else
+                    s.padding = {
+                        left = 0,
+                        right = 0,
+                        top = 600,
+                        bottom = 0
+                    }
+                end
             else
-                s.padding = {
-                    left = 0,
-                    right = 400,
-                    top = 0,
-                    bottom = 0
-                }
+                awful.util.expanded = not awful.util.expanded
+                if awful.util.expanded then
+                    s.padding = {
+                        left = 0,
+                        right = 0,
+                        top = 0,
+                        bottom = 0
+                    }
+                else
+                    s.padding = {
+                        left = 0,
+                        right = 400,
+                        top = 0,
+                        bottom = 0
+                    }
+                end
             end
             awful.screen.focused():emit_signal("property::layout")
         end,
@@ -375,6 +398,7 @@ local globalkeys =
             group = "layout"
         }
     ),
+   
     -- Dropdown application
 
     -- ALSA volume control
