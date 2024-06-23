@@ -263,6 +263,7 @@ python-virtualenv
 qhull
 qt5ct
 rapidjson
+realtime-privileges
 rebuild-detector
 redis
 redshift

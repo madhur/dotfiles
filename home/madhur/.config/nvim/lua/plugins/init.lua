@@ -88,7 +88,13 @@ return {
 	"neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/mason.nvim", -- simple to use
 	"williamboman/mason-lspconfig.nvim", -- simp
-	"nvimtools/none-ls.nvim",
+--	"nvimtools/none-ls.nvim",
+     {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
+  },
 	-- "jose-elias-alvarez/null-ls.nvim", -- LSP di
 	--    "madhur/null-ls.nvim",
 
