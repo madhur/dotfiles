@@ -181,7 +181,10 @@ function wiboxes.get(s)
         ontop = false
     })
 
-    s.right_widgets = right_widgets
+    if s.geometry.width == 2160 and s.geometry.height ==3840 then
+        right_widgets = empty
+    end
+    
    
     local mylayoutbox = require("widgets.layoutbox").get(s)
     local mytaglist = require("widgets.taglist").get(s)

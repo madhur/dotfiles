@@ -66,38 +66,38 @@ return { -- All clients will match this rule.
 --         tag = awful.screen.focused().tags[3]
 --     }
 -- }, -- Set applications to always map on the tag 3 on screen 1.
-{
-    rule = {
-        class = "DBeaver"
-    },
-    properties = {
-        --screen = 1,
-        tag = function(c) 
-            return awful.screen.preferred(c).tags[4] 
-        end
-    }
-}, {
-    rule = {
-        class = "Postman"
-    },
-    properties = {
-        --screen = 1,
-        tag = function(c) 
-            return awful.screen.preferred(c).tags[5] 
-        end
-    }
-}, -- Set applications to always map on the tag 4 on screen 1.
-{
-    rule = {
-        class = "install4j-com-kafkatool-ui-MainApp"
-    },
-    properties = {
-        --screen = 1,
-        tag = function(c) 
-            return awful.screen.preferred(c).tags[6] 
-        end
-    }
-}, 
+-- {
+--     rule = {
+--         class = "DBeaver"
+--     },
+--     properties = {
+--         --screen = 1,
+--         tag = function(c) 
+--             return awful.screen.preferred(c).tags[4] 
+--         end
+--     }
+-- }, {
+--     rule = {
+--         class = "Postman"
+--     },
+--     properties = {
+--         --screen = 1,
+--         tag = function(c) 
+--             return awful.screen.preferred(c).tags[5] 
+--         end
+--     }
+-- }, -- Set applications to always map on the tag 4 on screen 1.
+-- {
+--     rule = {
+--         class = "install4j-com-kafkatool-ui-MainApp"
+--     },
+--     properties = {
+--         --screen = 1,
+--         tag = function(c) 
+--             return awful.screen.preferred(c).tags[6] 
+--         end
+--     }
+-- }, 
 -- {
 --     rule = {class = "firefox"},
 --     properties = {screen = 1, tag = awful.screen.focused().tags[9]}

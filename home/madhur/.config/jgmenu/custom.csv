@@ -47,6 +47,7 @@ Shutdown, /home/madhur/scripts/system.sh poweroff
 Restart, /home/madhur/scripts/system.sh reboot
 Logout, /home/madhur/scripts/system.sh logoff
 Enable Second Monitor, "/home/madhur/scripts/two_monitor_portrait.sh"
+Disable Second Monitor, "/home/madhur/scripts/one_monitor.sh"
 
 
 

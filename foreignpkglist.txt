@@ -19,7 +19,7 @@ kafkactl
 lcov-git
 mkinitcpio-openswap
 mongodb-tools-bin
-mongodb42-bin
+mongodb60-bin
 ncurses5-compat-libs
 nerd-fonts-complete
 ngrok
