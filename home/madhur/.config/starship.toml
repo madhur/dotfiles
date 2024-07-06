@@ -30,7 +30,7 @@ $jobs\
 $status\
 $character"""
 
-right_format = """$kubernetes"""
+#right_format = """$kubernetes"""
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"

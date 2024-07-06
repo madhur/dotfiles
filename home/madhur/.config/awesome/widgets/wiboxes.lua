@@ -161,6 +161,13 @@ local right_widgets = {
     wibox.container.margin((require("widgets.topbar.systray")), 3, 3, 3, 3)
 }
 
+local right_widgets_vertical = {
+    -- Right widgets
+    layout = wibox.layout.fixed.horizontal,
+    pl(require("widgets.topbar.clock"), true, "calendar"),
+    wibox.container.margin((require("widgets.topbar.systray")), 3, 3, 3, 3)
+}
+
 local hr_spr = require("widgets.helper").hr_spr
 local spr = require("widgets.helper").spr
 local empty = wibox.widget{
@@ -182,7 +189,7 @@ function wiboxes.get(s)
     })
 
     if s.geometry.width == 2160 and s.geometry.height ==3840 then
-        right_widgets = empty
+        right_widgets = right_widgets_vertical
     end
     
    

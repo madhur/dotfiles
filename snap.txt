@@ -9,7 +9,7 @@ gnome-3-34-1804             0+git.3556cb3               93     latest/stable  ca
 gnome-42-2204               0+git.510a601               176    latest/stable  canonical**     -
 gtk-common-themes           0.1-81-g442e511             1535   latest/stable  canonical**     -
 indicator-sound-switcher    2.3.9                       91     latest/stable  yktoo           -
-joplin-desktop              v2.14.22                    64     latest/stable  james-carroll*  -
+joplin-desktop              v3.0.12                     66     latest/stable  james-carroll*  -
 kate                        23.08.4                     171    latest/stable  kde**           classic
 kf5-5-104-qt-5-15-8-core22  5.104                       9      latest/stable  kde**           -
 notion-snap                 1.4.0                       16     latest/stable  steverydz       -
