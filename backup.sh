@@ -19,7 +19,6 @@ cp  ~/.config/zathura/* $dfolder/.config/zathura/
 cp  ~/.config/micro/* $dfolder/.config/micro/
 rsync -avh --delete --exclude='.git/' ~/.config/eg $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/cheat $dfolder/.config/
-#cp -r ~/.config/eg/ $dfolder/.config/
 cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
 cp -r ~/.config/neofetch $dfolder/.config/
@@ -34,10 +33,8 @@ rsync -avh --delete --exclude='.git/' ~/.config/systemd $dfolder/.config/
 #cp -r ~/.config/systemd $dfolder/.config/
 # do not want rofi subfolder themes
 rsync -avh --delete --exclude='.git/' ~/.config/rofi $dfolder/.config/
-#cp ~/.config/rofi/* $dfolder/.config/rofi/
 cp -r ~/.config/sxhkd $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/eww $dfolder/.config/
-#cp -r ~/.config/eww $dfolder/.config/
 cp -r ~/.config/qimgv $dfolder/.config/
 cp -r ~/.config/ripgrep $dfolder/.config/
 cp -r ~/.config/bat $dfolder/.config/
@@ -45,7 +42,6 @@ cp -r ~/.config/btop $dfolder/.config/
 cp -r ~/.config/mpv $dfolder/.config/
 #cp -r ~/.config/go $dfolder/.config/
 cp -r ~/.config/newsboat $dfolder/.config/
-#cp -r ~/.config/lazygit $dfolder/.config/
 cp -r ~/.config/Thunar $dfolder/.config/
 cp -r ~/.config/autorandr $dfolder/.config/
 
@@ -77,7 +73,6 @@ cp -r ~/.nanorc $dfolder/
 cp -r ~/.vimrc $dfolder/
 cp -r ~/.Xresources $dfolder/
 cp -r ~/.tmux.conf $dfolder/
-#cp -r ~/Pictures/wallpapers $dfolder/Pictures/
 cp -r ~/.gitconfig $dfolder/
 cp -r ~/.gtkrc-2.0 $dfolder/
 #cp ~/.stalonetrayrc $dfolder/
@@ -92,6 +87,7 @@ cp /etc/pacman.conf ./etc/pacman.conf
 cp /etc/my.cnf ./etc/my.cnf
 cp /etc/fstab ./etc/fstab
 cp /etc/hosts ./etc/hosts
+cp /etc/rc.local ./etc/rc.local
 sudo cp /etc/default/* ./etc/default/
 sudo cp /etc/ssh/sshd_config.d/* ./etc/ssh/sshd_config.d/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
