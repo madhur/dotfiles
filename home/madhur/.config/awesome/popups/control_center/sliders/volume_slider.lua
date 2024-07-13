@@ -40,7 +40,13 @@ local volume_slider = wibox.widget({
 -- Define a timer to update the volume slider value every second
 local update_volume_slider = function()
   awful.spawn.easy_async("amixer sget Master", function(stdout)
+    if stdout == nil then
+      return
+    end
     local volume = tonumber(string.match(stdout, "(%d?%d?%d)%%"))
+    if volume == nil then
+        return
+    end
     volume_slider.value = volume
   end)
 end

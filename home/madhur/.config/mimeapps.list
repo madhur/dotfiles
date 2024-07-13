@@ -44,3 +44,4 @@ text/x-python=nvim.desktop;
 text/x-maven+xml=code.desktop;
 video/mp4=mpv.desktop;
 application/octet-stream=code.desktop;
+application/x-ipynb+json=micro.desktop;nvim.desktop;

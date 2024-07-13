@@ -23,6 +23,7 @@ Xsettingsd, xsettingsd
 Indicator Sound Switcher, "indicator-sound-switcher"
 #GlobalProtect, "/opt/paloaltonetworks/globalprotect/PanGPUI"
 NMApplet, "nm-applet"
+Redshift,"redshift"
 #Autorename Workspace, "$HOME/github/personal/i3scripts/launch.sh"
 #Trayer, "/home/madhur/bin/start-trayer.sh"
 #Xfce Polkit,"/usr/libexec/xfce-polkit"

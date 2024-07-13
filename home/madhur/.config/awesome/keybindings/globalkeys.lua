@@ -406,7 +406,7 @@ local globalkeys =
         {},
         "XF86AudioRaiseVolume",
         function()
-            awful.util.spawn("amixer -D pulse sset Master 5%+", false)
+            awful.spawn("amixer -D pulse sset Master 5%+", false)
             -- show_volume_notification()
             awful.util.volume_new:inc(5, true)
         end
@@ -415,7 +415,7 @@ local globalkeys =
         {},
         "XF86AudioLowerVolume",
         function()
-            awful.util.spawn("amixer -D pulse sset Master 5%-", false)
+            awful.spawn("amixer -D pulse sset Master 5%-", false)
             -- show_volume_notification()
             awful.util.volume_new:dec(5, true)
         end
@@ -424,7 +424,7 @@ local globalkeys =
         {},
         "XF86AudioMute",
         function()
-            awful.util.spawn("amixer -D pulse sset Master toggle", false)
+            awful.spawn("amixer -D pulse sset Master toggle", false)
             -- show_volume_notification()
             awful.util.volume_new:toggle(true)
         end

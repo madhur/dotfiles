@@ -74,6 +74,7 @@ expect
 eza
 f2fs-tools
 fakeroot
+fceux
 feh
 ffmpegthumbnailer
 file
@@ -260,7 +261,6 @@ python-readability-lxml
 python-reportlab
 python-setuptools
 python-virtualenv
-qhull
 qt5ct
 rapidjson
 realtime-privileges

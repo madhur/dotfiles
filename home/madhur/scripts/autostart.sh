@@ -12,7 +12,7 @@ run() {
 }
 
 
-autorandr --load one
+autorandr --load two
 #sleep 5
 /home/madhur/scripts/set_wallpaper.sh
 
