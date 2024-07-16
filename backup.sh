@@ -93,7 +93,7 @@ sudo cp /etc/ssh/sshd_config.d/* ./etc/ssh/sshd_config.d/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
 sudo cp /etc/exports.d/* ./etc/exports.d/
 sudo cp -r /etc/X11/* ./etc/X11/
-
+sudo cp -r /etc/conf.d/* ./etc/conf.d/
 #cp /etc/dnsmasq.conf ./etc/dnsmasq.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf
 #cp /etc/resolv.conf ./etc/resolv.conf

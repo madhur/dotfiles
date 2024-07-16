@@ -61,6 +61,7 @@ dnsmasq
 docker
 docker-compose
 dos2unix
+dosbox
 dosfstools
 duf
 e2fsprogs
@@ -110,6 +111,7 @@ go
 goaccess
 gobject-introspection
 gparted
+grafana
 grep
 groff
 grub
@@ -189,6 +191,7 @@ mkinitcpio-busybox
 mkinitcpio-nfs-utils
 mlocate
 modemmanager
+moreutils
 mpv
 mtools
 namcap
@@ -249,6 +252,7 @@ powertop
 ppp
 pptpclient
 prettier
+prometheus-node-exporter
 pv
 python
 python-capng

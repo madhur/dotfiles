@@ -385,7 +385,7 @@ local globalkeys =
                 else
                     s.padding = {
                         left = 0,
-                        right = 400,
+                        right = 500,
                         top = 0,
                         bottom = 0
                     }

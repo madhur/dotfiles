@@ -1,0 +1,1 @@
+NODE_EXPORTER_ARGS="--collector.systemd --collector.processes"

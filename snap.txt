@@ -8,7 +8,7 @@ core24                      20240528                    423    latest/stable  ca
 gnome-3-28-1804             3.28.0-19-g98f9e67.98f9e67  198    latest/stable  canonical**     -
 gnome-3-34-1804             0+git.3556cb3               93     latest/stable  canonical**     -
 gnome-42-2204               0+git.510a601               176    latest/stable  canonical**     -
-gnome-46-2404               0+git.b6706a3               26     latest/stable  canonical**     -
+gnome-46-2404               0+git.18eace2               39     latest/stable  canonical**     -
 gtk-common-themes           0.1-81-g442e511             1535   latest/stable  canonical**     -
 indicator-sound-switcher    2.3.9                       91     latest/stable  yktoo           -
 joplin-desktop              v3.0.13                     70     latest/stable  james-carroll*  -
