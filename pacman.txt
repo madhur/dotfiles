@@ -132,7 +132,6 @@ hey
 hplip
 htop
 httpie
-hugo
 hwdetect
 hwinfo
 iftop
@@ -174,6 +173,7 @@ lnav
 logrotate
 lsb-release
 lsscsi
+luarocks
 lvm2
 m4
 maim
@@ -300,7 +300,6 @@ sysfsutils
 sysstat
 system-config-printer
 systemd-sysvcompat
-tailscale
 tcpdump
 termshark
 texinfo
