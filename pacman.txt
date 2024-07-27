@@ -64,6 +64,7 @@ dos2unix
 dosbox
 dosfstools
 duf
+dunst
 e2fsprogs
 efibootmgr
 efitools

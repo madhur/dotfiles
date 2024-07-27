@@ -1,4 +1,7 @@
 
+
+alias mirrorUpdate='reflector --country in --latest 15 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose'
+
 alias cd..='cd ..'
 #alias pwd='pwd && pwd | xclip -sel clipboard'
 alias unin='sudo dnf remove'
@@ -114,7 +117,7 @@ alias search="grep -rnw '.' -e"
 alias pbat="bat -p"
 alias yay="yay -Pw; yay"
 alias idea="flatpak run com.jetbrains.IntelliJ-IDEA-Community"
-alias cat='bat -P -p'
+alias cat='bat -pp'
 alias nnn="nnn -P p"
 alias lg="lazygit"
 alias rg="kitty +kitten hyperlinked_grep"

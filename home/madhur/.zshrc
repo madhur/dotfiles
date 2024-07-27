@@ -1,18 +1,22 @@
-# zmodload zsh/datetime
-# setopt PROMPT_SUBST
-# PS4='+$EPOCHREALTIME %N:%i> '
 
-# logfile=$(mktemp zsh_profile.XXXXXXXX)
-# echo "Logging to $logfile"
-# exec 3>&2 2>$logfile
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zmodload zsh/zprof
+  # zmodload zsh/datetime
+  # setopt PROMPT_SUBST
+  # PS4='+$EPOCHREALTIME %N:%i> '
 
-# setopt XTRACE
+  # logfile=$(mktemp zsh_profile.XXXXXXXX)
+  # echo "Logging to $logfile"
+  # exec 3>&2 2>$logfile
+
+  # setopt XTRACE
+fi
 
 ## Zsh initialization
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="madhur"
-#plugins=(zsh-syntax-highlighting zsh-autosuggestions autoswitch_virtualenv fzf-tab  zsh-history-substring-search zsh-fzf-history-search) 
-plugins=(zsh-syntax-highlighting zsh-autosuggestions autoswitch_virtualenv fzf-tab zsh-fzf-history-search) 
+plugins=(zsh-syntax-highlighting zsh-autosuggestions fzf-tab autoswitch_virtualenv) 
+#plugins=(zsh-syntax-highlighting zsh-autosuggestions autoswitch_virtualenv fzf-tab zsh-fzf-history-search) 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 ## 
@@ -33,18 +37,9 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 export SYSTEMD_PAGER=
 
-## node version manager initialization
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 [ -z "$PS1" ] && return
 ##
 
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-## End of .nvmrc handling
 
 ## Android tools in PATH
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -87,10 +82,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 [ -f "$HOME/company/passwords.env" ] && source ~/company/passwords.env
 
-## Auto jump script (Replaced by zoxide for now)
-#[[ -s /home/madhur/.autojump/etc/profile.d/autojump.sh ]] && source /home/madhur/.autojump/etc/profile.d/autojump.sh
-##
-
 ## Initialize starship prompt
 eval "$(starship init zsh)"
 ##
@@ -103,17 +94,8 @@ then
 #(cat ~/.cache/wal/sequences &)
 fi
 
-## ghcup for haskell (Not using haskell for now)
-#[ -f "/home/madhur/.ghcup/env" ] && source "/home/madhur/.ghcup/env" # ghcup-env
-##
-
 ## Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-##
-
-## GOlang and GVM
-#source /home/madhur/.gvm/scripts/gvm
-#export GOPATH="$GOPATH:/home/madhur/go"
 ##
 
 ## List of Zstyles
@@ -153,10 +135,18 @@ export PATH="/home/madhur/gitpersonal/git-fuzzy/bin:$PATH"
 # nnn env variables
 source ~/.config/nnn/config
 
-#export HOST=$(hostname)
-
 export MANPAGER="nvim +Man!"
 export ZK_CLUSTER_URLS=localhost:2181
 export CHROOT=$HOME/chroot
-
 export CHEAT_USE_FZF=true
+
+# fnm
+FNM_PATH="/home/madhur/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/madhur/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zprof
+fi

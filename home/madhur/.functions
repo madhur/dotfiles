@@ -34,6 +34,11 @@ function java8() {
   sdk use java 8.0.382-amzn
 }
 
+function java17() {
+     export PATH=/home/madhur/.sdkman/candidates/java/17.0.7-amzn/bin/java:$PATH
+     sdk use java 17.0.7-amzn
+}
+
 function java21() {
      export PATH=/home/madhur/.sdkman/candidates/java/21-amzn/bin:$PATH
      sdk use java 21-amzn
