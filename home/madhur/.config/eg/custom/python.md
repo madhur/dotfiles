@@ -1,2 +1,0 @@
-Run server with python 3
-    python3 -m http.server

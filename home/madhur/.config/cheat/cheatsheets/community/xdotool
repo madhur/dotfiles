@@ -1,2 +1,0 @@
-# Stroke each the letter b each 1000 millisecond and repeat it 3600 times.
-xdotool key  --repeat 3600 --delay 1000 b

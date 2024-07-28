@@ -1,5 +1,0 @@
----
-tags: [ apache, httpd ]
----
-# To test Apache configuration file syntax
-apachectl configtest
