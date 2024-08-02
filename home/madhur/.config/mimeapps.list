@@ -23,6 +23,7 @@ application/pcx=gpicview.desktop
 image/svg+xml=gpicview.desktop
 image/svg-xml=gpicview.desktop
 application/octet-stream=code.desktop
+x-scheme-handler/webcal=brave-browser.desktop
 
 [Added Associations]
 application/x-shellscript=code.desktop;visual-studio-code.desktop;vim.desktop;

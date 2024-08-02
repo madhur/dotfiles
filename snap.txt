@@ -18,4 +18,4 @@ notion-snap                 1.4.0                       16     latest/stable  st
 sdlpop                      1.23                        715    latest/stable  snapcrafters*   -
 snapcraft                   8.3.1                       12136  latest/stable  canonical**     classic
 snapd                       2.63                        21759  latest/stable  canonical**     snapd
-trello-desktop              1.0.14                      21     latest/stable  joshua-redmond  -
+trello-desktop              1.0.15                      22     latest/stable  joshua-redmond  -
