@@ -14,7 +14,6 @@ eyedropper
 flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
-indicator-sound-switcher
 jd-gui-bin
 kafkactl
 lcov-git
@@ -30,6 +29,7 @@ offsetexplorer2
 oh-my-zsh-git
 papirus-folders-git
 pipes.sh
+postman-bin
 powerline-fonts-git
 prettierd
 python2
