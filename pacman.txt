@@ -23,6 +23,7 @@ automake
 autorandr
 aws-cli
 b43-fwcutter
+baobab
 base
 base-devel
 bash-completion
@@ -109,6 +110,7 @@ globalprotect-openconnect
 glow
 gnu-netcat
 go
+go-yq
 goaccess
 gobject-introspection
 gparted
@@ -364,7 +366,6 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xorg-xsetroot
-xsane
 xscreensaver
 xsel
 xsettingsd

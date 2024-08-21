@@ -34,4 +34,25 @@
 	<patterns>*</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>kitty</icon>
+	<name>Open root terminal</name>
+	<submenu></submenu>
+	<unique-id>1724254293401730-1</unique-id>
+	<command>pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY dbus-launch kitty -d %f </command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+</action>
+<action>
+	<icon></icon>
+	<name>Disk Usage</name>
+	<submenu></submenu>
+	<unique-id>1724254373047106-2</unique-id>
+	<command>baobab %d</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
 </actions>
