@@ -1,2 +1,0 @@
-prints a list of processes that read/wrote to disk and the amount of IO bandwidth used.
-iotop -o -b -d 10
