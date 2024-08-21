@@ -1,0 +1,7 @@
+Flush all redis nodes
+    redis-cli --cluster call localhost:6379  FLUSHALL
+
+Delete keys starting with prefix
+    redis-cli -p 6380 KEYS "r:table_data*" | xargs redis-cli -p 6380 DEL
+
+

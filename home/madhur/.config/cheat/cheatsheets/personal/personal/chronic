@@ -1,0 +1,2 @@
+Run a command quietly unless it fails
+    chronic systemctl --failed

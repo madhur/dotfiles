@@ -1,0 +1,2 @@
+Validate multiple yaml files
+    find . -name '*.yaml' -exec yq {} \; > /dev/null

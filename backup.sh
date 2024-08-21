@@ -18,7 +18,7 @@ cp  ~/.config/zathura/* $dfolder/.config/zathura/
 #cp  ~/.config/viewnior/* $dfolder/.config/viewnior/
 cp  ~/.config/micro/* $dfolder/.config/micro/
 #rsync -avh --delete --exclude='.git/' ~/.config/eg $dfolder/.config/
-rsync -avh --delete --exclude='.git/' ~/.config/cheat/personal $dfolder/.config/personal/
+rsync -avh --delete --exclude='.git/' ~/.config/cheat/cheatsheets/personal $dfolder/.config/cheat/cheatsheets/personal/
 
 cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
