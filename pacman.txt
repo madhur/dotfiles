@@ -137,6 +137,7 @@ htop
 httpie
 hwdetect
 hwinfo
+hyprland
 iftop
 inetutils
 inter-font
@@ -225,8 +226,6 @@ numlockx
 nvidia-dkms
 nvidia-settings
 nvme-cli
-obconf
-openbox
 openconnect
 openssl-1.1
 openvpn

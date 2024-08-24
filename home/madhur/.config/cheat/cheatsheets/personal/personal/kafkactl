@@ -1,0 +1,14 @@
+Consume from topic
+    kafkactl consume broadcasttopic --print-keys --print-timestamps  --from-beginning
+
+Produce to topic
+    kafkactl produce broadcasttopic --key=my-key --value="madhur ahuja7" 
+
+Create topic
+    kafkactl create topic fantasymonitoringevents -V
+
+Describe consumer group
+    kafkactl describe consumer-group GROUP
+
+
+
