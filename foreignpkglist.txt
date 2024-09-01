@@ -14,8 +14,10 @@ eyedropper
 flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
+intellij-idea-community-edition-jre
 jd-gui-bin
 kafkactl
+kind
 lcov-git
 mkinitcpio-openswap
 mongodb-tools-bin
@@ -45,6 +47,7 @@ tabbed-flexipatch-git
 tmux-xpanes
 visual-studio-code-bin
 wireguird
+wlogout
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night

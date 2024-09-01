@@ -14,6 +14,7 @@ arandr
 archiso
 archlinux-keyring
 archlinux-xdg-menu
+argocd
 asciidoc
 asciidoctor
 atuin
@@ -226,6 +227,7 @@ numlockx
 nvidia-dkms
 nvidia-settings
 nvme-cli
+nwg-look
 openconnect
 openssl-1.1
 openvpn
@@ -289,6 +291,7 @@ sed
 sg3_utils
 shellcheck
 smartmontools
+socat
 sof-firmware
 splix
 sshfs
@@ -297,6 +300,7 @@ starship
 stress
 stylua
 sudo
+swaylock
 sxhkd
 sysfsutils
 sysstat
@@ -334,6 +338,7 @@ virtualbox
 vpnc
 vulkan-tools
 w3m
+waybar
 wget
 which
 whois
@@ -342,6 +347,7 @@ wireless-regdb
 wireless_tools
 wireplumber
 wireshark-cli
+wofi
 wpa_supplicant
 x11vnc
 xbindkeys

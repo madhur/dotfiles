@@ -58,6 +58,13 @@ cp -r ~/.config/mimeapps.list $dfolder/.config/
 cp ~/.config/nnn/config $dfolder/.config/nnn/
 cp ~/.config/lazygit/config.yml $dfolder/.config/lazygit/
 
+cp -r ~/.config/hypr $dfolder/.config/
+cp -r ~/.config/wlogout $dfolder/.config/
+cp -r ~/.config/nwg-look $dfolder/.config/
+cp -r ~/.config/waybar $dfolder/.config/
+cp -r ~/.config/swaylock $dfolder/.config/
+
+
 #tmux contain company data
 #tmux contains company data
 #cp -r ~/tmux $dfolder/
