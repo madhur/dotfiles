@@ -170,7 +170,8 @@ libtool
 libwnck3
 libxcrypt-compat
 lightdm
-lightdm-slick-greeter
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
 linux
 linux-firmware
 linux-headers
