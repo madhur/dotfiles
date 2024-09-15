@@ -15,6 +15,7 @@ flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
 intellij-idea-community-edition-jre
+intellij-idea-ultimate-edition-jre
 jd-gui-bin
 kafkactl
 kind
@@ -54,6 +55,6 @@ xcursor-simp1e-tokyo-night
 xfce-polkit
 xqp
 xsane
-yay-git
+yay
 yt-dlp-drop-in
 zrok-bin

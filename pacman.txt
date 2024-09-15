@@ -146,6 +146,7 @@ inxi
 iotop
 iptables-nft
 iwd
+jdk8-openjdk
 jfsutils
 jgmenu
 jless
@@ -195,7 +196,6 @@ micro
 mkinitcpio
 mkinitcpio-busybox
 mkinitcpio-nfs-utils
-mlocate
 modemmanager
 moreutils
 mpv
@@ -249,6 +249,7 @@ pipewire-pulse
 pkgconf
 pkgfile
 playerctl
+plocate
 polkit-gnome
 poppler-glib
 postfix

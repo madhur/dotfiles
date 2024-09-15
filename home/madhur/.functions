@@ -30,8 +30,9 @@ function java11() {
 }
 
 function java8() {
-  export PATH=/home/madhur/.sdkman/candidates/java/8.0.382-amzn/bin:$PATH
-  sdk use java 8.0.382-amzn
+  export PATH=/usr/lib/jvm/java-8-openjdk/bin:$PATH
+  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+  #sdk use java 8.0.382-amzn
 }
 
 function java17() {
