@@ -4,6 +4,7 @@ acpi
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
+alsa-card-profiles
 alsa-firmware
 alsa-plugins
 alsa-utils
@@ -42,6 +43,7 @@ calc
 cantarell-fonts
 clang
 conky
+consul
 cpupower
 cryptsetup
 csvlens
@@ -49,6 +51,7 @@ cups
 cups-filters
 cups-pdf
 debugedit
+default-cursors
 device-mapper
 devtools
 dex
@@ -73,6 +76,7 @@ efitools
 eslint_d
 ethtool
 exfatprogs
+exo
 expac
 expect
 eza
@@ -134,6 +138,7 @@ hdparm
 helm
 hey
 hplip
+hslua-cli
 htop
 httpie
 hwdetect
@@ -158,18 +163,25 @@ kubectx
 lazygit
 less
 lib32-libglvnd
+lib32-libxml2
+lib32-mesa
 lib32-ncurses
 libconfig
 libdvdcss
 libev
 libfido2
 libgsf
+libngtcp2
 libopenraw
+libpipewire
 libre
 libretro-core-info
 libtool
 libwnck3
+libwpe
 libxcrypt-compat
+libxfce4ui
+libxfce4util
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
@@ -190,6 +202,7 @@ man-db
 man-pages
 mdadm
 meld
+mesa
 mesa-utils
 meson
 micro
@@ -243,7 +256,9 @@ pdftk
 perl
 perl-rename
 pigz
+pipewire
 pipewire-alsa
+pipewire-audio
 pipewire-jack
 pipewire-pulse
 pkgconf
@@ -257,6 +272,7 @@ power-profiles-daemon
 powertop
 ppp
 pptpclient
+pre-commit
 prettier
 prometheus-node-exporter
 pv
@@ -272,6 +288,7 @@ python-reportlab
 python-setuptools
 python-virtualenv
 qt5ct
+rabbitmq
 rapidjson
 realtime-privileges
 rebuild-detector
@@ -351,6 +368,7 @@ wireplumber
 wireshark-cli
 wofi
 wpa_supplicant
+wpebackend-fdo
 x11vnc
 xbindkeys
 xclip
@@ -360,6 +378,7 @@ xdg-utils
 xdotool
 xed
 xf86-input-libinput
+xfconf
 xfsprogs
 xl2tpd
 xmlto
