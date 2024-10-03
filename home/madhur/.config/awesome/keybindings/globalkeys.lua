@@ -323,7 +323,12 @@ local globalkeys =
             end
 
             awful.screen.focused().selected_tag.master_count = 1
-            awful.layout.set(awful.layout.suit.tile.right)
+            if is_vertical_screen() then
+                awful.layout.set(awful.layout.suit.tile.bottom)
+            else
+                awful.layout.set(awful.layout.suit.tile.right)
+            end
+            
         end,
         {
             description = "Switch to tall layout",
@@ -356,7 +361,7 @@ local globalkeys =
                 title = s.geometry.width .. "x" .. s.geometry.height,
                 message = "Have a great day!",
             })
-            if s.geometry.width == 2160 and s.geometry.height == 3840  then
+            if is_vertical_screen()  then
                 awful.util.vertical_expanded = not awful.util.vertical_expanded
                 if awful.util.vertical_expanded then
                     s.padding = {
@@ -516,6 +521,10 @@ for i = 1, 10 do
             descr_toggle_focus
         )
     )
+end
+
+function is_vertical_screen()
+    return awful.screen.focused().geometry.width == 2160 and awful.screen.focused().geometry.height == 3840
 end
 
 -- Set keys

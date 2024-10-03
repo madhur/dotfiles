@@ -10,12 +10,10 @@ downgrade
 endeavouros-keyring
 endeavouros-mirrorlist
 endeavouros-theming
-eyedropper
 flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
 intellij-idea-community-edition-jre
-intellij-idea-ultimate-edition-jre
 jd-gui-bin
 kafkactl
 kind

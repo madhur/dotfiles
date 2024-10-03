@@ -21,9 +21,9 @@ ff02::2    ip6-allrouters
 192.168.1.82 redis
 192.168.1.82 kafka
 192.168.1.82 redis1
-192.168.1.82 cassandra
-192.168.1.82 mongo
+127.0.0.1 cassandra
+127.0.0.1 mongo
 192.168.1.82 mysql
 192.168.1.82 zookeeper
-
+127.0.0.1 rmq
 

@@ -1,0 +1,19 @@
+[Unit]
+Description=kafka exporter
+Requires=kafka.service
+After=kafka.service
+
+[Service]
+PrivateTmp=yes
+#User=prometheus
+#Group=prometheus
+#RuntimeDirectory=redis_exporter
+ExecStart=/home/madhur/bin/kafka_exporter --kafka.server=kafka:9092 --kafka.version=2.2.1
+StandardOutput=journal
+StandardError=journal
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+Restart=always
+
+[Install]
+WantedBy=default.target

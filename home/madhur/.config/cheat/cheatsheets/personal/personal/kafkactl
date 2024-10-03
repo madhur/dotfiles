@@ -4,6 +4,9 @@ Consume from topic
 Produce to topic
     kafkactl produce broadcasttopic --key=my-key --value="madhur ahuja7" 
 
+Produce entire file
+    kafkactl produce efGamePlay -f ~/github/perftestautomation/enrichment/payload/jsons/dealended.json --lineSeparator='###'
+
 Create topic
     kafkactl create topic fantasymonitoringevents -V
 

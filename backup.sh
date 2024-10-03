@@ -102,7 +102,7 @@ sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
 sudo cp /etc/exports.d/* ./etc/exports.d/
 sudo cp -r /etc/X11/* ./etc/X11/
 sudo cp -r /etc/conf.d/* ./etc/conf.d/
-sudo cp - r /etc/lightdm/* ./etc/lightdm/
+sudo cp -r /etc/lightdm/* ./etc/lightdm/
 #cp /etc/dnsmasq.conf ./etc/dnsmasq.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf
 #cp /etc/resolv.conf ./etc/resolv.conf

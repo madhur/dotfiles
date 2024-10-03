@@ -79,6 +79,7 @@ exfatprogs
 exo
 expac
 expect
+eyedropper
 eza
 f2fs-tools
 fakeroot
