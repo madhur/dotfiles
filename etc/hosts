@@ -27,3 +27,4 @@ ff02::2    ip6-allrouters
 192.168.1.82 zookeeper
 127.0.0.1 rmq
 
+192.168.1.41 rancher.my.org

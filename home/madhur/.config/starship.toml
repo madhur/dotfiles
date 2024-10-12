@@ -28,6 +28,7 @@ $cmd_duration\
 $line_break\
 $jobs\
 $status\
+$kubernetes\
 $character"""
 
 #right_format = """$kubernetes"""

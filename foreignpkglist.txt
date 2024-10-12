@@ -37,11 +37,12 @@ python2
 python310
 qimgv
 qogir-gtk-theme
-robo3t-bin
 rofi-file-browser-extended-git
 shell-color-scripts
 slack-desktop
 snapd
+snyk
+studio-3t
 tabbed-flexipatch-git
 tmux-xpanes
 visual-studio-code-bin

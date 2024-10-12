@@ -51,7 +51,7 @@ export PATH=$ANDROID_HOME/bundle-tool:$PATH
 ## 
 
 ## Kubernetes
-export KUBECONFIG=~/.kube/config:~/.kube/eks-pt:~/.kube/eks-prod
+export KUBECONFIG=~/.kube/config
 ##
 
 ## SDK Man 

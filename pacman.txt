@@ -43,7 +43,6 @@ calc
 cantarell-fonts
 clang
 conky
-consul
 cpupower
 cryptsetup
 csvlens
@@ -59,6 +58,7 @@ dhclient
 dialog
 diff-so-fancy
 diffutils
+dive
 dmenu
 dmidecode
 dmraid
@@ -249,7 +249,6 @@ openvpn
 os-prober
 pacman
 pacman-contrib
-pandoc-cli
 papirus-icon-theme
 patch
 pavucontrol
@@ -300,7 +299,6 @@ reiserfsprogs
 ripgrep
 rofi
 rofi-calc
-rp-pppoe
 rpcsvc-proto
 rsync
 rtkit
@@ -396,6 +394,7 @@ xorg-xsetroot
 xscreensaver
 xsel
 xsettingsd
+xsv
 xterm
 yamllint
 ytfzf

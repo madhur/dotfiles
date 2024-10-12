@@ -1,0 +1,2 @@
+#Compress Entire folder
+tar cf - rsync | pigz > rsync.tar.gz
