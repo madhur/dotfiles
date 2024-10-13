@@ -1,4 +1,6 @@
 # mvn
+Run spring boot with port
+    mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8085
 
 Run spring boot application
     mvn spring-boot:run

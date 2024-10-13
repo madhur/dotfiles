@@ -7,6 +7,7 @@ cava
 charles
 cheat-bin
 downgrade
+elasticsearch7
 endeavouros-keyring
 endeavouros-mirrorlist
 endeavouros-theming
@@ -27,12 +28,14 @@ ngrok
 nvidia-hook
 nvidia-inst
 offsetexplorer2
+offsetexplorer3
 oh-my-zsh-git
 papirus-folders-git
 pipes.sh
 postman-bin
 powerline-fonts-git
 prettierd
+prettyzoo
 python2
 python310
 qimgv
