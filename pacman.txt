@@ -139,7 +139,6 @@ hdparm
 helm
 hey
 hplip
-hslua-cli
 htop
 httpie
 hwdetect
