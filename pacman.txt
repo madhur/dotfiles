@@ -137,7 +137,6 @@ haveged
 hddtemp
 hdparm
 helm
-hey
 hplip
 htop
 httpie
@@ -398,7 +397,7 @@ xterm
 yamllint
 ytfzf
 zathura
-zathura-pdf-mupdf
+zathura-pdf-poppler
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting

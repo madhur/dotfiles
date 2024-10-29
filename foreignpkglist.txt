@@ -14,6 +14,7 @@ endeavouros-theming
 flat-remix-git
 flat-remix-gtk
 gnome-icon-theme
+hey
 intellij-idea-community-edition-jre
 jd-gui-bin
 kafkactl

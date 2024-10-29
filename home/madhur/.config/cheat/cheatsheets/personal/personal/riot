@@ -1,0 +1,3 @@
+Riot with  4.1.3
+./riot replicate --mode live --read-from LOWEST_LATENCY --source-cluster h3ns1h-be-redis6-0-7-1.stage-rc.in:6379 --target-cluster redis:6379
+
