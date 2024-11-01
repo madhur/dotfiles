@@ -21,3 +21,9 @@ fi
 source $HOME/.keychain/$HOST-sh
 
 ### End-Keychain ###
+
+
+## SDK Man 
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+##

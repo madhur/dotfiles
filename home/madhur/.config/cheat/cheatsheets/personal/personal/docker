@@ -1,3 +1,6 @@
+#Disable run at startup for docker
+docker update --restart=no ec27506458e0 f42a5ce7f41e 60e34d6457c7 4cab8909b466
+
 #Docker run
 docker run -v /etc/hosts:/etc/hosts -p 8080:8080 user_service
 

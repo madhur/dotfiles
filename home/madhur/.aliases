@@ -11,6 +11,7 @@ alias c="clear"
 alias ls="eza -aG -s modified --color=auto  --icons --group-directories-first --hyperlink"
 alias ll="eza -al -s modified --color=auto  --icons --group-directories-first --hyperlink"
 alias lll="eza -alT -s modified --color=auto  --icons --group-directories-first --hyperlink"
+alias llb="eza --absolute -R -1 -a --no-permissions --no-filesize --no-time --no-user"  # recursive list with bare absolute filenames, useful for xargs
 alias gs='git status '
 alias ga='git add .'
 alias gb='git branch '
