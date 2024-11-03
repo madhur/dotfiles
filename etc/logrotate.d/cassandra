@@ -1,0 +1,7 @@
+/home/madhur/cassandra/logs/*.log {
+	rotate 5
+	daily
+	missingok
+	notifempty
+	compress
+}

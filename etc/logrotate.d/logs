@@ -1,0 +1,7 @@
+/home/madhur/logs/*.txt {
+	rotate 5
+	daily
+	missingok
+	notifempty
+	compress
+}

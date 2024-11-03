@@ -1,0 +1,10 @@
+[Unit]
+Description=Set wallpaper
+Wants=setwallpaper.timer
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/set_wallpaper.sh
+
+[Install]
+WantedBy=multi-user.target

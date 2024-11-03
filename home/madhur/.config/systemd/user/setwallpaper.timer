@@ -1,0 +1,19 @@
+[Unit]
+Description=Sets wallpaper at specified times
+Requires=setwallpaper.service
+
+[Timer]
+Unit=setwallpaper.service
+# Run at 5 AM
+OnCalendar=*-*-* 05:00:00
+# Run at 12 PM (noon)
+OnCalendar=*-*-* 12:00:00
+# Run at 5 PM
+OnCalendar=*-*-* 17:00:00
+# Run at 8 PM
+OnCalendar=*-*-* 20:00:00
+# Run at 11 PM
+OnCalendar=*-*-* 23:00:00
+
+[Install]
+WantedBy=timers.target
