@@ -1,7 +1,6 @@
 [Unit]
 Description=Set wallpaper
-Wants=graphical-session.target
-After=graphical-session.target
+After=graphical.target display-manager.service
 
 [Service]
 Type=oneshot

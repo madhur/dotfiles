@@ -19,7 +19,6 @@ argocd
 asciidoc
 asciidoctor
 atuin
-audacious
 autoconf
 automake
 autorandr
@@ -266,7 +265,6 @@ playerctl
 plocate
 polkit-gnome
 poppler-glib
-postfix
 power-profiles-daemon
 powertop
 ppp

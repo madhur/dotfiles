@@ -151,3 +151,5 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
   zprof
 fi
 eval "$(zoxide init zsh)"
+
+export GOPATH=/home/madhur/github/go

@@ -11,7 +11,7 @@ gnome-42-2204               0+git.510a601               176    latest/stable  ca
 gnome-46-2404               0+git.5d6be1b               48     latest/stable  canonical**     -
 gtk-common-themes           0.1-81-g442e511             1535   latest/stable  canonical**     -
 indicator-sound-switcher    2.3.10.1                    173    latest/stable  yktoo           -
-joplin-desktop              v3.1.20                     83     latest/stable  james-carroll*  -
+joplin-desktop              v3.1.23                     87     latest/stable  james-carroll*  -
 kate                        24.08.2                     192    latest/stable  kde**           classic
 kf5-5-104-qt-5-15-8-core22  5.104                       9      latest/stable  kde**           -
 mesa-2404                   24.0.9                      143    latest/stable  canonical**     -
