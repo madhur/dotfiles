@@ -2,6 +2,10 @@
 syntax: bash
 tags: [ development, build ]
 ---
+
+#gradlew command to run tests
+./gradlew --no-build-cache cleanTest test -DstackName=sivyg8 -DtypeXml=testNg.xml -DactiveProfile=k8s  -DchannelId=2004003  -Dgroups=regression --info
+
 # To compile, test and package a project:
 gradle build
 
