@@ -17,6 +17,7 @@ gnome-icon-theme
 hey
 intellij-idea-community-edition-jre
 jd-gui-bin
+kaf-bin
 kafkactl
 kind
 lcov-git
@@ -28,6 +29,7 @@ nerd-fonts-complete
 ngrok
 nvidia-hook
 nvidia-inst
+oauth2l
 offsetexplorer2
 offsetexplorer3
 oh-my-zsh-git

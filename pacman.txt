@@ -363,6 +363,7 @@ wireless_tools
 wireplumber
 wireshark-cli
 wofi
+wol
 wpa_supplicant
 wpebackend-fdo
 x11vnc

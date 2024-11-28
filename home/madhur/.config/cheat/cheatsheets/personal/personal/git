@@ -2,6 +2,9 @@
 tags: [ vcs ]
 ---
 
+#Reset file to another branch
+git checkout origin/master -- go.mod
+
 #Squash commits
 git reset --soft HEAD~3
 

@@ -3,8 +3,8 @@ contexts:
         brokers:
             - localhost:9092
         kafkaversion: 2.1.1
-    sivyg8:
+    xlybbu:
         brokers:
-            - kafka.sivyg8.private.xyz:9092
+            - kafka.xlybbu.private.xyz:9092
         kafkaversion: 2.1.1
-current-context: sivyg8
+current-context: default

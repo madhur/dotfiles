@@ -14,4 +14,7 @@ icons["Trello Desktop"] = ""
 icons["Postman"] = ""
 icons["install4j-com-kafkatool-ui-MainApp"] = "󱀏"
 icons["Sublime_text"] = ""
+icons["Joplin"] = "󰚹"
+icons["gpclient"] = "󰖂"
+icons["Thunar"] = ""
 return icons
