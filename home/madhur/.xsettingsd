@@ -24,6 +24,7 @@ Gtk/FontName "Noto Sans 11"
 Net/DoubleClickDistance 5
 Gtk/MonospaceFontName "JetBrainsMono Nerd Font 11"
 Xft/DPI 122880
+#Xft/DPI 98304
 Gtk/IconSizes ""
 Gtk/CursorThemeSize 48
 Net/SoundThemeName "default"

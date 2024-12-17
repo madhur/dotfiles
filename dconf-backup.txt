@@ -1,0 +1,400 @@
+[apps/guake/general]
+compat-delete='delete-sequence'
+copy-on-select=true
+display-n=0
+display-tab-names=0
+gtk-prefer-dark-theme=true
+gtk-theme-name='Sweet-Ambar-Blue'
+gtk-use-system-default-theme=false
+hide-tabs-if-one-tab=false
+history-size=1000
+infinite-history=true
+load-guake-yml=true
+max-tab-name-length=100
+mouse-display=true
+open-tab-cwd=true
+prompt-on-quit=true
+quick-open-command-line='gedit %(file_path)s'
+restore-tabs-notify=true
+restore-tabs-startup=true
+save-tabs-when-changed=false
+schema-version='3.9.1.dev0'
+scroll-keystroke=true
+tab-close-buttons=true
+use-default-font=false
+use-login-shell=true
+use-popup=true
+use-scrollbar=true
+use-trayicon=true
+window-halignment=0
+window-height=75
+window-losefocus=false
+window-refocus=false
+window-tabbar=true
+window-vertical-displacement=30
+window-width=100
+
+[apps/guake/keybindings/global]
+show-hide='<Super>grave'
+
+[apps/guake/keybindings/local]
+close-terminal='disabled'
+
+[apps/guake/style]
+cursor-shape=1
+
+[apps/guake/style/background]
+transparency=90
+
+[apps/guake/style/font]
+allow-bold=true
+palette='#000000000000:#cccc00000000:#4e4e9a9a0606:#c4c4a0a00000:#34346565a4a4:#757550507b7b:#060698209a9a:#d3d3d7d7cfcf:#555557575353:#efef29292929:#8a8ae2e23434:#fcfce9e94f4f:#72729f9fcfcf:#adad7f7fa8a8:#3434e2e2e2e2:#eeeeeeeeecec:#ffffffffffff:#000000000000'
+palette-name='Tango'
+style='JetBrainsMono NF 14'
+
+[apps/seahorse/listing]
+keyrings-selected=['secret-service:///org/freedesktop/secrets/collection/login']
+
+[apps/seahorse/windows/key-manager]
+height=2013
+width=3816
+
+[com/github/finefindus/eyedropper]
+is-maximized=false
+window-height=2108
+window-width=1903
+
+[org/blueman/general]
+services-last-item=0
+window-properties=[1903, 2108, 3129, 1147]
+
+[org/blueman/network]
+nap-enable=false
+
+[org/blueman/plugins/autoconnect]
+services=[('/org/bluez/hci0/dev_78_2B_64_A2_21_03', '00000000-0000-0000-0000-000000000000')]
+
+[org/blueman/plugins/powermanager]
+auto-power-on=@mb true
+
+[org/blueman/plugins/recentconns]
+recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1719654385.483222', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+
+[org/fedoraproject/FirewallConfig]
+show-active-bindings=true
+show-ipsets=true
+
+[org/gnome/Console]
+last-window-size=(746, 529)
+
+[org/gnome/baobab/ui]
+is-maximized=false
+window-size=(1903, 2108)
+
+[org/gnome/control-center]
+last-panel='search'
+window-state=(3718, 1967, true)
+
+[org/gnome/desktop/a11y/applications]
+screen-reader-enabled=false
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/gnome/adwaita-l.webp'
+picture-uri-dark='file:///usr/share/backgrounds/gnome/adwaita-d.webp'
+primary-color='#3071AE'
+secondary-color='#000000'
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'us')]
+xkb-options=@as []
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+cursor-size=48
+cursor-theme='default'
+document-font-name='Noto Sans Medium 11'
+enable-animations=true
+font-antialiasing='grayscale'
+font-hinting='slight'
+font-name='Noto Sans 11'
+font-rgba-order='rgb'
+gtk-theme='Flat-Remix-GTK-Blue-Darkest-Solid'
+icon-theme='breeze-dark'
+monospace-font-name='JetBrainsMono NF 11'
+scaling-factor=uint32 1
+text-scaling-factor=1.0
+toolbar-icons-size='large'
+toolbar-style='text'
+
+[org/gnome/desktop/notifications]
+application-children=['org-gnome-software']
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/gnome/adwaita-l.webp'
+primary-color='#3071AE'
+secondary-color='#000000'
+
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/sound]
+event-sounds=true
+input-feedback-sounds=false
+theme-name='__custom'
+
+[org/gnome/desktop/wm/preferences]
+button-layout='icon:minimize,maximize,close'
+theme='Sweet'
+
+[org/gnome/epiphany]
+ask-for-default=false
+
+[org/gnome/epiphany/state]
+is-maximized=true
+window-position=(-1, -1)
+window-size=(0, 0)
+
+[org/gnome/evolution-data-server]
+migrated=true
+
+[org/gnome/file-roller/dialogs/extract]
+recreate-folders=true
+skip-newer=false
+
+[org/gnome/file-roller/dialogs/new]
+default-extension='.zip'
+encrypt-header=false
+expand-options=false
+volume-size=104857
+
+[org/gnome/file-roller/listing]
+list-mode='as-folder'
+show-path=false
+
+[org/gnome/font-manager]
+charmap-font-size=24.812989921612541
+compare-background-color='rgb(255,255,255)'
+compare-foreground-color='rgb(0,0,0)'
+compare-list=@as []
+content-pane-position=1434
+google-fonts-background-color='rgb(255,255,255)'
+google-fonts-foreground-color='rgb(0,0,0)'
+is-maximized=true
+language-filter-list=@as []
+preview-page=1
+selected-category='0'
+selected-font='5'
+sidebar-size=252
+window-position=(-25, 6)
+window-size=(1974, 1414)
+
+[org/gnome/font-manager/font-viewer]
+window-position=(1, 31)
+window-size=(600, 400)
+
+[org/gnome/gthumb/browser]
+browser-sidebar-width=285
+fullscreen-sidebar='hidden'
+fullscreen-thumbnails-visible=false
+maximized=false
+properties-visible=false
+sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthFileDetails:expanded', 'GthImageHistogram:expanded']
+sidebar-visible=true
+sort-inverse=false
+sort-type='file::mtime'
+startup-current-file='file:///usr/share/icons/Papirus/16x16/actions/zoom-out-x.svg'
+startup-location='file:///usr/share/icons/Papirus/16x16/actions'
+statusbar-visible=true
+thumbnail-list-visible=true
+viewer-sidebar='hidden'
+window-height=2074
+window-width=3830
+
+[org/gnome/gthumb/data-migration]
+catalogs-2-10=true
+
+[org/gnome/gthumb/general]
+active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'file_manager', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'terminal', 'webalbums']
+
+[org/gnome/maps]
+last-viewed-location=[-62.224986245322782, -71.178960800170898]
+map-type='MapsStreetSource'
+transportation-type='pedestrian'
+window-maximized=true
+zoom-level=2
+
+[org/gnome/meld/window-state]
+height=994
+width=1901
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+maximized=false
+
+[org/gnome/nm-applet]
+disable-connected-notifications=true
+
+[org/gnome/shell]
+disabled-extensions=['windowsNavigator@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
+welcome-dialog-last-shown-version='42.5'
+
+[org/gnome/shell/world-clocks]
+locations=@av []
+
+[org/gnome/software]
+check-timestamp=int64 1683776203
+first-run=false
+online-updates-timestamp=int64 1666061024
+update-notification-timestamp=int64 1666061024
+
+[org/gnome/tweaks]
+show-extensions-notice=false
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=true
+show-size-column=true
+show-type-column=true
+sidebar-width=166
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-size=(841, 385)
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.78000000000000003, 0.26780000000000004, 0.26780000000000004, 1.0), (0.52000000000000002, 0.14560000000000001, 0.14560000000000001, 1.0)]
+selected-color=(true, 1.0, 1.0, 1.0, 1.0)
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=298
+sort-column='modified'
+sort-directories-first=false
+sort-order='descending'
+type-format='category'
+window-position=(2161, 1137)
+window-size=(1863, 1397)
+
+[org/guake/general]
+compat-delete='delete-sequence'
+copy-on-select=true
+display-n=0
+display-tab-names=0
+gtk-prefer-dark-theme=true
+gtk-theme-name='Sweet-Ambar-Blue'
+gtk-use-system-default-theme=false
+hide-tabs-if-one-tab=false
+history-size=1000
+infinite-history=true
+load-guake-yml=true
+max-tab-name-length=100
+mouse-display=true
+open-tab-cwd=true
+prompt-on-quit=true
+quick-open-command-line='gedit %(file_path)s'
+restore-tabs-notify=true
+restore-tabs-startup=true
+save-tabs-when-changed=false
+schema-version='3.11.dev0'
+scroll-keystroke=true
+tab-close-buttons=true
+use-default-font=false
+use-login-shell=true
+use-popup=true
+use-scrollbar=true
+use-trayicon=true
+window-halignment=1
+window-height=75
+window-horizontal-displacement=0
+window-losefocus=false
+window-refocus=false
+window-tabbar=true
+window-valignment=0
+window-vertical-displacement=0
+window-width=100
+
+[org/guake/keybindings/global]
+show-hide='<Super>grave'
+
+[org/guake/keybindings/local]
+close-terminal='disabled'
+
+[org/guake/style]
+cursor-shape=1
+
+[org/guake/style/background]
+transparency=90
+
+[org/guake/style/font]
+allow-bold=true
+palette='#000000000000:#cccc00000000:#4e4e9a9a0606:#c4c4a0a00000:#34346565a4a4:#757550507b7b:#060698209a9a:#d3d3d7d7cfcf:#555557575353:#efef29292929:#8a8ae2e23434:#fcfce9e94f4f:#72729f9fcfcf:#adad7f7fa8a8:#3434e2e2e2e2:#eeeeeeeeecec:#ffffffffffff:#000000000000'
+palette-name='Tango'
+style='JetBrainsMono NF 14'
+
+[org/x/editor/plugins]
+active-plugins=['spell', 'open-uri-context-menu', 'joinlines', 'filebrowser', 'time', 'textsize', 'modelines', 'bracketcompletion', 'docinfo', 'sort']
+
+[org/x/editor/plugins/filebrowser/on-load]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/madhur/Downloads'
+
+[org/x/editor/preferences/editor]
+bracket-matching=false
+display-line-numbers=true
+prefer-dark-theme=true
+scheme='cobalt'
+wrap-mode='none'
+
+[org/x/editor/preferences/ui]
+statusbar-visible=true
+
+[org/x/editor/state/window]
+bottom-panel-size=140
+side-panel-active-page=827629879
+side-panel-size=200
+size=(946, 2108)
+state=128
+
+[system/proxy]
+mode='none'
+
+[system/proxy/http]
+host='127.0.0.1'
+port=8888
+
+[system/proxy/https]
+host='127.0.0.1'
+port=8888

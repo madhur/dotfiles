@@ -43,6 +43,7 @@ python2
 python310
 qimgv
 qogir-gtk-theme
+qtile-extras
 rofi-file-browser-extended-git
 shell-color-scripts
 slack-desktop
@@ -57,7 +58,6 @@ wlogout
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night
-xfce-polkit
 xqp
 xsane
 yay

@@ -12,7 +12,7 @@ run() {
 }
 
 
-autorandr --load two
+#autorandr --load two
 #sleep 5
 /home/madhur/scripts/set_wallpaper.sh
 
@@ -25,13 +25,13 @@ run /home/madhur/bin/picom --config ~/.config/picom/picom.conf -b
 
 #sleep 10
 run "nm-applet"
-run "indicator-sound-switcher"
+#run "indicator-sound-switcher"
 #run "guake"
 run "xsettingsd"
 #run "/opt/paloaltonetworks/globalprotect/PanGPUI"
 run "/usr/bin/gpclient"
 run "xscreensaver"
-run "eww daemon"
+#run "eww daemon"
 #currenttime=$(date +%H:%M)
 # if [[ "$currenttime" > "18:00" ]] || [[ "$currenttime" < "06:30" ]]; then
 #  echo "Executing redshift"

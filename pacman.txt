@@ -75,7 +75,6 @@ efitools
 eslint_d
 ethtool
 exfatprogs
-exo
 expac
 expect
 eyedropper
@@ -141,7 +140,6 @@ htop
 httpie
 hwdetect
 hwinfo
-hyprland
 iftop
 inetutils
 inter-font
@@ -179,7 +177,6 @@ libtool
 libwnck3
 libwpe
 libxcrypt-compat
-libxfce4ui
 libxfce4util
 lightdm
 lightdm-gtk-greeter
@@ -212,6 +209,7 @@ modemmanager
 moreutils
 mpv
 mtools
+mypy
 namcap
 nano
 nano-syntax-highlighting
@@ -285,6 +283,7 @@ python-reportlab
 python-setuptools
 python-virtualenv
 qt5ct
+qtile
 rabbitmq
 rapidjson
 realtime-privileges
@@ -325,8 +324,6 @@ tcpdump
 termshark
 texinfo
 thunar
-thunar-archive-plugin
-thunar-volman
 tig
 tldr
 tmux
@@ -339,6 +336,7 @@ ttf-liberation
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 ttf-opensans
+tumbler
 unrar
 unzip
 upower
@@ -375,7 +373,6 @@ xdg-utils
 xdotool
 xed
 xf86-input-libinput
-xfconf
 xfsprogs
 xl2tpd
 xmlto

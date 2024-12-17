@@ -112,5 +112,7 @@ pacman -Qnqe > pacman.txt
 pacman -Qqem > foreignpkglist.txt
 snap list > snap.txt
 flatpak list > flatpak.txt
+dconf dump / > dconf-backup.txt
+gsettings list-recursively > gsettings.txt
 
 sudo chown -R madhur:madhur .

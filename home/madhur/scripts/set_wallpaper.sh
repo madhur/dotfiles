@@ -5,6 +5,7 @@ vertical="vertical"
 cd $base_folder || exit 1
 folder=$(date +%d_%m)
 if [ -d "$folder" ]; then
+    echo $base_folder/$folder
     feh --randomize --bg-center "$base_folder/$folder"
     exit 0
 fi
@@ -33,6 +34,7 @@ fi
 
 #feh --randomize --no-xinerama --bg-fill $base_folder/$folder
 filename=$(ls $base_folder/$folder | shuf -n 1)
+echo $filename
 vertical_filename=$(ls $base_folder/$vertical/$folder | shuf -n 1)
 #feh --randomize --bg-fill $base_folder/$folder/$filename
 feh --bg-fill  $base_folder/$folder/$filename $base_folder/$vertical/$folder/$vertical_filename
