@@ -54,12 +54,12 @@ super + F4
 
 
 # Copy VPN username
-ctrl + m
-    echo -n madhur.ahuja | xclip -selection clipboard
+# ctrl + m
+#     echo -n madhur.ahuja | xclip -selection clipboard
 
-# Copy VPN Password
-ctrl + comma
-    echo -n ksfWSGDNXY0Svtx | xclip -selection clipboard
+# # Copy VPN Password
+# ctrl + comma
+#     echo -n junk | xclip -selection clipboard
 
 ~button2
     echo -n | xsel -n -i

@@ -25,7 +25,7 @@ run /home/madhur/bin/picom --config ~/.config/picom/picom.conf -b
 
 #sleep 10
 run "nm-applet"
-#run "indicator-sound-switcher"
+run "indicator-sound-switcher"
 #run "guake"
 run "xsettingsd"
 #run "/opt/paloaltonetworks/globalprotect/PanGPUI"
