@@ -21,6 +21,7 @@ kaf-bin
 kafkactl
 kind
 lcov-git
+lightdm-settings
 mkinitcpio-openswap
 mongodb-tools-bin
 mongodb60-bin
@@ -39,11 +40,15 @@ postman-bin
 powerline-fonts-git
 prettierd
 prettyzoo
+python-pulsectl-asyncio
 python2
 python310
+python37
+python38
 qimgv
 qogir-gtk-theme
-qtile-extras
+qtile-extras-git
+qtile-git
 rofi-file-browser-extended-git
 shell-color-scripts
 slack-desktop

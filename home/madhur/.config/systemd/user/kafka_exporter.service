@@ -8,6 +8,7 @@ PrivateTmp=yes
 #User=prometheus
 #Group=prometheus
 #RuntimeDirectory=redis_exporter
+ExecStartPre=/bin/sleep 10
 ExecStart=/home/madhur/bin/kafka_exporter --kafka.server=kafka:9092 --kafka.version=2.2.1
 StandardOutput=journal
 StandardError=journal

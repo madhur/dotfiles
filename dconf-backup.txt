@@ -300,11 +300,11 @@ show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=298
-sort-column='name'
+sort-column='modified'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(2161, 1137)
+window-position=(1, 31)
 window-size=(1863, 1397)
 
 [org/guake/general]

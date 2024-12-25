@@ -29,7 +29,7 @@ cp -r ~/.config/picom $dfolder/.config/
 #rsync -avh --delete --exclude='.git/' ~/.config/xmonad $dfolder/.config/
 #cp -r ~/.config/awesome $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/awesome $dfolder/.config/
-#cp -r ~/.config/qtile $dfolder/.config/
+cp -r ~/.config/qtile $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/systemd $dfolder/.config/
 #cp -r ~/.config/systemd $dfolder/.config/
 # do not want rofi subfolder themes

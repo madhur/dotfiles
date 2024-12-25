@@ -179,8 +179,7 @@ libwpe
 libxcrypt-compat
 libxfce4util
 lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
+lightdm-slick-greeter
 linux
 linux-firmware
 linux-headers
@@ -238,7 +237,6 @@ numlockx
 nvidia-dkms
 nvidia-settings
 nvme-cli
-nwg-look
 openconnect
 openssl-1.1
 openvpn
@@ -273,6 +271,7 @@ prometheus-node-exporter
 pv
 python
 python-capng
+python-dbus-next
 python-defusedxml
 python-packaging
 python-pipenv
@@ -283,7 +282,6 @@ python-reportlab
 python-setuptools
 python-virtualenv
 qt5ct
-qtile
 rabbitmq
 rapidjson
 realtime-privileges
@@ -360,6 +358,7 @@ wireless-regdb
 wireless_tools
 wireplumber
 wireshark-cli
+wlroots
 wofi
 wol
 wpa_supplicant

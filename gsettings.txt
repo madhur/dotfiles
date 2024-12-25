@@ -772,12 +772,12 @@ org.gtk.Settings.FileChooser show-hidden false
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 298
-org.gtk.Settings.FileChooser sort-column 'name'
+org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (2161, 1137)
+org.gtk.Settings.FileChooser window-position (1, 31)
 org.gtk.Settings.FileChooser window-size (1863, 1397)
 org.gtk.gtk4.Settings.ColorChooser custom-colors @a(dddd) []
 org.gtk.gtk4.Settings.ColorChooser selected-color (false, 1.0, 1.0, 1.0, 1.0)
@@ -883,3 +883,37 @@ org.x.editor.state.window side-panel-active-page 827629879
 org.x.editor.state.window side-panel-size 200
 org.x.editor.state.window size (946, 2108)
 org.x.editor.state.window state 128
+x.dm.slick-greeter activate-numlock false
+x.dm.slick-greeter background ''
+x.dm.slick-greeter background-color '#000000'
+x.dm.slick-greeter clock-format '%H:%M'
+x.dm.slick-greeter content-align 'left'
+x.dm.slick-greeter cursor-theme-name 'default'
+x.dm.slick-greeter cursor-theme-size 24
+x.dm.slick-greeter draw-grid false
+x.dm.slick-greeter draw-user-backgrounds true
+x.dm.slick-greeter enable-hidpi 'auto'
+x.dm.slick-greeter font-name 'Ubuntu 11'
+x.dm.slick-greeter group-filter @as []
+x.dm.slick-greeter hidden-users @as []
+x.dm.slick-greeter high-contrast false
+x.dm.slick-greeter icon-theme-name 'gnome'
+x.dm.slick-greeter logo ''
+x.dm.slick-greeter only-on-monitor 'auto'
+x.dm.slick-greeter onscreen-keyboard false
+x.dm.slick-greeter onscreen-keyboard-layout '/usr/share/onboard/layouts/Small.onboard'
+x.dm.slick-greeter other-monitors-logo ''
+x.dm.slick-greeter play-ready-sound ''
+x.dm.slick-greeter screen-reader false
+x.dm.slick-greeter show-a11y true
+x.dm.slick-greeter show-clock true
+x.dm.slick-greeter show-hostname true
+x.dm.slick-greeter show-keyboard true
+x.dm.slick-greeter show-power true
+x.dm.slick-greeter show-quit true
+x.dm.slick-greeter stretch-background-across-monitors false
+x.dm.slick-greeter theme-name 'Adwaita'
+x.dm.slick-greeter xft-antialias true
+x.dm.slick-greeter xft-dpi 96.0
+x.dm.slick-greeter xft-hintstyle 'hintslight'
+x.dm.slick-greeter xft-rgba 'rgb'
