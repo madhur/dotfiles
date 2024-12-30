@@ -92,6 +92,13 @@ function helpers.pathtotable(dir)
         end
     })
 end
+
+function helpers.is_portrait(screen)
+    -- Get screen geometry
+    local geometry = screen.geometry
+    -- Return true if height > width (portrait), false otherwise (landscape)
+    return geometry.height > geometry.width
+end
 -- }}}
 
 return helpers

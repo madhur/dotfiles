@@ -14,12 +14,12 @@ run() {
 
 #autorandr --load two
 #sleep 5
-/home/madhur/scripts/set_wallpaper.sh
+run "/home/madhur/scripts/set_wallpaper.sh"
 
 #feh --bg-max /home/madhur/Desktop/World\ Cup\ 2023\ Schedule.png 
 run sxhkd
 run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf
-run /home/madhur/bin/picom --config ~/.config/picom/picom.conf -b
+run picom --config ~/.config/picom/picom.conf -b
 #run "/usr/libexec/xfce-polkit"
 #run "dunst"
 

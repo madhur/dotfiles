@@ -50,4 +50,4 @@ application/x-ipynb+json=micro.desktop;nvim.desktop;
 application/xml=code.desktop;
 x-scheme-handler/http=xfce4-web-browser.desktop;
 x-scheme-handler/https=xfce4-web-browser.desktop;
-
+video/x-matroska=mpv.desktop;

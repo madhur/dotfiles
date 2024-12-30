@@ -100,7 +100,7 @@ awful.screen.connect_for_each_screen(function(s)
 	s.mywibox = require("widgets.wiboxes").get(s)
 	
 	-- If its a portrait monitor, add some gap on top because my portrait monitor is too high, else my neck hurts
-	if s.geometry.width == 2160 and s.geometry.height == 3840 then
+	if madhur.helpers.is_portrait(s) then
 		s.padding = {
 			left = 0,
 			right = 0,
@@ -176,6 +176,8 @@ client.connect_signal("request::border", set_border)
 client.connect_signal("property::maximized", set_border)
 
 awful.spawn.with_shell("~/scripts/autostart.sh")
+awful.spawn.once("xrandr --output DP-0 --scale 0.8x0.8")
+
 --- Enable for lower memory consumption
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)

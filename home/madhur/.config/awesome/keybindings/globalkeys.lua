@@ -4,6 +4,7 @@ local client, root = client, root
 local lain = require("lain")
 local gears = require("gears")
 local bling = require("bling")
+local madhur = require("madhur")
 --local hotkeys_popup = require("awful.hotkeys_popup").widget
 local naughty = require("naughty")
 local modkey = "Mod4"
@@ -318,12 +319,13 @@ local globalkeys =
         "e",
         function(_)
             local clients = awful.screen.focused().all_clients
+            local s = awful.screen.focused()
             for _i, c in ipairs(clients) do
                 c.maximized = false
             end
 
             awful.screen.focused().selected_tag.master_count = 1
-            if is_vertical_screen() then
+            if madhur.helpers.is_portrait(s)  then
                 awful.layout.set(awful.layout.suit.tile.bottom)
             else
                 awful.layout.set(awful.layout.suit.tile.right)
@@ -361,7 +363,7 @@ local globalkeys =
                 title = s.geometry.width .. "x" .. s.geometry.height,
                 message = "Have a great day!",
             })
-            if is_vertical_screen()  then
+            if madhur.helpers.is_portrait(s)  then
                 awful.util.vertical_expanded = not awful.util.vertical_expanded
                 if awful.util.vertical_expanded then
                     s.padding = {
@@ -523,9 +525,6 @@ for i = 1, 10 do
     )
 end
 
-function is_vertical_screen()
-    return awful.screen.focused().geometry.width == 2160 and awful.screen.focused().geometry.height == 3840
-end
 
 -- Set keys
 root.keys(globalkeys)

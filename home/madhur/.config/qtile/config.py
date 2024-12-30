@@ -31,6 +31,18 @@ class Colors:
     graylight = '#45403d'
     
 palette = Colors()
+
+colors = [
+    "#1e222a",  # Background, 0
+    "#abb2bf",  # Foreground, 1
+    "#565c64",  # Lighter Background, 2
+    "#e06c75",  # Red, 3
+    "#98c379",  # Green, 4
+    "#e5c07b",  # Yellow, 5
+    "#61afef",  # Blue, 6
+    "#c678dd",  # Magenta, 7
+    "#56b6c2",  # Cyan, 8
+]
 # End flavours
 
 @dataclass(frozen=True)
@@ -42,8 +54,8 @@ class Preferences:
     screenshot_tool     =   'flameshot gui'
     code_editor         =   "micro"
     launcher            =   "rofi -show drun"
-    power_menu          =   os.path.expanduser('~/.local/bin/powermenu.sh')
-    font                =   'JetBrainsMono NF'
+    power_menu         =   os.path.expanduser('~/.local/bin/powermenu.sh')
+    font                =   'JetBrains Mono Nerd Font'
     corner              =   0
 
 prefs = Preferences()
@@ -102,12 +114,12 @@ widget_list=[
 
 def group(group_labels):
     group = []
-    group_names = ["1", "2", "3", "4", "5"]
+    group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     for i in range(len(group_names)):
         group.append(Group(name=group_names[i], label=group_labels[i]))
     return group
 
-groups = group([" १ ", " २ ", " ३ ", " ४ ", " ५ "])
+groups = group([" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "])
 
 
 def init_layout_theme():
@@ -131,10 +143,14 @@ def init_float_theme():
         **init_layout_theme()
     }
 
+
+layout_theme = {"margin": 4, "border_focus": colors[6], "border_normal": colors[2]}
+
 layouts = [
-    layout.Columns(**init_layout_theme()),
-    layout.Floating(**init_layout_theme()),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
 ]
+
 
 floating_layout = layout.Floating(**init_float_theme())
 
@@ -224,13 +240,159 @@ mouse = [
     Click("M-2", lazy.window.bring_to_front())
 ]
 
+# screens = [
+#     Screen(       
+#         top=bar.Bar(
+#             widget_list,
+#             size=35, opacity=1,
+#             border_width=[0,0,0,0], #N E S W
+#             background=palette.background, 
+#         ),
+#     ),
+# ]
+
+decor = {
+    "decorations": [
+        RectDecoration(
+            radius=0,
+            filled=True,
+            colour=colors[0],
+            line_width=2,
+            paddding_x=10,
+            line_colour=colors[2],
+        )
+    ],
+}
+
+spacer=20
 screens = [
-    Screen(       
+    Screen(
         top=bar.Bar(
-            widget_list,
-            size=35, opacity=1,
-            border_width=[0,0,0,0], #N E S W
-            background=palette.background, 
+            [
+                widget.TextBox(
+                    text="",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn("rofi -show drun")
+                    },
+                    foreground=colors[6],
+                    font=prefs.font, fontsize=18,
+                    decorations=[
+                        RectDecoration(
+                            radius=12,
+                            filled=True,
+                            colour=colors[0],
+                            line_width=2,
+                            line_colour=colors[6],
+                        )
+                    ],
+                ),
+                widget.Spacer(length=spacer),
+                widget.GroupBox(
+                    highlight_method="text",
+                    urgent_alert_method="text",
+                    padding=0,
+                    spacing=4,
+                    margin_x=12,
+                    font=prefs.font, fontsize=18,
+                    active=colors[5],
+                    inactive=colors[1],
+                    this_current_screen_border=colors[4],
+                    urgent_text=colors[3],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+
+                widget.Spacer(),
+                widget.CheckUpdates(
+                    distro="Arch_checkupdates",
+                    no_update_string=" 0 Updates",
+                    display_format=" {updates} Updates",
+                    font=prefs.font, fontsize=18,
+                    colour_have_updates=colors[7],
+                    colour_no_updates=colors[7],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.DF(
+                    visible_on_warn=False,
+                    format=" {uf} {m}",
+                    font=prefs.font, fontsize=18,
+                    foreground=colors[8],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Load(
+                    update_interval=15,
+                    format=" {load:.2f}",
+                    font=prefs.font, fontsize=18,
+                    foreground=colors[7],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.ThermalZone(
+                    zone="/sys/class/thermal/thermal_zone0/temp",
+                    update_interval=15,
+                    format=" {temp}°C",
+                    font=prefs.font, fontsize=18,
+                    fgcolor_normal=colors[8],
+                    fgcolor_high=colors[5],
+                    fgcolor_crit=colors[3],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Memory(
+                    update_interval=15,
+                    format=" {NotAvailable:.2f} {mm}",
+                    measure_mem="G",
+                    font=prefs.font, fontsize=18,
+                    foreground=colors[7],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Net(
+                    update_interval=15,
+                    format=" {down:.0f} {down_suffix}",
+                    foreground=colors[8],
+                    font=prefs.font, fontsize=18,
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Net(
+                    update_interval=15,
+                    format=" {up:.0f} {up_suffix}",
+                    foreground=colors[7],
+                    font=prefs.font, fontsize=18,
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Volume(
+                    unmute_format=" {volume}/100",
+                    mute_format=" 0/100",
+                    foreground=colors[8],
+                    font=prefs.font, fontsize=18,
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Wttr(
+                    format=" %t, %C",
+                    font=prefs.font, fontsize=18,
+                    foreground=colors[7],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Clock(
+                    format=" %d-%m-%y, %H:%M",
+                    font=prefs.font, fontsize=18,
+                    foreground=colors[8],
+                    **decor,
+                ),
+                widget.Spacer(length=spacer),
+                widget.Systray(icon_size=24)
+                            ],
+            30,
+            background=colors[0],
+            border_width=1,
+            border_color=colors[0],
         ),
     ),
 ]

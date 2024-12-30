@@ -4,6 +4,7 @@ local awful = require("awful")
 local top_left = require("madhur.widget.top_left")
 local gpick = require("popups.color_picker")
 local wiboxes = {}
+local madhur = require("madhur")
 
 local widget_types = {}
 
@@ -188,7 +189,7 @@ function wiboxes.get(s)
         ontop = false
     })
 
-    if s.geometry.width == 2160 and s.geometry.height ==3840 then
+    if madhur.helpers.is_portrait(s) then
         right_widgets = right_widgets_vertical
     end
     
