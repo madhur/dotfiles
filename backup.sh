@@ -45,7 +45,7 @@ cp -r ~/.config/mpv $dfolder/.config/
 cp -r ~/.config/newsboat $dfolder/.config/
 cp -r ~/.config/Thunar $dfolder/.config/
 cp -r ~/.config/autorandr $dfolder/.config/
-p -r ~/.config/glow $dfolder/.config/
+cp -r ~/.config/glow $dfolder/.config/
 
 rsync -avh --delete --exclude='.git/.' ~/.config/nvim $dfolder/.config/
 rsync -avh --delete --exclude='.git/.' ~/.config/fontconfig $dfolder/.config/
