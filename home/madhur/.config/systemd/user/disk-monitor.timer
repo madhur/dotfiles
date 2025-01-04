@@ -1,0 +1,11 @@
+# disk-monitor.timer
+[Unit]
+Description=Run Disk Usage Monitoring Service hourly
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=24h
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

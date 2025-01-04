@@ -1,5 +1,5 @@
 [Unit]
-Description=Alert Manager
+Description=AlertManager Server
 Documentation=https://prometheus.io/docs/introduction/overview/
 After=network-online.target
 
@@ -8,7 +8,8 @@ Restart=on-failure
 
 #Change this line if you download the 
 #Prometheus on different path user
-ExecStart=/home/madhur/alertmanager/alertmanager  --web.listen-address=:9095  --config.file="/home/madhur/alertmanager/alertmanager.yml" 
+ExecStart=/home/madhur/alertmanager/alertmanager --web.listen-address=:9095 
+WorkingDirectory=/home/madhur/alertmanager
 
 [Install]
 WantedBy=default.target

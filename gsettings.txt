@@ -65,7 +65,7 @@ org.blueman.general show-toolbar true
 org.blueman.general sort-by 'timestamp'
 org.blueman.general sort-order 'ascending'
 org.blueman.general symbolic-status-icons false
-org.blueman.general window-properties [1903, 2108, 3129, 1147]
+org.blueman.general window-properties [1903, 2108, 2697, 497]
 org.blueman.network dhcp-handler @ms nothing
 org.blueman.network ip4-address @ms nothing
 org.blueman.network ip4-netmask '255.255.255.0'
@@ -74,7 +74,7 @@ org.blueman.plugins.autoconnect services [('/org/bluez/hci0/dev_78_2B_64_A2_21_0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1719654385.483222', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1735977110.707249', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -772,12 +772,12 @@ org.gtk.Settings.FileChooser show-hidden false
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 298
-org.gtk.Settings.FileChooser sort-column 'name'
+org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 31)
+org.gtk.Settings.FileChooser window-position (1729, 487)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Settings.ColorChooser custom-colors @a(dddd) []
 org.gtk.gtk4.Settings.ColorChooser selected-color (false, 1.0, 1.0, 1.0, 1.0)

@@ -13,6 +13,7 @@ endeavouros-mirrorlist
 endeavouros-theming
 flat-remix-git
 flat-remix-gtk
+gluqlo-git
 gnome-icon-theme
 hey
 intellij-idea-community-edition-jre
@@ -59,7 +60,6 @@ tabbed-flexipatch-git
 tmux-xpanes
 visual-studio-code-bin
 wireguird
-wlogout
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night

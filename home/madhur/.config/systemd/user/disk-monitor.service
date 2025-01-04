@@ -1,0 +1,10 @@
+[Unit]
+Description=Disk Usage Monitoring Service
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/.virtualenvs/python-ugme/bin/python /home/madhur/Desktop/python/monitor_disk.py
+#User=your-username
+#Group=your-username
+WorkingDirectory=/home/madhur/Desktop/python

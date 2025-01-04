@@ -153,3 +153,4 @@ fi
 eval "$(zoxide init zsh)"
 
 export GOPATH=/home/madhur/github/go
+
