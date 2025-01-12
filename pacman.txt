@@ -110,6 +110,7 @@ git
 git-delta
 github-cli
 gitui
+glances
 glava
 globalprotect-openconnect
 glow
@@ -322,6 +323,7 @@ system-config-printer
 systemd-sysvcompat
 tcpdump
 termshark
+terraform
 texinfo
 thunar
 tig

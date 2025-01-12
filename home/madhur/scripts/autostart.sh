@@ -38,6 +38,7 @@ run "xscreensaver"
 #  run "/home/madhur/scripts/start_redshift.sh"
 #fi
 run "redshift"
+run "systemd-timer-notify"
 flatpak run com.github.hluk.copyq
 #run "mvp ~/Desktop/win95.mp3"
 

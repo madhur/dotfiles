@@ -159,6 +159,6 @@ function find_listening_ports() {
     fi
 }
 
-function cheatmd() {
-    cheat "$1" | glow
+function cheat() {
+    command cheat "$1" | glow
 }

@@ -1,0 +1,2 @@
+# View mounts
+sudo exportfs -v

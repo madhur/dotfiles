@@ -1,21 +1,20 @@
-# mvn
-Run spring boot with port
+# Run spring boot with port
     mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8085
 
-Run spring boot application
+# Run spring boot application
     mvn spring-boot:run
 
-Run spring boot application with arguments
+# Run spring boot application with arguments
     mvn spring-boot:run -Dspring-boot.run.arguments=10234
 
-Run spring boot application with jvmArguments
+# Run spring boot application with jvmArguments
     mvn spring-boot:run -Dspring-boot.run.jvmArguments="-agentpath:/home/madhur/github/faketime/modules/agent/src/main/resources/linux_x86_64/libfaketime -XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=_currentTimeMillis -XX:CompileCommand=quiet -XX:CompileCommand=exclude,java/lang/System.currentTimeMillis -XX:CompileCommand=exclude,jdk/internal/misc/VM.getNanoTimeAdjustment"
 
-Run specific test
+# Run specific test
     mvn clean package -Dtest=FootballMatchEndTest
 
-Exclude tests and other stuff
+# Exclude tests and other stuff
     mvn clean package -DskipTests -Dspotbugs.skip=true -Dcheckstyle.skip=true -Djacoco.skip=true
 
-See dependency tree
+# See dependency tree
     mvn dependency:tree
