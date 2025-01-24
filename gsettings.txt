@@ -1,7 +1,9 @@
-com.github.FontManager.FontManager browse-font-size 12.0
+com.github.FontManager.FontManager browse-font-size 24.0
+com.github.FontManager.FontManager browse-mode 'grid'
 com.github.FontManager.FontManager browse-pane-position 55.0
 com.github.FontManager.FontManager browse-preview-text ''
-com.github.FontManager.FontManager browse-preview-visible true
+com.github.FontManager.FontManager browse-preview-tile-size 'large'
+com.github.FontManager.FontManager browse-preview-visible false
 com.github.FontManager.FontManager charmap-font-size 16.0
 com.github.FontManager.FontManager compare-background-color 'rgb(255,255,255)'
 com.github.FontManager.FontManager compare-font-size 12.0
@@ -27,11 +29,12 @@ com.github.FontManager.FontManager prefer-dark-theme false
 com.github.FontManager.FontManager preview-font-size 10.0
 com.github.FontManager.FontManager preview-mode 'waterfall'
 com.github.FontManager.FontManager preview-page 0
-com.github.FontManager.FontManager preview-text "    The quick brown fox jumps over the lazy dog.\n\n    ABCDEFGHIJKLMNOPQRSTUVWXYZ\n    abcdefghijklmnopqrstuvwxyz\n    1234567890.:,;(*!?')\n\n    "
+com.github.FontManager.FontManager preview-text "    The quick brown fox jumps over the lazy dog.\n\n    ABCDEFGHIJKLMNOPQRSTUVWXYZ\n    abcdefghijklmnopqrstuvwxyz\n    1234567890.:,;(*!?')\n\n            "
 com.github.FontManager.FontManager restrict-network-access false
 com.github.FontManager.FontManager sidebar-size 33.0
 com.github.FontManager.FontManager sort-type 'none'
 com.github.FontManager.FontManager use-adwaita-stylesheet false
+com.github.FontManager.FontManager waterfall-line-spacing 0
 com.github.FontManager.FontManager waterfall-show-line-size true
 com.github.FontManager.FontManager waterfall-size-ratio 1.0
 com.github.FontManager.FontManager wide-layout true
@@ -74,7 +77,7 @@ org.blueman.plugins.autoconnect services [('/org/bluez/hci0/dev_78_2B_64_A2_21_0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1736006793.780396', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1737265856.356662', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -777,7 +780,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1729, 31)
+org.gtk.Settings.FileChooser window-position (1729, 487)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Settings.ColorChooser custom-colors @a(dddd) []
 org.gtk.gtk4.Settings.ColorChooser selected-color (false, 1.0, 1.0, 1.0, 1.0)

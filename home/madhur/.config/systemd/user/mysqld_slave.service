@@ -1,0 +1,28 @@
+[Unit]
+Description=MySQL Server
+Documentation=man:mysqld(8)
+Documentation=http://dev.mysql.com/doc/refman/en/using-systemd.html
+After=network.target
+After=syslog.target
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Type=forking
+PIDFile=/home/madhur/Downloads/mysql57/mysqld_slave.pid
+# Disable service start and stop timeout logic of systemd for mysqld service.
+TimeoutSec=0
+# Execute pre and post scripts as root
+PermissionsStartOnly=true
+# Needed to create system tables
+#ExecStartPre=/usr/bin/mysqld_pre_systemd
+# Start main service
+ExecStart=/home/madhur/Downloads/mysql57/bin/mysqld  --defaults-file=/etc/my_slave.cnf --daemonize --pid-file=/home/madhur/Downloads/mysql57/mysqld_slave.pid $MYSQLD_OPTS
+# Use this to switch malloc implementation
+EnvironmentFile=-/etc/sysconfig/mysql
+# Sets open_files_limit
+LimitNOFILE = 5000
+#Restart=on-failure
+RestartPreventExitStatus=1
+PrivateTmp=false

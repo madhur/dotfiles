@@ -1,0 +1,19 @@
+[Unit]
+Description=prometheus mysqld exporter
+After=network.target
+
+[Service]
+PrivateTmp=yes
+#User=prometheus
+#Group=prometheus
+#RuntimeDirectory=redis_exporter
+Environment="MYSQLD_EXPORTER_PASSWORD=test"
+ExecStart=/home/madhur/bin/mysqld_exporter --mysqld.address=127.0.0.1:3306 --mysqld.username=root
+StandardOutput=journal
+StandardError=journal
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+Restart=always
+
+[Install]
+WantedBy=default.target

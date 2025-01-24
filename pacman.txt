@@ -56,6 +56,7 @@ dex
 dhclient
 dialog
 diff-so-fancy
+difftastic
 diffutils
 dive
 dmenu
@@ -81,6 +82,7 @@ eyedropper
 eza
 f2fs-tools
 fakeroot
+fastfetch
 fceux
 feh
 ffmpegthumbnailer

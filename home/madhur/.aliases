@@ -97,7 +97,7 @@ alias vg="vagrant"
 
 alias j11="~/.sdkman/candidates/java/11.0.12-open/bin/java"
 alias j8="~/.sdkman/candidates/java/8.0.302-open/bin/java"
-alias prev="fzf --reverse --preview 'bat --style numbers,changes --color=always {}'"
+alias prev="fzf --reverse --preview 'bat --style numbers,changes -s --color=always {}'"
 
 alias pacman='sudo pacman'
 alias pac='pacman -S'   # install
@@ -118,7 +118,7 @@ alias search="grep -rnw '.' -e"
 alias pbat="bat -p"
 alias yay="yay -Pw; yay"
 #alias idea="flatpak run com.jetbrains.IntelliJ-IDEA-Community"
-alias cat='bat -pp'
+alias cat='bat -pp -s'
 alias nnn="nnn -P p"
 alias lg="lazygit"
 alias rg="kitty +kitten hyperlinked_grep"
