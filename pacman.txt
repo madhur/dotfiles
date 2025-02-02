@@ -242,6 +242,7 @@ nvidia-dkms
 nvidia-settings
 nvme-cli
 openconnect
+openldap
 openssl-1.1
 openvpn
 os-prober

@@ -18,6 +18,7 @@ SUPER + Shift + Left/Right | Switch position of clients | | | CTRL + SHIFT + ] |
 SUPER + g | Add conky gaps | | | F1 | Broadcast
 SUPER + SHIFT + a | Add titlebar | | | CTRL + SHIFT + e | Search for urls
 SUPER + SHIFT + space | Make floating | | | CTRL + Left/right | Resize windows
+|||| CTRL + Shift + Left/Right | Move between tabs
 
 Apps || nnn || Lazygit
 ---- || --- || -------

@@ -211,20 +211,20 @@ local globalkeys =
             group = "client"
         }
     ),
-    awful.key(
-        {ctrlkey},
-        "Tab",
-        function()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {
-            description = "go back",
-            group = "client"
-        }
-    ),
+    -- awful.key(
+    --     {ctrlkey},
+    --     "Tab",
+    --     function()
+    --         awful.client.focus.history.previous()
+    --         if client.focus then
+    --             client.focus:raise()
+    --         end
+    --     end,
+    --     {
+    --         description = "go back",
+    --         group = "client"
+    --     }
+    -- ),
     awful.key(
         {modkey},
         "l",

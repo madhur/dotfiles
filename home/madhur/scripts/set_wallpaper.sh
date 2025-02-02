@@ -39,6 +39,6 @@ vertical_filename=$(ls $base_folder/$vertical/$folder | shuf -n 1)
 #feh --randomize --bg-fill $base_folder/$folder/$filename
 feh --bg-fill  $base_folder/$folder/$filename $base_folder/$vertical/$folder/$vertical_filename
 
-notify-send "Updated wallpaper $filename"
+#notify-send "Updated wallpaper $filename"
 
 
