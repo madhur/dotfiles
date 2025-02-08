@@ -99,20 +99,45 @@ countdown () {
 
 # take shots
 shotnow () {
-	cd ${dir} && sleep 0.5 && maim -u -f png | copy_shot
-	notify_view
+    local monitor=$(get_monitors | rofi -dmenu -p "Select monitor")
+     if [ -n "$monitor" ]; then
+        local geometry=$(get_monitor_geometry "$monitor")
+        cd ${dir} && sleep 0.5 && maim -u -f png -g "$geometry" | copy_shot
+        notify_view
+    fi
+	#cd ${dir} && sleep 0.5 && maim -u -f png | copy_shot
+	#notify_view
 }
 
+
+get_monitors() {
+    xrandr --query | grep " connected" | cut -d" " -f1
+}
+
+get_monitor_geometry() {
+    local monitor=$1
+    xrandr --query | grep "^$monitor" | grep -oP '\d+x\d+\+\d+\+\d+'
+}
+
+
 shot5 () {
-	countdown '5'
-	sleep 1 && cd ${dir} && maim -u -f png | copy_shot
-	notify_view
+    local monitor=$(get_monitors | rofi -dmenu -p "Select monitor")
+    if [ -n "$monitor" ]; then
+        local geometry=$(get_monitor_geometry "$monitor")
+        countdown '5'
+        sleep 1 && cd ${dir} && maim -u -f png -g "$geometry" | copy_shot
+        notify_view
+    fi
 }
 
 shot10 () {
-	countdown '10'
-	sleep 1 && cd ${dir} && maim -u -f png | copy_shot
-	notify_view
+    local monitor=$(get_monitors | rofi -dmenu -p "Select monitor")
+    if [ -n "$monitor" ]; then
+        local geometry=$(get_monitor_geometry "$monitor")
+        countdown '10'
+        sleep 1 && cd ${dir} && maim -u -f png -g "$geometry" | copy_shot
+        notify_view
+    fi
 }
 
 shotwin () {

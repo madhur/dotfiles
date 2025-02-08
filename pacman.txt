@@ -295,7 +295,6 @@ rebuild-detector
 redis
 redshift
 reflector
-reiserfsprogs
 ripgrep
 rofi
 rofi-calc

@@ -1,2 +1,5 @@
-Run main class with classpath
+# Run spring boot application with properties
+java -DZK_CLUSTER_URLS=localhost:2182 -Dserver.port=8081 -Dspring.profiles.active=k8s-prod -jar jarvis.jar
+
+# Run main class with classpath
     java -Dspring.profiles.active=k8s-pt -classpath "program.jar:lib/*" con.main.class
