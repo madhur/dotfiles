@@ -17,10 +17,12 @@ gluqlo-git
 gnome-icon-theme
 hey
 intellij-idea-community-edition-jre
+intellij-idea-ultimate-edition
 jd-gui-bin
 kaf-bin
 kafkactl
 kind
+lazydocker
 lcov-git
 lightdm-settings
 mkinitcpio-openswap
