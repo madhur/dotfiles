@@ -13,6 +13,7 @@ endeavouros-mirrorlist
 endeavouros-theming
 flat-remix-git
 flat-remix-gtk
+glava
 gluqlo-git
 gnome-icon-theme
 hey

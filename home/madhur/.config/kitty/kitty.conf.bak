@@ -11,17 +11,12 @@ bold_italic_font JetBrains Mono Bold Italic
 font_size 13.0
 # Nerd Fonts v2.3.3
 symbol_map U+e738,U+e256,U+db82,U+df37,U+2615,U+279c,U+2718,U+21e1,U+2638,U+25ac  Symbols Nerd Font Mono
-#symbol_map U+e738,U+e256,U+db82,U+df37,U+2615,U+279c,U+2718,U+21e1,U+2638,U+25ac JetBrains Mono Nerd Font
-
 # Nerd Fonts v2.3.3
-
 symbol_map U+23FB-U+23FE,U+2665,U+26A1,U+2B58,U+E000-U+E00A,U+E0A0-U+E0A3,U+E0B0-U+E0D4,U+E200-U+E2A9,U+E300-U+E3E3,U+E5FA-U+E6AA,U+E700-U+E7C5,U+EA60-U+EBEB,U+F000-U+F2E0,U+F300-U+F32F,U+F400-U+F4A9,U+F500-U+F8FF,U+F0001-U+F1AF0 Symbols Nerd Font Mono
 
 disable_ligatures always
 
-
 cursor_shape beam
-
 cursor_stop_blinking_after 0
 
 
@@ -52,20 +47,12 @@ tab_bar_style separator
 tab_bar_min_tabs 2
 #tab_separator " | "
 tab_separator ""
-#tab_powerline_style angled
 tab_activity_symbol *
-#tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{index}: {title}"
 tab_title_template        "{fmt.fg._5c6370}{fmt.bg.default}{fmt.fg._abb2bf}{fmt.bg._5c6370} {fmt.fg.red}{activity_symbol}{fmt.fg._abb2bf}{index}: {title}{' [{}]'.format(num_windows) if num_windows > 1 else ''} {fmt.fg._5c6370}{fmt.bg.default} "
 active_tab_title_template "{fmt.fg._282c34}{fmt.bg.default}{fmt.fg._abb2bf}{fmt.bg._282c34} {fmt.fg.red}{activity_symbol}{fmt.fg._abb2bf}{index}: {title}{' [{}]'.format(num_windows) if num_windows > 1 else ''} {fmt.fg._282c34}{fmt.bg.default} "
-background_opacity 0.80
+background_opacity 0.90
 
 
-#dim_opacity 0.75
-
-active_tab_foreground   #282c34
-active_tab_background   #979eab
-inactive_tab_foreground #abb2bf
-inactive_tab_background #282c34
 active_tab_font_style   bold
 inactive_tab_font_style normal
 
@@ -73,25 +60,34 @@ include ~/.cache/wal/colors-kitty.conf
 
 shell zsh --login
 
+clear_all_shortcuts yes
 kitty_mod ctrl+shift
-map kitty_mod+k combine : clear_terminal scrollback active : send_text normal \x0c
+#map kitty_mod+k combine : clear_terminal scrollback active : send_text normal,application \x0c
+#map kitty_mod+k clear_terminal scroll active
+#map kitty_mod+k combine : clear_terminal scrollback active : send_text normal printf '\033[2J\033[3J\033[1;1H'
+map kitty_mod+k send_text normal printf  '\033[2J\033[3J\033[1;1H'
 map ctrl+a launch --type=clipboard  --stdin-source=@screen_scrollback
-map kitty_mod+enter  launch --cwd=current
-map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c "/usr/bin/fzf --no-sort --no-mouse --exact -i --tac | kitty +kitten clipboard"
-map f1 launch --allow-remote-control kitty +kitten broadcast --match-tab state:focused
+map kitty_mod+enter  launch --cwd=current --type os-window
+map ctrl+t launch --cwd=current --type window
+map kitty_mod+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c "/usr/bin/fzf --no-sort --no-mouse --exact -i --tac | kitty +kitten clipboard"
+#map f1 launch --allow-remote-control kitty +kitten broadcast --match-tab state:focused
+map f1 toggle_marker itext 1 Exception
+map f3 toggle_marker itext 1 Error
+map f4 create_marker
+map f5 remove_marker
 map ctrl+alt+t goto_layout tall
-#map ctrl+alt+s goto_layout stack
-map kitty_mod+f goto_layout stack
+map ctrl+alt+f goto_layout stack
 map kitty_mod+e kitten hints --type url --hints-text-color red
 map kitty_mod+p kitten hints --type path --hints-text-color red
 map kitty_mod+o kitten hints --type hyperlink
-
 map ctrl+[ layout_action decrease_num_full_size_windows
 map ctrl+] layout_action increase_num_full_size_windows
-
 # the default launches just home dir, this has ability to launch from existing dir
 map ctrl+shift+t launch --type=tab --cwd=current
-
+map kitty_mod+right next_tab
+map kitty_mod+left previous_tab
+map ctrl+shift+q close_tab
+map ctrl+tab select_tab
 map ctrl+left resize_window narrower
 map ctrl+right resize_window wider
 map ctrl+up resize_window taller
@@ -99,9 +95,54 @@ map ctrl+down resize_window shorter 3
 # reset all windows in the tab to default sizes
 map ctrl+home resize_window reset
 
-detect_urls yes
+map kitty_mod+c copy_to_clipboard
 
-url_color #7B8887
+map ctrl+shift+f5 load_config_file
+
+#: There is also a copy_or_interrupt action that can be optionally
+#: mapped to Ctrl+c. It will copy only if there is a selection and
+#: send an interrupt otherwise.
+
+map cmd+c        copy_to_clipboard
+map kitty_mod+v  paste_from_clipboard
+map cmd+v        paste_from_clipboard
+
+map kitty_mod+s  paste_from_selection
+map shift+insert paste_from_selection
+
+map kitty_mod+l next_layout
+
+map kitty_mod+equal     change_font_size all +2.0
+map kitty_mod+minus     change_font_size all -2.0
+map kitty_mod+backspace change_font_size all 0
+
+map kitty_mod+]     next_window
+map kitty_mod+[     previous_window
+map kitty_mod+w    close_window
+
+scrollback_pager nvim +"source /home/madhur/.config/kitty/vi-mode.lua"
+map alt+s show_scrollback
+
+map page_up scroll_page_up
+map page_down scroll_page_down
+map kitty_mod+home scroll_home
+map kitty_mod+end scroll_end
+
+map alt+shift+1 goto_tab 1
+map alt+shift+2 goto_tab 2
+map alt+shift+3 goto_tab 3
+map alt+shift+4 goto_tab 4
+map alt+shift+5 goto_tab 5 
+map alt+shift+6 goto_tab 6
+map alt+shift+7 goto_tab 7
+map alt+shift+8 goto_tab 8
+map alt+shift+9 goto_tab 9
+map alt+shift+0 goto_tab 10
+
+#map ctrl+t set_title
+
+detect_urls yes
+# url_color #7B8887
 url_style curly
 url_prefixes http https file ftp gemini irc gopher mailto news git
 confirm_os_window_close 0
@@ -110,10 +151,19 @@ window_padding_width  0
 
 term xterm-256color
 #draw_minimal_borders yes
-
-active_border_color #4c7899
+# active_border_color #4c7899
 
 text_composition_strategy legacy
 
 allow_remote_control yes
 listen_on unix:/tmp/kitty
+
+paste_actions quote-urls-at-prompt,confirm-if-large
+shell_integration enabled
+map ctrl+shift+g show_last_command_output
+
+map ctrl+shift+z scroll_to_prompt -1
+map ctrl+shift+x scroll_to_prompt 1
+map kitty_mod+p kitten hints --type=regex --regex="(?<path>(?:\/[\w-_^ ]+)+\/?(?:[\w.])+[^.]):\[(?<line>\d+),\d+\].?" --program "launch /home/madhur/scripts/editor.py"
+
+notify_on_cmd_finish invisible 10.0 notify

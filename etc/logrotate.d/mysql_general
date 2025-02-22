@@ -1,0 +1,7 @@
+/var/log/mysql/*.log {
+	rotate 5
+	daily
+	missingok
+	notifempty
+	compress
+}

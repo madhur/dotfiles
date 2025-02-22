@@ -2,9 +2,9 @@ Name                        Version                     Rev    Tracking       Pu
 asana-snap                  1.5.0                       2      latest/stable  ahuja-madhur    -
 bare                        1.0                         5      latest/stable  canonical**     base
 core18                      20240920                    2846   latest/stable  canonical**     base
-core20                      20240911                    2434   latest/stable  canonical**     base
+core20                      20241206                    2496   latest/stable  canonical**     base
 core22                      20250110                    1748   latest/stable  canonical**     base
-core24                      20241119                    716    latest/stable  canonical**     base
+core24                      20241217                    739    latest/stable  canonical**     base
 gnome-3-28-1804             3.28.0-19-g98f9e67.98f9e67  198    latest/stable  canonical**     -
 gnome-3-34-1804             0+git.3556cb3               93     latest/stable  canonical**     -
 gnome-42-2204               0+git.38ea591               202    latest/stable  canonical**     -
@@ -12,11 +12,11 @@ gnome-46-2404               0+git.7d0cf36               77     latest/stable  ca
 gtk-common-themes           0.1-81-g442e511             1535   latest/stable  canonical**     -
 indicator-sound-switcher    2.3.10.1                    173    latest/stable  yktoo           -
 joplin-desktop              v3.2.12                     93     latest/stable  james-carroll*  -
-kate                        24.12.2                     196    latest/stable  kde**           classic
+kate                        24.12.2                     197    latest/stable  kde**           classic
 kf5-5-104-qt-5-15-8-core22  5.104                       9      latest/stable  kde**           -
-mesa-2404                   24.0.9                      143    latest/stable  canonical**     -
+mesa-2404                   24.2.8                      495    latest/stable  canonical**     -
 notion-snap                 1.4.0                       16     latest/stable  steverydz       -
 sdlpop                      1.23                        715    latest/stable  snapcrafters*   -
-snapcraft                   8.6.2                       13519  latest/stable  canonical**     classic
+snapcraft                   8.6.3                       13601  latest/stable  canonical**     classic
 snapd                       2.67                        23545  latest/stable  canonical**     snapd
 trello-desktop              1.0.16                      23     latest/stable  joshua-redmond  -
