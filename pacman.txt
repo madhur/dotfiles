@@ -111,7 +111,6 @@ ghostty
 git
 git-delta
 github-cli
-gitui
 glances
 globalprotect-openconnect
 glow
@@ -351,6 +350,7 @@ vagrant
 vi
 vim
 virtualbox
+vivaldi
 vpnc
 vulkan-tools
 w3m

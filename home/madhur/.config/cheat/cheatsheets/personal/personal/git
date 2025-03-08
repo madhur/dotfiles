@@ -2,10 +2,13 @@
 tags: [ vcs ]
 ---
 
-#Reset file to another branch
+# Clean untracked files
+git clean -f -d
+
+# Reset file to another branch
 git checkout origin/master -- go.mod
 
-#Squash commits
+# Squash commits
 git reset --soft HEAD~3
 
 # To set your identity:

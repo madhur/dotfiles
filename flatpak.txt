@@ -5,7 +5,7 @@ Google Chrome	com.google.Chrome	125.0.6422.141-1	stable	system
 draw.io	com.jgraph.drawio.desktop	21.3.7	stable	system
 OBS Studio	com.obsproject.Studio	29.1.3	stable	system
 Stremio	com.stremio.Stremio	4.4.168	stable	system
-DBeaver Community	io.dbeaver.DBeaverCommunity	24.3.2	stable	system
+DBeaver Community	io.dbeaver.DBeaverCommunity	25.0.0	stable	system
 PeaZip	io.github.peazip.PeaZip	9.3.0	stable	system
 peazip i386 addon	io.github.peazip.PeaZip.Addon.i386	1.0.0	stable	system
 Kooha	io.github.seadve.Kooha	2.2.3	stable	system
@@ -17,8 +17,8 @@ Mesa	org.freedesktop.Platform.GL.default	24.0.4	22.08	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.0.4	22.08-extra	system
 Mesa	org.freedesktop.Platform.GL.default	24.3.1	23.08	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	23.08-extra	system
-Mesa	org.freedesktop.Platform.GL.default	24.3.1	24.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	24.08extra	system
+Mesa	org.freedesktop.Platform.GL.default	24.3.4	24.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.4	24.08extra	system
 nvidia-530-41-03	org.freedesktop.Platform.GL.nvidia-530-41-03		1.4	system
 nvidia-535-104-05	org.freedesktop.Platform.GL.nvidia-535-104-05		1.4	system
 nvidia-535-54-03	org.freedesktop.Platform.GL.nvidia-535-54-03		1.4	system

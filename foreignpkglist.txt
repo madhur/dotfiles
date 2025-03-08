@@ -6,6 +6,7 @@ caffeine-ng
 cava
 charles
 cheat-bin
+ckb-next
 downgrade
 elasticsearch7
 endeavouros-keyring

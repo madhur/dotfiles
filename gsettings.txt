@@ -5,15 +5,11 @@ com.github.FontManager.FontManager browse-preview-text ''
 com.github.FontManager.FontManager browse-preview-tile-size 'large'
 com.github.FontManager.FontManager browse-preview-visible false
 com.github.FontManager.FontManager charmap-font-size 16.0
-com.github.FontManager.FontManager compare-background-color 'rgb(255,255,255)'
 com.github.FontManager.FontManager compare-font-size 12.0
-com.github.FontManager.FontManager compare-foreground-color 'rgb(0,0,0)'
 com.github.FontManager.FontManager compare-list @as []
 com.github.FontManager.FontManager compare-preview-text ''
 com.github.FontManager.FontManager content-size 40.0
 com.github.FontManager.FontManager enable-animations true
-com.github.FontManager.FontManager google-fonts-background-color 'rgb(255,255,255)'
-com.github.FontManager.FontManager google-fonts-foreground-color 'rgb(0,0,0)'
 com.github.FontManager.FontManager google-fonts-preview-text 'The quick brown fox jumps over the lazy dog.'
 com.github.FontManager.FontManager headerbar-button-style 'Normal'
 com.github.FontManager.FontManager hor-content-size 36.0
@@ -26,7 +22,9 @@ com.github.FontManager.FontManager min-waterfall-size 8.0
 com.github.FontManager.FontManager mode 'browse'
 com.github.FontManager.FontManager predefined-waterfall-size '48 Points Linear'
 com.github.FontManager.FontManager prefer-dark-theme false
+com.github.FontManager.FontManager preview-background-color 'rgb(255,255,255)'
 com.github.FontManager.FontManager preview-font-size 10.0
+com.github.FontManager.FontManager preview-foreground-color 'rgb(0,0,0)'
 com.github.FontManager.FontManager preview-mode 'waterfall'
 com.github.FontManager.FontManager preview-page 0
 com.github.FontManager.FontManager preview-text "    The quick brown fox jumps over the lazy dog.\n\n    ABCDEFGHIJKLMNOPQRSTUVWXYZ\n    abcdefghijklmnopqrstuvwxyz\n    1234567890.:,;(*!?')\n\n            "
@@ -35,12 +33,27 @@ com.github.FontManager.FontManager sidebar-size 33.0
 com.github.FontManager.FontManager sort-type 'none'
 com.github.FontManager.FontManager use-adwaita-stylesheet false
 com.github.FontManager.FontManager waterfall-line-spacing 0
-com.github.FontManager.FontManager waterfall-show-line-size true
+com.github.FontManager.FontManager waterfall-show-line-size false
 com.github.FontManager.FontManager waterfall-size-ratio 1.0
 com.github.FontManager.FontManager wide-layout true
 com.github.FontManager.FontManager wide-layout-on-maximize true
 com.github.FontManager.FontManager window-size (950, 700)
+com.github.FontManager.FontViewer charmap-font-size 16.0
 com.github.FontManager.FontViewer is-maximized false
+com.github.FontManager.FontViewer max-waterfall-size 48.0
+com.github.FontManager.FontViewer min-waterfall-size 8.0
+com.github.FontManager.FontViewer predefined-waterfall-size '48 Points Linear'
+com.github.FontManager.FontViewer prefer-dark-theme false
+com.github.FontManager.FontViewer preview-background-color 'rgb(255,255,255)'
+com.github.FontManager.FontViewer preview-font-size 10.0
+com.github.FontManager.FontViewer preview-foreground-color 'rgb(0,0,0)'
+com.github.FontManager.FontViewer preview-mode 'waterfall'
+com.github.FontManager.FontViewer preview-page 0
+com.github.FontManager.FontViewer preview-text "    The quick brown fox jumps over the lazy dog.\n\n    ABCDEFGHIJKLMNOPQRSTUVWXYZ\n    abcdefghijklmnopqrstuvwxyz\n    1234567890.:,;(*!?')\n\n            "
+com.github.FontManager.FontViewer use-adwaita-stylesheet true
+com.github.FontManager.FontViewer waterfall-line-spacing 0
+com.github.FontManager.FontViewer waterfall-show-line-size false
+com.github.FontManager.FontViewer waterfall-size-ratio 1.0
 com.github.FontManager.FontViewer window-size (675, 500)
 com.github.finefindus.eyedropper alpha-position 0
 com.github.finefindus.eyedropper cie-illuminants 5
@@ -780,7 +793,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 31)
+org.gtk.Settings.FileChooser window-position (1729, 487)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Settings.ColorChooser custom-colors @a(dddd) []
 org.gtk.gtk4.Settings.ColorChooser selected-color (false, 1.0, 1.0, 1.0, 1.0)

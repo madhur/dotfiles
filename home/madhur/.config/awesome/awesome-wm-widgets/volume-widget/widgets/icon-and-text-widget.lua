@@ -50,9 +50,11 @@ function widget.get_widget(widgets_args)
                 awesome.emit_signal("normal", "volume_new")
             end
             -- self:get_children_by_id('icon')[1]:set_image(icon_dir .. volume_icon_name .. '.svg')
-            self:get_children_by_id('txt')[1]:set_text(volume_icon_name.." "..new_value_num)
+            if new_value_num then
+                self:get_children_by_id('txt')[1]:set_text(volume_icon_name.." "..new_value_num)
+            end
         end,
-        mute = function(self)
+            mute = function(self)
             self.is_muted = true
             self:get_children_by_id('txt')[1]:set_text(" ")
             awesome.emit_signal("critical", "volume_new")
