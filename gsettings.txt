@@ -543,6 +543,10 @@ org.gnome.desktop.privacy send-software-usage-stats false
 org.gnome.desktop.privacy show-full-name-in-top-bar true
 org.gnome.desktop.privacy usb-protection true
 org.gnome.desktop.privacy usb-protection-level 'lockscreen'
+org.gnome.desktop.screen-time-limits daily-limit-enabled false
+org.gnome.desktop.screen-time-limits daily-limit-seconds uint32 28800
+org.gnome.desktop.screen-time-limits grayscale true
+org.gnome.desktop.screen-time-limits history-enabled true
 org.gnome.desktop.screensaver color-shading-type 'solid'
 org.gnome.desktop.screensaver embedded-keyboard-command ''
 org.gnome.desktop.screensaver embedded-keyboard-enabled false
@@ -673,7 +677,7 @@ org.gnome.desktop.wm.preferences num-workspaces 4
 org.gnome.desktop.wm.preferences raise-on-click true
 org.gnome.desktop.wm.preferences resize-with-right-button false
 org.gnome.desktop.wm.preferences theme 'Sweet'
-org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
+org.gnome.desktop.wm.preferences titlebar-font 'Adwaita Sans Bold 11'
 org.gnome.desktop.wm.preferences titlebar-uses-system-font true
 org.gnome.desktop.wm.preferences visual-bell false
 org.gnome.desktop.wm.preferences visual-bell-type 'fullscreen-flash'
@@ -795,6 +799,10 @@ org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
 org.gtk.Settings.FileChooser window-position (1729, 487)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
+org.gtk.gtk4.Inspector.Recorder dark false
+org.gtk.gtk4.Inspector.Recorder debug-nodes false
+org.gtk.gtk4.Inspector.Recorder highlight-sequences false
+org.gtk.gtk4.Inspector.Recorder record-events false
 org.gtk.gtk4.Settings.ColorChooser custom-colors @a(dddd) []
 org.gtk.gtk4.Settings.ColorChooser selected-color (false, 1.0, 1.0, 1.0, 1.0)
 org.gtk.gtk4.Settings.Debug enable-inspector-keybinding true

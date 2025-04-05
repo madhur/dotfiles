@@ -1,3 +1,4 @@
+ack
 apache-tools
 autokey-gtk
 awesome-git

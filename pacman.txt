@@ -1,5 +1,4 @@
 accountsservice
-ack
 acpi
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
@@ -316,7 +315,6 @@ starship
 stress
 stylua
 sudo
-swaylock
 sxhkd
 sysfsutils
 sysstat
