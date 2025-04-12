@@ -82,7 +82,6 @@ eyedropper
 eza
 f2fs-tools
 fakeroot
-fastfetch
 fceux
 feh
 ffmpegthumbnailer
@@ -130,6 +129,8 @@ gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-ugly
 gtk-engine-murrine
+gtk-update-icon-cache
+gtk4
 gutenprint
 gvfs
 gzip
@@ -349,7 +350,6 @@ vagrant
 vi
 vim
 virtualbox
-vivaldi
 vpnc
 vulkan-tools
 w3m
