@@ -31,6 +31,7 @@ mongodb60-bin
 ncurses5-compat-libs
 nerd-fonts-complete
 ngrok
+nodejs-jsonlint
 nvidia-hook
 nvidia-inst
 oauth2l
@@ -62,6 +63,7 @@ studio-3t
 systemd-timer-notify
 tabbed-flexipatch-git
 tmux-xpanes
+vagrant
 visual-studio-code-bin
 wireguird
 wscat

@@ -89,7 +89,6 @@ file
 file-roller
 findutils
 firewalld
-flake8
 flameshot
 flatpak
 flex
@@ -278,6 +277,7 @@ python
 python-capng
 python-dbus-next
 python-defusedxml
+python-flake8
 python-packaging
 python-pipenv
 python-pyqt5
@@ -305,7 +305,6 @@ scrot
 seahorse
 sed
 sg3_utils
-shellcheck
 smartmontools
 socat
 sof-firmware
@@ -346,7 +345,6 @@ urlwatch
 usb_modeswitch
 usbutils
 uthash
-vagrant
 vi
 vim
 virtualbox
@@ -394,7 +392,6 @@ xsettingsd
 xsv
 xterm
 yamllint
-ytfzf
 zathura
 zathura-pdf-poppler
 zsh

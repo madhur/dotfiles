@@ -86,11 +86,11 @@ org.blueman.network dhcp-handler @ms nothing
 org.blueman.network ip4-address @ms nothing
 org.blueman.network ip4-netmask '255.255.255.0'
 org.blueman.network nap-enable false
-org.blueman.plugins.autoconnect services [('/org/bluez/hci0/dev_78_2B_64_A2_21_03', '00000000-0000-0000-0000-000000000000')]
+org.blueman.plugins.autoconnect services [('78:2B:64:A2:21:03', '00000000-0000-0000-0000-000000000000')]
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1738407942.7730684', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1745163383.9700384', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -310,7 +310,7 @@ org.gnome.FileRoller.UI window-width 600
 org.gnome.baobab.preferences excluded-uris @as []
 org.gnome.baobab.ui active-chart 'rings'
 org.gnome.baobab.ui is-maximized false
-org.gnome.baobab.ui window-size (1903, 2108)
+org.gnome.baobab.ui window-size (1903, 1048)
 org.gnome.crypto.cache gpg-cache-method 'session'
 org.gnome.crypto.cache gpg-cache-ttl 300
 org.gnome.crypto.pgp ascii-armor true
@@ -797,7 +797,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1729, 487)
+org.gtk.Settings.FileChooser window-position (1, 31)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

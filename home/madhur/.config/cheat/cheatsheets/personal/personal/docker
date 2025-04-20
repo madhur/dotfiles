@@ -1,3 +1,6 @@
+# clean up docker images
+docker rmi $(docker images -q)
+
 # Docker run with override host
 docker run --add-host="kafka:192.168.1.82" --add-host="redis:192.168.1.82" --add-host="mysql:192.168.1.82" psp
 
