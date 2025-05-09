@@ -5,6 +5,6 @@ contexts:
         kafkaversion: 2.1.1
     stgdp7jk7l:
         brokers:
-            - kafka.stgdp7jk7l.private.xyz:9092
+            - kafka.dgrvse.private.xyz:9092
         kafkaversion: 2.1.1
 current-context: stgdp7jk7l

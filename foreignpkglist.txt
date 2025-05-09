@@ -28,6 +28,7 @@ lightdm-settings
 mkinitcpio-openswap
 mongodb-tools-bin
 mongodb60-bin
+mycli
 ncurses5-compat-libs
 nerd-fonts-complete
 ngrok
@@ -47,6 +48,7 @@ prettyzoo
 python-pulsectl-asyncio
 python2
 python310
+python312
 python37
 python38
 qimgv
