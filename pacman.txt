@@ -240,6 +240,7 @@ nvidia-dkms
 nvidia-settings
 nvme-cli
 openconnect
+opendoas
 openldap
 openssl-1.1
 openvpn

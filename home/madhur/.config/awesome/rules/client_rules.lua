@@ -152,11 +152,12 @@ return { -- All clients will match this rule.
     end
 }, {
     rule_any = {
-        class = {"Guake", "kitty-tdrop"}
+        class = {"Guake", "kitty-tdrop", "kitty-quick-access"}
     },
     properties = {
         floating = true,
-        titlebars_enabled = false
+        titlebars_enabled = false,
+        border_width = 0
     },
     callback = function(c)
         local clnt = awful.client.focused

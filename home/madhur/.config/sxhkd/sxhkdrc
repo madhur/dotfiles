@@ -7,7 +7,7 @@ super + Return
     kitty
 
 super + grave
-    /home/madhur/scripts/tdrop.sh
+    kitten quick-access-terminal
 
 #calculator
 super + c

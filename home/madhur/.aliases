@@ -152,3 +152,5 @@ alias killf="ps -u madhur a | fzf --reverse | awk '{print $2}' | xargs kill -9"
 
 alias curltime="curl -w \"@$HOME/scripts/curlformat.txt\" -o /dev/null -s "
 alias lzd='lazydocker'
+
+alias sudo='doas'
