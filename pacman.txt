@@ -292,7 +292,6 @@ rabbitmq
 rapidjson
 realtime-privileges
 rebuild-detector
-redis
 redshift
 reflector
 ripgrep

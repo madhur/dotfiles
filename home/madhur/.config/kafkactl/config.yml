@@ -7,4 +7,4 @@ contexts:
         brokers:
             - kafka.dgrvse.private.xyz:9092
         kafkaversion: 2.1.1
-current-context: stgdp7jk7l
+current-context: default

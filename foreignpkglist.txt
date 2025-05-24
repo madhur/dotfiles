@@ -55,6 +55,7 @@ qimgv
 qogir-gtk-theme
 qtile-extras-git
 qtile-git
+redis
 reiserfsprogs
 rofi-file-browser-extended-git
 shell-color-scripts

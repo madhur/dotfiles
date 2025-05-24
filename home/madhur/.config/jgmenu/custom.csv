@@ -4,30 +4,22 @@ Xprop,notify-send -t 10000 -i window_list  "$(xprop  | xclip -selection 'clipboa
 Randomize Wallpaper,/home/madhur/scripts/set_wallpaper.sh,phototonic
 ^sep()
 
-Terminal,kitty,utilities-terminal
-Connect VPN, "/home/madhur/company/connect_vpn.sh"
+Terminal,kitty,kitty
+Connect VPN, "/home/madhur/company/connect_vpn.sh", openvpn
 
 
-Sxhkd,sxhkd
-BraveBrowser, brave
-#Sxhkd i3,sxhkd -c /home/madhur/.config/sxhkd/config_i3
-Picom, /home/madhur/.config/picom/launch.sh
-Conky, /home/madhur/.config/conky/launch.sh
-Eww, "eww daemon"
-Flameshot, "flameshot"
-#Guake, "guake", terminal
-#Dunst, "dunst"
-Copyq, "flatpak run com.github.hluk.copyq"
-#Xfsettingsd, xfsettingsd --daemon, stock_folder
-Xsettingsd, xsettingsd
-Indicator Sound Switcher, "indicator-sound-switcher"
+Sxhkd,sxhkd, keyboard
+BraveBrowser, brave, brave
+Picom, /home/madhur/.config/picom/launch.sh, picom
+Conky, /home/madhur/.config/conky/launch.sh, conky
+Eww, "eww daemon", eww
+Flameshot, "flameshot", flameshot
+Copyq, "flatpak run com.github.hluk.copyq", copyq
+Xsettingsd, xsettingsd, gnome-wm
+Indicator Sound Switcher, "indicator-sound-switcher", indicator-sound-switcher
 #GlobalProtect, "/opt/paloaltonetworks/globalprotect/PanGPUI"
-NMApplet, "nm-applet"
-Redshift,"redshift"
-#Autorename Workspace, "$HOME/github/personal/i3scripts/launch.sh"
-#Trayer, "/home/madhur/bin/start-trayer.sh"
-#Xfce Polkit,"/usr/libexec/xfce-polkit"
-#Restart xmonad, "/home/madhur/scripts/restart_xmonad.sh"
+NMApplet, "nm-applet", network-wired
+Redshift,"redshift", redshift
 #Restart awesome, "echo 'awesome.restart()' | awesome-client"
 Startup Apps,"/home/madhur/.config/awesome/autostart.sh"
 ^sep()
@@ -38,15 +30,15 @@ System,^checkout(apps-dir-System),applications-system
 
 ^tag(apps-dir-Apps)
 #Firefox, "firefox"
-Brave,"brave"
+Brave,"brave", brave
 
 
 
 
 ^tag(apps-dir-System)
-Shutdown, /home/madhur/scripts/system.sh poweroff
-Restart, /home/madhur/scripts/system.sh reboot
-Logout, /home/madhur/scripts/system.sh logoff
+Shutdown, /home/madhur/scripts/system.sh poweroff, system-shutdown
+Restart, /home/madhur/scripts/system.sh reboot, system-reboot
+Logout, /home/madhur/scripts/system.sh logoff, system-logout
 #Enable Second Monitor, "/home/madhur/scripts/two_monitor_portrait.sh"
 #Disable Second Monitor, "/home/madhur/scripts/one_monitor.sh"
 

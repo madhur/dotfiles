@@ -146,6 +146,7 @@ local right_widgets = {
     --pl (cpu_temp, true, "cpu_temp1"),
     pl(require("widgets.topbar.clock"), true, "calendar"),
     pl((require("widgets.topbar.cpu")), true, "cpu_widget"),
+    pl((require("widgets.topbar.redshift")), true, "redshift"),
     pl((require("widgets.topbar.cpufreq")), true, "cpufreq"),
     pl((require("widgets.topbar.temp")), false, "temp"),
     pl((require("widgets.topbar.memory")), true, "mem"),

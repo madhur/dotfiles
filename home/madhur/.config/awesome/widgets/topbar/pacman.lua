@@ -1,4 +1,3 @@
-
 local pacman_widget = require('awesome-wm-widgets.pacman-widget.pacman')
 
 return pacman_widget {

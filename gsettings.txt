@@ -788,7 +788,7 @@ org.gtk.Settings.FileChooser date-format 'regular'
 org.gtk.Settings.FileChooser expand-folders false
 org.gtk.Settings.FileChooser last-folder-uri ''
 org.gtk.Settings.FileChooser location-mode 'path-bar'
-org.gtk.Settings.FileChooser show-hidden false
+org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 298
@@ -828,6 +828,7 @@ org.x.apps.favorites list @as []
 org.x.apps.favorites root-metadata @as []
 org.x.apps.mate-panel-applet color-icon-offset 8
 org.x.apps.mate-panel-applet symbolic-icon-offset 8
+org.x.apps.portal accent-rgb ''
 org.x.apps.portal color-scheme 'default'
 org.x.apps.portal high-contrast false
 org.x.apps.statusicon left-click-activate-apps ['onboard']
@@ -835,7 +836,7 @@ org.x.apps.statusicon sn-watcher-advertise-host true
 org.x.apps.statusicon sn-watcher-debug false
 org.x.apps.statusicon sn-watcher-debug-flags 'SnWatcher,StatusIcon'
 org.x.apps.statusicon sn-watcher-replace-tooltip ['qbittorrent']
-org.x.apps.statusicon status-notifier-enabled-desktops ['Cinnamon', 'X-Cinnamon']
+org.x.apps.statusicon status-notifier-enabled-desktops ['MATE', 'Cinnamon', 'X-Cinnamon']
 org.x.editor.plugins active-plugins ['spell', 'open-uri-context-menu', 'joinlines', 'filebrowser', 'time', 'textsize', 'modelines', 'bracketcompletion', 'docinfo', 'sort']
 org.x.editor.plugins.filebrowser filter-mode 'hidden_and_binary'
 org.x.editor.plugins.filebrowser filter-pattern ''
