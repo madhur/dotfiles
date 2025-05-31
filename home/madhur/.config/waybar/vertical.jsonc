@@ -2,8 +2,9 @@
   "position": "top",
   "layer": "top",
   "height": 30,
+  "output" : "DP-1",
+  "show-empty" : true, 
   "margin-top": 0,
-  "output": "DP-2",
   "margin-bottom": 0,
   "margin-left": 0,
   "margin-right": 0,
@@ -16,16 +17,7 @@
     "clock"
   ],
   "modules-right": [
-    "cpu",
-    "custom/temperature",
-    "memory",
-    "disk",
-    "network",
-    "custom/uptime",
-    "pulseaudio",
-    "tray",
-    "custom/hyprpicker",
-    "systemd-failed-units"
+   
   ],
   // Modules configuration
   "clock": {
@@ -34,15 +26,17 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": " {:%d/%m}"
   },
+
   "custom/temperature": {
-    "exec": "/home/madhur/scripts/cpu-temp.sh",
-    "interval": 2,
-    "return-type": "text",
-    "format": " {}"
-  },
+        "exec": "/home/madhur/scripts/cpu-temp.sh",
+        "interval": 2,
+        "return-type": "text",
+        "format": " {}"
+    },
+  
   "temperature": {
     "thermal-zone": 0,
-    "format": "{temperatureC}°C ",
+  "format": "{temperatureC}°C ",
     "format-alt": "󰖁 {temp}°C",
     "interval": 2,
     "path": "/sys/class/thermal/thermal_zone0/temp",
@@ -56,21 +50,16 @@
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace -1",
     "on-scroll-down": "hyprctl dispatch workspace +1",
-    "persistent-workspaces": {},
+    "persistent-workspaces": {
+    
+      
+    },
     "format-icons": {
       "urgent": "⚠️",
       "active": "✘",
       "default": "〇"
     },
-    "sort-by-number": true,
-    "window-rewrite": {
-      "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
-      "class<brave>": "", // Windows whose classes are "firefox"
-      "class<brave> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
-      "kitty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
-      "code": "󰨞",
-      "title<.* - (.*) - VSCodium>": "codium $1" // captures part of the window title and formats it into output
-    }
+    "sort-by-number": true
   },
   "hyprland/window": {
     "format": "{}",
@@ -81,8 +70,7 @@
       "(.*) - bash": "> [$1]",
       "(.*) - kitty": "> $1",
       "(.*) - Code": " $1",
-      "": "Desktop",
-      "on-click": "hyprctl dispatch movetoworkspacesilent special:minimized"
+      "": "Desktop"
     },
     "separate-outputs": true,
     "max-length": 50
@@ -115,8 +103,7 @@
   },
   "tray": {
     "icon-size": 24,
-    "spacing": 5,
-    "show-passive-items": true
+    "spacing": 5
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -135,7 +122,7 @@
     "on-click-right": "pavucontrol"
   },
   "custom/launcher": {
-    "format": " 󰣇 ",
+    "format": "󰣇",
     "on-click": "jgmenu_run"
   },
   "custom/wf-recorder": {

@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Check if we're running under Wayland
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    echo "Detected Wayland session, using Wayland-specific wallpaper setter"
+    /home/madhur/scripts/set_wallpaper_wayland.sh
+    exit 0
+fi
+
 base_folder="/home/madhur/Pictures/wallpapers"
 vertical="vertical"
 script_dir="/home/madhur/Desktop/python"  

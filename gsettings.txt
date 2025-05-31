@@ -451,10 +451,10 @@ org.gnome.desktop.interface gtk-im-module ''
 org.gnome.desktop.interface gtk-im-preedit-style 'callback'
 org.gnome.desktop.interface gtk-im-status-style 'callback'
 org.gnome.desktop.interface gtk-key-theme 'Default'
-org.gnome.desktop.interface gtk-theme 'Flat-Remix-GTK-Blue-Darkest-Solid'
+org.gnome.desktop.interface gtk-theme 'Flat-Remix-GTK-Blue-Darkest'
 org.gnome.desktop.interface gtk-timeout-initial 200
 org.gnome.desktop.interface gtk-timeout-repeat 20
-org.gnome.desktop.interface icon-theme 'breeze-dark'
+org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 org.gnome.desktop.interface locate-pointer false
 org.gnome.desktop.interface menubar-accel 'F10'
 org.gnome.desktop.interface menubar-detachable false
@@ -792,12 +792,12 @@ org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 298
-org.gtk.Settings.FileChooser sort-column 'name'
+org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'ascending'
+org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (0, 0)
+org.gtk.Settings.FileChooser window-position (1729, 487)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

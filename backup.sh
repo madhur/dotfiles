@@ -24,10 +24,6 @@ cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
 cp -r ~/.config/neofetch $dfolder/.config/
 cp -r ~/.config/picom $dfolder/.config/
-#cp -r ~/.config/polybar $dfolder/.config/
-#cp -r ~/.config/xmonad $dfolder/.config/
-#rsync -avh --delete --exclude='.git/' ~/.config/xmonad $dfolder/.config/
-#cp -r ~/.config/awesome $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/awesome $dfolder/.config/
 cp -r ~/.config/qtile $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/systemd $dfolder/.config/
@@ -41,7 +37,6 @@ cp -r ~/.config/ripgrep $dfolder/.config/
 cp -r ~/.config/bat $dfolder/.config/
 cp -r ~/.config/btop $dfolder/.config/
 cp -r ~/.config/mpv $dfolder/.config/
-#cp -r ~/.config/go $dfolder/.config/
 cp -r ~/.config/newsboat $dfolder/.config/
 cp -r ~/.config/Thunar $dfolder/.config/
 cp -r ~/.config/autorandr $dfolder/.config/
@@ -53,20 +48,16 @@ rsync -avh --delete --exclude='.git/.' ~/.config/fontconfig $dfolder/.config/
 cp -r ~/.config/starship.toml $dfolder/.config/
 cp -r ~/.config/redshift.conf $dfolder/.config/
 
-#cp -r ~/.config/betterlockscreenrc $dfolder/.config/
 cp -r ~/.cache/wal $dfolder/.cache/
 cp -r ~/.config/mimeapps.list $dfolder/.config/
 cp ~/.config/nnn/config $dfolder/.config/nnn/
 cp ~/.config/lazygit/config.yml $dfolder/.config/lazygit/
 
 cp -r ~/.config/hypr $dfolder/.config/
-#cp -r ~/.config/wlogout $dfolder/.config/
-#cp -r ~/.config/nwg-look $dfolder/.config/
+cp -r ~/.config/nwg-look $dfolder/.config/
 cp -r ~/.config/waybar $dfolder/.config/
-#cp -r ~/.config/swaylock $dfolder/.config/
 
 
-#tmux contain company data
 #tmux contains company data
 #cp -r ~/tmux $dfolder/
 

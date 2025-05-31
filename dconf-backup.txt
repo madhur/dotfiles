@@ -134,8 +134,8 @@ font-antialiasing='grayscale'
 font-hinting='slight'
 font-name='Noto Sans 11'
 font-rgba-order='rgb'
-gtk-theme='Flat-Remix-GTK-Blue-Darkest-Solid'
-icon-theme='breeze-dark'
+gtk-theme='Flat-Remix-GTK-Blue-Darkest'
+icon-theme='Papirus-Dark'
 monospace-font-name='JetBrainsMono NF 11'
 scaling-factor=uint32 1
 text-scaling-factor=1.0
@@ -300,11 +300,11 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=298
-sort-column='name'
+sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
-window-position=(0, 0)
+window-position=(1729, 487)
 window-size=(1726, 1397)
 
 [org/guake/general]
