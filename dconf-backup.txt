@@ -61,8 +61,8 @@ width=3816
 
 [com/github/finefindus/eyedropper]
 is-maximized=false
-window-height=2108
-window-width=1903
+window-height=2130
+window-width=3840
 
 [org/blueman/general]
 services-last-item=0
@@ -126,8 +126,8 @@ xkb-options=@as []
 
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
-cursor-size=48
-cursor-theme='default'
+cursor-size=36
+cursor-theme='Adwaita'
 document-font-name='Noto Sans Medium 11'
 enable-animations=true
 font-antialiasing='grayscale'
@@ -291,7 +291,7 @@ window-size=(841, 385)
 
 [org/gtk/settings/color-chooser]
 custom-colors=[(0.78000000000000003, 0.26780000000000004, 0.26780000000000004, 1.0), (0.52000000000000002, 0.14560000000000001, 0.14560000000000001, 1.0)]
-selected-color=(true, 1.0, 1.0, 1.0, 1.0)
+selected-color=(true, 0.0, 0.0, 0.0, 1.0)
 
 [org/gtk/settings/file-chooser]
 date-format='regular'
@@ -300,11 +300,11 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=298
-sort-column='modified'
+sort-column='name'
 sort-directories-first=false
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(1729, 487)
+window-position=(0, 0)
 window-size=(1726, 1397)
 
 [org/guake/general]

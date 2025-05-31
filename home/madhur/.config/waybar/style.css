@@ -3,7 +3,7 @@
     border-radius: 0px;
     /*font-family: VictorMono, Iosevka Nerd Font, Noto Sans CJK;*/
     font-family: JetBrains Mono Nerd Font;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     min-height: 0;
 }
@@ -11,45 +11,84 @@
 
 
 
-
 window#waybar {
     background: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    border-bottom: 0px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
 }
 
 window#waybar.hidden {
     opacity: 0.0;
 }
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button {
-    padding: 0 5px;
-    background: transparent;
+
+
+#workspaces {
+    background:  #11161b;
+    margin: 2px 4px 2px 4px;
+    padding: 0px 0px;
+    border-radius: 0px;
+    border: 0px;
+    font-style: normal;
     color: #ffffff;
-    border-bottom: 3px solid transparent;
 }
 
-#workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid #ffffff;
+#workspaces button {
+    padding: 0px 8px;
+    margin: 4px 2px;
+    border-radius: 0px;
+    border: 0px;
+    color: #888888;
+    background: transparent;
+    opacity: 0.7;
+    font-size: 14px;
+    min-width: 20px;
 }
 
+/* This is the key part - styling for active workspace */
+#workspaces button.active {
+    color: #ffffff;
+    background: #5e81ac;  /* Blue background for active */
+    opacity: 1.0;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#workspaces button:hover {
+    background: #4c566a;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+/* Optional: style for urgent workspaces */
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background: #bf616a;  /* Red for urgent */
+    color: #ffffff;
 }
 
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid #ffffff;
-}
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio,  #tray,  #custom-hyprpicker, #disk, #custom-uptime {
     padding: 0 10px;
-    margin: 0 5px;
+    margin: 0 15px;
+}
+
+#clock , #disk, #custom-uptime{
+    background-color: #11161b;
 }
 
 #clock {
-    background-color: #64727D;
+    color: #85dfa8;
+}
+
+#disk {
+    color: #e2a6ff;
+}
+
+#custom-uptime {
+    color: #85dfa8;
+}
+
+#custom-launcher {
+      background-color: #11161b;
 }
 
 #battery {
@@ -69,31 +108,28 @@ window#waybar.hidden {
     }
 }
 
-#battery.critical:not(.charging) {
-    background: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
 
-#cpu {
-    background: #2ecc71;
-    color: #000000;
+
+
+#cpu, #custom-temperature {
+    background: #11161b;
+    color: #f46521;
+    margin-right: 30px;
+    padding: 10px;
 }
 
 #memory {
-    background: #9b59b6;
+    background: #11161b;
+    color: #297639;
 }
 
-#backlight {
-    background: #90b1b1;
+#custom-hyprpicker {
+    background: #11161b;
 }
 
 #network {
-    background: #2980b9;
+    background: #11161b;
+    color: #90daff;
 }
 
 #network.disconnected {
@@ -101,8 +137,8 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-    background: #f1c40f;
-    color: #000000;
+    background: #11161b;
+    color: #ffeba6;
 }
 
 #pulseaudio.muted {
@@ -110,36 +146,8 @@ window#waybar.hidden {
     color: #2a5c45;
 }
 
-#custom-media {
-    background: #66cc99;
-    color: #2a5c45;
-}
-
-.custom-spotify {
-    background: #66cc99;
-}
-
-.custom-vlc {
-    background: #ffa000;
-}
-
-#temperature {
-    background: #f0932b;
-}
-
-#temperature.critical {
-    background: #eb4d4b;
-}
 
 #tray {
-    background-color: #2980b9;
+    background-color: #11161b;
 }
 
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}

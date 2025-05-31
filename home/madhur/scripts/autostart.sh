@@ -13,34 +13,21 @@ run() {
 
 
 #autorandr --load two
-#sleep 5
 run "/home/madhur/scripts/set_wallpaper.sh"
 
-#feh --bg-max /home/madhur/Desktop/World\ Cup\ 2023\ Schedule.png 
 run sxhkd
 run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf
 run picom --config ~/.config/picom/picom.conf -b
 #run "/usr/libexec/xfce-polkit"
-#run "dunst"
 
-#sleep 10
 run "nm-applet"
 run "indicator-sound-switcher"
-#run "guake"
 run "xsettingsd"
-#run "/opt/paloaltonetworks/globalprotect/PanGPUI"
 run "/usr/bin/gpclient"
 run "xscreensaver"
 #run "eww daemon"
-#currenttime=$(date +%H:%M)
-# if [[ "$currenttime" > "18:00" ]] || [[ "$currenttime" < "06:30" ]]; then
-#  echo "Executing redshift"
-#  run "/home/madhur/scripts/start_redshift.sh"
-#fi
-run "redshift"
+(sleep 5 && run "redshift") &
 run "systemd-timer-notify"
 flatpak run com.github.hluk.copyq
-#run "mvp ~/Desktop/win95.mp3"
 
 
-#run /usr/bin/xscreensaver-command -lock

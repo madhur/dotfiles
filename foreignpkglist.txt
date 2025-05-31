@@ -68,12 +68,12 @@ tabbed-flexipatch-git
 tmux-xpanes
 vagrant
 visual-studio-code-bin
+waypaper
 wireguird
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night
 xqp
-xsane
 yay
 yt-dlp-drop-in
 zrok-bin

@@ -21,7 +21,12 @@
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
 	<text-files/>
+	<video-files/>
 </action>
 <action>
 	<icon>application-pdf</icon>

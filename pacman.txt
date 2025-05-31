@@ -41,6 +41,7 @@ calc
 cantarell-fonts
 cava
 clang
+cliphist
 conky
 cpupower
 cryptsetup
@@ -120,6 +121,7 @@ gobject-introspection
 gparted
 grafana
 grep
+grim
 groff
 grub
 gsfonts
@@ -142,6 +144,8 @@ htop
 httpie
 hwdetect
 hwinfo
+hyprland
+hyprpicker
 iftop
 inetutils
 inter-font
@@ -295,8 +299,8 @@ rebuild-detector
 redshift
 reflector
 ripgrep
-rofi
 rofi-calc
+rofi-wayland
 rpcsvc-proto
 rsync
 rtkit
@@ -305,6 +309,7 @@ scrot
 seahorse
 sed
 sg3_utils
+slurp
 smartmontools
 socat
 sof-firmware
@@ -315,6 +320,7 @@ starship
 stress
 stylua
 sudo
+swaybg
 sxhkd
 sysfsutils
 sysstat
@@ -351,6 +357,7 @@ virtualbox
 vpnc
 vulkan-tools
 w3m
+waybar
 wget
 which
 whois
@@ -359,8 +366,8 @@ wireless-regdb
 wireless_tools
 wireplumber
 wireshark-cli
+wl-clipboard
 wlroots
-wofi
 wol
 wpa_supplicant
 wpebackend-fdo
@@ -368,6 +375,7 @@ x11vnc
 xbindkeys
 xclip
 xcolor
+xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 xdotool

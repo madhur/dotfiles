@@ -1,126 +1,189 @@
 {
-    "position": "top",
-    "layer": "top",
-    "height": 30,
-    "margin-top": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
-    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "disk", "network", "pulseaudio", "temperature", "tray"],
-    // Modules configuration
-	"clock": {
-		"format": "  {:%H:%M}",
-		"tooltip": "true",
-        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format-alt": " {:%d/%m}"
-	},
-	
+  "position": "top",
+  "layer": "top",
+  "height": 30,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "custom/temperature",
+    "memory",
+    "disk",
+    "network",
+    "custom/uptime",
+    "pulseaudio",
+    "tray",
+    "custom/hyprpicker",
+    "systemd-failed-units"
+  ],
+  // Modules configuration
+  "clock": {
+    "format": " {:%d %b %H:%M}",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m}"
+  },
 
-	"hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
-        "disable-scroll": false,
-        "on-scroll-up": "hyprctl dispatch workspace -1",
-        "on-scroll-down": "hyprctl dispatch workspace +1",
-		"format": "{id}",
-		"on-click": "activate",
-		"format-icons": {
-//			"1": "一",
-//			"2": "二",
-//			"3": "三",
-//			"4": "四",
-//			"5": "五",
-			"urgent": "",
-			"active": "",
-			"default": "󰧞",
+  "custom/temperature": {
+        "exec": "/home/madhur/scripts/cpu-temp.sh",
+        "interval": 2,
+        "return-type": "text",
+        "format": " {}"
+    },
+  
+  "temperature": {
+    "thermal-zone": 0,
+  "format": "{temperatureC}°C ",
+    "format-alt": "󰖁 {temp}°C",
+    "interval": 2,
+    "path": "/sys/class/thermal/thermal_zone0/temp",
+    "scale": 1000, // Scale the temperature value by 1000
+  },
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "disable-scroll": true,
+    "all-outputs": false,
+    "active-only": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "persistent-workspaces": {
+      "1": [
+        "DP-2"
+      ],
+      "2": [
+        "DP-2"
+      ],
+      "3": [
+        "DP-2"
+      ],
+      "4": [
+        "DP-2"
+      ],
+      "5": [
+        "DP-2"
+      ],
+      "6": [
+        "DP-1"
+      ],
+      "7": [
+        "DP-1"
+      ],
+      "8": [
+        "DP-1"
+      ],
+      "9": [
+        "DP-1"
+      ],
+      "10": [
+        "DP-2"
+      ]
+    },
+    "format-icons": {
+      "urgent": "⚠️",
+      "active": "✘",
+      "default": "〇"
+    },
     "sort-by-number": true
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Brave": "🌐 $1",
+      "(.*) - fish": "> [$1]",
+      "(.*) - zsh": "> [$1]",
+      "(.*) - bash": "> [$1]",
+      "(.*) - kitty": "> $1",
+      "(.*) - Code": " $1",
+      "": "Desktop"
     },
-    },
-
-
-"hyprland/window": {
-    "separate-outputs": true
-},
-
-
-
+    "separate-outputs": true,
+    "max-length": 50
+  },
   "memory": {
-    "format": "󰍛 {}%",
+    "format": "󰍛 {used} GB",
     "format-alt": "󰍛 {used}/{total} GiB",
     "interval": 5
   },
-
   "cpu": {
-    "format": "󰻠 {usage}%",
+    "format": " {usage}% {avg_frequency} GHz",
     "format-alt": "󰻠 {avg_frequency} GHz",
-    "interval": 5
+    "interval": 2
   },
-
   "disk": {
-    "format": "󰋊 {}%",
+    "format": " {}%",
     "format-alt": "󰋊 {used}/{total} GiB",
     "interval": 5,
-    "path": "/mnt/Datos"
+    "path": "/"
   },
-	
-	"network": {
-        	"format-wifi": "󰤨",
-        	"format-ethernet": " {ifname}: Aesthetic",
-        	"format-linked": " {ifname} (No IP)",
-        	"format-disconnected": "󰤭",
-        	"format-alt": " {ifname}: {ipaddr}/{cidr}",
-          "tooltip-format": "{essid}",
-          "on-click-right": "nm-connection-editor"
-	},
-
-	"tray": {
-		"icon-size": 32,
-		"spacing": 5
-	},
-
-
-
-	"pulseaudio": {
-		"format": "{icon} {volume}%",
-        	"format-muted": "󰝟",
-		"format-icons": {
-			"default": ["󰕿", "󰖀", "󰕾"]
-		},
-		"on-click": "bash ~/.scripts/volume mute",
+  "network": {
+    "format-wifi": "󰤨",
+    "interval": 2,
+    "format-ethernet": "  󰶡 {bandwidthDownBytes}  󰶣 {bandwidthUpBytes}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "󰤭",
+    "format-alt": " {ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{essid}",
+    "on-click-right": "nm-connection-editor"
+  },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 5
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "bash ~/.scripts/volume mute",
     "on-scroll-up": "bash ~/.scripts/volume up",
     "on-scroll-down": "bash ~/.scripts/volume down",
     "scroll-step": 5,
-		"on-click-right": "pavucontrol"
-  },
-  "custom/randwall": {
-    "format": "󰏘",
-    "on-click": "bash $HOME/.config/hypr/randwall.sh",
-    "on-click-right": "bash $HOME/.config/hypr/wall.sh"
+    "on-click-right": "pavucontrol"
   },
   "custom/launcher": {
-    "format": "󰈸",
-    "on-click": "bash $HOME/.config/rofi/launcher.sh",
-//    "on-click": "wofi --show drun -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css",
-    "on-click-right": "bash $HOME/.config/rofi/run.sh"  
-//    "on-click-right": "wofi --show run -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css"  
+    "format": "󰣇",
+    "on-click": "jgmenu_run"
   },
-
   "custom/wf-recorder": {
-		"format": "{}",
-		"interval": "once",
-		"exec": "echo ''",
-		"tooltip": "false",
-		"exec-if": "pgrep 'wf-recorder'",
-		"on-click": "exec ./scripts/wlrecord.sh",
-		"signal": 8
-	},
-
+    "format": "{}",
+    "interval": "once",
+    "exec": "echo ''",
+    "tooltip": "false",
+    "exec-if": "pgrep 'wf-recorder'",
+    "on-click": "exec ./scripts/wlrecord.sh",
+    "signal": 8
+  },
   "custom/hyprpicker": {
     "format": "󰈋",
     "on-click": "hyprpicker -a -f hex",
     "on-click-right": "hyprpicker -a -f rgb"
   },
+  "custom/uptime": {
+    "format": " {}",
+    "interval": 5,
+    "exec": "/home/madhur/scripts/uptime.sh"
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false, // Do not hide if there is zero failed units.
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": true, // Monitor failed systemwide units.
+    "user": false // Ignore failed user units.
   }
 }

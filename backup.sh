@@ -6,8 +6,8 @@ dfolder=$HOME/gitpersonal/dotfiles/home/madhur
 #guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
 
 rsync -avh --delete --exclude='.git/' ~/.config/conky $dfolder/.config/
-#cp ~/.config/conky/* $dfolder/.config/conky/
-#cp -r ~/.config/dunst $dfolder/.config/
+cp ~/.config/conky/* $dfolder/.config/conky/
+cp -r ~/.config/dunst $dfolder/.config/
 #cp -r ~/.config/gsimplecal $dfolder/.config/
 cp -r ~/.config/gtk-{2,3,4}.0 $dfolder/.config/
 #cp -r ~/.config/i3 $dfolder/.config/
@@ -59,10 +59,10 @@ cp -r ~/.config/mimeapps.list $dfolder/.config/
 cp ~/.config/nnn/config $dfolder/.config/nnn/
 cp ~/.config/lazygit/config.yml $dfolder/.config/lazygit/
 
-#cp -r ~/.config/hypr $dfolder/.config/
+cp -r ~/.config/hypr $dfolder/.config/
 #cp -r ~/.config/wlogout $dfolder/.config/
 #cp -r ~/.config/nwg-look $dfolder/.config/
-#cp -r ~/.config/waybar $dfolder/.config/
+cp -r ~/.config/waybar $dfolder/.config/
 #cp -r ~/.config/swaylock $dfolder/.config/
 
 
@@ -105,6 +105,7 @@ sudo cp -r /etc/X11/* ./etc/X11/
 sudo cp -r /etc/conf.d/* ./etc/conf.d/
 sudo cp -r /etc/lightdm/* ./etc/lightdm/
 sudo cp /etc/logrotate.d/* ./etc/logrotate.d/
+sudo cp /etc/doas.conf ./etc/doas.conf
 #cp /etc/dnsmasq.conf ./etc/dnsmasq.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf
 #cp /etc/resolv.conf ./etc/resolv.conf
