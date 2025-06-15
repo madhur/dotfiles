@@ -25,11 +25,12 @@ image/svg-xml=gpicview.desktop
 application/octet-stream=code.desktop
 x-scheme-handler/webcal=brave-browser.desktop
 x-scheme-handler/postman=Postman.desktop
+application/pdf=org.pwmt.zathura.desktop
 
 [Added Associations]
 application/x-shellscript=code.desktop;visual-studio-code.desktop;vim.desktop;
 text/x-haskell=visual-studio-code.desktop;
-application/pdf=brave-browser-home.desktop;org.pwmt.zathura-pdf-mupdf.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 text/plain=code.desktop;nvim.desktop;org.lite_xl.lite_xl.desktop;micro.desktop;xed.desktop;dev.lapce.lapce.desktop;vim.desktop;visual-studio-code.desktop;
 text/x-lua=code.desktop;
 text/html=code.desktop;

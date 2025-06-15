@@ -12,7 +12,7 @@ gnome-46-2404               0+git.d9f8bf6-sdk0+git.c8a281c  90     latest/stable
 gtk-common-themes           0.1-81-g442e511                 1535   latest/stable  canonical**     -
 indicator-sound-switcher    2.3.10.1                        173    latest/stable  yktoo           -
 joplin-desktop              v3.3.13                         109    latest/stable  james-carroll*  -
-kate                        25.04.2                         204    latest/stable  kde**           classic
+kate                        25.04.2                         205    latest/stable  kde**           classic
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
 mesa-2404                   24.2.8                          495    latest/stable  canonical**     -
 notion-snap                 1.4.0                           16     latest/stable  steverydz       -
