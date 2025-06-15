@@ -59,12 +59,11 @@ com.github.finefindus.eyedropper alpha-position 0
 com.github.finefindus.eyedropper cie-illuminants 5
 com.github.finefindus.eyedropper cie-standard-observer 0
 com.github.finefindus.eyedropper format-order ['name', 'hex', 'rgb', 'hsl', 'hsv', 'cmyk', 'xyz', 'cielab', 'hwb', 'hcl', 'lms', 'hunterlab', 'oklab', 'oklch']
-com.github.finefindus.eyedropper is-maximized false
 com.github.finefindus.eyedropper name-sources-flag uint32 15
 com.github.finefindus.eyedropper precision-digits uint32 2
+com.github.finefindus.eyedropper rgb-notation 0
 com.github.finefindus.eyedropper visible-formats ['name', 'hex', 'rgb', 'hsl', 'hsv', 'cmyk']
-com.github.finefindus.eyedropper window-height 2130
-com.github.finefindus.eyedropper window-width 3840
+com.github.finefindus.eyedropper window-dimension (300, 500, false)
 net.launchpad.caffeine act-for-flash false
 net.launchpad.caffeine audio-peak-filtering true
 net.launchpad.caffeine show-notification true

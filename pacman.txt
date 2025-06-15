@@ -258,7 +258,6 @@ pavucontrol
 pdftk
 perl
 perl-rename
-picom
 pigz
 pipewire
 pipewire-alsa
@@ -320,6 +319,7 @@ sshpass
 starship
 stress
 stylua
+sublime-text
 sudo
 swaybg
 sxhkd
@@ -368,7 +368,7 @@ wireless_tools
 wireplumber
 wireshark-cli
 wl-clipboard
-wlroots
+wlroots0.18
 wol
 wpa_supplicant
 wpebackend-fdo

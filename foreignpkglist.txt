@@ -41,6 +41,7 @@ offsetexplorer2
 offsetexplorer3
 oh-my-zsh-git
 papirus-folders-git
+picom-git
 pipes.sh
 postman-bin
 powerline-fonts-git
