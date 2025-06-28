@@ -64,6 +64,37 @@ com.github.finefindus.eyedropper precision-digits uint32 2
 com.github.finefindus.eyedropper rgb-notation 0
 com.github.finefindus.eyedropper visible-formats ['name', 'hex', 'rgb', 'hsl', 'hsv', 'cmyk']
 com.github.finefindus.eyedropper window-dimension (300, 500, false)
+com.github.johnfactotum.Foliate color-scheme 0
+com.github.johnfactotum.Foliate.library cover-size 256
+com.github.johnfactotum.Foliate.library show-covers true
+com.github.johnfactotum.Foliate.library view-mode 'grid'
+com.github.johnfactotum.Foliate.viewer fold-sidebar false
+com.github.johnfactotum.Foliate.viewer highlight-color 'yellow'
+com.github.johnfactotum.Foliate.viewer translate-target-language ''
+com.github.johnfactotum.Foliate.viewer.font default uint32 0
+com.github.johnfactotum.Foliate.viewer.font default-size uint32 16
+com.github.johnfactotum.Foliate.viewer.font minimum-size uint32 0
+com.github.johnfactotum.Foliate.viewer.font monospace 'Monospace'
+com.github.johnfactotum.Foliate.viewer.font sans-serif 'Sans'
+com.github.johnfactotum.Foliate.viewer.font serif 'Serif'
+com.github.johnfactotum.Foliate.viewer.view animated true
+com.github.johnfactotum.Foliate.viewer.view autohide-cursor false
+com.github.johnfactotum.Foliate.viewer.view brightness 1.0
+com.github.johnfactotum.Foliate.viewer.view gap 0.059999999999999998
+com.github.johnfactotum.Foliate.viewer.view hyphenate true
+com.github.johnfactotum.Foliate.viewer.view invert false
+com.github.johnfactotum.Foliate.viewer.view justify true
+com.github.johnfactotum.Foliate.viewer.view line-height 1.5
+com.github.johnfactotum.Foliate.viewer.view max-block-size uint32 1440
+com.github.johnfactotum.Foliate.viewer.view max-column-count uint32 2
+com.github.johnfactotum.Foliate.viewer.view max-inline-size uint32 720
+com.github.johnfactotum.Foliate.viewer.view override-font false
+com.github.johnfactotum.Foliate.viewer.view scrolled false
+com.github.johnfactotum.Foliate.viewer.view theme 'default'
+com.github.johnfactotum.Foliate.window default-height 2130
+com.github.johnfactotum.Foliate.window default-width 3840
+com.github.johnfactotum.Foliate.window fullscreened false
+com.github.johnfactotum.Foliate.window maximized false
 net.launchpad.caffeine act-for-flash false
 net.launchpad.caffeine audio-peak-filtering true
 net.launchpad.caffeine show-notification true
@@ -793,10 +824,10 @@ org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 298
 org.gtk.Settings.FileChooser sort-column 'name'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'descending'
+org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1729, 487)
+org.gtk.Settings.FileChooser window-position (1, 31)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

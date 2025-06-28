@@ -3,8 +3,8 @@ asana-snap                  1.5.0                           2      latest/stable
 bare                        1.0                             5      latest/stable  canonical**     base
 core18                      20250523                        2887   latest/stable  canonical**     base
 core20                      20250526                        2599   latest/stable  canonical**     base
-core22                      20250425                        1981   latest/stable  canonical**     base
-core24                      20250504                        988    latest/stable  canonical**     base
+core22                      20250528                        2010   latest/stable  canonical**     base
+core24                      20250526                        1006   latest/stable  canonical**     base
 gnome-3-28-1804             3.28.0-19-g98f9e67.98f9e67      198    latest/stable  canonical**     -
 gnome-3-34-1804             0+git.3556cb3                   93     latest/stable  canonical**     -
 gnome-42-2204               0+git.38ea591                   202    latest/stable  canonical**     -
@@ -14,9 +14,9 @@ indicator-sound-switcher    2.3.10.1                        173    latest/stable
 joplin-desktop              v3.3.13                         109    latest/stable  james-carroll*  -
 kate                        25.04.2                         205    latest/stable  kde**           classic
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
-mesa-2404                   24.2.8                          495    latest/stable  canonical**     -
+mesa-2404                   24.2.8-snap183                  887    latest/stable  canonical**     -
 notion-snap                 1.4.0                           16     latest/stable  steverydz       -
 sdlpop                      1.23                            715    latest/stable  snapcrafters*   -
 snapcraft                   8.9.4                           15082  latest/stable  canonical**     classic
-snapd                       2.68.4                          24505  latest/stable  canonical**     snapd
+snapd                       2.68.5                          24718  latest/stable  canonical**     snapd
 trello-desktop              1.0.16                          23     latest/stable  joshua-redmond  -

@@ -10,6 +10,7 @@ elasticsearch7
 endeavouros-keyring
 endeavouros-mirrorlist
 endeavouros-theming
+epub2pdf
 eww
 flat-remix-git
 flat-remix-gtk

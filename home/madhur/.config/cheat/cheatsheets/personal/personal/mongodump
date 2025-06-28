@@ -1,0 +1,1 @@
+mongodump --uri mongodb://root:test@127.0.0.1:27017/risk_rule_engine --out=./risk_rule_engine

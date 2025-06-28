@@ -64,6 +64,11 @@ is-maximized=false
 window-height=2130
 window-width=3840
 
+[com/github/johnfactotum/Foliate/window]
+default-height=2130
+default-width=3840
+maximized=false
+
 [org/blueman/general]
 services-last-item=0
 window-properties=[1903, 2108, 2697, 497]
@@ -302,9 +307,9 @@ show-type-column=true
 sidebar-width=298
 sort-column='name'
 sort-directories-first=false
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(1729, 487)
+window-position=(1, 31)
 window-size=(1726, 1397)
 
 [org/guake/general]

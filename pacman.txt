@@ -93,6 +93,7 @@ firewalld
 flameshot
 flatpak
 flex
+foliate
 font-manager
 foomatic-db
 foomatic-db-engine
@@ -152,7 +153,6 @@ inter-font
 inxi
 iotop
 iptables-nft
-istio
 iwd
 jdk8-openjdk
 jfsutils
