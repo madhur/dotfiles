@@ -214,6 +214,7 @@ mkinitcpio-nfs-utils
 modemmanager
 moreutils
 mpv
+msedit
 mtools
 mypy
 namcap
