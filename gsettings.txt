@@ -91,9 +91,9 @@ com.github.johnfactotum.Foliate.viewer.view max-inline-size uint32 720
 com.github.johnfactotum.Foliate.viewer.view override-font false
 com.github.johnfactotum.Foliate.viewer.view scrolled false
 com.github.johnfactotum.Foliate.viewer.view theme 'default'
-com.github.johnfactotum.Foliate.window default-height 2130
-com.github.johnfactotum.Foliate.window default-width 3840
-com.github.johnfactotum.Foliate.window fullscreened false
+com.github.johnfactotum.Foliate.window default-height 2108
+com.github.johnfactotum.Foliate.window default-width 1903
+com.github.johnfactotum.Foliate.window fullscreened true
 com.github.johnfactotum.Foliate.window maximized false
 net.launchpad.caffeine act-for-flash false
 net.launchpad.caffeine audio-peak-filtering true
@@ -827,7 +827,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 31)
+org.gtk.Settings.FileChooser window-position (1729, 487)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

@@ -1,0 +1,13 @@
+[Unit]
+Description=Desktop Screenshot Service
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/take-screenshot.sh
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/%i
+
+[Install]
+WantedBy=default.target

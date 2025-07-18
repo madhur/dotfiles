@@ -65,8 +65,9 @@ window-height=2130
 window-width=3840
 
 [com/github/johnfactotum/Foliate/window]
-default-height=2130
-default-width=3840
+default-height=2108
+default-width=1903
+fullscreened=true
 maximized=false
 
 [org/blueman/general]
@@ -95,6 +96,16 @@ last-window-size=(746, 529)
 [org/gnome/baobab/ui]
 is-maximized=false
 window-size=(1903, 1048)
+
+[org/gnome/calculator]
+base=10
+button-mode='basic'
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+window-maximized=false
+window-size=(520, 616)
 
 [org/gnome/control-center]
 last-panel='search'
@@ -309,7 +320,7 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(1, 31)
+window-position=(1729, 487)
 window-size=(1726, 1397)
 
 [org/guake/general]

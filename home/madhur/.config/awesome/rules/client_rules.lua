@@ -169,7 +169,7 @@ return { -- All clients will match this rule.
     rule_any = {
         instance = {"DTA" -- Firefox addon DownThemAll.
         },
-        class = {"Arandr", "Blueberry", "Galculator", "Gnome-font-viewer", "Gpick", "Imagewriter", "Font-manager",
+        class = {"Arandr", "Blueberry", "gnome-calculator", "Gnome-font-viewer", "Gpick", "Imagewriter", "Font-manager",
                  "MessageWin", "Oblogout", "Peek", "Skype", "System-config-printer.py", "Sxiv", "Unetbootin.elf",
                  "Wpa_gui", "pinentry", "veromix", "xtightvncviewer", "Gsimplecal", "Indicator-sound-switcher",
                  "Pavucontrol", "pavucontrol", "Blueman-manager"},

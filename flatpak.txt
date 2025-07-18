@@ -18,8 +18,8 @@ Mesa	org.freedesktop.Platform.GL.default	24.0.4	22.08	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.0.4	22.08-extra	system
 Mesa	org.freedesktop.Platform.GL.default	24.3.1	23.08	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	23.08-extra	system
-Mesa	org.freedesktop.Platform.GL.default	25.0.3	24.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	25.0.3	24.08extra	system
+Mesa	org.freedesktop.Platform.GL.default	25.1.3	24.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	25.1.3	24.08extra	system
 nvidia-530-41-03	org.freedesktop.Platform.GL.nvidia-530-41-03		1.4	system
 nvidia-535-104-05	org.freedesktop.Platform.GL.nvidia-535-104-05		1.4	system
 nvidia-535-54-03	org.freedesktop.Platform.GL.nvidia-535-54-03		1.4	system
@@ -29,6 +29,7 @@ nvidia-550-67	org.freedesktop.Platform.GL.nvidia-550-67		1.4	system
 nvidia-555-58-02	org.freedesktop.Platform.GL.nvidia-555-58-02		1.4	system
 nvidia-560-35-03	org.freedesktop.Platform.GL.nvidia-560-35-03		1.4	system
 nvidia-565-77	org.freedesktop.Platform.GL.nvidia-565-77		1.4	system
+nvidia-570-153-02	org.freedesktop.Platform.GL.nvidia-570-153-02		1.4	system
 openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
 openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
 openh264	org.freedesktop.Platform.openh264	2.4.1	2.4.1	system
@@ -44,11 +45,13 @@ GNOME Application Platform version 46	org.gnome.Platform		46	system
 GNOME Application Platform version 47	org.gnome.Platform		47	system
 Sound Recorder	org.gnome.SoundRecorder	42.0	stable	system
 Arc-Darker Gtk theme	org.gtk.Gtk3theme.Arc-Darker		3.22	system
+Flat-Remix-GTK-Blue-Darkest	org.gtk.Gtk3theme.Flat-Remix-GTK-Blue-Darkest		3.22	system
 Flat-Remix-GTK-Blue-Darkest-Solid	org.gtk.Gtk3theme.Flat-Remix-GTK-Blue-Darkest-Solid		3.22	system
 Adwaita theme	org.kde.KStyle.Adwaita		5.15-21.08	system
 KDE Application Platform	org.kde.Platform		5.15-21.08	system
 KDE Application Platform	org.kde.Platform		5.15-22.08	system
 KDE Application Platform	org.kde.Platform		5.15-23.08	system
+KDE Application Platform	org.kde.Platform		5.15-24.08	system
 KDE Application Platform	org.kde.Platform		6.4	system
 KDE Application Platform	org.kde.Platform		6.5	system
 KRuler	org.kde.kruler	23.04.2	stable	system

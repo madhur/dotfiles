@@ -1,13 +1,9 @@
-
 Find Window Class,notify-send -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
 Xprop,notify-send -t 10000 -i window_list  "$(xprop  | xclip -selection 'clipboard' -f)",window_list
 Randomize Wallpaper,/home/madhur/scripts/set_wallpaper.sh,phototonic
 ^sep()
-
 Terminal,kitty,kitty
 Connect VPN, "/home/madhur/company/connect_vpn.sh", openvpn
-
-
 Sxhkd,sxhkd, keyboard
 BraveBrowser, brave, brave
 Picom, /home/madhur/.config/picom/launch.sh, picom
@@ -24,17 +20,21 @@ Fix Layout,"/home/madhur/scripts/fix_layout.sh"
 #Restart awesome, "echo 'awesome.restart()' | awesome-client"
 Startup Apps,"/home/madhur/.config/awesome/autostart.sh"
 ^sep()
-
-
+System Design,^checkout(system_design)
+System Design Problems,^pipe(find '/data/media/Grokking System Design/System Design Problems/' -maxdepth 1 -type f -printf "%f,xdg-open '%p'\n" | sort)
 Apps,^checkout(apps-dir-Apps),applications
 System,^checkout(apps-dir-System),applications-system
+
+^tag(system_design)
+System Design Interview,xdg-open '/data/media/SystemDesignInterview.pdf'
+System Design Vol 2 (Alex Xu),xdg-open '/data/media/System-Design-Alex-Xu-Vol-2.pdf'
+Designing Data Intensive Applications,xdg-open '/data/media/Designing Data Intensive Applications by Martin Kleppmann.pdf'
+^sep()
+Back,^back()
 
 ^tag(apps-dir-Apps)
 #Firefox, "firefox"
 Brave,"brave", brave
-
-
-
 
 ^tag(apps-dir-System)
 Shutdown, /home/madhur/scripts/system.sh poweroff, system-shutdown
@@ -42,6 +42,3 @@ Restart, /home/madhur/scripts/system.sh reboot, system-reboot
 Logout, /home/madhur/scripts/system.sh logoff, system-logout
 #Enable Second Monitor, "/home/madhur/scripts/two_monitor_portrait.sh"
 #Disable Second Monitor, "/home/madhur/scripts/one_monitor.sh"
-
-
-

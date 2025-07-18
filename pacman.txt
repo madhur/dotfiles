@@ -207,7 +207,6 @@ meld
 mesa
 mesa-utils
 meson
-micro
 mkinitcpio
 mkinitcpio-busybox
 mkinitcpio-nfs-utils
@@ -338,7 +337,6 @@ qemu-ui-spice-app
 qemu-ui-spice-core
 qemu-vhost-user-gpu
 qt5ct
-rabbitmq
 rapidjson
 realtime-privileges
 rebuild-detector

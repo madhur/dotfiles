@@ -1,0 +1,10 @@
+[Unit]
+Description=Take desktop screenshot every 30 minutes
+Requires=desktop-screenshot.service
+
+[Timer]
+OnCalendar=*:0/30
+Persistent=true
+
+[Install]
+WantedBy=timers.target
