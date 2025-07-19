@@ -3,8 +3,6 @@
 ### Tools used (X11)
 
 * [AwesomeWM](https://github.com/awesomeWM/awesome)
-* [AwesomeWM Lain Widgets](https://github.com/lcpz/lain)
-* [AwesomeWM Widgets](https://github.com/streetturtle/awesome-wm-widgets)
 * [rofi](https://github.com/davatorium/rofi)
 * [eww](https://github.com/elkowar/eww)
 * [Kitty](https://sw.kovidgoyal.net/kitty/)
