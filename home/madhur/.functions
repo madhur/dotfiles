@@ -162,3 +162,13 @@ function find_listening_ports() {
 function cheat() {
     command cheat "$1" | glow
 }
+
+fpkill() {
+    local selection
+    selection=$(ps -e -o pid,comm | fzf)
+    local pid=$(echo "$selection" | awk '{print $1}')
+    local pname=$(echo "$selection" | awk '{print $2}')
+    if [ "$pid" != "" ]; then
+        kill -9 "$pid" > /dev/null 2>&1 && echo "Process $pname (PID $pid) has been successfully killed."
+    fi
+}

@@ -195,8 +195,10 @@ window-size=(0, 0)
 migrated=true
 
 [org/gnome/file-roller/dialogs/extract]
+height=800
 recreate-folders=true
 skip-newer=false
+width=1000
 
 [org/gnome/file-roller/dialogs/new]
 default-extension='.zip'
@@ -204,9 +206,24 @@ encrypt-header=false
 expand-options=false
 volume-size=104857
 
+[org/gnome/file-roller/file-selector]
+show-hidden=false
+sidebar-size=300
+sort-method='name'
+sort-type='ascending'
+window-size=(-1, -1)
+
 [org/gnome/file-roller/listing]
 list-mode='as-folder'
+name-column-width=297
 show-path=false
+sort-method='name'
+sort-type='ascending'
+
+[org/gnome/file-roller/ui]
+sidebar-width=200
+window-height=1204
+window-width=847
 
 [org/gnome/font-manager]
 charmap-font-size=24.812989921612541
@@ -315,12 +332,12 @@ location-mode='path-bar'
 show-hidden=true
 show-size-column=true
 show-type-column=true
-sidebar-width=298
-sort-column='name'
+sidebar-width=202
+sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
-window-position=(1729, 487)
+window-position=(2785, 852)
 window-size=(1726, 1397)
 
 [org/guake/general]

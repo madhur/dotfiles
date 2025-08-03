@@ -295,6 +295,12 @@ org.freedesktop.pulseaudio.module-group name6 ''
 org.freedesktop.pulseaudio.module-group name7 ''
 org.freedesktop.pulseaudio.module-group name8 ''
 org.freedesktop.pulseaudio.module-group name9 ''
+org.gnome.Evolution.DefaultSources default-address-book 'system'
+org.gnome.Evolution.DefaultSources default-calendar 'system'
+org.gnome.Evolution.DefaultSources default-mail-account 'system'
+org.gnome.Evolution.DefaultSources default-mail-identity ''
+org.gnome.Evolution.DefaultSources default-memo-list 'system'
+org.gnome.Evolution.DefaultSources default-task-list 'system'
 org.gnome.FileRoller.Dialogs.Add current-folder ''
 org.gnome.FileRoller.Dialogs.Add exclude-files ''
 org.gnome.FileRoller.Dialogs.Add exclude-folders ''
@@ -318,7 +324,7 @@ org.gnome.FileRoller.Dialogs.New expand-options false
 org.gnome.FileRoller.Dialogs.New other-options false
 org.gnome.FileRoller.Dialogs.New volume-size 104857
 org.gnome.FileRoller.FileSelector show-hidden false
-org.gnome.FileRoller.FileSelector sidebar-size -1
+org.gnome.FileRoller.FileSelector sidebar-size 300
 org.gnome.FileRoller.FileSelector sort-method 'name'
 org.gnome.FileRoller.FileSelector sort-type 'ascending'
 org.gnome.FileRoller.FileSelector window-size (-1, -1)
@@ -326,7 +332,7 @@ org.gnome.FileRoller.General compression-level 'normal'
 org.gnome.FileRoller.General editors @as []
 org.gnome.FileRoller.General encrypt-header false
 org.gnome.FileRoller.Listing list-mode 'as-folder'
-org.gnome.FileRoller.Listing name-column-width 250
+org.gnome.FileRoller.Listing name-column-width 297
 org.gnome.FileRoller.Listing show-path false
 org.gnome.FileRoller.Listing show-size true
 org.gnome.FileRoller.Listing show-time true
@@ -335,8 +341,16 @@ org.gnome.FileRoller.Listing sort-method 'name'
 org.gnome.FileRoller.Listing sort-type 'ascending'
 org.gnome.FileRoller.UI sidebar-width 200
 org.gnome.FileRoller.UI view-sidebar false
-org.gnome.FileRoller.UI window-height 480
-org.gnome.FileRoller.UI window-width 600
+org.gnome.FileRoller.UI window-height 1204
+org.gnome.FileRoller.UI window-width 847
+org.gnome.GWeather4 default-location ('', 'KNYC', @m(dd) nothing)
+org.gnome.GWeather4 distance-unit 'default'
+org.gnome.GWeather4 pressure-unit 'default'
+org.gnome.GWeather4 speed-unit 'default'
+org.gnome.GWeather4 temperature-unit 'default'
+org.gnome.almanah encryption-key ''
+org.gnome.almanah spell-checking-enabled true
+org.gnome.almanah spelling-language ''
 org.gnome.baobab.preferences excluded-uris @as []
 org.gnome.baobab.ui active-chart 'rings'
 org.gnome.baobab.ui is-maximized false
@@ -712,6 +726,61 @@ org.gnome.desktop.wm.preferences titlebar-uses-system-font true
 org.gnome.desktop.wm.preferences visual-bell false
 org.gnome.desktop.wm.preferences visual-bell-type 'fullscreen-flash'
 org.gnome.desktop.wm.preferences workspace-names @as []
+org.gnome.evolution-data-server autoconfig-directory ''
+org.gnome.evolution-data-server autoconfig-variables ['']
+org.gnome.evolution-data-server camel-cipher-load-photos true
+org.gnome.evolution-data-server camel-gpg-binary ''
+org.gnome.evolution-data-server camel-message-info-user-headers @as []
+org.gnome.evolution-data-server camel-smtp-helo-argument ''
+org.gnome.evolution-data-server limit-operations-in-power-saver-mode false
+org.gnome.evolution-data-server migrated true
+org.gnome.evolution-data-server network-monitor-gio-name ''
+org.gnome.evolution-data-server oauth2-google-client-id ''
+org.gnome.evolution-data-server oauth2-google-client-secret ''
+org.gnome.evolution-data-server oauth2-outlook-client-id ''
+org.gnome.evolution-data-server oauth2-outlook-client-secret ''
+org.gnome.evolution-data-server oauth2-services-hint ['']
+org.gnome.evolution-data-server oauth2-yahoo-client-id ''
+org.gnome.evolution-data-server oauth2-yahoo-client-secret ''
+org.gnome.evolution-data-server.addressbook self-contact-uid ''
+org.gnome.evolution-data-server.calendar contacts-reminder-enabled false
+org.gnome.evolution-data-server.calendar contacts-reminder-interval 15
+org.gnome.evolution-data-server.calendar contacts-reminder-units 'minutes'
+org.gnome.evolution-data-server.calendar defall-reminder-enabled false
+org.gnome.evolution-data-server.calendar defall-reminder-interval 15
+org.gnome.evolution-data-server.calendar defall-reminder-units 'minutes'
+org.gnome.evolution-data-server.calendar delete-meeting-on-decline true
+org.gnome.evolution-data-server.calendar notify-completed-tasks true
+org.gnome.evolution-data-server.calendar notify-custom-snooze-minutes @ai []
+org.gnome.evolution-data-server.calendar notify-enable-audio true
+org.gnome.evolution-data-server.calendar notify-enable-display true
+org.gnome.evolution-data-server.calendar notify-last-snooze-minutes 5
+org.gnome.evolution-data-server.calendar notify-past-events false
+org.gnome.evolution-data-server.calendar notify-programs @as []
+org.gnome.evolution-data-server.calendar notify-window-height -1
+org.gnome.evolution-data-server.calendar notify-window-on-top true
+org.gnome.evolution-data-server.calendar notify-window-paned-position -1
+org.gnome.evolution-data-server.calendar notify-window-width -1
+org.gnome.evolution-data-server.calendar notify-window-x -1
+org.gnome.evolution-data-server.calendar notify-window-y -1
+org.gnome.evolution-data-server.calendar notify-with-tray true
+org.gnome.evolution-data-server.calendar reminders-past ['']
+org.gnome.evolution-data-server.calendar reminders-past-days 7
+org.gnome.evolution-data-server.calendar reminders-snoozed ['']
+org.gnome.evolution.eds-shell start-offline false
+org.gnome.evolution.shell.network-config authentication-password ''
+org.gnome.evolution.shell.network-config authentication-user ''
+org.gnome.evolution.shell.network-config autoconfig-url ''
+org.gnome.evolution.shell.network-config http-host ''
+org.gnome.evolution.shell.network-config http-port 0
+org.gnome.evolution.shell.network-config ignore-hosts @as []
+org.gnome.evolution.shell.network-config proxy-type 0
+org.gnome.evolution.shell.network-config secure-host ''
+org.gnome.evolution.shell.network-config secure-port 0
+org.gnome.evolution.shell.network-config socks-host ''
+org.gnome.evolution.shell.network-config socks-port 0
+org.gnome.evolution.shell.network-config use-authentication false
+org.gnome.evolution.shell.network-config use-http-proxy false
 org.gnome.libgnomekbd.desktop default-group -1
 org.gnome.libgnomekbd.desktop group-per-window false
 org.gnome.libgnomekbd.desktop handle-indicators false
@@ -789,6 +858,7 @@ org.gnome.seahorse.manager show-validity false
 org.gnome.seahorse.manager sidebar-visible true
 org.gnome.seahorse.manager sidebar-width 148
 org.gnome.seahorse.manager sort-by 'name'
+org.gnome.seahorse.recipients sort-by 'name'
 org.gnome.system.locale region ''
 org.gnome.system.location enabled false
 org.gnome.system.location max-accuracy-level 'exact'
@@ -821,13 +891,13 @@ org.gtk.Settings.FileChooser location-mode 'path-bar'
 org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
-org.gtk.Settings.FileChooser sidebar-width 298
-org.gtk.Settings.FileChooser sort-column 'name'
+org.gtk.Settings.FileChooser sidebar-width 202
+org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'ascending'
+org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1729, 487)
+org.gtk.Settings.FileChooser window-position (2785, 852)
 org.gtk.Settings.FileChooser window-size (1726, 1397)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

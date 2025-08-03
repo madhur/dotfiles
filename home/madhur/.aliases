@@ -154,3 +154,4 @@ alias curltime="curl -w \"@$HOME/scripts/curlformat.txt\" -o /dev/null -s "
 alias lzd='lazydocker'
 
 alias sudo='doas'
+alias editor='msedit'

@@ -61,6 +61,7 @@ qtile-git
 redis
 reiserfsprogs
 rofi-file-browser-extended-git
+rofi-process-killer
 shell-color-scripts
 slack-desktop
 snapd

@@ -43,6 +43,7 @@ GNOME Application Platform version 44	org.gnome.Platform		44	system
 GNOME Application Platform version 45	org.gnome.Platform		45	system
 GNOME Application Platform version 46	org.gnome.Platform		46	system
 GNOME Application Platform version 47	org.gnome.Platform		47	system
+GNOME Application Platform version 48	org.gnome.Platform		48	system
 Sound Recorder	org.gnome.SoundRecorder	42.0	stable	system
 Arc-Darker Gtk theme	org.gtk.Gtk3theme.Arc-Darker		3.22	system
 Flat-Remix-GTK-Blue-Darkest	org.gtk.Gtk3theme.Flat-Remix-GTK-Blue-Darkest		3.22	system

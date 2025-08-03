@@ -67,3 +67,5 @@ super + F4
 ~button3
    xqp 0 $(xdo id -N "" -n root) &&  jgmenu
 
+super+k
+   rofi -modi "processes:rofi-process-killer.sh" -show processes
