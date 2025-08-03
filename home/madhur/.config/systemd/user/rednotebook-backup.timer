@@ -1,0 +1,12 @@
+[Unit]
+Description=Run RedNotebook backup daily
+Requires=rednotebook-backup.service
+
+[Timer]
+# Run daily at 2:00 AM
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
