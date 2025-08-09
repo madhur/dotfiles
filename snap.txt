@@ -15,7 +15,7 @@ indicator-sound-switcher    2.3.10.1                        173    latest/stable
 joplin-desktop              v3.3.13                         109    latest/stable  james-carroll*  -
 kate                        25.04.3                         206    latest/stable  kde**           classic
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
-mesa-2404                   24.2.8-snap183                  887    latest/stable  canonical**     -
+mesa-2404                   24.2.8-snap185                  912    latest/stable  canonical**     -
 notion-snap                 1.4.0                           16     latest/stable  steverydz       -
 sdlpop                      1.23                            715    latest/stable  snapcrafters*   -
 snapcraft                   8.10.2                          15369  latest/stable  canonical**     classic

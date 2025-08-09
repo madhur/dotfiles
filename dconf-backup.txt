@@ -215,15 +215,15 @@ window-size=(-1, -1)
 
 [org/gnome/file-roller/listing]
 list-mode='as-folder'
-name-column-width=297
+name-column-width=1353
 show-path=false
 sort-method='name'
 sort-type='ascending'
 
 [org/gnome/file-roller/ui]
 sidebar-width=200
-window-height=1204
-window-width=847
+window-height=1048
+window-width=1903
 
 [org/gnome/font-manager]
 charmap-font-size=24.812989921612541
@@ -333,11 +333,11 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=202
-sort-column='modified'
+sort-column='type'
 sort-directories-first=false
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(2785, 852)
+window-position=(1729, 487)
 window-size=(1726, 1397)
 
 [org/guake/general]

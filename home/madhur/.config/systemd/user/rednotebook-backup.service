@@ -1,11 +1,12 @@
 [Unit]
 Description=RedNotebook GitHub Backup Service
-After=network-online.target
+After=network-online.target 
 Wants=network-online.target
 
 [Service]
 Type=oneshot
 ExecStart=%h/bin/rednotebook-backup.sh
+ExecStartPre=/bin/sleep 5
 Environment=HOME=%h
 StandardOutput=journal
 StandardError=journal
