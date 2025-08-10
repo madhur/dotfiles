@@ -18,6 +18,7 @@ glava
 gluqlo-git
 gnome-icon-theme
 hey
+hyprland-autoname-workspaces-git
 intellij-idea-community-edition-jre
 intellij-idea-ultimate-edition
 jd-gui-bin

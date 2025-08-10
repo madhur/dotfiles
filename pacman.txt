@@ -414,6 +414,7 @@ wireplumber
 wireshark-cli
 wl-clipboard
 wlroots0.18
+wlsunset
 woff2-font-awesome
 wol
 wpa_supplicant

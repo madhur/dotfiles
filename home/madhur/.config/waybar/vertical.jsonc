@@ -43,7 +43,7 @@
     "scale": 1000, // Scale the temperature value by 1000
   },
   "hyprland/workspaces": {
-    "format": "{id}",
+    "format": "{name}",
     "disable-scroll": true,
     "all-outputs": false,
     "active-only": false,

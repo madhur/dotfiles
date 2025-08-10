@@ -2,12 +2,7 @@
 
 base_folder="/home/madhur/Pictures/wallpapers"
 vertical="vertical"
-script_dir="/home/madhur/Desktop/python"  
-python_script="$script_dir/location_embosser.py"
-venv_file="$script_dir/.venv"  
 
-# Enable/disable AI processing (set to 0 to disable, 1 to enable)
-use_ai=0
 
 # swaybg configuration
 bg_color="#000000"  # Background color (black by default)
@@ -82,14 +77,14 @@ fi
 echo "Using time-based folder: $folder (hour: $hour)"
 
 # Select random wallpapers
-filename=$(ls $base_folder/$folder | shuf -n 1)
+filename=$(ls $base_folder/$folder   | grep -iE '\.(jpe?g|png|gif|bmp|webp|tiff)$' | shuf -n 1)
 horizontal_path="$base_folder/$folder/$filename"
 echo "Selected horizontal: $filename"
 
 vertical_filename=""
 vertical_path=""
 if [ -d "$base_folder/$vertical/$folder" ]; then
-    vertical_filename=$(ls $base_folder/$vertical/$folder | shuf -n 1)
+    vertical_filename=$(ls $base_folder/$vertical/$folder  | grep -iE '\.(jpe?g|png|gif|bmp|webp|tiff)$'  | shuf -n 1)
     vertical_path="$base_folder/$vertical/$folder/$vertical_filename"
     echo "Selected vertical: $vertical_filename"
 fi
@@ -116,50 +111,6 @@ get_venv_path() {
     fi
     
     return 1
-}
-
-# Function to process image with AI
-process_with_ai() {
-    input_path="$1"
-    if [ "$use_ai" -eq 1 ] && [ -f "$python_script" ]; then
-        echo "Processing with AI: $(basename "$input_path")" >&2
-        
-        # Get virtual environment path
-        venv_path=$(get_venv_path)
-        
-        if [ -n "$venv_path" ] && [ -f "$venv_path/bin/python" ]; then
-            echo "Using virtual environment: $(basename "$venv_path")" >&2
-            python_exe="$venv_path/bin/python"
-            
-            # Debug: Show the command being run
-            echo "Debug: Running command: $python_exe $python_script $input_path" >&2
-            
-            # Run with error output to see what's happening
-            processed_path=$("$python_exe" "$python_script" "$input_path" 2>&1)
-            exit_code=$?
-            
-            # Debug: Show the result
-            echo "Debug: Exit code: $exit_code" >&2
-            echo "Debug: Output: $processed_path" >&2
-            
-        else
-            echo "Virtual environment not found, falling back to system Python" >&2
-            echo "Debug: Running command: python3 $python_script $input_path" >&2
-            processed_path=$(python3 "$python_script" "$input_path" 2>&1)
-            exit_code=$?
-            echo "Debug: Exit code: $exit_code" >&2
-            echo "Debug: Output: $processed_path" >&2
-        fi
-        
-        if [ $exit_code -eq 0 ] && [ -n "$processed_path" ] && [ -f "$processed_path" ]; then
-            echo "$processed_path"
-        else
-            echo "AI processing failed, using original: $(basename "$input_path")" >&2
-            echo "$input_path"
-        fi
-    else
-        echo "$input_path"
-    fi
 }
 
 # Function to get monitor orientation
@@ -247,11 +198,11 @@ is_vertical_monitor() {
 }
 
 # Process wallpapers
-processed_horizontal=$(process_with_ai "$horizontal_path")
+processed_horizontal=$horizontal_path
 processed_vertical=""
 
 if [ -n "$vertical_path" ] && [ -f "$vertical_path" ]; then
-    processed_vertical=$(process_with_ai "$vertical_path")
+    processed_vertical=$vertical_path
 fi
 
 # Set wallpapers using swaybg
@@ -310,7 +261,3 @@ fi
 
 echo "Wallpaper set successfully!"
 
-# Optional: Clean up old processed images (older than 1 hour)
-if [ "$use_ai" -eq 1 ]; then
-    find /tmp -name "embossed_*.jpg" -mtime +0.04 -delete 2>/dev/null || true
-fi
