@@ -11,6 +11,3 @@ Environment=HOME=%h
 StandardOutput=journal
 StandardError=journal
 Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
-
-[Install]
-WantedBy=default.target

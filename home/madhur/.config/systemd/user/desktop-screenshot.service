@@ -9,5 +9,3 @@ Environment=DISPLAY=:0
 Environment=WAYLAND_DISPLAY=wayland-0
 Environment=XDG_RUNTIME_DIR=/run/user/%i
 
-[Install]
-WantedBy=default.target

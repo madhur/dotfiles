@@ -337,7 +337,7 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(1729, 487)
+window-position=(1, 31)
 window-size=(1726, 1397)
 
 [org/guake/general]
