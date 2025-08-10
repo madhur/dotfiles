@@ -30,6 +30,7 @@ nvidia-555-58-02	org.freedesktop.Platform.GL.nvidia-555-58-02		1.4	system
 nvidia-560-35-03	org.freedesktop.Platform.GL.nvidia-560-35-03		1.4	system
 nvidia-565-77	org.freedesktop.Platform.GL.nvidia-565-77		1.4	system
 nvidia-570-153-02	org.freedesktop.Platform.GL.nvidia-570-153-02		1.4	system
+nvidia-575-64-05	org.freedesktop.Platform.GL.nvidia-575-64-05		1.4	system
 openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
 openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
 openh264	org.freedesktop.Platform.openh264	2.4.1	2.4.1	system

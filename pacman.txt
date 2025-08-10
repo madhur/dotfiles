@@ -441,6 +441,7 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xorg-xsetroot
+xosd
 xscreensaver
 xsel
 xsettingsd

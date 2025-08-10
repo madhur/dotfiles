@@ -1,5 +1,6 @@
 [Unit]
 Description=Run unit every day
+Requires=everyday.service
 
 [Timer]
 OnBootSec=15min

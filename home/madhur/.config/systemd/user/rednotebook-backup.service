@@ -6,7 +6,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 ExecStart=%h/bin/rednotebook-backup.sh
-ExecStartPre=/bin/sleep 5
+ExecStartPre=/bin/sleep 30
 Environment=HOME=%h
 StandardOutput=journal
 StandardError=journal
