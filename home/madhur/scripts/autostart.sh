@@ -16,7 +16,8 @@ run() {
 run "/home/madhur/scripts/set_wallpaper.sh"
 
 run sxhkd
-run conky --daemonize --quiet --config=/home/madhur/.config/conky/conky.conf
+run /home/madhur/.config/conky/launch.sh
+#run conky --daemonize --quiet --config=/home/madhur/.config/conky/
 run picom --config ~/.config/picom/picom.conf -b
 #run "/usr/libexec/xfce-polkit"
 

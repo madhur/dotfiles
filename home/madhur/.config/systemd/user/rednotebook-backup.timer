@@ -1,6 +1,6 @@
 [Unit]
 Description=Run RedNotebook backup daily
-Requires=rednotebook-backup.service
+#Requires=rednotebook-backup.service   #Uncommenting this will trigger the service at boot
 
 [Timer]
 # Run daily at 2:00 AM

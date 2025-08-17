@@ -1,6 +1,6 @@
 [Unit]
 Description=Take desktop screenshot every 30 minutes
-Requires=desktop-screenshot.service
+#Requires=desktop-screenshot.service            ##Uncommenting this will trigger the service at boot
 
 [Timer]
 OnCalendar=*:0/30

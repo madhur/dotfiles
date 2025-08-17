@@ -12,3 +12,9 @@ if conky --daemonize --quiet "$pause_flag" --config=/home/madhur/.config/conky/c
 else
     echo "Failed"
 fi
+
+if conky --daemonize --quiet "$pause_flag" --config=/home/madhur/.config/conky/google_calendar.conf ; then
+    echo "Started"
+else
+    echo "Failed"
+fi

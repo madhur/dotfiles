@@ -1,6 +1,6 @@
 [Unit]
 Description=Run unit every day
-Requires=everyday.service
+#Requires=everyday.service     #Uncommenting this will trigger the service at boot
 
 [Timer]
 OnBootSec=15min
