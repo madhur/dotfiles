@@ -1,4 +1,3 @@
-
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 local awful = require("awful")
 local naughty = require("naughty")

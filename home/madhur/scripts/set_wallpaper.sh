@@ -147,27 +147,5 @@ echo "Location files updated:"
 echo "  Monitor 1: $horizontal_location_file"
 echo "  Monitor 2: $vertical_location_file"
 
-# Function to ensure conky is running
-ensure_conky_running() {
-    # Check if conky instances are running
-    if ! pgrep -f "wallpaper_monitor1.conf" > /dev/null || ! pgrep -f "wallpaper_monitor2.conf" > /dev/null; then
-        echo "Starting conky instances for wallpaper locations..."
-        if [ -x "$conky_management_script" ]; then
-            "$conky_management_script" start
-        else
-            echo "Warning: Conky management script not found or not executable at $conky_management_script"
-            # Fallback: start conky directly
-            if [ -f "$HOME/.config/conky/wallpaper_monitor1.conf" ]; then
-                conky -c "$HOME/.config/conky/wallpaper_monitor1.conf" -d
-            fi
-            if [ -f "$HOME/.config/conky/wallpaper_monitor2.conf" ]; then
-                conky -c "$HOME/.config/conky/wallpaper_monitor2.conf" -d
-            fi
-        fi
-        # Give conky a moment to start
-        sleep 1
-    fi
-}
-
-# Ensure conky is running to display the locations
-ensure_conky_running
+# Refresh wallpaper conky displays
+/home/madhur/.config/conky/launch.sh --wallpaper-only --no-pause

@@ -99,15 +99,15 @@ awful.screen.connect_for_each_screen(function(s)
 	--awful.screen.focused().tags[3].master_count = 0
 	s.mywibox = require("widgets.wiboxes").get(s)
 	
-	-- If its a portrait monitor, add some gap on top because my portrait monitor is too high, else my neck hurts
-	-- if madhur.helpers.is_portrait(s) then
-	-- 	s.padding = {
-	-- 		left = 0,
-	-- 		right = 0,
-	-- 		top = 600,
-	-- 		bottom = 0
-	-- 	}
-	-- end
+	--If its a portrait monitor, add some gap on top because my portrait monitor is too high, else my neck hurts
+	if madhur.helpers.is_portrait(s) then
+		s.padding = {
+			left = 0,
+			right = 0,
+			top = 600,
+			bottom = 0
+		}
+	end
 end)
 
 -- Signal function to execute when a new client appears.

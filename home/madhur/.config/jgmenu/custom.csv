@@ -7,7 +7,7 @@ Connect VPN, "/home/madhur/company/connect_vpn.sh", openvpn
 Sxhkd,sxhkd, keyboard
 BraveBrowser, brave, brave
 Picom, /home/madhur/.config/picom/launch.sh, picom
-Conky, /home/madhur/.config/conky/launch.sh, conky
+Conky, /home/madhur/.config/conky/launch.sh --all, conky
 Eww, "eww daemon", eww
 Flameshot, "flameshot", flameshot
 Copyq, "flatpak run com.github.hluk.copyq", copyq

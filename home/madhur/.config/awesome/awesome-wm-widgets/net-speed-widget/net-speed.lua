@@ -21,6 +21,19 @@ local naughty = require("naughty")
 local net_speed_widget = {}
 local warn_count = 0
 local crit_count = 0
+local is_connected = true
+
+-- Function to check internet connectivity
+local function check_connectivity()
+    spawn.easy_async("ping -c 1 -W 1 8.8.8.8", function(stdout, stderr, exitreason, exitcode)
+        local connected = exitcode == 0
+        if connected ~= is_connected then
+            is_connected = connected
+            -- Emit signal to update widget appearance
+            awesome.emit_signal("net_connectivity_changed", is_connected)
+        end
+    end)
+end
 
 local function convert_to_h(bytes)
     local speed
@@ -110,10 +123,39 @@ local function worker(user_args)
         },
         layout = wibox.layout.fixed.horizontal,
         set_rx_text = function(self, new_rx_speed)
-            self:get_children_by_id('rx_speed')[1]:set_text(" 󰶡 "..tostring(new_rx_speed).." ")
+            local text = " 󰶡 "..tostring(new_rx_speed).." "
+            if is_connected then
+                self:get_children_by_id('rx_speed')[1]:set_text(text)
+            else
+                self:get_children_by_id('rx_speed')[1]:set_markup('<span color="#FF0000">' .. text .. '</span>')
+            end
         end,
         set_tx_text = function(self, new_tx_speed)
-            self:get_children_by_id('tx_speed')[1]:set_text(" 󰶣 "..tostring(new_tx_speed))
+            local text = " 󰶣 "..tostring(new_tx_speed)
+            if is_connected then
+                self:get_children_by_id('tx_speed')[1]:set_text(text)
+            else
+                self:get_children_by_id('tx_speed')[1]:set_markup('<span color="#FF0000">' .. text .. '</span>')
+            end
+        end,
+        set_connectivity = function(self, connected)
+            is_connected = connected
+            -- Update the widget appearance immediately
+            local rx_widget = self:get_children_by_id('rx_speed')[1]
+            local tx_widget = self:get_children_by_id('tx_speed')[1]
+            if rx_widget and tx_widget then
+                local rx_text = rx_widget:get_text()
+                local tx_text = tx_widget:get_text()
+                if connected then
+                    -- Use default theme colors when connected
+                    rx_widget:set_text(rx_text)
+                    tx_widget:set_text(tx_text)
+                else
+                    -- Use red when disconnected
+                    rx_widget:set_markup('<span color="#FF0000">' .. rx_text .. '</span>')
+                    tx_widget:set_markup('<span color="#FF0000">' .. tx_text .. '</span>')
+                end
+            end
         end
     }
 
@@ -153,6 +195,23 @@ local function worker(user_args)
 
     watch(string.format([[bash -c "cat /sys/class/net/%s/statistics/*_bytes"]], interface),
         timeout, update_widget, net_speed_widget)
+
+    -- Connect to connectivity change signal
+    awesome.connect_signal("net_connectivity_changed", function(connected)
+        net_speed_widget:set_connectivity(connected)
+    end)
+
+    -- Start connectivity checking
+    watch("ping -c 1 -W 1 8.8.8.8", 60, function()
+        check_connectivity()
+    end)
+
+    -- Initial connectivity check - delayed by 30 seconds to avoid red text during boot
+    awful.spawn.easy_async("sleep 30 && ping -c 1 -W 1 8.8.8.8", function(stdout, stderr, exitreason, exitcode)
+        local connected = exitcode == 0
+        is_connected = connected
+        net_speed_widget:set_connectivity(connected)
+    end)
 
     return net_speed_widget
 

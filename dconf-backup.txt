@@ -72,7 +72,7 @@ maximized=false
 
 [org/blueman/general]
 services-last-item=0
-window-properties=[1903, 2108, 2697, 41]
+window-properties=[1903, 2108, 2697, 497]
 
 [org/blueman/network]
 nap-enable=false
@@ -84,7 +84,7 @@ services=[('78:2B:64:A2:21:03', '00000000-0000-0000-0000-000000000000')]
 auto-power-on=@mb true
 
 [org/blueman/plugins/recentconns]
-recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1755230887.4824607', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1755412424.0854852', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 
 [org/fedoraproject/FirewallConfig]
 show-active-bindings=true
@@ -337,7 +337,7 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(1729, 31)
+window-position=(1729, 487)
 window-size=(1726, 1397)
 
 [org/guake/general]
