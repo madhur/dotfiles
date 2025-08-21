@@ -1,6 +1,5 @@
 [Unit]
 Description=Run unit every hour
-Requires=everyhour.service
 
 [Timer]
 OnBootSec=1min

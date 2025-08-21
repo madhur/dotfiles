@@ -25,7 +25,6 @@ jd-gui-bin
 kaf-bin
 kafkactl
 kind
-lazydocker
 lcov-git
 lightdm-settings
 mkinitcpio-openswap

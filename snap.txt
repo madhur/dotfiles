@@ -12,12 +12,10 @@ gnome-46-2404               0+git.4ca00c0-sdk0+git.81ba3cf  117    latest/stable
 gnome-calculator            48.1                            972    latest/stable  canonical**     -
 gtk-common-themes           0.1-81-g442e511                 1535   latest/stable  canonical**     -
 indicator-sound-switcher    2.3.10.1                        173    latest/stable  yktoo           -
-joplin-desktop              v3.3.13                         109    latest/stable  james-carroll*  -
-kate                        25.04.3                         206    latest/stable  kde**           classic
+joplin-desktop              v3.4.6                          111    latest/stable  james-carroll*  -
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
 mesa-2404                   24.2.8-snap185                  912    latest/stable  canonical**     -
-notion-snap                 1.4.0                           16     latest/stable  steverydz       -
 sdlpop                      1.23                            715    latest/stable  snapcrafters*   -
-snapcraft                   8.10.2                          15369  latest/stable  canonical**     classic
-snapd                       2.70                            24792  latest/stable  canonical**     snapd
+snapcraft                   8.11.1                          15600  latest/stable  canonical**     classic
+snapd                       2.71                            25202  latest/stable  canonical**     snapd
 trello-desktop              1.0.16                          23     latest/stable  joshua-redmond  -

@@ -3,4 +3,4 @@ Description=Script to update wallpaper based on time
 
 [Service]
 Type=oneshot
-ExecStart=/home/madhur/scripts/set_wallpaper.sh
+ExecStart=/home/madhur/scripts/every_hour.sh

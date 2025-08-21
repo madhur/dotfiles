@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cd $(dirname $0)
 
 # Parse command line arguments
@@ -66,14 +65,28 @@ start_conky() {
         echo "Config file not found: $config_file"
         return 1
     fi
-    
-    if conky --daemonize --quiet $pause_flag --config="$config_file"; then
-        echo "Started $description"
-        return 0
+
+    local display_env=""
+    if [ ! -z "$DISPLAY" ]; then
+        display_env="--setenv=DISPLAY=$DISPLAY"
     else
-        echo "Failed to start $description"
-        return 1
+        display_env="--setenv=DISPLAY=:0"
     fi
+    
+    # Use systemd-run with proper environment
+    # systemd-run --user --scope  \
+    #     --unit="conky-$(basename "$config_file" .conf)" \
+    #     $display_env \
+    #     conky --daemonize --config="$config_file"
+    
+    conky --daemonize --config="$config_file"
+    # Use systemd-run --user --scope to escape the service cgroup
+    # This prevents systemd from killing conky when the service ends
+   
+    # Don't wait for systemd-run to complete, just start it in background
+    # Give it a moment to start
+    
+    
 }
 
 # Function to kill wallpaper-related conky instances

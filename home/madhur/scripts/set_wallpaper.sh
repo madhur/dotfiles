@@ -10,8 +10,6 @@ fi
 base_folder="/home/madhur/Pictures/wallpapers"
 vertical="vertical"
 script_dir="/home/madhur/Desktop/python"  
-python_script="$script_dir/location_embosser.py"
-venv_file="$script_dir/.venv"
 
 # Location cache files for osd_cat
 location_cache_dir="$HOME/.cache/wallpaper_locations"
@@ -35,8 +33,6 @@ get_location() {
         echo "Location: Unknown"
     fi
 }
-
-
 
 cd $base_folder || exit 1
 
@@ -149,3 +145,4 @@ echo "  Monitor 2: $vertical_location_file"
 
 # Refresh wallpaper conky displays
 /home/madhur/.config/conky/launch.sh --wallpaper-only --no-pause
+                                                                                                                                                                                            
