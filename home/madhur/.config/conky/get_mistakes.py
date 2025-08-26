@@ -6,7 +6,6 @@ Shows a random selection to avoid overwhelming display
 
 import csv
 import os
-import random
 from typing import List
 
 def read_mistakes(csv_file: str) -> List[str]:
@@ -34,13 +33,11 @@ def read_mistakes(csv_file: str) -> List[str]:
     
     return mistakes
 
-def format_mistakes(mistakes: List[str], max_display: int = 3) -> str:
+def format_mistakes(mistakes: List[str], max_display: int = 5) -> str:
     """Format mistakes for display - show a random selection"""
     if not mistakes:
         return "No mistakes recorded"
     
-    # Shuffle and take a random selection to keep it fresh
-    random.shuffle(mistakes)
     selected_mistakes = mistakes[:max_display]
     
     formatted_lines = []

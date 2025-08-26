@@ -16,16 +16,16 @@ cp  ~/.config/jgmenu/* $dfolder/.config/jgmenu/
 cp  ~/.config/cava/* $dfolder/.config/cava/
 cp  ~/.config/zathura/* $dfolder/.config/zathura/
 #cp  ~/.config/viewnior/* $dfolder/.config/viewnior/
-cp  ~/.config/micro/* $dfolder/.config/micro/
+#cp  ~/.config/micro/* $dfolder/.config/micro/
 #rsync -avh --delete --exclude='.git/' ~/.config/eg $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/cheat/cheatsheets/personal $dfolder/.config/cheat/cheatsheets/personal/
 
 cp  ~/.config/kafkactl/* $dfolder/.config/kafkactl/
 cp ~/.config/kitty/* $dfolder/.config/kitty/
-cp -r ~/.config/neofetch $dfolder/.config/
+#cp -r ~/.config/neofetch $dfolder/.config/
 cp -r ~/.config/picom $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/awesome $dfolder/.config/
-cp -r ~/.config/qtile $dfolder/.config/
+#cp -r ~/.config/qtile $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/systemd $dfolder/.config/
 #cp -r ~/.config/systemd $dfolder/.config/
 # do not want rofi subfolder themes
@@ -35,9 +35,9 @@ rsync -avh --delete --exclude='.git/' ~/.config/eww $dfolder/.config/
 cp -r ~/.config/qimgv $dfolder/.config/
 cp -r ~/.config/ripgrep $dfolder/.config/
 cp -r ~/.config/bat $dfolder/.config/
-cp -r ~/.config/btop $dfolder/.config/
+#cp -r ~/.config/btop $dfolder/.config/
 cp -r ~/.config/mpv $dfolder/.config/
-cp -r ~/.config/newsboat $dfolder/.config/
+#cp -r ~/.config/newsboat $dfolder/.config/
 cp -r ~/.config/Thunar $dfolder/.config/
 cp -r ~/.config/autorandr $dfolder/.config/
 cp -r ~/.config/glow $dfolder/.config/
@@ -56,6 +56,9 @@ cp ~/.config/lazygit/config.yml $dfolder/.config/lazygit/
 cp -r ~/.config/hypr $dfolder/.config/
 cp -r ~/.config/nwg-look $dfolder/.config/
 cp -r ~/.config/waybar $dfolder/.config/
+cp -r ~/.config/waypaper $dfolder/.config/
+cp  ~/.rednotebook/configuration.cfg $dfolder/.rednotebook/configuration.cfg
+cp -r ~/.rednotebook/templates $dfolder/.rednotebook/
 
 
 #tmux contains company data

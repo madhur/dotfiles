@@ -44,6 +44,7 @@ cava
 clang
 cliphist
 conky
+cpio
 cpupower
 cryptsetup
 csvlens
@@ -150,6 +151,7 @@ hyprland
 hyprpicker
 iftop
 inetutils
+inotify-tools
 inter-font
 inxi
 iotop
@@ -369,6 +371,7 @@ sublime-text
 sudo
 swaybg
 sxhkd
+sysdig
 sysfsutils
 sysstat
 system-config-printer

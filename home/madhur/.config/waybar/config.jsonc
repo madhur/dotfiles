@@ -1,7 +1,7 @@
 {
   "position": "top",
   "layer": "top",
-  "height": 30,
+  "height": 42,
   "margin-top": 0,
   "output": "DP-2",
   "margin-bottom": 0,
@@ -23,9 +23,10 @@
     "network",
     "custom/uptime",
     "pulseaudio",
-    "tray",
+   
     "custom/hyprpicker",
-    "systemd-failed-units"
+    "systemd-failed-units",
+     "tray"
   ],
   // Modules configuration
   "clock": {
@@ -93,12 +94,12 @@
     "interval": 5
   },
   "cpu": {
-    "format": " {usage}% {avg_frequency} GHz",
-    "format-alt": "󰻠 {avg_frequency} GHz",
+    "format": " {usage}% {max_frequency} GHz",
+    "format-alt": "󰻠 {usage}% {max_frequency} GHz",
     "interval": 2
   },
   "disk": {
-    "format": " {}%",
+    "format": " {percentage_used}%",
     "format-alt": "󰋊 {used}/{total} GiB",
     "interval": 5,
     "path": "/"
@@ -128,11 +129,11 @@
         "󰕾"
       ]
     },
-    "on-click": "bash ~/.scripts/volume mute",
+    "on-right-click": "bash ~/.scripts/volume mute",
     "on-scroll-up": "bash ~/.scripts/volume up",
     "on-scroll-down": "bash ~/.scripts/volume down",
     "scroll-step": 5,
-    "on-click-right": "pavucontrol"
+    "on-click": "pavucontrol"
   },
   "custom/launcher": {
     "format": " 󰣇 ",

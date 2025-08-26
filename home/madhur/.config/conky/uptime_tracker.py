@@ -2,6 +2,7 @@
 """
 Conky-specific System Uptime Contribution Graph Generator
 Outputs directly in Conky color format to avoid text processing issues
+Now tracks individual boot sessions and calculates daily totals
 """
 
 import os
@@ -42,37 +43,41 @@ class ConkyUptimeTracker:
         }
     
     def init_database(self):
-        """Initialize SQLite database for storing uptime data"""
+        """Initialize SQLite database for storing boot session data"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
+        # New table structure for individual boot sessions
         cursor.execute('''
-            CREATE TABLE IF NOT EXISTS uptime_records (
-                date TEXT PRIMARY KEY,
-                uptime_percentage INTEGER,
-                uptime_seconds INTEGER,
-                boot_time TEXT,
-                logged_at TEXT
+            CREATE TABLE IF NOT EXISTS boot_sessions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                boot_time TEXT NOT NULL,
+                boot_timestamp INTEGER NOT NULL,
+                date TEXT NOT NULL,
+                last_seen_uptime INTEGER DEFAULT 0,
+                last_updated TEXT,
+                session_ended INTEGER DEFAULT 0,
+                UNIQUE(boot_timestamp)
             )
+        ''')
+        
+        # Create index for faster date-based queries
+        cursor.execute('''
+            CREATE INDEX IF NOT EXISTS idx_date ON boot_sessions(date)
         ''')
         
         conn.commit()
         conn.close()
     
     def get_current_uptime(self):
-        """Get current system uptime in seconds and percentage of day"""
+        """Get current system uptime in seconds"""
         try:
             with open('/proc/uptime', 'r') as f:
                 uptime_seconds = float(f.read().split()[0])
-            
-            # Calculate percentage of day (86400 seconds = 24 hours)
-            seconds_in_day = 86400
-            uptime_percentage = min(100, int((uptime_seconds / seconds_in_day) * 100))
-            
-            return uptime_seconds, uptime_percentage
+            return int(uptime_seconds)
         except Exception as e:
-            print(f"Error reading uptime: {e}")
-            return 0, 0
+            print(f"Error reading uptime: {e}", file=sys.stderr)
+            return 0
     
     def get_boot_time(self):
         """Get system boot time"""
@@ -81,31 +86,96 @@ class ConkyUptimeTracker:
                 for line in f:
                     if line.startswith('btime'):
                         boot_timestamp = int(line.split()[1])
-                        return datetime.fromtimestamp(boot_timestamp).isoformat()
+                        boot_datetime = datetime.fromtimestamp(boot_timestamp)
+                        return boot_datetime.isoformat(), boot_timestamp
         except Exception:
             pass
-        return datetime.now().isoformat()
+        now = datetime.now()
+        return now.isoformat(), int(now.timestamp())
     
     def log_uptime(self):
-        """Log current uptime to database"""
+        """Log current uptime to database, tracking individual boot sessions"""
+        boot_time_iso, boot_timestamp = self.get_boot_time()
+        current_uptime = self.get_current_uptime()
         today = datetime.now().strftime('%Y-%m-%d')
-        uptime_seconds, uptime_percentage = self.get_current_uptime()
-        boot_time = self.get_boot_time()
-        logged_at = datetime.now().isoformat()
+        now_iso = datetime.now().isoformat()
         
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
+        # Try to find existing session for this boot
         cursor.execute('''
-            INSERT OR REPLACE INTO uptime_records 
-            (date, uptime_percentage, uptime_seconds, boot_time, logged_at)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (today, uptime_percentage, int(uptime_seconds), boot_time, logged_at))
+            SELECT id, last_seen_uptime FROM boot_sessions 
+            WHERE boot_timestamp = ?
+        ''', (boot_timestamp,))
+        
+        existing = cursor.fetchone()
+        
+        if existing:
+            # Update existing session
+            session_id, last_uptime = existing
+            cursor.execute('''
+                UPDATE boot_sessions 
+                SET last_seen_uptime = ?, last_updated = ?
+                WHERE id = ?
+            ''', (current_uptime, now_iso, session_id))
+        else:
+            # Mark all previous sessions as ended (they would have lower uptimes if still running)
+            cursor.execute('''
+                UPDATE boot_sessions 
+                SET session_ended = 1 
+                WHERE session_ended = 0
+            ''')
+            
+            # Create new session
+            cursor.execute('''
+                INSERT INTO boot_sessions 
+                (boot_time, boot_timestamp, date, last_seen_uptime, last_updated, session_ended)
+                VALUES (?, ?, ?, ?, ?, 0)
+            ''', (boot_time_iso, boot_timestamp, today, current_uptime, now_iso))
         
         conn.commit()
         conn.close()
         
-        return uptime_percentage
+        return self.get_daily_uptime_percentage(today)
+    
+    def get_daily_uptime_percentage(self, date):
+        """Calculate total uptime percentage for a given date"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # Get all sessions that contributed to this date
+        cursor.execute('''
+            SELECT boot_time, boot_timestamp, last_seen_uptime
+            FROM boot_sessions 
+            WHERE date = ?
+            ORDER BY boot_timestamp
+        ''', (date,))
+        
+        sessions = cursor.fetchall()
+        conn.close()
+        
+        if not sessions:
+            return 0
+        
+        total_uptime_seconds = 0
+        date_obj = datetime.strptime(date, '%Y-%m-%d')
+        
+        for boot_time_iso, boot_timestamp, last_seen_uptime in sessions:
+            boot_time = datetime.fromisoformat(boot_time_iso.replace('Z', '+00:00'))
+            
+            # Calculate how much of this session contributed to the target date
+            session_start = max(boot_time, date_obj)
+            session_end = min(boot_time + timedelta(seconds=last_seen_uptime), 
+                            date_obj + timedelta(days=1))
+            
+            if session_end > session_start:
+                session_contribution = (session_end - session_start).total_seconds()
+                total_uptime_seconds += session_contribution
+        
+        # Calculate percentage of day (86400 seconds = 24 hours)
+        percentage = min(100, int((total_uptime_seconds / 86400) * 100))
+        return percentage
     
     def get_uptime_level(self, percentage):
         """Convert uptime percentage to level (0-4) like GitHub"""
@@ -125,21 +195,15 @@ class ConkyUptimeTracker:
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days_back)
         
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        # Generate all dates in range
+        data_dict = {}
+        current_date = start_date
         
-        cursor.execute('''
-            SELECT date, uptime_percentage 
-            FROM uptime_records 
-            WHERE date >= ? AND date <= ?
-            ORDER BY date
-        ''', (start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')))
-        
-        results = cursor.fetchall()
-        conn.close()
-        
-        # Convert to dictionary for easy lookup
-        data_dict = {date: percentage for date, percentage in results}
+        while current_date <= end_date:
+            date_str = current_date.strftime('%Y-%m-%d')
+            percentage = self.get_daily_uptime_percentage(date_str)
+            data_dict[date_str] = percentage
+            current_date += timedelta(days=1)
         
         return data_dict
     
@@ -197,37 +261,37 @@ class ConkyUptimeTracker:
     
     def generate_summary_line(self, period_months=None):
         """Generate summary like GitHub"""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-        
         # Calculate the period to check
         if period_months is not None:
             period_days = int(period_months * 30.44)  # Average days per month
-            period_ago = (datetime.now() - timedelta(days=period_days)).strftime('%Y-%m-%d')
+            period_ago_date = datetime.now() - timedelta(days=period_days)
             period_text = f"last {period_months} month{'s' if period_months != 1 else ''}"
         else:
-            period_ago = (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')
+            period_ago_date = datetime.now() - timedelta(days=365)
             period_text = "last year"
         
-        cursor.execute('''
-            SELECT COUNT(*), SUM(CASE WHEN uptime_percentage > 75 THEN 1 ELSE 0 END)
-            FROM uptime_records 
-            WHERE date >= ?
-        ''', (period_ago,))
+        # Count days with good uptime in the period
+        good_days = 0
+        total_days = 0
+        current_date = period_ago_date
+        end_date = datetime.now()
         
-        result = cursor.fetchone()
-        conn.close()
+        while current_date <= end_date:
+            date_str = current_date.strftime('%Y-%m-%d')
+            percentage = self.get_daily_uptime_percentage(date_str)
+            if percentage > 0:  # Only count days we have data for
+                total_days += 1
+                if percentage > 75:
+                    good_days += 1
+            current_date += timedelta(days=1)
         
-        if result and result[0] > 0:
-            good_days = result[1] or 0
-            
-            # Get current uptime for today
-            _, today_uptime = self.get_current_uptime()
-            
-            return f"{good_days} high uptime days in the {period_text}. Today: {today_uptime}%"
+        # Get current uptime for today
+        today_percentage = self.get_daily_uptime_percentage(datetime.now().strftime('%Y-%m-%d'))
+        
+        if total_days > 0:
+            return f"{good_days} high uptime days in the {period_text}. Today: {today_percentage}%"
         else:
-            _, today_uptime = self.get_current_uptime()
-            return f"Starting to track uptime. Today: {today_uptime}%"
+            return f"Starting to track uptime. Today: {today_percentage}%"
     
     def generate_complete_conky_output(self, weeks=26, months=None):
         """Generate complete output ready for Conky"""
@@ -237,11 +301,29 @@ class ConkyUptimeTracker:
         result.append(self.generate_summary_line(months))
         
         return "\n".join(result)
+    
+    def cleanup_old_sessions(self, days_to_keep=400):
+        """Clean up old boot sessions to keep database size manageable"""
+        cutoff_date = (datetime.now() - timedelta(days=days_to_keep)).strftime('%Y-%m-%d')
+        
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            DELETE FROM boot_sessions 
+            WHERE date < ?
+        ''', (cutoff_date,))
+        
+        deleted = cursor.rowcount
+        conn.commit()
+        conn.close()
+        
+        return deleted
 
 def main():
     parser = argparse.ArgumentParser(description='Conky System Uptime Contribution Graph')
     parser.add_argument('action', nargs='?', default='graph', 
-                       choices=['graph', 'log'],
+                       choices=['graph', 'log', 'cleanup'],
                        help='Action to perform')
     parser.add_argument('--weeks', type=int, default=26,
                        help='Number of weeks to show (default: 26)')
@@ -256,6 +338,9 @@ def main():
     if args.action == 'log':
         uptime = tracker.log_uptime()
         print(f"Logged uptime: {uptime}%")
+    elif args.action == 'cleanup':
+        deleted = tracker.cleanup_old_sessions()
+        print(f"Cleaned up {deleted} old boot sessions")
     else:  # graph
         print(tracker.generate_complete_conky_output(args.weeks, args.months))
 

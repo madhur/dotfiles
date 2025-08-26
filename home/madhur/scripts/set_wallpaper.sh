@@ -144,5 +144,5 @@ echo "  Monitor 1: $horizontal_location_file"
 echo "  Monitor 2: $vertical_location_file"
 
 # Refresh wallpaper conky displays
-/home/madhur/.config/conky/launch.sh --wallpaper-only --no-pause
+setsid /home/madhur/.config/conky/launch.sh --wallpaper-only --no-pause &
                                                                                                                                                                                             
