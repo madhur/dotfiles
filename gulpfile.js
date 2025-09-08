@@ -18,9 +18,9 @@ gulp.task('gitadd', shell.task([
     verbose: true
 }));
 
-// Task to commit changes with timestamp
+// Task to commit changes with timestamp (IST)
 gulp.task('gitcommit', shell.task([
-    'git commit -m "backup: Dotfiles updated on ' + new Date().toISOString() + '"'
+    'git commit -m "backup: Dotfiles updated on ' + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST"'
 ], {
     cwd: './',
     verbose: true
