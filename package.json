@@ -1,0 +1,12 @@
+{
+  "name": "madhur_dotfiles",
+  "version": "0.1.0",
+  "description": "Madhur's dotfiles",
+  "author": "Madhur Ahuja",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-copy": "^4.0.1",
+    "gulp-git": "^2.10.1",
+    "gulp-shell": "^0.8.0"
+  }
+}

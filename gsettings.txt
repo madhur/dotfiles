@@ -111,7 +111,7 @@ org.blueman.general show-toolbar true
 org.blueman.general sort-by 'timestamp'
 org.blueman.general sort-order 'ascending'
 org.blueman.general symbolic-status-icons false
-org.blueman.general window-properties [3838, 2116, 0, 0]
+org.blueman.general window-properties [1492, 892, 2901, 648]
 org.blueman.network dhcp-handler @ms nothing
 org.blueman.network ip4-address @ms nothing
 org.blueman.network ip4-netmask '255.255.255.0'
@@ -120,7 +120,7 @@ org.blueman.plugins.autoconnect services [('78:2B:64:A2:21:03', '00000000-0000-0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1756175667.0386481', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1757263060.1270552', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -332,7 +332,7 @@ org.gnome.FileRoller.General compression-level 'normal'
 org.gnome.FileRoller.General editors @as []
 org.gnome.FileRoller.General encrypt-header false
 org.gnome.FileRoller.Listing list-mode 'as-folder'
-org.gnome.FileRoller.Listing name-column-width 1353
+org.gnome.FileRoller.Listing name-column-width 3290
 org.gnome.FileRoller.Listing show-path false
 org.gnome.FileRoller.Listing show-size true
 org.gnome.FileRoller.Listing show-time true
@@ -341,8 +341,8 @@ org.gnome.FileRoller.Listing sort-method 'name'
 org.gnome.FileRoller.Listing sort-type 'ascending'
 org.gnome.FileRoller.UI sidebar-width 200
 org.gnome.FileRoller.UI view-sidebar false
-org.gnome.FileRoller.UI window-height 1048
-org.gnome.FileRoller.UI window-width 1903
+org.gnome.FileRoller.UI window-height 2130
+org.gnome.FileRoller.UI window-width 3840
 org.gnome.GWeather4 default-location ('', 'KNYC', @m(dd) nothing)
 org.gnome.GWeather4 distance-unit 'default'
 org.gnome.GWeather4 pressure-unit 'default'
@@ -892,13 +892,13 @@ org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 204
-org.gtk.Settings.FileChooser sort-column 'name'
+org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'ascending'
+org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (217, 1197)
-org.gtk.Settings.FileChooser window-size (1726, 1397)
+org.gtk.Settings.FileChooser window-position (1729, 487)
+org.gtk.Settings.FileChooser window-size (1238, 815)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false
 org.gtk.gtk4.Inspector.Recorder highlight-sequences false
@@ -945,7 +945,7 @@ org.x.editor.plugins.filebrowser terminal-command 'x-terminal-emulator'
 org.x.editor.plugins.filebrowser.on-load enable-remote false
 org.x.editor.plugins.filebrowser.on-load root 'file:///'
 org.x.editor.plugins.filebrowser.on-load tree-view true
-org.x.editor.plugins.filebrowser.on-load virtual-root 'file:///home/madhur/Downloads'
+org.x.editor.plugins.filebrowser.on-load virtual-root 'file:///home/madhur/Screenshots/Timeline'
 org.x.editor.plugins.spell autocheck-type 'document'
 org.x.editor.plugins.time custom-format '%d/%m/%Y %H:%M:%S'
 org.x.editor.plugins.time prompt-type 'prompt-selected-format'
@@ -1006,7 +1006,7 @@ org.x.editor.state.window bottom-panel-active-page 0
 org.x.editor.state.window bottom-panel-size 140
 org.x.editor.state.window side-panel-active-page 827629879
 org.x.editor.state.window side-panel-size 200
-org.x.editor.state.window size (946, 2108)
+org.x.editor.state.window size (1903, 695)
 org.x.editor.state.window state 128
 x.dm.slick-greeter activate-numlock false
 x.dm.slick-greeter background ''

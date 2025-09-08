@@ -1,6 +1,6 @@
 [Unit]
 Description=Sets wallpaper at specified times
-#Requires=setwallpaper.service
+#Requires=setwallpaper.service    #Uncommenting this will trigger the service at boot
 
 [Timer]
 Unit=setwallpaper.service

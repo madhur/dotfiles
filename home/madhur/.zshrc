@@ -91,7 +91,7 @@ eval "$(starship init zsh)"
 # ( ) # Hide shell job control messages.
 if [[ $TERM == "xterm-256color" ]]
 then
-#(cat ~/.cache/wal/sequences &)
+(cat /home/madhur/gitpersonal/dotfiles/home/madhur/.cache/wal/sequences &)
 fi
 
 ## Fzf

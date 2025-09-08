@@ -1,4 +1,5 @@
 [MIME Cache]
+application/x-android-studio-project=android-studio.desktop;
 application/x-shellscript=nvim.desktop;
 text/english=nvim.desktop;
 text/plain=nvim.desktop;

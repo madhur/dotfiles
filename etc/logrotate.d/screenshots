@@ -1,0 +1,12 @@
+/home/madhur/Screenshots/Timeline/screenshot_*.png {
+    daily
+    maxage 7
+    rotate 0
+    missingok
+    notifempty
+    create 644 madhur madhur
+    postrotate
+        # Optional: log cleanup action
+        echo "$(date): Cleaned up old screenshots" >> /var/log/screenshot-cleanup.log
+    endscript
+}

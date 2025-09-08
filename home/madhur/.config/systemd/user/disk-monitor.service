@@ -4,7 +4,5 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/monitor_disk.py
-#User=your-username
-#Group=your-username
-WorkingDirectory=/home/madhur/Desktop/python
+ExecStart=/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/disk_monitor/monitor_disk.py
+WorkingDirectory=/home/madhur/Desktop/python/disk_monitor

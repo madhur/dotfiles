@@ -2,7 +2,8 @@
 Description=Run unit every hour
 
 [Timer]
-OnBootSec=1min
+#OnBootSec=1min
+OnCalendar=hourly
 OnUnitActiveSec=1h
 
 [Install]

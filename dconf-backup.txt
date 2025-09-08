@@ -72,7 +72,7 @@ maximized=false
 
 [org/blueman/general]
 services-last-item=0
-window-properties=[3838, 2116, 0, 0]
+window-properties=[1492, 892, 2901, 648]
 
 [org/blueman/network]
 nap-enable=false
@@ -84,7 +84,7 @@ services=[('78:2B:64:A2:21:03', '00000000-0000-0000-0000-000000000000')]
 auto-power-on=@mb true
 
 [org/blueman/plugins/recentconns]
-recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1756175667.0386481', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1757263060.1270552', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 
 [org/fedoraproject/FirewallConfig]
 show-active-bindings=true
@@ -215,15 +215,15 @@ window-size=(-1, -1)
 
 [org/gnome/file-roller/listing]
 list-mode='as-folder'
-name-column-width=1353
+name-column-width=3290
 show-path=false
 sort-method='name'
 sort-type='ascending'
 
 [org/gnome/file-roller/ui]
 sidebar-width=200
-window-height=1048
-window-width=1903
+window-height=2130
+window-width=3840
 
 [org/gnome/font-manager]
 charmap-font-size=24.812989921612541
@@ -333,12 +333,12 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=204
-sort-column='name'
+sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
-window-position=(217, 1197)
-window-size=(1726, 1397)
+window-position=(1729, 487)
+window-size=(1238, 815)
 
 [org/guake/general]
 compat-delete='delete-sequence'
@@ -402,7 +402,7 @@ active-plugins=['spell', 'open-uri-context-menu', 'joinlines', 'filebrowser', 't
 [org/x/editor/plugins/filebrowser/on-load]
 root='file:///'
 tree-view=true
-virtual-root='file:///home/madhur/Downloads'
+virtual-root='file:///home/madhur/Screenshots/Timeline'
 
 [org/x/editor/preferences/editor]
 bracket-matching=false
@@ -418,7 +418,7 @@ statusbar-visible=true
 bottom-panel-size=140
 side-panel-active-page=827629879
 side-panel-size=200
-size=(946, 2108)
+size=(1903, 695)
 state=128
 
 [system/proxy]

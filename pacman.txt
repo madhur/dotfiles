@@ -48,6 +48,7 @@ cpio
 cpupower
 cryptsetup
 csvlens
+ctop
 cups
 cups-filters
 cups-pdf
@@ -135,6 +136,7 @@ gst-plugins-ugly
 gtk-engine-murrine
 gtk-update-icon-cache
 gtk4
+gtk4-layer-shell
 gutenprint
 gvfs
 gzip
@@ -217,6 +219,8 @@ modemmanager
 moreutils
 mpv
 msedit
+msmtp
+msmtp-mta
 mtools
 mypy
 namcap
@@ -347,8 +351,8 @@ rednotebook
 redshift
 reflector
 ripgrep
+rofi
 rofi-calc
-rofi-wayland
 rpcsvc-proto
 rsync
 rtkit
@@ -361,6 +365,7 @@ slurp
 smartmontools
 socat
 sof-firmware
+sox
 splix
 sshfs
 sshpass

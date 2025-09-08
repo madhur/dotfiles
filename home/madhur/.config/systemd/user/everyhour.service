@@ -1,5 +1,5 @@
 [Unit]
-Description=Script to update wallpaper based on time
+Description=Script to do anything every hour
 
 [Service]
 Type=oneshot

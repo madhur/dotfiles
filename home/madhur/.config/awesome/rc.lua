@@ -76,7 +76,8 @@ tag.connect_signal("request::default_layouts", function()
 		bling.layout.deck,
 		bling.layout.equalarea,
 		awful.layout.suit.max,
-		bling.layout.mstab,
+		--bling.layout.mstab,
+		madhur.layout.horizontal_scroll
 	})
 end)
 

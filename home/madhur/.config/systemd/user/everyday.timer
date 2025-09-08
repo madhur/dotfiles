@@ -3,8 +3,11 @@ Description=Run unit every day
 #Requires=everyday.service     #Uncommenting this will trigger the service at boot
 
 [Timer]
-OnBootSec=15min
-OnUnitActiveSec=1d
+#OnBootSec=15min
+Persistent=true
+OnCalendar=daily
+#OnUnitActiveSec=1d
+RandomizedDelaySec=300
 
 [Install]
 WantedBy=timers.target

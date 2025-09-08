@@ -1,0 +1,11 @@
+[Unit]
+Description=Run unit every week
+
+[Timer]
+Persistent=true
+OnCalendar=weekly
+RandomizedDelaySec=3600
+
+
+[Install]
+WantedBy=timers.target

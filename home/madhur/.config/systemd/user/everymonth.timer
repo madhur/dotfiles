@@ -1,0 +1,11 @@
+[Unit]
+Description=Run unit every month
+
+[Timer]
+Persistent=true
+OnCalendar=monthly
+RandomizedDelaySec=3600
+
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Failure notification for %i
+DefaultDependencies=false
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/service-notifier.sh %i fail
+Environment=DISPLAY=:0
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+RemainAfterExit=false

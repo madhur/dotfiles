@@ -80,11 +80,7 @@ load-nvmrc() {
   fi
 }
 
-## Automatically invoke java version when pom.xml
-load-mvn() {
 
-
-}
 
 
 n ()

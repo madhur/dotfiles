@@ -56,7 +56,7 @@ if [ -d "$folder" ]; then
     feh --randomize --bg-center "$base_folder/$folder"
     
     # Update OSD display
-    update_osd_display "$location" "left"
+    #update_osd_display "$location" "left"
     
     # Clear vertical location since we're only using one wallpaper
     echo "" > "$vertical_location_file"

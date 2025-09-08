@@ -7,6 +7,18 @@ charles
 cheat-bin
 downgrade
 elasticsearch7
+elephant
+elephant-archlinuxpkgs
+elephant-calc
+elephant-clipboard
+elephant-desktopapplications
+elephant-files
+elephant-menus
+elephant-providerlist
+elephant-symbols
+elephant-todo
+elephant-unicode
+elephant-websearch
 endeavouros-keyring
 endeavouros-mirrorlist
 endeavouros-theming
@@ -17,6 +29,7 @@ flat-remix-gtk
 glava
 gluqlo-git
 gnome-icon-theme
+google-chrome
 hey
 hyprland-autoname-workspaces-git
 intellij-idea-community-edition-jre
@@ -27,6 +40,9 @@ kafkactl
 kind
 lcov-git
 lightdm-settings
+litecli
+logkeys
+mangowc-git
 mkinitcpio-openswap
 mongodb-tools-bin
 mongodb60-bin
