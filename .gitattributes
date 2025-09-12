@@ -1,0 +1,5 @@
+# .gitattributes - specify which files to encrypt
+#.gitconfig filter=git-crypt diff=git-crypt
+#.tmux.conf filter=git-crypt diff=git-crypt
+#etc/ssh/sshd_config.d/* filter=git-crypt diff=git-crypt
+# Add any other sensitive files here
