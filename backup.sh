@@ -113,6 +113,6 @@ gsettings list-recursively > gsettings.txt
 
 sudo chown -R madhur:madhur .
 
-echo "Encrypting sensitive files..."
-git add .gitattributes
-git-crypt lock
+# echo "Encrypting sensitive files..."
+# git add .gitattributes
+# git-crypt lock
