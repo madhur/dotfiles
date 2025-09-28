@@ -1,3 +1,6 @@
+# See failed units
+systemctl --failed
+
 # View the user's timers
 systemctl list-timers --user --all
 

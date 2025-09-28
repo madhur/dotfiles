@@ -458,7 +458,7 @@ org.gnome.desktop.default-applications.office.calendar exec 'evolution -c calend
 org.gnome.desktop.default-applications.office.calendar needs-term false
 org.gnome.desktop.default-applications.office.tasks exec 'evolution -c tasks'
 org.gnome.desktop.default-applications.office.tasks needs-term false
-org.gnome.desktop.default-applications.terminal exec 'gnome-terminal'
+org.gnome.desktop.default-applications.terminal exec 'xdg-terminal-exec'
 org.gnome.desktop.default-applications.terminal exec-arg '-x'
 org.gnome.desktop.input-sources current uint32 0
 org.gnome.desktop.input-sources mru-sources @a(ss) []
@@ -470,7 +470,7 @@ org.gnome.desktop.input-sources xkb-options @as []
 org.gnome.desktop.interface accent-color 'blue'
 org.gnome.desktop.interface avatar-directories @as []
 org.gnome.desktop.interface can-change-accels false
-org.gnome.desktop.interface clock-format '12h'
+org.gnome.desktop.interface clock-format '24h'
 org.gnome.desktop.interface clock-show-date true
 org.gnome.desktop.interface clock-show-seconds false
 org.gnome.desktop.interface clock-show-weekday false
@@ -604,6 +604,7 @@ org.gnome.desktop.screensaver picture-opacity 100
 org.gnome.desktop.screensaver picture-options 'zoom'
 org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/gnome/adwaita-l.webp'
 org.gnome.desktop.screensaver primary-color '#3071AE'
+org.gnome.desktop.screensaver restart-enabled false
 org.gnome.desktop.screensaver secondary-color '#000000'
 org.gnome.desktop.screensaver show-full-name-in-top-bar true
 org.gnome.desktop.screensaver status-message-enabled true
@@ -665,8 +666,8 @@ org.gnome.desktop.wm.keybindings move-to-workspace-8 @as []
 org.gnome.desktop.wm.keybindings move-to-workspace-9 @as []
 org.gnome.desktop.wm.keybindings move-to-workspace-down ['<Control><Shift><Alt>Down']
 org.gnome.desktop.wm.keybindings move-to-workspace-last ['<Super><Shift>End']
-org.gnome.desktop.wm.keybindings move-to-workspace-left ['<Super><Shift>Page_Up', '<Super><Shift><Alt>Left', '<Control><Shift><Alt>Left']
-org.gnome.desktop.wm.keybindings move-to-workspace-right ['<Super><Shift>Page_Down', '<Super><Shift><Alt>Right', '<Control><Shift><Alt>Right']
+org.gnome.desktop.wm.keybindings move-to-workspace-left ['<Super><Shift>Page_Up', '<Super><Shift>KP_Prior', '<Super><Shift><Alt>Left', '<Control><Shift><Alt>Left']
+org.gnome.desktop.wm.keybindings move-to-workspace-right ['<Super><Shift>Page_Down', '<Super><Shift>KP_Next', '<Super><Shift><Alt>Right', '<Control><Shift><Alt>Right']
 org.gnome.desktop.wm.keybindings move-to-workspace-up ['<Control><Shift><Alt>Up']
 org.gnome.desktop.wm.keybindings panel-main-menu @as []
 org.gnome.desktop.wm.keybindings panel-run-dialog ['<Alt>F2']
@@ -696,8 +697,8 @@ org.gnome.desktop.wm.keybindings switch-to-workspace-8 @as []
 org.gnome.desktop.wm.keybindings switch-to-workspace-9 @as []
 org.gnome.desktop.wm.keybindings switch-to-workspace-down ['<Control><Alt>Down']
 org.gnome.desktop.wm.keybindings switch-to-workspace-last ['<Super>End']
-org.gnome.desktop.wm.keybindings switch-to-workspace-left ['<Super>Page_Up', '<Super><Alt>Left', '<Control><Alt>Left']
-org.gnome.desktop.wm.keybindings switch-to-workspace-right ['<Super>Page_Down', '<Super><Alt>Right', '<Control><Alt>Right']
+org.gnome.desktop.wm.keybindings switch-to-workspace-left ['<Super>Page_Up', '<Super>KP_Prior', '<Super><Alt>Left', '<Control><Alt>Left']
+org.gnome.desktop.wm.keybindings switch-to-workspace-right ['<Super>Page_Down', '<Super>KP_Next', '<Super><Alt>Right', '<Control><Alt>Right']
 org.gnome.desktop.wm.keybindings switch-to-workspace-up ['<Control><Alt>Up']
 org.gnome.desktop.wm.keybindings switch-windows @as []
 org.gnome.desktop.wm.keybindings switch-windows-backward @as []
@@ -751,9 +752,10 @@ org.gnome.evolution-data-server.calendar defall-reminder-interval 15
 org.gnome.evolution-data-server.calendar defall-reminder-units 'minutes'
 org.gnome.evolution-data-server.calendar delete-meeting-on-decline true
 org.gnome.evolution-data-server.calendar notify-completed-tasks true
-org.gnome.evolution-data-server.calendar notify-custom-snooze-minutes @ai []
+org.gnome.evolution-data-server.calendar notify-custom-snooze-times @as []
 org.gnome.evolution-data-server.calendar notify-enable-audio true
 org.gnome.evolution-data-server.calendar notify-enable-display true
+org.gnome.evolution-data-server.calendar notify-last-snooze-from-start false
 org.gnome.evolution-data-server.calendar notify-last-snooze-minutes 5
 org.gnome.evolution-data-server.calendar notify-past-events false
 org.gnome.evolution-data-server.calendar notify-programs @as []
@@ -894,10 +896,10 @@ org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 204
 org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'descending'
+org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1729, 487)
+org.gtk.Settings.FileChooser window-position (1, 31)
 org.gtk.Settings.FileChooser window-size (1238, 815)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false
@@ -1006,7 +1008,7 @@ org.x.editor.state.window bottom-panel-active-page 0
 org.x.editor.state.window bottom-panel-size 140
 org.x.editor.state.window side-panel-active-page 827629879
 org.x.editor.state.window side-panel-size 200
-org.x.editor.state.window size (1903, 695)
+org.x.editor.state.window size (1728, 2442)
 org.x.editor.state.window state 128
 x.dm.slick-greeter activate-numlock false
 x.dm.slick-greeter background ''

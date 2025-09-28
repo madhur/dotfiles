@@ -21,6 +21,7 @@ run_without_pcheck() {
 
 
 #autorandr --load two
+run_without_pcheck "WatchYourLAN"
 run_without_pcheck "/home/madhur/scripts/set_wallpaper.sh"
 
 run sxhkd
@@ -38,5 +39,6 @@ run "xscreensaver"
 (sleep 5 && run "redshift") &
 run "systemd-timer-notify"
 flatpak run com.github.hluk.copyq
+
 
 

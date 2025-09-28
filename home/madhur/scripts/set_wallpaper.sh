@@ -38,7 +38,7 @@ cd $base_folder || exit 1
 
 # Check for date-specific folder first
 folder=$(date +%d_%m)
-bg_mode="center"
+
 
 if [ -d "$folder" ]; then
     echo "Using date-specific folder: $base_folder/$folder"
@@ -60,7 +60,6 @@ if [ -d "$folder" ]; then
     
     # Clear vertical location since we're only using one wallpaper
     echo "" > "$vertical_location_file"
-    pkill -f "osd_wallpaper_right"
     
     exit 0
 fi
@@ -87,6 +86,8 @@ echo "Using time-based folder: $folder (hour: $hour)"
 
 # Select random wallpapers
 filename=$(ls $base_folder/$folder | grep -iE '\.(jpe?g|png|gif|bmp|webp|tiff)$' | shuf -n 1)
+#filename="fg88wims2ugf1.jpeg"
+
 horizontal_path="$base_folder/$folder/$filename"
 echo "Selected horizontal: $filename"
 
@@ -128,13 +129,13 @@ if [ -n "$processed_vertical" ] && [ -f "$processed_vertical" ]; then
     # Both horizontal and vertical wallpapers
     echo "Setting wallpapers: $(basename "$processed_horizontal") + $(basename "$processed_vertical")"
     $feh_cmd "$processed_horizontal" "$processed_vertical"
-    notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path") + $(basename "$vertical_path")"
+    #notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path") + $(basename "$vertical_path")"
     
 else
     # Only horizontal wallpaper
     echo "Setting wallpaper: $(basename "$processed_horizontal")"
     $feh_cmd "$processed_horizontal"
-    notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path")"
+    #notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path")"
     
 fi
 

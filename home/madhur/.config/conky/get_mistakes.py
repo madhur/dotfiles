@@ -25,6 +25,10 @@ def read_mistakes(csv_file: str) -> List[str]:
                 
                 mistake_text = row['mistake'].strip()
                 
+                # Skip rows that start with # (comments)
+                if mistake_text.startswith('#'):
+                    continue
+                
                 if mistake_text:
                     mistakes.append(mistake_text)
     

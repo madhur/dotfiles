@@ -5,7 +5,8 @@ Description=Run unit every day
 [Timer]
 #OnBootSec=15min
 Persistent=true
-OnCalendar=daily
+#OnCalendar=daily #Runs at 12am every day
+OnCalendar=*-*-* 20:00:00
 #OnUnitActiveSec=1d
 RandomizedDelaySec=300
 

@@ -76,6 +76,10 @@ def read_goals(csv_file: str) -> List[Tuple[str, str, str, datetime]]:
                 goal_text = row['goal'].strip()
                 target_str = row['target_date'].strip()
                 
+                # Skip rows that start with # (comments)
+                if goal_text.startswith('#'):
+                    continue
+                
                 if not goal_text or not target_str:
                     continue
                 
@@ -88,7 +92,8 @@ def read_goals(csv_file: str) -> List[Tuple[str, str, str, datetime]]:
                 except Exception:
                     continue
     
-    except Exception:
+    except Exception as e:
+        print(e)
         return []
     
     # Sort by target date (most urgent first)

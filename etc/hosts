@@ -17,8 +17,8 @@ ff02::2    ip6-allrouters
 192.168.100.128 proxmox
 
 
-192.168.1.82 zk.docker.dev
-192.168.1.82 redis
+#192.168.1.82 zk.docker.dev
+#192.168.1.82 redis
 192.168.1.82 kafka
 192.168.1.82 redis1
 127.0.0.1 cassandra

@@ -11,7 +11,7 @@ import os
 # Configuration
 TWEETS_FILE = os.path.expanduser("~/.config/conky/tweets1.json")
 MAX_TWEET_LENGTH = 1500  # Set to 1500 as requested
-LINE_WIDTH = 60  # Characters per line for wrapping
+LINE_WIDTH = 80  # Characters per line for wrapping
 
 def extract_tweet_text(tweet_result):
     """Extract the full tweet text, checking multiple possible locations"""

@@ -112,12 +112,11 @@ gettext
 ghostscript
 ghostty
 git
+git-crypt
 git-delta
 github-cli
 glances
-globalprotect-openconnect
 glow
-gnu-netcat
 go
 go-yq
 goaccess
@@ -235,7 +234,6 @@ netctl
 network-manager-applet
 networkmanager
 networkmanager-openvpn
-newsboat
 nfs-utils
 nginx
 nilfs-utils
@@ -383,13 +381,12 @@ system-config-printer
 systemd-sysvcompat
 tcpdump
 termshark
-terraform
 texinfo
 thunar
-tig
 tldr
 tmux
 traceroute
+trash-cli
 ttf-bitstream-vera
 ttf-dejavu
 ttf-jetbrains-mono
@@ -415,7 +412,6 @@ waybar
 wget
 which
 whois
-wireguard-tools
 wireless-regdb
 wireless_tools
 wireplumber

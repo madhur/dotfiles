@@ -177,7 +177,7 @@ client.connect_signal("request::border", set_border)
 client.connect_signal("property::maximized", set_border)
 
 awful.spawn.with_shell("~/scripts/autostart.sh")
-awful.spawn.once("xrandr --output DP-0 --scale 0.8x0.8")
+--awful.spawn.once("xrandr --output DP-0 --scale 0.8x0.8")
 
 --- Enable for lower memory consumption
 collectgarbage("setpause", 110)

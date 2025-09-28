@@ -29,6 +29,7 @@ flat-remix-gtk
 glava
 gluqlo-git
 gnome-icon-theme
+gnu-netcat
 google-chrome
 hey
 hyprland-autoname-workspaces-git
@@ -43,6 +44,7 @@ lightdm-settings
 litecli
 logkeys
 mangowc-git
+microsoft-edge-stable-bin
 mkinitcpio-openswap
 mongodb-tools-bin
 mongodb60-bin
@@ -60,6 +62,7 @@ oh-my-zsh-git
 papirus-folders-git
 picom-git
 pipes.sh
+postgresql13
 postman-bin
 powerline-fonts-git
 prettierd
@@ -88,8 +91,8 @@ tabbed-flexipatch-git
 tmux-xpanes
 vagrant
 visual-studio-code-bin
+watch-your-lan
 waypaper
-wireguird
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night

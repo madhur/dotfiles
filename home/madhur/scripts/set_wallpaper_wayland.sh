@@ -51,7 +51,7 @@ if [ -d "$folder" ]; then
         fi
     done
     
-    notify-send "Wallpaper Updated" "Set: $(basename "$filename")"
+    #notify-send "Wallpaper Updated" "Set: $(basename "$filename")"
     echo "Wallpaper set successfully!"
     exit 0
 fi
@@ -245,17 +245,17 @@ if [ "$wallpaper_set" = false ]; then
     echo "Fallback: Setting wallpaper on all monitors"
     if [ -n "$processed_vertical" ] && [ -f "$processed_vertical" ]; then
         swaybg -i "$processed_horizontal" -m "$scaling_mode" -c "$bg_color" &
-        notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path") + $(basename "$vertical_path")"
+        #notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path") + $(basename "$vertical_path")"
     else
         swaybg -i "$processed_horizontal" -m "$scaling_mode" -c "$bg_color" &
-        notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path")"
+        #notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path")"
     fi
 else
     # Send appropriate notification
     if [ -n "$processed_vertical" ] && [ -f "$processed_vertical" ]; then
-        notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path") + $(basename "$vertical_path")"
+        #notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path") + $(basename "$vertical_path")"
     else
-        notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path")"
+        #notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path")"
     fi
 fi
 

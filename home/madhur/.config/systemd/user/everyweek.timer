@@ -3,7 +3,8 @@ Description=Run unit every week
 
 [Timer]
 Persistent=true
-OnCalendar=weekly
+#OnCalendar=weekly This runs monday midnight.
+OnCalendar=Sat *-*-* 00:00:00
 RandomizedDelaySec=3600
 
 

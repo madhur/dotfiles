@@ -292,6 +292,10 @@ maximized=false
 [org/gnome/nm-applet]
 disable-connected-notifications=true
 
+[org/gnome/nm-applet/eap/21b19961-82de-4add-92c0-7f63a235f0ae]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
 [org/gnome/shell]
 disabled-extensions=['windowsNavigator@gnome-shell-extensions.gcampax.github.com']
 enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
@@ -335,9 +339,9 @@ show-type-column=true
 sidebar-width=204
 sort-column='modified'
 sort-directories-first=false
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(1729, 487)
+window-position=(1, 31)
 window-size=(1238, 815)
 
 [org/guake/general]
@@ -418,7 +422,7 @@ statusbar-visible=true
 bottom-panel-size=140
 side-panel-active-page=827629879
 side-panel-size=200
-size=(1903, 695)
+size=(1728, 2442)
 state=128
 
 [system/proxy]

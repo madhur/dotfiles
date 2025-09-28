@@ -1,7 +1,7 @@
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local awful = require("awful")
-local top_left = require("madhur.widget.top_left")
+--local top_left = require("madhur.widget.top_left")
 local gpick = require("popups.color_picker")
 local wiboxes = {}
 local madhur = require("madhur")
@@ -145,6 +145,7 @@ local right_widgets = {
     layout = wibox.layout.fixed.horizontal,
     --pl (cpu_temp, true, "cpu_temp1"),
     pl(require("widgets.topbar.clock"), true, "calendar"),
+    pl(require("widgets.topbar.capslock"), true, "capslock"),
     pl((require("widgets.topbar.redshift")), true, "redshift"),
     pl((require("widgets.topbar.cpu")), true, "cpu_widget"),
     
@@ -158,7 +159,7 @@ local right_widgets = {
     --pl((require("widgets.topbar.aws")), true, "aws"),
     --require("widgets.topbar.aws"),
     pl((require("widgets.topbar.pacman")), true, "pacman"),
-    pl(top_left, true, ""),
+    --pl(top_left, true, ""),
     --gpick,
     --pl((require("widgets.topbar.notification")), true, "notification"),
     wibox.container.margin((require("widgets.topbar.systray")), 3, 3, 3, 3)
