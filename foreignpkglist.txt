@@ -1,3 +1,4 @@
+activitywatch-bin
 apache-tools
 autokey-gtk
 awesome-git
@@ -5,6 +6,7 @@ brave-bin
 caffeine-ng
 charles
 cheat-bin
+cloudflare-warp-bin
 downgrade
 elasticsearch7
 elephant
@@ -88,6 +90,7 @@ snyk
 studio-3t
 systemd-timer-notify
 tabbed-flexipatch-git
+temporal-cli
 tmux-xpanes
 vagrant
 visual-studio-code-bin

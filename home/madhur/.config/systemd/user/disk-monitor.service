@@ -1,8 +1,0 @@
-[Unit]
-Description=Disk Usage Monitoring Service
-After=network.target
-
-[Service]
-Type=oneshot
-ExecStart=/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/disk_monitor/monitor_disk.py
-WorkingDirectory=/home/madhur/Desktop/python/disk_monitor

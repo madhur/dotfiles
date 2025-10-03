@@ -30,13 +30,13 @@ send_notifications() {
 
 case "$ACTION" in
     "start")
-        send_notifications "Service Started" "$CLEAN_NAME is now running" "dialog-information" "info"
+        #send_notifications "Service Started" "$CLEAN_NAME is now running" "dialog-information" "info"
         ;;
     "stop") 
         send_notifications "Service Stopped" "$CLEAN_NAME has stopped" "dialog-warning" "warning"
         ;;
     "success")
-        send_notifications "Service Complete" "$CLEAN_NAME finished successfully" "dialog-information" "success"
+        #send_notifications "Service Complete" "$CLEAN_NAME finished successfully" "dialog-information" "success"
         ;;
     "fail")
         send_notifications "Service Failed" "$CLEAN_NAME encountered an error" "dialog-error" "error"

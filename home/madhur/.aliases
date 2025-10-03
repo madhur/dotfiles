@@ -4,7 +4,6 @@ alias mirrorUpdate='reflector --country in --latest 15 --protocol https --sort r
 
 alias cd..='cd ..'
 #alias pwd='pwd && pwd | xclip -sel clipboard'
-alias unin='sudo dnf remove'
 alias repo="cd ~/github"
 alias repop="cd ~/gitpersonal"
 alias c="clear"
@@ -48,6 +47,7 @@ alias gpum='git pull upstream master'
 alias gpur='git pull upstream release'
 
 alias fmvn='mvn clean package -DskipTests -Dspotbugs.skip=true -Dcheckstyle.skip=true -Djacoco.skip=true'
+alias fmvno='mvn clean package -DskipTests -Dspotbugs.skip=true -Dcheckstyle.skip=true -Djacoco.skip=true -o'
 
 alias gbo='gradle bootrun'
 alias gbi='gradle build install'
@@ -146,7 +146,6 @@ alias kgp='kubectl get pod'
 alias kgsvc='kubectl get service'
 alias kl='kubectl logs --all-containers=true'
 alias krm='kubectl delete'
-alias cred="sh ~/.aws/renew_dev_token.sh"
 
 alias killf="ps -u madhur a | fzf --reverse | awk '{print $2}' | xargs kill -9"
 

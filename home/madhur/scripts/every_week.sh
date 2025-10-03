@@ -6,8 +6,5 @@ source /home/madhur/scripts/notify_wrapper.sh
 
 
 run_with_notification "cd /home/madhur/gitpersonal/dotfiles && node_modules/gulp-cli/bin/gulp.js backup-and-push" "Dotfiles update and push" "systemd"
-
-
-
 run_with_notification "/home/madhur/scripts/git-automate.sh /home/madhur/docker" "Sync docker repo" "systemd"
 run_with_notification "/home/madhur/scripts/git-automate.sh /home/madhur/Desktop/python" "Sync Python repo" "systemd"

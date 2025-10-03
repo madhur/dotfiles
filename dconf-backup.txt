@@ -339,9 +339,9 @@ show-type-column=true
 sidebar-width=204
 sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
-window-position=(1, 31)
+window-position=(3841, 31)
 window-size=(1238, 815)
 
 [org/guake/general]

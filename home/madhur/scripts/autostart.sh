@@ -38,6 +38,7 @@ run "xscreensaver"
 #run "eww daemon"
 (sleep 5 && run "redshift") &
 run "systemd-timer-notify"
+run "aw-qt"
 flatpak run com.github.hluk.copyq
 
 

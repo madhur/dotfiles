@@ -104,7 +104,7 @@ run_with_notification() {
     local cmd="$1"
     local description="${2:-$(basename "${cmd%% *}")}"
     local topic="${3:-maintenance}"
-    local notify_start="${4:-true}"
+    local notify_start="${4:-false}"
     
     local start_time=$(date +%s)
     local timestamp=$(date '+%Y-%m-%d %H:%M:%S')

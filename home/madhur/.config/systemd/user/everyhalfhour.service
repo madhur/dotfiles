@@ -1,0 +1,6 @@
+[Unit]
+Description=Script to do anything every half hour
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/every_half_hour.sh
