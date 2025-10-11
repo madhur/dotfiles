@@ -8,7 +8,6 @@ charles
 cheat-bin
 cloudflare-warp-bin
 downgrade
-elasticsearch7
 elephant
 elephant-archlinuxpkgs
 elephant-calc
@@ -21,16 +20,12 @@ elephant-symbols
 elephant-todo
 elephant-unicode
 elephant-websearch
-endeavouros-keyring
-endeavouros-mirrorlist
-endeavouros-theming
 epub2pdf
 eww
 flat-remix-git
 flat-remix-gtk
 glava
 gluqlo-git
-gnome-icon-theme
 gnu-netcat
 google-chrome
 hey
@@ -40,7 +35,6 @@ intellij-idea-ultimate-edition
 jd-gui-bin
 kaf-bin
 kafkactl
-kind
 lcov-git
 lightdm-settings
 litecli
@@ -50,7 +44,6 @@ microsoft-edge-stable-bin
 mkinitcpio-openswap
 mongodb-tools-bin
 mongodb60-bin
-mycli
 ncurses5-compat-libs
 nerd-fonts-complete
 ngrok
@@ -67,7 +60,6 @@ pipes.sh
 postgresql13
 postman-bin
 powerline-fonts-git
-prettierd
 prettyzoo
 python-pulsectl-asyncio
 python2
@@ -84,7 +76,6 @@ reiserfsprogs
 rofi-file-browser-extended-git
 rofi-process-killer
 shell-color-scripts
-slack-desktop
 snapd
 snyk
 studio-3t

@@ -2,6 +2,9 @@
 tags: [ packaging ]
 ---
 
+# Find unused packages
+pacman -Qet
+
 # Overwrite files for a specific package
 pacman -S --overwrite \* mesa 
 

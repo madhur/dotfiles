@@ -1,0 +1,37 @@
+# Initialize the vault
+vault operator init
+
+# Login to vault either using root token or service token
+vault login
+
+# Lookup current token
+vault token lookup
+
+# Create a token
+vault token create -policy="default" -period=24h
+
+# Revoke a token
+vault token revoke <token>
+
+# Create orphan token
+vault token create -orphan -policy=default
+
+# Enable auth method
+vault auth enable userpass
+
+# List auth methods
+vault auth list
+
+# Put a secret
+vault kv put /dev-secrets/creds api-key=E6BED968-0FE3-411E-9B9B-C45812E4737A
+
+# get a secret
+vault kv get /dev-secrets/creds
+
+# Vault read
+vault read database/config/postgresql
+
+# create a secrets engine
+vault secrets enable transit
+
+

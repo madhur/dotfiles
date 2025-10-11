@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Bitwarden
+Exec=env DESKTOPINTEGRATION=1 /home/madhur/AppImages/bitwarden.appimage --no-sandbox %U
+TryExec=/home/madhur/AppImages/bitwarden.appimage
+Icon=/home/madhur/AppImages/.icons/bitwarden.png
+Terminal=false
+Type=Application
+
+StartupWMClass=Bitwarden
+
+GenericName=Password Manager
+Comment=A secure and free password manager for all of your devices.
+MimeType=x-scheme-handler/bitwarden;
+Categories=Utility;
+
+X-AppImage-Version=2025.8.2

@@ -100,3 +100,9 @@
 
     # `git diff` with difftastic.
     dft = -c diff.external=difft diff
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

@@ -3,7 +3,7 @@ Xprop,notify-send -t 10000 -i window_list  "$(xprop  | xclip -selection 'clipboa
 Randomize Wallpaper,/home/madhur/scripts/set_wallpaper.sh,phototonic
 ^sep()
 Terminal,kitty,kitty
-Connect VPN, "/home/madhur/company/connect_vpn.sh", openvpn
+Fetch Email, "cd /home/madhur/Desktop/python/email_reader && /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/email_reader/gmail_reader.py", email
 Sxhkd,sxhkd, keyboard
 BraveBrowser, brave, brave
 Picom, /home/madhur/.config/picom/launch.sh, picom
@@ -13,11 +13,9 @@ Flameshot, "flameshot", flameshot
 Copyq, "flatpak run com.github.hluk.copyq", copyq
 Xsettingsd, xsettingsd, gnome-wm
 Indicator Sound Switcher, "indicator-sound-switcher", indicator-sound-switcher
-#GlobalProtect, "/opt/paloaltonetworks/globalprotect/PanGPUI"
 NMApplet, "nm-applet", network-wired
 Redshift,"redshift", redshift
 Fix Layout,"/home/madhur/scripts/fix_layout.sh"
-#Restart awesome, "echo 'awesome.restart()' | awesome-client"
 Startup Apps,"/home/madhur/.config/awesome/autostart.sh"
 ^sep()
 System Design,^checkout(system_design)
@@ -33,7 +31,6 @@ Designing Data Intensive Applications,xdg-open '/data/media/Designing Data Inten
 Back,^back()
 
 ^tag(apps-dir-Apps)
-#Firefox, "firefox"
 Brave,"brave", brave
 
 ^tag(apps-dir-System)

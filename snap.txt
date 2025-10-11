@@ -15,7 +15,7 @@ icloud-notes                1.2.0                           3      latest/stable
 indicator-sound-switcher    2.3.10.1                        173    latest/stable  yktoo           -
 joplin-desktop              v3.4.12                         127    latest/stable  james-carroll*  -
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
-lunatask                    2.1.10                          88     latest/stable  lunatask        -
+lunatask                    2.1.12                          89     latest/stable  lunatask        -
 mesa-2404                   24.2.8-snap185                  912    latest/stable  canonical**     -
 sdlpop                      1.23                            715    latest/stable  snapcrafters*   -
 snapcraft                   8.12.0                          15950  latest/stable  canonical**     classic

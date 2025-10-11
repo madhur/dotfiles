@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Superpaper
+GenericName=Multi-monitor wallpaper manager
+Exec=env DESKTOPINTEGRATION=1 /home/madhur/AppImages/superpaper.appimage
+TryExec=/home/madhur/AppImages/superpaper.appimage
+Icon=/home/madhur/AppImages/.icons/superpaper.png
+
+Terminal=false
+Categories=Utility;
+X-KDE-autostart-after=panel
+
+
+X-AppImage-Version=2.2.1

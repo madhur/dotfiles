@@ -3,7 +3,6 @@ acpi
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
-almanah
 alsa-card-profiles
 alsa-firmware
 alsa-plugins
@@ -15,7 +14,6 @@ arandr
 archiso
 archlinux-keyring
 archlinux-xdg-menu
-argocd
 asciidoc
 asciidoctor
 atuin
@@ -36,18 +34,15 @@ bison
 blueman
 bluez
 bluez-utils
-btop
 btrfs-progs
 calc
 cantarell-fonts
-cava
 clang
 cliphist
 conky
 cpio
 cpupower
 cryptsetup
-csvlens
 ctop
 cups
 cups-filters
@@ -77,7 +72,6 @@ dunst
 e2fsprogs
 efibootmgr
 efitools
-eslint_d
 ethtool
 exfatprogs
 expac
@@ -96,8 +90,6 @@ firewalld
 flameshot
 flatpak
 flex
-foliate
-font-manager
 foomatic-db
 foomatic-db-engine
 foomatic-db-gutenprint-ppds
@@ -110,7 +102,6 @@ gawk
 gcc
 gettext
 ghostscript
-ghostty
 git
 git-crypt
 git-delta
@@ -224,9 +215,7 @@ mtools
 mypy
 namcap
 nano
-nano-syntax-highlighting
 nbd
-ncdu
 ndisc6
 neovim
 net-tools
@@ -251,7 +240,6 @@ nvme-cli
 nwg-look
 openconnect
 opendoas
-openldap
 openssl-1.1
 openvpn
 os-prober
@@ -280,7 +268,6 @@ powertop
 ppp
 pptpclient
 pre-commit
-prettier
 prometheus-node-exporter
 pv
 python
@@ -369,21 +356,19 @@ sshfs
 sshpass
 starship
 stress
-stylua
 sublime-text
 sudo
 swaybg
 sxhkd
+syncthing
 sysdig
 sysfsutils
 sysstat
 system-config-printer
 systemd-sysvcompat
 tcpdump
-termshark
 texinfo
 thunar
-tldr
 tmux
 traceroute
 trash-cli
@@ -398,11 +383,10 @@ tumbler
 unrar
 unzip
 upower
-urlwatch
 usb_modeswitch
 usbutils
 uthash
-vi
+vault
 vim
 virtualbox
 vpnc
@@ -411,7 +395,6 @@ w3m
 waybar
 wget
 which
-whois
 wireless-regdb
 wireless_tools
 wireplumber
@@ -419,7 +402,6 @@ wireshark-cli
 wl-clipboard
 wlroots0.18
 wlsunset
-woff2-font-awesome
 wol
 wpa_supplicant
 wpebackend-fdo
@@ -431,7 +413,6 @@ xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 xdotool
-xed
 xf86-input-libinput
 xfsprogs
 xl2tpd
@@ -446,11 +427,9 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xorg-xsetroot
-xosd
 xscreensaver
 xsel
 xsettingsd
-xsv
 xterm
 yamllint
 zathura

@@ -1,0 +1,17 @@
+[Unit]
+Description=Apache NiFi
+After=network.target
+
+[Service]
+Type=forking
+Environment="NIFI_HOME=/home/madhur/Downloads/nifi-1.28.1"
+Environment="JAVA_HOME=/home/madhur/.sdkman/candidates/java/11.0.20-amzn"
+ExecStart=/home/madhur/Downloads/nifi-1.28.1/bin/nifi.sh start
+ExecStop=/home/madhur/Downloads/nifi-1.28.1/bin/nifi.sh stop
+ExecReload=/home/madhur/Downloads/nifi-1.28.1/bin/nifi.sh restart
+#User=madhur
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

@@ -9,4 +9,4 @@ cd /home/madhur/gitpersonal/madhur.github.com
 source /home/madhur/.rvm/scripts/rvm
 rvm use 2.7.3
 /home/madhur/.rvm/gems/ruby-2.7.3/bin/bundle exec jekyll build
-run_with_notification "cd /home/madhur/gitpersonal/madhur.github.com && node_modules/gulp-cli/bin/gulp.js deploywithoutbuild" "madhur.co.in blog publish" "systemd"
+run_with_notification "cd /home/madhur/gitpersonal/madhur.github.com && node_modules/gulp-cli/bin/gulp.js deploywithoutbuild" "madhur.co.in blog publish" "monthly"

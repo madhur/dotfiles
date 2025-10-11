@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Diffchecker
+Exec=env DESKTOPINTEGRATION=1 /home/madhur/AppImages/diffchecker.appimage --no-sandbox %U
+TryExec=/home/madhur/AppImages/diffchecker.appimage
+Icon=/home/madhur/AppImages/.icons/diffchecker.png
+Terminal=false
+Type=Application
+
+StartupWMClass=Diffchecker
+
+Comment=Desktop version of DiffChecker
+MimeType=x-scheme-handler/diffchecker;
+Categories=Development;
+
+X-AppImage-Version=5.1.6

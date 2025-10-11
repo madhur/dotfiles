@@ -263,13 +263,18 @@ class ConkyUptimeTracker:
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
-        # Get all sessions that contributed to this date
+        date_obj = datetime.strptime(date_str, '%Y-%m-%d')
+        date_start_timestamp = int(date_obj.timestamp())
+        date_end_timestamp = int((date_obj + timedelta(days=1)).timestamp())
+        
+        # Get ALL sessions that could have contributed to this date using timestamps
         cursor.execute('''
             SELECT boot_time, boot_timestamp, last_seen_uptime
             FROM boot_sessions 
-            WHERE date = ?
+            WHERE boot_timestamp + last_seen_uptime >= ?
+            AND boot_timestamp < ?
             ORDER BY boot_timestamp
-        ''', (date_str,))
+        ''', (date_start_timestamp, date_end_timestamp))
         
         sessions = cursor.fetchall()
         conn.close()
@@ -280,10 +285,8 @@ class ConkyUptimeTracker:
         if not sessions:
             return hourly_data
         
-        date_obj = datetime.strptime(date_str, '%Y-%m-%d')
-        
         for boot_time_iso, boot_timestamp, last_seen_uptime in sessions:
-            boot_time = datetime.fromisoformat(boot_time_iso.replace('Z', '+00:00'))
+            boot_time = datetime.fromtimestamp(boot_timestamp)
             session_start = max(boot_time, date_obj)
             session_end = min(boot_time + timedelta(seconds=last_seen_uptime), 
                             date_obj + timedelta(days=1))
@@ -313,7 +316,7 @@ class ConkyUptimeTracker:
                     current_time = hour_end
         
         return hourly_data
-    
+
     def get_hourly_uptime_percentage(self, date_str=None, hour=None):
         """Get uptime percentage for a specific hour of a specific day"""
         if hour is None:
@@ -543,19 +546,21 @@ class ConkyUptimeTracker:
         now = datetime.now()
         result = []
         
-        # Get data for the last 24 hours
-        for hours_back in range(24):
+        # Get data for the last 24 hours, hour by hour
+        for hours_back in range(23, -1, -1):  # 23 hours ago to now (oldest to newest)
             target_time = now - timedelta(hours=hours_back)
             target_date = target_time.strftime('%Y-%m-%d')
             target_hour = target_time.hour
             
-            # Get hourly data for that date
+            # DEBUG: Print what we're checking
+            #print(f"Checking: {target_time.strftime('%m/%d %H:%M')} (hour {target_hour} of {target_date})", file=sys.stderr)
+            
+            # Get hourly data for that entire day
             hourly_data = self.get_hourly_uptime_data(target_date)
             percentage = int(hourly_data[target_hour])
             result.append(percentage)
         
-        # Return in reverse order (oldest first, newest last)
-        return "\n".join(str(p) for p in reversed(result))
+        return "\n".join(str(p) for p in result)
     
     def generate_last_24h_hourly_bars_with_labels(self):
         """Generate hourly uptime data with time labels for the last 24 hours"""
