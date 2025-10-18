@@ -200,10 +200,10 @@ window-size=(0, 0)
 migrated=true
 
 [org/gnome/file-roller/dialogs/extract]
-height=800
+height=2160
 recreate-folders=true
 skip-newer=false
-width=1000
+width=1587
 
 [org/gnome/file-roller/dialogs/new]
 default-extension='.zip'

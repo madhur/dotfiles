@@ -224,10 +224,10 @@ org.gnome.FileRoller.Dialogs.Add recursive true
 org.gnome.FileRoller.Dialogs.Add selected-files @as []
 org.gnome.FileRoller.Dialogs.Add update false
 org.gnome.FileRoller.Dialogs.Add width 1000
-org.gnome.FileRoller.Dialogs.Extract height 800
+org.gnome.FileRoller.Dialogs.Extract height 2160
 org.gnome.FileRoller.Dialogs.Extract recreate-folders true
 org.gnome.FileRoller.Dialogs.Extract skip-newer false
-org.gnome.FileRoller.Dialogs.Extract width 1000
+org.gnome.FileRoller.Dialogs.Extract width 1587
 org.gnome.FileRoller.Dialogs.LastOutput height 500
 org.gnome.FileRoller.Dialogs.LastOutput width 1000
 org.gnome.FileRoller.Dialogs.New default-extension '.zip'
