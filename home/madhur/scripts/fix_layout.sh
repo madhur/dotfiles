@@ -17,6 +17,10 @@
 # # Reset wallpaper
 # sleep 1
 
+~/.screenlayout/portrait-on-right.sh
+
+sleep 2
+
 ~/scripts/set_wallpaper.sh 
 
 ~/.config/conky/launch.sh --all

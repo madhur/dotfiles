@@ -808,7 +808,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 1032)
+org.gtk.Settings.FileChooser window-position (1, 871)
 org.gtk.Settings.FileChooser window-size (1238, 815)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

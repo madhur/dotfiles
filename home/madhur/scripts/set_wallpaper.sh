@@ -76,7 +76,7 @@ elif [ "$hour" -lt 17 ]; then
     folder="day"
 elif [ "$hour" -lt 20 ]; then
     folder="evening"
-elif [ "$hour" -le 23 ]; then
+elif [ "$hour" -lt 23 ]; then
     folder="night"
 else
     folder="night"

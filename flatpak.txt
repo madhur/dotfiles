@@ -1,3 +1,4 @@
+Brave	com.brave.Browser	1.83.118	stable	system
 CopyQ	com.github.hluk.copyq	7.1.0	stable	system
 draw.io	com.jgraph.drawio.desktop	21.3.7	stable	system
 OBS Studio	com.obsproject.Studio	29.1.3	stable	system
@@ -10,14 +11,14 @@ Gear Lever	it.mijorus.gearlever	3.4.2	stable	system
 Freedesktop Platform	org.freedesktop.Platform	21.08.21	21.08	system
 Freedesktop Platform	org.freedesktop.Platform	22.08.24	22.08	system
 Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-23.08.21	23.08	system
-Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-24.08.18	24.08	system
+Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-24.08.27	24.08	system
 Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
 Mesa	org.freedesktop.Platform.GL.default	24.0.4	22.08	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.0.4	22.08-extra	system
 Mesa	org.freedesktop.Platform.GL.default	24.3.1	23.08	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	23.08-extra	system
-Mesa	org.freedesktop.Platform.GL.default	25.2.3	24.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	25.2.3	24.08extra	system
+Mesa	org.freedesktop.Platform.GL.default	25.2.4	24.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	25.2.4	24.08extra	system
 nvidia-530-41-03	org.freedesktop.Platform.GL.nvidia-530-41-03		1.4	system
 nvidia-535-104-05	org.freedesktop.Platform.GL.nvidia-535-104-05		1.4	system
 nvidia-535-54-03	org.freedesktop.Platform.GL.nvidia-535-54-03		1.4	system
