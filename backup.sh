@@ -95,6 +95,7 @@ sudo cp /etc/default/* ./etc/default/
 sudo cp /etc/ssh/sshd_config.d/* ./etc/ssh/sshd_config.d/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
 sudo cp /etc/exports.d/* ./etc/exports.d/
+sudo cp /etc/grafana.inci ./etc/grafana.ini
 sudo cp -r /etc/X11/* ./etc/X11/
 sudo cp -r /etc/conf.d/* ./etc/conf.d/
 sudo cp -r /etc/lightdm/* ./etc/lightdm/
