@@ -44,16 +44,17 @@ if [ -d "$folder" ]; then
     echo "Using date-specific folder: $base_folder/$folder"
     
     # Select random image for date-specific folder
-    filename=$(ls "$base_folder/$folder" | shuf -n 1)
+    filename=$(ls $base_folder/$folder | grep -iE '\.(jpe?g|png|gif|bmp|webp|tiff)$' | shuf -n 1)
     horizontal_path="$base_folder/$folder/$filename"
     
+    echo "Selected horizontal: $filename"
     # Get and cache location
     location=$(get_location "$horizontal_path")
     echo "$location" > "$horizontal_location_file"
     echo "Location for horizontal: $location"
     
     # Set wallpaper
-    feh --randomize --bg-center "$base_folder/$folder"
+    feh --randomize --bg-center "$base_folder/$folder/$filename"
     
     # Update OSD display
     #update_osd_display "$location" "left"

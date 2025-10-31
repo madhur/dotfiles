@@ -14,8 +14,6 @@ arandr
 archiso
 archlinux-keyring
 archlinux-xdg-menu
-asciidoc
-asciidoctor
 atuin
 autoconf
 automake
@@ -123,7 +121,6 @@ gst-libav
 gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-ugly
-gtk-engine-murrine
 gtk-update-icon-cache
 gtk4
 gtk4-layer-shell

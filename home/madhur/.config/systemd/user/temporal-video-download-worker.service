@@ -1,0 +1,39 @@
+[Unit]
+Description=SharePoint Video Download Temporal Worker
+Documentation=https://docs.temporal.io/
+
+[Service]
+Type=simple
+WorkingDirectory=$SCRIPT_DIR
+
+# Main service command
+ExecStart="cd /home/madhur/Desktop/python && python temporal-worker.py"
+
+# Restart policy - crucial for reliability
+Restart=always
+RestartSec=10
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Environment variables
+Environment="PYTHONUNBUFFERED=1"
+Environment="TEMPORAL_ADDRESS=localhost:7233"
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=video-download-worker
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Kill settings
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

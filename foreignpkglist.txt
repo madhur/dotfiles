@@ -28,6 +28,7 @@ glava
 gluqlo-git
 gnu-netcat
 google-chrome
+gtk-engine-murrine
 hey
 hyprland-autoname-workspaces-git
 intellij-idea-community-edition-jre

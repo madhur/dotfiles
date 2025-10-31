@@ -154,3 +154,4 @@ alias lzd='lazydocker'
 
 alias sudo='doas'
 alias editor='msedit'
+alias mp4='mpv'

@@ -13,6 +13,7 @@ gnome-calculator            48.1                            972    latest/stable
 gtk-common-themes           0.1-81-g442e511                 1535   latest/stable  canonical**     -
 icloud-notes                1.2.0                           3      latest/stable  swe-himel       -
 indicator-sound-switcher    2.3.10.1                        173    latest/stable  yktoo           -
+insomnia                    11.6.2                          343    latest/stable  getinsomnia     -
 joplin-desktop              v3.4.12                         127    latest/stable  james-carroll*  -
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
 lunatask                    2.1.13                          90     latest/stable  lunatask        -

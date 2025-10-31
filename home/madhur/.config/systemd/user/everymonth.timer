@@ -4,7 +4,7 @@ Description=Run unit every month
 [Timer]
 Persistent=true
 OnCalendar=monthly
-RandomizedDelaySec=3600
+RandomizedDelaySec=300
 
 
 [Install]
