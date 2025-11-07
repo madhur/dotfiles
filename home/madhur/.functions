@@ -173,10 +173,3 @@ jwt() {
   jq -R 'split(".") |.[0:2] | map(gsub("-"; "+") | gsub("_"; "/") | gsub("%3D"; "=") | @base64d) | map(fromjson)' <<< $1
 }
 
-sp-download() {
-    if [ "$#" -ne 2 ]; then
-        echo "Usage: sp-download <url> <output_filename>"
-        return 1
-    fi
-    ffmpeg -i "$1" -codec copy "$2"
-}
