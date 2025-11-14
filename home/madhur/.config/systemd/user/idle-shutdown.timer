@@ -1,0 +1,15 @@
+[Unit]
+Description=Timer to check system idle time every 30 minutes
+Requires=idle-shutdown.service
+
+[Timer]
+# Run every 30 minutes
+OnCalendar=*:0/30
+# Run immediately if timer was missed (e.g., system was off)
+Persistent=true
+# Add a small random delay to avoid thundering herd (0-60 seconds)
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=default.target
+

@@ -5,6 +5,9 @@ tags: [ packaging ]
 # Find unused packages
 pacman -Qet
 
+# Overwrite for all packages
+pacman -Syu --overwrite '*'
+
 # Overwrite files for a specific package
 pacman -S --overwrite \* mesa 
 

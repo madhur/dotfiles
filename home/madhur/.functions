@@ -36,7 +36,7 @@ function java8() {
 }
 
 function java17() {
-     export PATH=/home/madhur/.sdkman/candidates/java/17.0.7-amzn/bin/java:$PATH
+     export PATH=/home/madhur/.sdkman/candidates/java/17.0.7-amzn/bin:$PATH
      sdk use java 17.0.7-amzn
 }
 
@@ -44,7 +44,7 @@ function java21() {
      export PATH=/home/madhur/.sdkman/candidates/java/21-amzn/bin:$PATH
      sdk use java 21-amzn
 }
-export PATH=/home/madhur/.sdkman/candidates/java/11.0.20-amzn/bin:$PATH
+export PATH=/home/madhur/.sdkman/candidates/java/17.0.7-amzn/bin:$PATH
 
 function graal() {
   sdk use java 21.0.1-graal

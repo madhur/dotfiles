@@ -258,6 +258,7 @@ pkgconf
 pkgfile
 playerctl
 plocate
+pnpm
 polkit-gnome
 poppler-glib
 power-profiles-daemon
@@ -424,6 +425,7 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xorg-xsetroot
+xprintidle
 xscreensaver
 xsel
 xsettingsd

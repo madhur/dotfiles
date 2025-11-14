@@ -4,10 +4,10 @@ Documentation=https://docs.temporal.io/
 
 [Service]
 Type=simple
-WorkingDirectory=$SCRIPT_DIR
+WorkingDirectory=/home/madhur/scripts
 
 # Main service command
-ExecStart="cd /home/madhur/Desktop/python && python temporal-worker.py"
+ExecStart=sh start_temporal_worker.sh
 
 # Restart policy - crucial for reliability
 Restart=always

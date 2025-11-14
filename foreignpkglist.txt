@@ -58,7 +58,6 @@ oh-my-zsh-git
 papirus-folders-git
 picom-git
 pipes.sh
-postgresql13
 postman-bin
 powerline-fonts-git
 prettyzoo
