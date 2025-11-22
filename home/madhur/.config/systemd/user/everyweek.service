@@ -4,3 +4,4 @@ Description=Script to perform weekly tasks
 [Service]
 Type=oneshot
 ExecStart=/home/madhur/scripts/every_week.sh
+ExecStartPre=/bin/sleep 120

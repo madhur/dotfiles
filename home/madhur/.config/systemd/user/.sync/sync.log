@@ -1,0 +1,10 @@
+﻿platform: Linux 6.15.9-arch1-1 #1 SMP PREEMPT_DYNAMIC Sat, 02 Aug 2025 01:20:06 +0000 x86_64
+version: 3.1.2.1076
+[20251115 09:38:33.617] ZIP: Can't locate [version] in zip, error -100.
+[20251115 09:38:33.622] Torrent session shutdown: done waiting
+[20251115 09:38:33.622] Shutdown. Saving config sync.dat
+[20251115 09:53:38.702] Debug log mask has been set to FFFFFFFF
+[20251115 09:53:38.702] Features mask has been set to 0
+[20251115 09:53:38.702] ZIP: Can't locate [version] in zip, error -100.
+[20251115 09:53:38.703] Torrent session shutdown: done waiting
+[20251115 09:53:38.703] Shutdown. Saving config sync.dat

@@ -4,3 +4,4 @@ Description=Script to perform monthly tasks
 [Service]
 Type=oneshot
 ExecStart=/home/madhur/scripts/every_month.sh
+ExecStartPre=/bin/sleep 120

@@ -5,7 +5,7 @@ Description=Check system idle time and shutdown if idle for 30+ minutes
 Type=oneshot
 # Set DISPLAY to the first available X display (usually :0)
 Environment="DISPLAY=:0"
-ExecStart=/home/madhur/.local/bin/idle-shutdown.sh
+ExecStart=/home/madhur/scripts/idle-shutdown.sh
 StandardOutput=journal
 StandardError=journal
 

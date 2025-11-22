@@ -1,0 +1,13 @@
+[Unit]
+Description=Resilio Sync
+Documentation=https://help.resilio.com/hc/en-us
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/home/madhur/bin/rslsync --nodaemon --storage /home/madhur/.config/.sync
+
+[Install]
+WantedBy=default.target
+

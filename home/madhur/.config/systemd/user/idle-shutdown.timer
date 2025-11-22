@@ -1,12 +1,11 @@
 [Unit]
-Description=Timer to check system idle time every 30 minutes
-Requires=idle-shutdown.service
+Description=Timer to check system idle time every 15 minutes
 
 [Timer]
-# Run every 30 minutes
-OnCalendar=*:0/30
+# Run every 15 minutes
+OnCalendar=*:0/15
 # Run immediately if timer was missed (e.g., system was off)
-Persistent=true
+Persistent=false
 # Add a small random delay to avoid thundering herd (0-60 seconds)
 RandomizedDelaySec=60
 

@@ -1,5 +1,5 @@
 [Unit]
-Description=Run unit twice daily at 8 AM and 8 PM
+Description=Run unit twice daily at 7 AM and 8 PM
 #Requires=everyday.service     #Uncommenting this will trigger the service at boot
 
 [Timer]

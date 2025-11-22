@@ -129,7 +129,7 @@ fi
 if [ -n "$processed_vertical" ] && [ -f "$processed_vertical" ]; then
     # Both horizontal and vertical wallpapers
     echo "Setting wallpapers: $(basename "$processed_horizontal") + $(basename "$processed_vertical")"
-    $feh_cmd "$processed_horizontal" "$processed_vertical"
+    $feh_cmd   "$processed_horizontal" "$processed_vertical"
     #notify-send "Wallpaper Updated" "Set: $(basename "$horizontal_path") + $(basename "$vertical_path")"
     
 else

@@ -105,6 +105,7 @@ run_with_notification() {
     local description="${2:-$(basename "${cmd%% *}")}"
     local topic="${3:-maintenance}"
     local notify_start="${4:-false}"
+    local notify_enabled="${5:-true}"
     
     local start_time=$(date +%s)
     local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
@@ -115,7 +116,7 @@ run_with_notification() {
     log_event "START" "$topic" "$description"
     
     # Send start notification if enabled
-    if [ "$notify_start" = "true" ]; then
+    if [ "$notify_start" = "true" ] && [ "$notify_enabled" != "false" ]; then
         local start_msg="Started on $hostname at $timestamp
 System: $system_info"
         send_rich_notification "$topic" "🚀 $description" "$start_msg" "default" "arrow_forward"
@@ -146,7 +147,9 @@ System: $system_info"
 📊 System: $final_system_info
 🕐 Finished: $end_timestamp"
         
-        send_rich_notification "$topic" "✅ $description" "$success_msg" "default" "white_check_mark"
+        if [ "$notify_enabled" != "false" ]; then
+            send_rich_notification "$topic" "✅ $description" "$success_msg" "default" "white_check_mark"
+        fi
         echo "[$end_timestamp] Completed successfully: $description (took $duration_formatted)"
         log_event "SUCCESS" "$topic" "$description - Duration: $duration_formatted"
     else
@@ -160,7 +163,9 @@ System: $system_info"
 🔍 Last 5 lines of output:
 $error_output"
         
-        send_rich_notification "$topic" "❌ $description" "$failure_msg" "high" "x"
+        if [ "$notify_enabled" != "false" ]; then
+            send_rich_notification "$topic" "❌ $description" "$failure_msg" "high" "x"
+        fi
         echo "[$end_timestamp] Failed: $description (exit code: $exit_code, took $duration_formatted)"
         log_event "FAILURE" "$topic" "$description - Exit: $exit_code, Duration: $duration_formatted"
     fi
@@ -277,4 +282,5 @@ test_ntfy_server() {
 # test_ntfy_server
 # run_with_notification "/path/to/cleanup.sh" "Database cleanup" "daily-tasks"
 # run_with_notification "rsync -av /source/ /backup/" "Backup sync" "backup-tasks" "false"
+# run_with_notification "/path/to/script.sh" "Script name" "topic" "false" "false"  # Disable notifications for this command
 # run_batch_with_notification "Daily Maintenance" "daily-tasks" "/path/to/cleanup.sh" "/path/to/backup.sh"

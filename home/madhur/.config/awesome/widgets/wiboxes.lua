@@ -146,6 +146,8 @@ local right_widgets = {
     --pl (cpu_temp, true, "cpu_temp1"),
     pl(require("widgets.topbar.clock"), true, "calendar"),
     pl(require("widgets.topbar.capslock"), true, "capslock"),
+    pl(require("widgets.topbar.idle-shutdown-ring").new(), true, "idle_shutdown"),
+    pl(require("widgets.topbar.uptime_widget"), true, "uptime_widget"),
     pl((require("widgets.topbar.redshift")), true, "redshift"),
     pl((require("widgets.topbar.cpu")), true, "cpu_widget"),
     
