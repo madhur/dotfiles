@@ -82,7 +82,10 @@ cp -r ~/.gtkrc-2.0 $dfolder/
 cp ~/.dir_colors $dfolder/
 cp ~/.aliases $dfolder/
 cp ~/.functions $dfolder/
-cp -r ~/.local/share/applications/ $dfolder/.local/share/
+# Backup user-level .desktop files
+rsync -avh --delete --exclude='.git/' ~/.local/share/applications/ $dfolder/.local/share/applications/
+# Backup flatpak user-level .desktop files
+rsync -avh --delete --exclude='.git/' ~/.local/share/flatpak/exports/share/applications/ $dfolder/.local/share/flatpak/exports/share/applications/ 2>/dev/null || true
 
 
 sudo cp /root/.bashrc $HOME/gitpersonal/dotfiles/root/
