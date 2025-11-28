@@ -1,0 +1,32 @@
+name: Bug report
+description: File a bug
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug and what you expected.
+      placeholder: It breaks when I...
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS / Distro
+      placeholder: e.g., Linux Mint 22.2 (Cinnamon)
+  - type: input
+    id: conky-version
+    attributes:
+      label: Conky version
+      placeholder: e.g., conky 1.19.x (X11)
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: 1) … 2) … 3) …
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag-and-drop screenshots if relevant.

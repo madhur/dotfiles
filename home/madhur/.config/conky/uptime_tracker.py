@@ -943,31 +943,160 @@ class ConkyUptimeTracker:
         
         return "\n".join(result)
     
+    def generate_terminal_graph(self, weeks=26, months=None, show_dates=True):
+        """Generate GitHub-style contribution graph for terminal with ANSI colors"""
+        # If months is specified, calculate weeks from months
+        if months is not None:
+            weeks = int(months * 4.33)
+
+        days_back = weeks * 7
+        uptime_data = self.get_uptime_data(days_back)
+
+        # Calculate the start date (go back to last Sunday)
+        end_date = datetime.now()
+
+        # Find the Sunday of the current week
+        days_since_sunday = (end_date.weekday() + 1) % 7
+        current_week_sunday = end_date - timedelta(days=days_since_sunday)
+
+        # Go back the specified number of weeks
+        weeks_to_show = min(53, weeks)
+        start_date = current_week_sunday - timedelta(weeks=weeks_to_show-1)
+
+        # ANSI color codes for terminal
+        # Using RGB colors to match GitHub/Conky colors exactly
+        terminal_bg_colors = {
+            0: '\033[48;2;33;38;45m',      # #21262d - Dark gray background (no activity)
+            1: '\033[48;2;14;68;41m',      # #0e4429 - Dark green background (low activity)
+            2: '\033[48;2;0;109;50m',      # #006d32 - Medium green background
+            3: '\033[48;2;38;166;65m',     # #26a641 - Bright green background
+            4: '\033[48;2;57;211;83m'      # #39d353 - Brightest green background (high activity)
+        }
+        # Use darker/dimmer text for all boxes (not bright white)
+        text_color = '\033[38;5;240m'  # Dark gray text (instead of white)
+        small_font = '\033[2m'  # Dim/small text
+        reset_color = '\033[0m'
+        bold = '\033[1m'
+
+        # Unicode subscript digits for smaller, centered display
+        subscript_map = {
+            '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+            '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉', '-': '₋'
+        }
+
+        # Generate month labels header - each week gets exactly 3 characters
+        month_line = "    "  # 4 spaces for day labels alignment
+        current_month = None
+
+        for week in range(weeks_to_show):
+            week_start_date = start_date + timedelta(weeks=week)
+            week_month = week_start_date.month
+
+            if week_month != current_month:
+                # New month detected - show the month abbreviation
+                month_abbr = week_start_date.strftime('%b')
+                month_line += month_abbr[:3]  # Just the month name
+                current_month = week_month
+            else:
+                # Same month - show spaces to maintain alignment (3 chars per week)
+                month_line += "   "
+
+        graph_lines = [bold + month_line.rstrip() + reset_color]
+
+        # Day of week labels
+        day_labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        today_date = datetime.now().strftime('%Y-%m-%d')
+
+        # Generate 7 rows (days of week) with day labels
+        for day_idx in range(7):
+            day_line = f"{day_labels[day_idx]} "
+
+            for week in range(weeks_to_show):
+                current_date = start_date + timedelta(weeks=week, days=day_idx)
+
+                if current_date <= end_date:
+                    date_str = current_date.strftime('%Y-%m-%d')
+                    uptime_percentage = uptime_data.get(date_str, 0)
+                    level = self.get_uptime_level(uptime_percentage)
+
+                    # Create colored box
+                    bg_color = terminal_bg_colors[level]
+
+                    # Show dates only for Saturday (day_idx=6) and Sunday (day_idx=0)
+                    show_date_for_this_day = show_dates and (day_idx == 0 or day_idx == 6)
+
+                    if show_date_for_this_day:
+                        # Show date inside the box
+                        day_num = current_date.strftime('%d')
+                        # Convert to subscript for smaller, centered display
+                        day_num_sub = ''.join(subscript_map.get(c, c) for c in day_num)
+
+                        # Use bold for today's date
+                        if date_str == today_date:
+                            day_line += bg_color + text_color + bold + day_num_sub + reset_color + ' '
+                        else:
+                            day_line += bg_color + text_color + day_num_sub + reset_color + ' '
+                    else:
+                        # Show just colored box without date
+                        if date_str == today_date:
+                            day_line += bg_color + bold + '  ' + reset_color + ' '
+                        else:
+                            day_line += bg_color + '  ' + reset_color + ' '
+                else:
+                    # Future dates
+                    show_date_for_this_day = show_dates and (day_idx == 0 or day_idx == 6)
+
+                    if show_date_for_this_day:
+                        future_marker = ''.join(subscript_map.get(c, c) for c in '--')
+                        day_line += terminal_bg_colors[0] + text_color + future_marker + reset_color + ' '
+                    else:
+                        day_line += terminal_bg_colors[0] + '  ' + reset_color + ' '
+
+            graph_lines.append(day_line.rstrip())
+            # Add empty line between rows for vertical separation
+            if day_idx < 6:  # Don't add after the last row
+                graph_lines.append("")
+
+        # Add legend
+        legend_line = "\n  Legend: "
+        legend_line += terminal_bg_colors[0] + text_color + "  " + reset_color + " 0%   "
+        legend_line += terminal_bg_colors[1] + text_color + "  " + reset_color + " 1-20%   "
+        legend_line += terminal_bg_colors[2] + text_color + "  " + reset_color + " 21-40%   "
+        legend_line += terminal_bg_colors[3] + text_color + "  " + reset_color + " 41-60%   "
+        legend_line += terminal_bg_colors[4] + text_color + "  " + reset_color + " 61-100%"
+        graph_lines.append(legend_line)
+
+        # Add summary
+        summary = self.generate_summary_line(months)
+        graph_lines.append("\n  " + summary)
+
+        return "\n".join(graph_lines)
+
     def generate_simple_table(self, weeks=26, months=None):
         """Generate simple date/hours table for terminal"""
         # If months is specified, calculate weeks from months
         if months is not None:
             weeks = int(months * 4.33)
-        
+
         days_back = weeks * 7
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days_back)
-        
+
         uptime_data = self.get_uptime_data(days_back)
-        
+
         result = []
         result.append("Date       Hours  %   Level")
         result.append("-------------------------")
-        
+
         current_date = start_date
         today_date = datetime.now().strftime('%Y-%m-%d')
-        
+
         while current_date <= end_date:
             date_str = current_date.strftime('%Y-%m-%d')
             percentage = uptime_data.get(date_str, 0)
             hours = (percentage / 100) * 24
             level = self.get_uptime_level(percentage)
-            
+
             # Only show days with data
             if percentage > 0 or date_str == today_date:
                 date_display = current_date.strftime('%m/%d/%y')
@@ -976,9 +1105,9 @@ class ConkyUptimeTracker:
                 else:
                     line = f"{date_display}  {hours:>5.1f} {percentage:>3}% {level}"
                 result.append(line)
-            
+
             current_date += timedelta(days=1)
-        
+
         return "\n".join(result)
     
     def generate_complete_conky_output(self, weeks=26, months=None, format_type='grid', bar_type='today'):
@@ -1080,25 +1209,27 @@ class ConkyUptimeTracker:
 
 def main():
     parser = argparse.ArgumentParser(description='Conky System Uptime Contribution Graph')
-    parser.add_argument('action', nargs='?', default='display', 
-                       choices=['display', 'update', 'log', 'cleanup', 'graph', 'raw', 'table'],
+    parser.add_argument('action', nargs='?', default='display',
+                       choices=['display', 'update', 'log', 'cleanup', 'graph', 'raw', 'table', 'terminal'],
                        help='Action to perform (default: display)')
     parser.add_argument('--weeks', type=int, default=26,
                        help='Number of weeks to show (default: 26)')
     parser.add_argument('--months', type=int,
                        help='Number of months to show (overrides --weeks)')
     parser.add_argument('--data-dir', help='Custom data directory')
-    parser.add_argument('--format', choices=['grid', 'conky-bar', 'conky-label', 'hourly', 'hourly-bars', 'hourly-bars-labeled', 'daily-bar', 'daily-bar-labeled', 'last24h-bars', 'last24h-bars-labeled', 'circular-clock', 'horizontal-graph'], 
+    parser.add_argument('--format', choices=['grid', 'conky-bar', 'conky-label', 'hourly', 'hourly-bars', 'hourly-bars-labeled', 'daily-bar', 'daily-bar-labeled', 'last24h-bars', 'last24h-bars-labeled', 'circular-clock', 'horizontal-graph'],
                        default='grid', help='Output format (default: grid)')
-    parser.add_argument('--bar-type', choices=['today', 'yesterday', 'week', 'month'] + 
+    parser.add_argument('--bar-type', choices=['today', 'yesterday', 'week', 'month'] +
                        [f'day-{i}' for i in range(0, 31)] +
-                       [f'hour-{i}' for i in range(0, 24)], 
+                       [f'hour-{i}' for i in range(0, 24)],
                        default='today', help='Type of data for Conky bar (default: today)')
-    
+    parser.add_argument('--no-dates', action='store_true',
+                       help='Hide dates in terminal graph (show only colored boxes)')
+
     args = parser.parse_args()
-    
+
     tracker = ConkyUptimeTracker(args.data_dir)
-    
+
     if args.action == 'update':
         # Data collection only - for systemd timer
         operation, uptime = tracker.update_uptime_data()
@@ -1117,6 +1248,10 @@ def main():
     elif args.action == 'table':
         # Simple table format
         print(tracker.generate_simple_table(args.weeks, args.months))
+    elif args.action == 'terminal':
+        # GitHub-style contribution graph for terminal with ANSI colors
+        show_dates = not args.no_dates
+        print(tracker.generate_terminal_graph(args.weeks, args.months, show_dates))
     elif args.action == 'graph':
         # Legacy compatibility - same as display but also updates data
         tracker.update_uptime_data()  # For backward compatibility

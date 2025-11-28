@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest an idea
+labels: [enhancement]
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: What problem would this solve?
+      placeholder: I'd like to…
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: How should it work? Include examples or mockups.
+  - type: textarea
+    id: extras
+    attributes:
+      label: Additional context
+      description: Links, references, or related widgets.

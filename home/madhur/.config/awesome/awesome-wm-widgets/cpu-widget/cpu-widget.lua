@@ -123,6 +123,8 @@ local function worker(user_args)
     -- }
     local cpugraph_widget = wibox.widget {
         markup = "",
+        forced_width = 75,
+        align = 'center',
         widget = wibox.widget.textbox
     }
 

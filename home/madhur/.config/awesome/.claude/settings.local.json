@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awesome-client:*)",
+      "Bash(pgrep:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

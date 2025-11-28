@@ -1,0 +1,9 @@
+
+/.vscode/
+*.swp
+*.tmp
+*.bak
+
+# Secrets
+widgets/owm.env
+widgets/owm.vars

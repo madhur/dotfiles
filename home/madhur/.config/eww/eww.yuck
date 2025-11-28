@@ -2,6 +2,7 @@
 (include "./calendar.yuck")
 (include "./powermenu.yuck")
 (include "./calculator.yuck")
+(include "./uptime_graph.yuck")
 
 ;; Keybinds var
 (defpoll KEYS :interval "30s" `column -t -L -s "|" keys.txt`)

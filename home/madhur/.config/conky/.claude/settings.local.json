@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(python:*)",
+      "Bash(eww reload:*)",
+      "Bash(eww open:*)",
+      "Bash(eww active-windows:*)",
+      "Bash(eww logs:*)",
+      "Bash(eww state:*)",
+      "Bash(eww windows:*)",
+      "Bash(eww debug:*)",
+      "Bash(eww list-windows:*)",
+      "Bash(xwininfo:*)",
+      "Bash(eww close-all:*)",
+      "Bash(eww kill:*)",
+      "Bash(eww close:*)",
+      "Bash(awesome-client)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
