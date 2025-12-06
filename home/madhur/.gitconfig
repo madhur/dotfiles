@@ -74,14 +74,6 @@
     newNormal = green bold
     newHighlight = green bold 22
 
-[includeIf "gitdir:~/github/carrom/**"]
-  path = .gitconfig-games
-
-[includeIf "gitdir:~/github/poker/**"]
-  path = .gitconfig-games
-
-[includeIf "gitdir:~/github/**"]
-  path = .gitconfig-games
 [safe]
 	directory = /home/madhur/gitpersonal/RediSearch
 
@@ -106,3 +98,9 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+
+[includeIf "gitdir:~/github/"]
+    path = ~/.gitconfig-work
+
+[includeIf "gitdir:~/gitpersonal/"]
+    path = ~/.gitconfig-personal

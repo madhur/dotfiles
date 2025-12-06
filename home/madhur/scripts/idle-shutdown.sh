@@ -28,7 +28,8 @@ fi
 
 # 30 minutes in milliseconds (30 * 60 * 1000)
 #THRESHOLD_MS=1800000
-THRESHOLD_MS=900000
+#THRESHOLD_MS=900000
+THRESHOLD_MS=3600000 #one hour
 
 # Convert to minutes for logging
 IDLE_MINUTES=$((IDLE_TIME_MS / 60000))

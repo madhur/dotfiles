@@ -10,7 +10,7 @@ local beautiful = require("beautiful")
 local idle_shutdown_ring = {}
 
 -- Configuration
-local IDLE_THRESHOLD_MINUTES = 15
+local IDLE_THRESHOLD_MINUTES = 60
 local UPDATE_INTERVAL = 60
 
 -- Create the widget
