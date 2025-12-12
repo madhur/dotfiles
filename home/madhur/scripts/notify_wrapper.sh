@@ -3,6 +3,15 @@
 # Default configuration (can be overridden by ~/.ntfy_config)
 NTFY_SERVER="https://ntfy.madhur.co.in"
 
+# Output inclusion settings (can be overridden by ~/.ntfy_config)
+# Set to "true" to include command output in notifications
+INCLUDE_OUTPUT_ON_SUCCESS="${INCLUDE_OUTPUT_ON_SUCCESS:-true}"
+INCLUDE_OUTPUT_ON_FAILURE="${INCLUDE_OUTPUT_ON_FAILURE:-true}"
+# Maximum number of lines to include (0 = all lines, -1 = disable)
+MAX_OUTPUT_LINES="${MAX_OUTPUT_LINES:-50}"
+# Maximum characters per line (0 = no limit)
+MAX_LINE_LENGTH="${MAX_LINE_LENGTH:-200}"
+
 # Load user configuration if exists
 [ -f ~/.ntfy_config ] && source ~/.ntfy_config
 
@@ -99,13 +108,70 @@ $message"
     fi
 }
 
+# Function to format command output for inclusion in notification
+format_command_output() {
+    local output_file="$1"
+    local max_lines="${2:-$MAX_OUTPUT_LINES}"
+    local max_line_len="${3:-$MAX_LINE_LENGTH}"
+    
+    # Check if output file exists and has content
+    if [ ! -f "$output_file" ] || [ ! -s "$output_file" ]; then
+        echo "(no output)"
+        return
+    fi
+    
+    local total_lines=$(wc -l < "$output_file" | tr -d ' ')
+    local output=""
+    
+    # Handle line limit
+    if [ "$max_lines" -eq -1 ]; then
+        # Output disabled
+        return
+    elif [ "$max_lines" -eq 0 ] || [ "$total_lines" -le "$max_lines" ]; then
+        # Include all lines
+        output=$(cat "$output_file")
+    else
+        # Include first N lines with truncation notice
+        output=$(head -n "$max_lines" "$output_file")
+        output="$output
+
+... ($((total_lines - max_lines)) more lines)"
+    fi
+    
+    # Truncate long lines if needed
+    if [ "$max_line_len" -gt 0 ]; then
+        local truncated_output=""
+        while IFS= read -r line; do
+            if [ ${#line} -gt "$max_line_len" ]; then
+                truncated_output="${truncated_output}${line:0:$max_line_len}...\n"
+            else
+                truncated_output="${truncated_output}${line}\n"
+            fi
+        done <<< "$output"
+        output=$(echo -e "$truncated_output" | sed '$d')  # Remove trailing newline
+    fi
+    
+    echo "$output"
+}
+
 # Enhanced function to execute command with rich notifications
+# Parameters:
+#   $1: command to execute
+#   $2: description (optional, defaults to command basename)
+#   $3: topic (optional, defaults to "maintenance")
+#   $4: notify_start (optional, "true"/"false", defaults to "false")
+#   $5: notify_enabled (optional, "true"/"false", defaults to "true")
+#   $6: include_output (optional, "true"/"false"/"auto", defaults to "auto")
+#       - "auto": uses INCLUDE_OUTPUT_ON_SUCCESS/INCLUDE_OUTPUT_ON_FAILURE settings
+#       - "true": always include output
+#       - "false": never include output
 run_with_notification() {
     local cmd="$1"
     local description="${2:-$(basename "${cmd%% *}")}"
     local topic="${3:-maintenance}"
     local notify_start="${4:-false}"
     local notify_enabled="${5:-true}"
+    local include_output="${6:-auto}"
     
     local start_time=$(date +%s)
     local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
@@ -127,7 +193,6 @@ System: $system_info"
     local exit_code=0
     
     if eval "$cmd" > "$temp_output" 2>&1; then
-
         exit_code=0
     else
         exit_code=$?
@@ -139,6 +204,20 @@ System: $system_info"
     local end_timestamp=$(date '+%Y-%m-%d %H:%M:%S')
     local final_system_info=$(get_system_info)
     
+    # Determine if we should include output
+    local should_include_output=false
+    if [ "$include_output" = "true" ]; then
+        should_include_output=true
+    elif [ "$include_output" = "false" ]; then
+        should_include_output=false
+    elif [ "$include_output" = "auto" ]; then
+        if [ $exit_code -eq 0 ] && [ "$INCLUDE_OUTPUT_ON_SUCCESS" = "true" ]; then
+            should_include_output=true
+        elif [ $exit_code -ne 0 ] && [ "$INCLUDE_OUTPUT_ON_FAILURE" = "true" ]; then
+            should_include_output=true
+        fi
+    fi
+    
     if [ $exit_code -eq 0 ]; then
         # Success notification
         local success_msg="✅ Completed successfully
@@ -147,6 +226,16 @@ System: $system_info"
 📊 System: $final_system_info
 🕐 Finished: $end_timestamp"
         
+        # Add command output if enabled
+        if [ "$should_include_output" = "true" ]; then
+            local cmd_output=$(format_command_output "$temp_output")
+            success_msg="$success_msg
+
+📋 Command Output:
+─────────────────
+$cmd_output"
+        fi
+        
         if [ "$notify_enabled" != "false" ]; then
             send_rich_notification "$topic" "✅ $description" "$success_msg" "default" "white_check_mark"
         fi
@@ -154,14 +243,28 @@ System: $system_info"
         log_event "SUCCESS" "$topic" "$description - Duration: $duration_formatted"
     else
         # Failure notification with error details
-        local error_output=$(tail -n 5 "$temp_output" | sed 's/$/\\n/' | tr -d '\n')
         local failure_msg="❌ Failed with exit code $exit_code
 ⏱️ Duration: $duration_formatted
 🖥️ Host: $hostname
 📊 System: $final_system_info
-🕐 Failed at: $end_timestamp
+🕐 Failed at: $end_timestamp"
+        
+        # Add command output if enabled
+        if [ "$should_include_output" = "true" ]; then
+            local cmd_output=$(format_command_output "$temp_output")
+            failure_msg="$failure_msg
+
+📋 Command Output:
+─────────────────
+$cmd_output"
+        else
+            # Fallback to last 5 lines if output inclusion is disabled
+            local error_output=$(tail -n 5 "$temp_output" | sed 's/$/\\n/' | tr -d '\n')
+            failure_msg="$failure_msg
+
 🔍 Last 5 lines of output:
 $error_output"
+        fi
         
         if [ "$notify_enabled" != "false" ]; then
             send_rich_notification "$topic" "❌ $description" "$failure_msg" "high" "x"
@@ -283,4 +386,14 @@ test_ntfy_server() {
 # run_with_notification "/path/to/cleanup.sh" "Database cleanup" "daily-tasks"
 # run_with_notification "rsync -av /source/ /backup/" "Backup sync" "backup-tasks" "false"
 # run_with_notification "/path/to/script.sh" "Script name" "topic" "false" "false"  # Disable notifications for this command
+# run_with_notification "pacman -Syu" "System Update" "daily" "false" "true" "true"  # Always include output
+# run_with_notification "some-command" "Description" "topic" "false" "true" "false"  # Never include output
+# run_with_notification "some-command" "Description" "topic" "false" "true" "auto"  # Use config settings (default)
 # run_batch_with_notification "Daily Maintenance" "daily-tasks" "/path/to/cleanup.sh" "/path/to/backup.sh"
+#
+# Configuration in ~/.ntfy_config:
+# NTFY_SERVER="https://ntfy.madhur.co.in"
+# INCLUDE_OUTPUT_ON_SUCCESS="true"    # Include output on success (default: true)
+# INCLUDE_OUTPUT_ON_FAILURE="true"     # Include output on failure (default: true)
+# MAX_OUTPUT_LINES=50                  # Max lines to include, 0=all, -1=disable (default: 50)
+# MAX_LINE_LENGTH=200                  # Max chars per line, 0=no limit (default: 200)

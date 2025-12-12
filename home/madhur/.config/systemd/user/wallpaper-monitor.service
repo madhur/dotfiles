@@ -1,0 +1,20 @@
+[Unit]
+Description=Wallpaper Location Monitor Service
+#After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/madhur/scripts/wallpaper-monitor.sh
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Environment variables for AWS credentials
+Environment="AWS_DEFAULT_REGION=ap-south-1"
+# If you have AWS credentials in a specific location:
+# Environment="AWS_SHARED_CREDENTIALS_FILE=/home/madhur/.aws/credentials"
+# Environment="AWS_CONFIG_FILE=/home/madhur/.aws/config"
+
+[Install]
+WantedBy=default.target

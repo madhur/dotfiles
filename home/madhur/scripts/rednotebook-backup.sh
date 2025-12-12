@@ -11,7 +11,7 @@ source "/home/madhur/scripts/git-utils.sh"
 
 # Configuration
 REDNOTEBOOK_DATA_DIR="$HOME/.rednotebook/data"
-BACKUP_REPO_DIR="$HOME/rednotebook-backup"
+BACKUP_REPO_DIR="$HOME/gitpersonal/rednotebook-backup"
 GITHUB_REPO_URL="git@github.com:madhur/rednotebook-backup.git" # Update this
 LOG_FILE="$HOME/.local/share/rednotebook-backup.log"
 

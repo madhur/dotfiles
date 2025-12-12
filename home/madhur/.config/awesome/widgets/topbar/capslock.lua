@@ -29,8 +29,9 @@ local capslock_container = wibox.widget {
 local function get_capslock_status()
     awful.spawn.easy_async_with_shell("xset q | grep 'Caps Lock' | awk '{print $4}'", function(stdout)
         local status = stdout:gsub("%s+", "") -- Remove whitespace
+        local is_on = status == "on"
         
-        if status == "on" then
+        if is_on then
             -- Caps Lock is ON - make it prominent
             capslock_text:set_markup('<span foreground="#ff6b6b" weight="bold">CAPS</span>')
             capslock_container.bg = "#ff6b6b22" -- Light red background
@@ -39,6 +40,9 @@ local function get_capslock_status()
             capslock_text:set_markup('<span foreground="#666666">caps</span>')
             capslock_container.bg = "transparent"
         end
+        
+        -- Emit signal with caps lock state for visibility control
+        awesome.emit_signal("capslock::status", is_on)
     end)
 end
 

@@ -139,6 +139,20 @@ awesome.connect_signal("normal", function(widget_type)
     end
 end)
 
+-- Hide pacman widget when update count is zero
+awesome.connect_signal("pacman::updates", function(update_count)
+    if widget_types["pacman"] then
+        widget_types["pacman"].visible = update_count > 0
+    end
+end)
+
+-- Hide caps lock widget when caps lock is off
+awesome.connect_signal("capslock::status", function(is_on)
+    if widget_types["capslock"] then
+        widget_types["capslock"].visible = is_on
+    end
+end)
+
 
 local right_widgets = {
     -- Right widgets

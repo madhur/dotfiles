@@ -195,6 +195,8 @@ local function worker(user_args)
             else
                 awesome.emit_signal("critical", "pacman")
             end
+            -- Emit signal with update count for visibility control
+            awesome.emit_signal("pacman::updates", #upgrades_tbl)
 
             for k, v in ipairs(upgrades_tbl) do
                 for i = 1, #rows.children do

@@ -37,6 +37,7 @@ calc
 cantarell-fonts
 clang
 cliphist
+cockpit
 conky
 cpio
 cpupower
@@ -63,6 +64,7 @@ dmraid
 dnsmasq
 docker
 docker-compose
+dokuwiki
 dos2unix
 dosbox
 dosfstools
@@ -249,6 +251,7 @@ pavucontrol
 pdftk
 perl
 perl-rename
+php-fpm
 pigz
 pipewire
 pipewire-alsa
