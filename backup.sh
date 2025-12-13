@@ -56,10 +56,12 @@ cp ~/.config/lazygit/config.yml $dfolder/.config/lazygit/
 cp -r ~/.config/hypr $dfolder/.config/
 cp -r ~/.config/nwg-look $dfolder/.config/
 cp -r ~/.config/waybar $dfolder/.config/
+cp
 cp -r ~/.config/waypaper $dfolder/.config/
 cp  ~/.rednotebook/configuration.cfg $dfolder/.rednotebook/configuration.cfg
 cp -r ~/.rednotebook/templates $dfolder/.rednotebook/
 
+cp -r ~/.task $dfolder/
 
 #tmux contains company data
 #cp -r ~/tmux $dfolder/
@@ -73,6 +75,7 @@ cp -r ~/.zlogin $dfolder/
 cp -r ~/.zshenv $dfolder/
 cp -r ~/.xsettingsd $dfolder/
 cp -r ~/.nanorc $dfolder/
+cp -r ~/.taskrc $dfolder/
 cp -r ~/.vimrc $dfolder/
 cp -r ~/.Xresources $dfolder/
 cp -r ~/.tmux.conf $dfolder/
