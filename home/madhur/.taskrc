@@ -1,0 +1,66 @@
+# [Created by task 3.4.2 12/13/2025 21:30:57]
+data.location=/home/madhur/.task
+news.version=3.4.2
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include bubblegum-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+# Add these lines to your ~/.taskrc file
+
+# Define the report
+report.upcoming2.description=Overdue and tasks due in next 2 days
+report.upcoming2.columns=description,due.relative
+report.upcoming2.labels=Description,Due
+report.upcoming2.filter=status:pending  due.before:2days
+report.upcoming2.sort=due+
+
+
+
+report.nonrecur.description=Non-recurring tasks
+report.nonrecur.columns=description,due.relative
+report.nonrecur.labels=Description,Due
+report.nonrecur.filter=status:pending -RECURRING -PARENT -CHILD +work due.any:
+report.nonrecur.sort=due+
+
+column.description.width=120
+
+report.nodue.description=Tasks with no due date
+report.nodue.columns=description
+report.nodue.labels=Description
+report.nodue.filter=status:pending due: +work
+report.nodue.sort=entry+
+
+report.home.description=Tasks with no due date
+report.home.columns=description,due.relative
+report.home.labels=Description,Due
+report.home.filter=status:pending +home
+report.home.sort=entry+
+
+
+
+#summary.all.enabled=no
+#verbose=blank,label
+verbose=nothing
+
+recurrence.limit=1
+rc.confirmation=yes

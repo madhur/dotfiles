@@ -3,6 +3,8 @@
 # Directories to monitor (add all your wallpaper directories)
 WATCH_DIRS=(
     "/home/madhur/Pictures/wallpapers/vertical/night"
+    "/home/madhur/Pictures/wallpapers/vertical/morning"
+     "/home/madhur/Pictures/wallpapers/vertical/evening"
     "/home/madhur/Pictures/wallpapers/vertical/day"
     "/home/madhur/Pictures/wallpapers/day"
      "/home/madhur/Pictures/wallpapers/morning"

@@ -103,7 +103,7 @@ local function worker(user_args)
         },
         {
             id = 'rx_speed',
-            forced_width = 140,
+            forced_width = 120,
             align = 'right',
             widget = wibox.widget.textbox
         },

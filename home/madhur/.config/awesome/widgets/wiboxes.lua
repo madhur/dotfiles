@@ -153,6 +153,13 @@ awesome.connect_signal("capslock::status", function(is_on)
     end
 end)
 
+-- Hide redshift widget when temperature is 6500 (default/normal)
+awesome.connect_signal("redshift::temperature", function(temp)
+    if widget_types["redshift"] then
+        widget_types["redshift"].visible = temp ~= nil and temp ~= 6500
+    end
+end)
+
 
 local right_widgets = {
     -- Right widgets

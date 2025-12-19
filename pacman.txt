@@ -265,6 +265,7 @@ plocate
 pnpm
 polkit-gnome
 poppler-glib
+postgresql
 power-profiles-daemon
 powertop
 ppp
@@ -368,6 +369,8 @@ sysfsutils
 sysstat
 system-config-printer
 systemd-sysvcompat
+task
+taskwarrior-tui
 tcpdump
 texinfo
 thunar

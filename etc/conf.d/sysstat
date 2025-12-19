@@ -1,4 +1,4 @@
-# sysstat-12.7.8 configuration file.
+# sysstat-12.7.9 configuration file.
 
 # How long to keep log files (in days).
 # If value is greater than 28, then use sadc's option -D to prevent older

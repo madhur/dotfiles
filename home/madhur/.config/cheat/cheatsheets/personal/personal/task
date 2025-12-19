@@ -1,0 +1,25 @@
+# Change due date of recurring task
+task modify 5 due:2025-12-21
+
+# Add a weekly Recurring task
+task add Nail cutting due:2025-12-21 recur:weekly
+
+# Add a task with time due as well
+task add Weights due:2025-12-14T22:00 recur:daily
+
+# Mark a task as done
+task 5 done
+
+# Add one time task with due date 
+task add Visit Delhi due:2026-01-24
+
+# Add the special tag +next to a task, to boost its urgency
+task ID modify +next
+
+# Add useful tags to a task:
+task ID modify +problem +house
+
+# When you start working on a task, mark it started:
+task ID start
+
+

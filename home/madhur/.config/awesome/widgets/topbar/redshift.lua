@@ -47,16 +47,14 @@ local function update_widget(widget, stdout)
     local temp = stdout:match("Color temperature:%s*(%d+)%s*K")
     if temp then
         local temp_num = tonumber(temp)
-        if temp_num == 6500 then
-            widget.visible = false
-        else
-            widget.visible = true
-            local color = temp_to_rgb(temp_num)
-            widget:set_markup(" " .. markup.font(beautiful.font, "<span foreground='" .. color .. "'> " .. temp .. "K</span>"))
-        end
+        local color = temp_to_rgb(temp_num)
+        widget:set_markup(" " .. markup.font(beautiful.font, "<span foreground='" .. color .. "'> " .. temp .. "K</span>"))
+        -- Emit signal with temperature for visibility control
+        awesome.emit_signal("redshift::temperature", temp_num)
     else
-        widget.visible = true
         widget:set_markup(" " .. markup.font(beautiful.font, "<span foreground='#ffffff'> N/A</span>"))
+        -- Emit signal with nil/unknown temperature
+        awesome.emit_signal("redshift::temperature", nil)
     end
 end
 
