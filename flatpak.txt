@@ -32,6 +32,7 @@ nvidia-560-35-03	org.freedesktop.Platform.GL.nvidia-560-35-03		1.4	system
 nvidia-565-77	org.freedesktop.Platform.GL.nvidia-565-77		1.4	system
 nvidia-570-153-02	org.freedesktop.Platform.GL.nvidia-570-153-02		1.4	system
 nvidia-575-64-05	org.freedesktop.Platform.GL.nvidia-575-64-05		1.4	system
+nvidia-590-48-01	org.freedesktop.Platform.GL.nvidia-590-48-01		1.4	system
 Nvidia VAAPI driver	org.freedesktop.Platform.VAAPI.nvidia		25.08	system
 Codecs Extra Extension	org.freedesktop.Platform.codecs-extra		25.08-extra	system
 openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system

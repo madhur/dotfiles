@@ -19,11 +19,8 @@ PYTHON_SCRIPT="/home/madhur/Desktop/python/bedrock_image_location.py"
 # Python interpreter (use your venv if applicable)
 PYTHON="/usr/bin/python3"
 
-# Log file
-LOG_FILE="/var/log/wallpaper-monitor.log"
-
 log_message() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+    logger -t wallpaper-monitor "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
 # Kill any existing instances of this script and their inotifywait processes
@@ -66,7 +63,9 @@ process_directory() {
     # Modify your Python script to accept directory as argument
     # Or call it with the directory hardcoded
     cd "$(dirname "$PYTHON_SCRIPT")"
-    $PYTHON "$PYTHON_SCRIPT" "$dir" 2>&1 | tee -a "$LOG_FILE"
+    $PYTHON "$PYTHON_SCRIPT" "$dir" 2>&1 | while IFS= read -r line; do
+        logger -t wallpaper-monitor "$line"
+    done
 }
 
 log_message "Starting wallpaper monitor service"

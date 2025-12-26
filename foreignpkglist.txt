@@ -83,6 +83,7 @@ systemd-timer-notify
 tabbed-flexipatch-git
 temporal-cli
 tmux-xpanes
+topydo-git
 vagrant
 visual-studio-code-bin
 watch-your-lan

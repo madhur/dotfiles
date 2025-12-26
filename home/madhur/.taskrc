@@ -29,8 +29,8 @@ news.version=3.4.2
 
 # Define the report
 report.upcoming2.description=Overdue and tasks due in next 2 days
-report.upcoming2.columns=description,due.relative
-report.upcoming2.labels=Description,Due
+report.upcoming2.columns=id,description,due.relative
+report.upcoming2.labels=id,Description,Due
 report.upcoming2.filter=status:pending  due.before:2days
 report.upcoming2.sort=due+
 

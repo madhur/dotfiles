@@ -234,7 +234,7 @@ nss-mdns
 ntfs-3g
 ntp
 numlockx
-nvidia-dkms
+nvidia-open-dkms
 nvidia-settings
 nvme-cli
 nwg-look
@@ -245,6 +245,7 @@ openvpn
 os-prober
 pacman
 pacman-contrib
+pandoc-cli
 papirus-icon-theme
 patch
 pavucontrol

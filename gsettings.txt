@@ -244,7 +244,7 @@ org.gnome.FileRoller.General compression-level 'normal'
 org.gnome.FileRoller.General editors @as []
 org.gnome.FileRoller.General encrypt-header false
 org.gnome.FileRoller.Listing list-mode 'as-folder'
-org.gnome.FileRoller.Listing name-column-width 3290
+org.gnome.FileRoller.Listing name-column-width 1353
 org.gnome.FileRoller.Listing show-path false
 org.gnome.FileRoller.Listing show-size true
 org.gnome.FileRoller.Listing show-time true
@@ -253,8 +253,8 @@ org.gnome.FileRoller.Listing sort-method 'name'
 org.gnome.FileRoller.Listing sort-type 'ascending'
 org.gnome.FileRoller.UI sidebar-width 200
 org.gnome.FileRoller.UI view-sidebar false
-org.gnome.FileRoller.UI window-height 2130
-org.gnome.FileRoller.UI window-width 3840
+org.gnome.FileRoller.UI window-height 2108
+org.gnome.FileRoller.UI window-width 1903
 org.gnome.GWeather4 default-location ('', 'KNYC', @m(dd) nothing)
 org.gnome.GWeather4 distance-unit 'default'
 org.gnome.GWeather4 pressure-unit 'default'
@@ -803,9 +803,9 @@ org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 204
-org.gtk.Settings.FileChooser sort-column 'modified'
+org.gtk.Settings.FileChooser sort-column 'name'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'descending'
+org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
 org.gtk.Settings.FileChooser window-position (1, 871)
