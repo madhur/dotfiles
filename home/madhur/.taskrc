@@ -51,10 +51,10 @@ report.nodue.filter=status:pending due: +work
 report.nodue.sort=entry+
 
 report.home.description=Tasks with no due date
-report.home.columns=description,due.relative
-report.home.labels=Description,Due
+report.home.columns=id,description,due.relative
+report.home.labels=id,Description,Due
 report.home.filter=status:pending +home
-report.home.sort=entry+
+report.home.sort=due+
 
 
 

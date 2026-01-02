@@ -1,6 +1,5 @@
 Brave	com.brave.Browser	1.85.116	stable	system
 CopyQ	com.github.hluk.copyq	7.1.0	stable	system
-draw.io	com.jgraph.drawio.desktop	21.3.7	stable	system
 OBS Studio	com.obsproject.Studio	29.1.3	stable	system
 Stremio	com.stremio.Stremio	4.4.168	stable	system
 DBeaver Community	io.dbeaver.DBeaverCommunity	25.2.5	stable	system
@@ -62,4 +61,3 @@ KDE Application Platform	org.kde.Platform		5.15-24.08	system
 KDE Application Platform	org.kde.Platform		6.4	system
 KDE Application Platform	org.kde.Platform		6.5	system
 KRuler	org.kde.kruler	23.04.2	stable	system
-qBittorrent	org.qbittorrent.qBittorrent	4.5.4	stable	system
