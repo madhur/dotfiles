@@ -45,10 +45,9 @@ Neovim:
 <div style="float:clear"></div>
 
 
-setup:
-<div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/setup.jpg />
-</div>
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=madhur/dotfiles&type=date&legend=top-left)](https://www.star-history.com/#madhur/dotfiles&type=date&legend=top-left)
 
 
 <div style="float:clear"></div>
