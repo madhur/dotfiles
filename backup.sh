@@ -111,12 +111,12 @@ sudo cp /etc/doas.conf ./etc/doas.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf
 #cp /etc/resolv.conf ./etc/resolv.conf
 
-pacman -Qnqe > pacman.txt
-pacman -Qqem > foreignpkglist.txt
-snap list > snap.txt
-flatpak list > flatpak.txt
-dconf dump / > dconf-backup.txt
-gsettings list-recursively > gsettings.txt
+pacman -Qnqe > packages/pacman.txt
+pacman -Qqem > packages/foreignpkglist.txt
+snap list > packages/snap.txt
+flatpak list > packages/flatpak.txt
+dconf dump / > backups/dconf-backup.txt
+gsettings list-recursively > backups/gsettings.txt
 
 sudo chown -R madhur:madhur .
 
