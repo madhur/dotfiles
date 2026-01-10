@@ -18,20 +18,20 @@
 
 keybindings:
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/screenshots/keybindings.png />
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/master/screenshots/keybindings.png />
 </div>
 
 
 dmenu:
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/screenshots/rofi.png />
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/master/screenshots/rofi.png />
 </div>
 
 <div style="float:clear"></div>
 
 Powermenu:
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/screenshots/powermenu.png />
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/master/screenshots/powermenu.png />
 </div>
 
 
@@ -39,7 +39,7 @@ Powermenu:
 
 Neovim:
 <div style="float:left">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/main/screenshots/nvim.png />
+<img alt=conky-core src=https://raw.githubusercontent.com/madhur/dotfiles/master/screenshots/nvim.png />
 </div>
 
 <div style="float:clear"></div>
