@@ -803,13 +803,13 @@ org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 204
-org.gtk.Settings.FileChooser sort-column 'type'
+org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 871)
-org.gtk.Settings.FileChooser window-size (1863, 1397)
+org.gtk.Settings.FileChooser window-position (3841, 31)
+org.gtk.Settings.FileChooser window-size (1183, 3762)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false
 org.gtk.gtk4.Inspector.Recorder highlight-sequences false
