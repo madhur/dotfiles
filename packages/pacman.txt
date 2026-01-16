@@ -103,6 +103,7 @@ gawk
 gcc
 gettext
 ghostscript
+ghostty
 git
 git-crypt
 git-delta

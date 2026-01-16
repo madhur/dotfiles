@@ -81,6 +81,7 @@ snyk
 studio-3t
 systemd-timer-notify
 tabbed-flexipatch-git
+tasklite-bin
 temporal-cli
 tmux-xpanes
 topydo-git

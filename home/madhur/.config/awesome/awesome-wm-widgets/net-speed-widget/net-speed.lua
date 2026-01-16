@@ -22,11 +22,35 @@ local net_speed_widget = {}
 local warn_count = 0
 local crit_count = 0
 local is_connected = true
+local ping_time = "N/A"
 
--- Function to check internet connectivity
+-- Function to parse ping time from ping output
+local function parse_ping_time(stdout)
+    if not stdout then return "N/A" end
+    -- Match pattern: time=XX.X ms or time=XX ms
+    local time_match = string.match(stdout, "time=([%d%.]+)%s*ms")
+    if time_match then
+        local time_value = tonumber(time_match)
+        if time_value then
+            -- Round to 1 decimal place
+            return string.format("%.1f", time_value) .. "ms"
+        end
+    end
+    return "N/A"
+end
+
+-- Function to check internet connectivity and capture ping time
 local function check_connectivity()
     spawn.easy_async("ping -c 1 -W 1 8.8.8.8", function(stdout, stderr, exitreason, exitcode)
         local connected = exitcode == 0
+        if connected then
+            ping_time = parse_ping_time(stdout)
+            -- Emit signal to update ping time
+            awesome.emit_signal("net_ping_time_changed", ping_time)
+        else
+            ping_time = "N/A"
+            awesome.emit_signal("net_ping_time_changed", ping_time)
+        end
         if connected ~= is_connected then
             is_connected = connected
             -- Emit signal to update widget appearance
@@ -117,13 +141,20 @@ local function worker(user_args)
         -- },
         {
             id = 'tx_speed',
-            forced_width = 140,
+            forced_width = 120,
+            align = 'right',
+            widget = wibox.widget.textbox
+        },
+        {
+            id = 'ping_time',
+            forced_width = 70,
             align = 'left',
+            text = "N/A",
             widget = wibox.widget.textbox
         },
         layout = wibox.layout.fixed.horizontal,
         set_rx_text = function(self, new_rx_speed)
-            local text = " 󰶡 "..tostring(new_rx_speed).." "
+            local text = " 󰶡 "..tostring(new_rx_speed)
             if is_connected then
                 self:get_children_by_id('rx_speed')[1]:set_text(text)
             else
@@ -138,11 +169,26 @@ local function worker(user_args)
                 self:get_children_by_id('tx_speed')[1]:set_markup('<span color="#FF0000">' .. text .. '</span>')
             end
         end,
+        set_ping_time = function(self, new_ping_time)
+            if not self then return end
+            local success, ping_widgets = pcall(function() return self:get_children_by_id('ping_time') end)
+            if not success or not ping_widgets or #ping_widgets == 0 or not ping_widgets[1] then 
+                return 
+            end
+            local ping_widget = ping_widgets[1]
+            local text = " " .. tostring(new_ping_time or "N/A")
+            if is_connected then
+                ping_widget:set_text(text)
+            else
+                ping_widget:set_markup('<span color="#FF0000">' .. text .. '</span>')
+            end
+        end,
         set_connectivity = function(self, connected)
             is_connected = connected
             -- Update the widget appearance immediately
             local rx_widget = self:get_children_by_id('rx_speed')[1]
             local tx_widget = self:get_children_by_id('tx_speed')[1]
+            local ping_widget = self:get_children_by_id('ping_time')[1]
             if rx_widget and tx_widget then
                 local rx_text = rx_widget:get_text()
                 local tx_text = tx_widget:get_text()
@@ -150,10 +196,18 @@ local function worker(user_args)
                     -- Use default theme colors when connected
                     rx_widget:set_text(rx_text)
                     tx_widget:set_text(tx_text)
+                    if ping_widget then
+                        local ping_text = ping_widget:get_text()
+                        ping_widget:set_text(ping_text)
+                    end
                 else
                     -- Use red when disconnected
                     rx_widget:set_markup('<span color="#FF0000">' .. rx_text .. '</span>')
                     tx_widget:set_markup('<span color="#FF0000">' .. tx_text .. '</span>')
+                    if ping_widget then
+                        local ping_text = ping_widget:get_text()
+                        ping_widget:set_markup('<span color="#FF0000">' .. ping_text .. '</span>')
+                    end
                 end
             end
         end
@@ -201,6 +255,13 @@ local function worker(user_args)
         net_speed_widget:set_connectivity(connected)
     end)
 
+    -- Connect to ping time change signal
+    awesome.connect_signal("net_ping_time_changed", function(new_ping_time)
+        if net_speed_widget and net_speed_widget.set_ping_time then
+            net_speed_widget:set_ping_time(new_ping_time)
+        end
+    end)
+
     -- Start connectivity checking
     watch("ping -c 1 -W 1 8.8.8.8", 60, function()
         check_connectivity()
@@ -210,7 +271,17 @@ local function worker(user_args)
     awful.spawn.easy_async("sleep 30 && ping -c 1 -W 1 8.8.8.8", function(stdout, stderr, exitreason, exitcode)
         local connected = exitcode == 0
         is_connected = connected
-        net_speed_widget:set_connectivity(connected)
+        if connected then
+            ping_time = parse_ping_time(stdout)
+        else
+            ping_time = "N/A"
+        end
+        if net_speed_widget and net_speed_widget.set_ping_time then
+            net_speed_widget:set_ping_time(ping_time)
+        end
+        if net_speed_widget and net_speed_widget.set_connectivity then
+            net_speed_widget:set_connectivity(connected)
+        end
     end)
 
     return net_speed_widget

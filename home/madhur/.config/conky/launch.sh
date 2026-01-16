@@ -101,7 +101,7 @@ kill_wallpaper_conky() {
 kill_main_conky() {
     echo "Stopping main conky instances..."
     pkill -f "conky.conf" 2>/dev/null
-    pkill -f "google_calendar.conf" 2>/dev/null
+    pkill -f "secondary_conky.conf" 2>/dev/null
     sleep 0.5
 }
 
@@ -130,7 +130,7 @@ start_main_conky() {
     echo "Starting main conky instances..."
     
     start_conky "/home/madhur/.config/conky/conky.conf" "main conky"
-    start_conky "/home/madhur/.config/conky/google_calendar.conf" "google calendar"
+    start_conky "/home/madhur/.config/conky/secondary_conky.conf" "secondary conky"
 }
 
 # Main logic based on mode

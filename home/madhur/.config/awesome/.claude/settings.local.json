@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(awesome-client:*)",
-      "Bash(pgrep:*)"
+      "Bash(pgrep:*)",
+      "Bash(task ls:*)",
+      "Bash(task 37 info:*)",
+      "Bash(task 68 info:*)",
+      "Bash(task 35 info:*)",
+      "Bash(task show:*)",
+      "Bash(task config:*)",
+      "Bash(task 38 info:*)",
+      "Bash(task 71 info:*)",
+      "Bash(task recurring)",
+      "Bash(task 71 delete:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,0 +1,13 @@
+[Unit]
+Description=Syncthing - Open Source Continuous File Synchronization
+Documentation=man:syncthing(1)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/syncthing serve --no-browser --no-restart --logflags=0
+Restart=on-failure
+RestartSec=10
+SuccessExitStatus=3 4
+
+[Install]
+WantedBy=default.target

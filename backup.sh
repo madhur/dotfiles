@@ -6,7 +6,7 @@ dfolder=$HOME/gitpersonal/dotfiles/home/madhur
 #guake --save-preferences ~/github/personal/dotfiles/home/madhur/myguakeprefs
 
 rsync -avh --delete --exclude='.git/' ~/.config/conky $dfolder/.config/
-cp ~/.config/conky/* $dfolder/.config/conky/
+#cp ~/.config/conky/* $dfolder/.config/conky/
 cp -r ~/.config/dunst $dfolder/.config/
 #cp -r ~/.config/gsimplecal $dfolder/.config/
 cp -r ~/.config/gtk-{2,3,4}.0 $dfolder/.config/

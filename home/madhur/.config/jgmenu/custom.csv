@@ -21,6 +21,7 @@ Startup Apps,"/home/madhur/.config/awesome/autostart.sh"
 System Design,^checkout(system_design)
 System Design Problems,^pipe(find '/data/media/Grokking System Design/System Design Problems/' -maxdepth 1 -type f -printf "%f,xdg-open '%p'\n" | sort)
 Apps,^checkout(apps-dir-Apps),applications
+Screensaver,^pipe(/home/madhur/scripts/xscreensaver-menu --csv),xscreensaver
 System,^checkout(apps-dir-System),applications-system
 
 ^tag(system_design)

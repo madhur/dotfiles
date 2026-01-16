@@ -64,3 +64,4 @@ verbose=nothing
 
 recurrence.limit=1
 rc.confirmation=yes
+report.ls.columns=id,start.active,depends.indicator,project,tags,recur.indicator,wait.remaining,scheduled.countdown,due.relative,until.countdown,description.count

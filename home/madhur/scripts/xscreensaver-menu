@@ -1,0 +1,45 @@
+#!/bin/bash
+# xscreensaver timeout selector using jgmenu
+# Save as ~/.local/bin/xscreensaver-menu and make executable
+
+set-timeout() {
+    local minutes=$1
+    local hours=$((minutes / 60))
+    local mins=$((minutes % 60))
+    local time_str=$(printf "%d:%02d:00" $hours $mins)
+    
+    # Stop xscreensaver, update config, restart
+    xscreensaver-command -exit 2>/dev/null
+    sed -i "s/^timeout:.*/timeout:\t${time_str}/" ~/.xscreensaver
+    xscreensaver &
+}
+
+# If called with an argument, set the timeout or output CSV
+if [[ "$1" == "--csv" ]]; then
+    SCRIPT_PATH="$(readlink -f "$0")"
+    cat <<EOF
+Lock Now,xscreensaver-command -activate,system-lock-screen
+Settings,xscreensaver-settings,preferences-desktop-screensaver
+^sep()
+1 minute,${SCRIPT_PATH} 1
+5 minutes,${SCRIPT_PATH} 5
+30 minutes,${SCRIPT_PATH} 30
+1 hour,${SCRIPT_PATH} 60
+^sep()
+Back,^back()
+EOF
+    exit 0
+elif [[ -n "$1" ]]; then
+    set-timeout "$1"
+    exit 0
+fi
+
+# Otherwise, show the menu (standalone mode)
+SCRIPT_PATH="$(readlink -f "$0")"
+
+cat <<EOF | jgmenu --simple
+1 minute,${SCRIPT_PATH} 1
+5 minutes,${SCRIPT_PATH} 5
+30 minutes,${SCRIPT_PATH} 30
+1 hour,${SCRIPT_PATH} 60
+EOF
