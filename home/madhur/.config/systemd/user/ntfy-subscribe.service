@@ -1,0 +1,14 @@
+[Unit]
+Description=ntfy desktop notifications
+After=network.target
+
+[Service]
+ExecStartPre=/usr/bin/sleep 30
+ExecStart=/usr/bin/ntfy subscribe --from-config
+Restart=on-failure
+RestartSec=10
+Environment=DISPLAY=:0
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+[Install]
+WantedBy=default.target

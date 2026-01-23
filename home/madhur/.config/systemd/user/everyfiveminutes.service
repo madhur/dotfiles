@@ -1,0 +1,6 @@
+[Unit]
+Description=Take screenshot every five minutes
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/take-screenshot.sh --timer

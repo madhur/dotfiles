@@ -1,4 +1,10 @@
-#!/bin/sh
+#!/bin/bash
+
+# Set display environment for SSH/cron execution
+if [ -z "$DISPLAY" ]; then
+    export DISPLAY=:0
+    export XAUTHORITY="$HOME/.Xauthority"
+fi
 
 # Check if we're running under Wayland
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then

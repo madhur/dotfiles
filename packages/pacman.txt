@@ -227,6 +227,7 @@ networkmanager-openvpn
 nfs-utils
 nginx
 nilfs-utils
+niri
 nnn
 noto-fonts
 noto-fonts-cjk
@@ -264,6 +265,7 @@ pkgconf
 pkgfile
 playerctl
 plocate
+pngquant
 pnpm
 polkit-gnome
 poppler-glib
@@ -439,6 +441,7 @@ xscreensaver
 xsel
 xsettingsd
 xterm
+xwayland-satellite
 yamllint
 zathura
 zathura-pdf-poppler

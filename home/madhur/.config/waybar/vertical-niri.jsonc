@@ -1,0 +1,58 @@
+{
+  "position": "top",
+  "layer": "top",
+  "height": 30,
+  "output": "DP-1",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": [
+    "custom/launcher",
+    "niri/workspaces",
+    "wlr/taskbar",
+    "niri/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+
+  ],
+  // Modules configuration
+  "clock": {
+    "format": " {:%d %b %H:%M}",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m}"
+  },
+  "niri/workspaces": {
+    "format": "{index}",
+    "on-click": "activate"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+  },
+  "niri/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Brave": "🌐 $1",
+      "(.*) - fish": "> [$1]",
+      "(.*) - zsh": "> [$1]",
+      "(.*) - bash": "> [$1]",
+      "(.*) - kitty": "> $1",
+      "(.*) - Code": " $1",
+      "": "Desktop"
+    },
+    "separate-outputs": true,
+    "max-length": 50
+  },
+  "custom/launcher": {
+    "format": "󰣇",
+    "on-click": "jgmenu_run"
+  }
+}

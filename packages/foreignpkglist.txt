@@ -49,6 +49,7 @@ ncurses5-compat-libs
 nerd-fonts-complete
 ngrok
 nodejs-jsonlint
+ntfysh-bin
 nvidia-hook
 nvidia-inst
 oauth2l

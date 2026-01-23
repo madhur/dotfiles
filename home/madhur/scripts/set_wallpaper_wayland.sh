@@ -6,9 +6,12 @@ vertical="vertical"
 
 # swaybg configuration
 bg_color="#000000"  # Background color (black by default)
-# Get connected monitors for Hyprland/Sway
+# Get connected monitors for Hyprland/Sway/Niri
 get_monitors() {
-    if command -v hyprctl >/dev/null 2>&1; then
+    if command -v niri >/dev/null 2>&1 && niri msg outputs >/dev/null 2>&1; then
+        # Niri - extract connector name like DP-1, DP-2, eDP-1, etc.
+        niri msg outputs | grep '^Output' | sed 's/.*(\([^)]*\)).*/\1/' 2>/dev/null
+    elif command -v hyprctl >/dev/null 2>&1; then
         # Hyprland
         hyprctl monitors -j | jq -r '.[].name' 2>/dev/null || \
         hyprctl monitors | grep "Monitor" | awk '{print $2}' 2>/dev/null
@@ -117,9 +120,43 @@ get_venv_path() {
 is_vertical_monitor() {
     monitor_name="$1"
     echo "Debug: Checking monitor $monitor_name" >&2
-    
-    # Get monitor info from hyprctl or swaymsg
-    if command -v hyprctl >/dev/null 2>&1; then
+
+    # Get monitor info from niri, hyprctl, or swaymsg
+    if command -v niri >/dev/null 2>&1 && niri msg outputs >/dev/null 2>&1; then
+        # Niri - parse output info
+        # niri msg outputs shows: Output "Full Name" (DP-2)
+        # Transform info like "Transform: 90° counter-clockwise"
+        monitor_section=$(niri msg outputs | sed -n "/($monitor_name)/,/^Output /p" | head -n -1)
+        if [ -z "$monitor_section" ]; then
+            # Fallback - get entire output for this monitor
+            monitor_section=$(niri msg outputs | sed -n "/$monitor_name/,/^Output /p" | head -n -1)
+        fi
+
+        transform=$(echo "$monitor_section" | grep -i "Transform:" | head -1)
+        logical_size=$(echo "$monitor_section" | grep -i "Logical size:" | head -1)
+
+        echo "Debug: Niri monitor $monitor_name - Transform: $transform, Logical size: $logical_size" >&2
+
+        # Check if monitor is rotated (90 or 270 degrees)
+        if echo "$transform" | grep -qiE "90|270"; then
+            echo "Debug: Monitor $monitor_name is rotated" >&2
+            return 0  # true - it's vertical due to rotation
+        fi
+
+        # Check logical size (height > width means vertical)
+        if [ -n "$logical_size" ]; then
+            width=$(echo "$logical_size" | grep -oE '[0-9]+' | head -1)
+            height=$(echo "$logical_size" | grep -oE '[0-9]+' | tail -1)
+
+            if [ -n "$width" ] && [ -n "$height" ] && [ "$height" -gt "$width" ]; then
+                echo "Debug: Monitor $monitor_name is vertical (height > width: $height > $width)" >&2
+                return 0  # true
+            fi
+        fi
+
+        echo "Debug: Monitor $monitor_name is horizontal" >&2
+        return 1  # false
+    elif command -v hyprctl >/dev/null 2>&1; then
         # Hyprland
         if command -v jq >/dev/null 2>&1; then
             monitor_info=$(hyprctl monitors -j | jq -r ".[] | select(.name == \"$monitor_name\")" 2>/dev/null)

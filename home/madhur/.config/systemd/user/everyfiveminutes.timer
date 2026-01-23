@@ -1,0 +1,9 @@
+[Unit]
+Description=Run screenshot every five minutes
+
+[Timer]
+OnCalendar=*:0/5
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Desktop Recording Recovery Service
+Documentation=Processes incomplete recording sessions after boot
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/madhur/scripts/recording_postprocess.py
+RemainAfterExit=no
+
+# Clean up stale state file if exists
+ExecStartPre=-/bin/rm -f /tmp/desktop_recording.state
+
+# Environment for X11 access (if needed for future features)
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=default.target

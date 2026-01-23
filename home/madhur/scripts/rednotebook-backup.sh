@@ -74,14 +74,14 @@ fi
 log_message "Syncing RedNotebook data (incremental)"
 rsync -av --delete --exclude='*.log' --exclude='.git' --exclude='.gitignore' --exclude='backup_info.txt' "$REDNOTEBOOK_DATA_DIR/" . || handle_error "Failed to sync RedNotebook data"
 
-# Create/update backup metadata
-cat > backup_info.txt << EOF
-Last backup: $(date)
-Hostname: $(hostname)
-User: $(whoami)
-RedNotebook data source: $REDNOTEBOOK_DATA_DIR
-Script version: Incremental v1.0 (with reusable git functions)
-EOF
+# # Create/update backup metadata
+# cat > backup_info.txt << EOF
+# Last backup: $(date)
+# Hostname: $(hostname)
+# User: $(whoami)
+# RedNotebook data source: $REDNOTEBOOK_DATA_DIR
+# Script version: Incremental v1.0 (with reusable git functions)
+# EOF
 
 # Use the reusable git function to add, commit, and push
 COMMIT_MSG="RedNotebook backup $(date '+%Y-%m-%d %H:%M:%S')"
