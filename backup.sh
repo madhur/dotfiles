@@ -72,7 +72,6 @@ cp -r ~/.bashrc $dfolder/
 cp -r ~/.zshrc $dfolder/
 cp -r ~/.zprofile $dfolder/
 cp -r ~/.zlogin $dfolder/
-cp -r ~/.zshenv $dfolder/
 cp -r ~/.xsettingsd $dfolder/
 cp -r ~/.nanorc $dfolder/
 cp -r ~/.taskrc $dfolder/
