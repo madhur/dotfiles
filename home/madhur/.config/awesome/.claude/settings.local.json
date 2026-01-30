@@ -12,7 +12,8 @@
       "Bash(task 38 info:*)",
       "Bash(task 71 info:*)",
       "Bash(task recurring)",
-      "Bash(task 71 delete:*)"
+      "Bash(task 71 delete:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

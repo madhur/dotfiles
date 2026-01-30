@@ -49,6 +49,7 @@ cups-filters
 cups-pdf
 debugedit
 default-cursors
+deno
 device-mapper
 devtools
 dex
@@ -236,13 +237,13 @@ nss-mdns
 ntfs-3g
 ntp
 numlockx
+nvidia-container-toolkit
 nvidia-open-dkms
 nvidia-settings
 nvme-cli
 nwg-look
 openconnect
 opendoas
-openssl-1.1
 openvpn
 os-prober
 pacman

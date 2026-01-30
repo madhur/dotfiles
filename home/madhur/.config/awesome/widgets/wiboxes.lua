@@ -165,6 +165,7 @@ local right_widgets = {
     -- Right widgets
     layout = wibox.layout.fixed.horizontal,
     --pl (cpu_temp, true, "cpu_temp1"),
+    pl(require("widgets.topbar.weather"), true, "weather"),
     pl(require("widgets.topbar.clock"), true, "calendar"),
     pl(require("widgets.topbar.capslock"), true, "capslock"),
     pl(require("widgets.topbar.idle-shutdown-ring").new(), true, "idle_shutdown"),

@@ -32,7 +32,7 @@ org.blueman.plugins.autoconnect services [('78:2B:64:A2:21:03', '00000000-0000-0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1769103005.0965352', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1769709384.2407703', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -808,7 +808,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 871)
+org.gtk.Settings.FileChooser window-position (1, 800)
 org.gtk.Settings.FileChooser window-size (1936, 3762)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

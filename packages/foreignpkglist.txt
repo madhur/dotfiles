@@ -56,6 +56,7 @@ oauth2l
 offsetexplorer2
 offsetexplorer3
 oh-my-zsh-git
+openssl-1.1
 papirus-folders-git
 picom-git
 pipes.sh
