@@ -56,7 +56,7 @@ cp ~/.config/lazygit/config.yml $dfolder/.config/lazygit/
 cp -r ~/.config/hypr $dfolder/.config/
 cp -r ~/.config/nwg-look $dfolder/.config/
 cp -r ~/.config/waybar $dfolder/.config/
-cp
+cp -r ~/.config/ntfy $dfolder/.config/
 cp -r ~/.config/waypaper $dfolder/.config/
 cp  ~/.rednotebook/configuration.cfg $dfolder/.rednotebook/configuration.cfg
 cp -r ~/.rednotebook/templates $dfolder/.rednotebook/
@@ -100,7 +100,7 @@ sudo cp /etc/default/* ./etc/default/
 sudo cp /etc/ssh/sshd_config.d/* ./etc/ssh/sshd_config.d/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
 sudo cp /etc/exports.d/* ./etc/exports.d/
-sudo cp /etc/grafana.inci ./etc/grafana.ini
+sudo cp /etc/grafana.ini ./etc/grafana.ini
 sudo cp -r /etc/X11/* ./etc/X11/
 sudo cp -r /etc/conf.d/* ./etc/conf.d/
 sudo cp -r /etc/lightdm/* ./etc/lightdm/
@@ -109,6 +109,44 @@ sudo cp /etc/doas.conf ./etc/doas.conf
 #cp /etc/dnsmasq.conf ./etc/dnsmasq.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf
 #cp /etc/resolv.conf ./etc/resolv.conf
+
+# Custom systemd system services
+sudo cp /etc/systemd/system/rc-local.service ./etc/systemd/system/
+sudo cp /etc/systemd/system/wol@.service ./etc/systemd/system/
+sudo cp /etc/systemd/system/ollama.service ./etc/systemd/system/
+sudo cp /etc/systemd/system/msmtpd@.service ./etc/systemd/system/
+sudo cp /etc/systemd/system/vault.service ./etc/systemd/system/
+sudo cp /etc/systemd/system/ntfy-bootup.service ./etc/systemd/system/
+sudo cp /etc/systemd/system/wg-route.service ./etc/systemd/system/
+sudo cp -r /etc/systemd/system/rtkit-daemon.service.d/* ./etc/systemd/system/rtkit-daemon.service.d/
+
+# Boot / initramfs
+sudo cp /etc/mkinitcpio.conf ./etc/mkinitcpio.conf
+sudo cp /etc/mkinitcpio.d/linux.preset ./etc/mkinitcpio.d/
+
+# Firewall
+sudo cp /etc/nftables.conf ./etc/nftables.conf
+sudo cp /etc/iptables/iptables.rules ./etc/iptables/
+
+# Docker
+sudo cp /etc/docker/daemon.json ./etc/docker/
+
+# Package build / mirrors
+sudo cp /etc/makepkg.conf ./etc/makepkg.conf
+sudo cp /etc/xdg/reflector/reflector.conf ./etc/xdg/reflector/
+
+# System identity / locale
+cp /etc/environment ./etc/environment
+cp /etc/locale.conf ./etc/locale.conf
+cp /etc/locale.gen ./etc/locale.gen
+cp /etc/hostname ./etc/hostname
+cp /etc/vconsole.conf ./etc/vconsole.conf
+
+# Hardware / network
+sudo cp /etc/bluetooth/main.conf ./etc/bluetooth/
+cp /etc/NetworkManager/NetworkManager.conf ./etc/NetworkManager/
+sudo cp /etc/modprobe.d/*.conf ./etc/modprobe.d/
+sudo cp /etc/security/limits.d/*.conf ./etc/security/limits.d/
 
 pacman -Qnqe > packages/pacman.txt
 pacman -Qqem > packages/foreignpkglist.txt
