@@ -89,7 +89,7 @@ services=[('78:2B:64:A2:21:03', '00000000-0000-0000-0000-000000000000')]
 auto-power-on=@mb true
 
 [org/blueman/plugins/recentconns]
-recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1769709384.2407703', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1770400229.449174', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 
 [org/fedoraproject/FirewallConfig]
 show-active-bindings=true
@@ -147,8 +147,8 @@ xkb-options=@as []
 
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
-cursor-size=36
-cursor-theme='Adwaita'
+cursor-size=24
+cursor-theme='default'
 document-font-name='Noto Sans Medium 11'
 enable-animations=true
 font-antialiasing='grayscale'
@@ -344,9 +344,9 @@ show-type-column=true
 sidebar-width=204
 sort-column='name'
 sort-directories-first=false
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(1, 800)
+window-position=(1, 871)
 window-size=(1936, 3762)
 
 [org/guake/general]

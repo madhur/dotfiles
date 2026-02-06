@@ -1,0 +1,13 @@
+[Unit]
+Description=msmtp daemon
+Documentation=man:msmtpd(1)
+
+[Service]
+#User=msmtp
+#ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+#SupplementaryGroups=msmtp
+
+StandardInput=socket
+ExecStart=/usr/bin/msmtpd --inet '--command=/usr/bin/msmtp -C /home/madhur/.msmtprc -f %%F'

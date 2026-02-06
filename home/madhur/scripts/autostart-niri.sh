@@ -30,8 +30,8 @@ run_without_pcheck "WatchYourLAN"
 run "nm-applet"
 run "indicator-sound-switcher"
 
-# Redshift alternative for Wayland
-(sleep 5 && run "wlsunset") &
+# Redshift alternative for Wayland (matching redshift config: day=6500, night=4500)
+(sleep 5 && run wlsunset -t 4500 -T 6500 -l 12.97 -L 77.59) &
 
 # Background services
 run "systemd-timer-notify"

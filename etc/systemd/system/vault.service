@@ -1,0 +1,30 @@
+[Unit]
+Description=HashiCorp Vault - A secrets management solution
+After=network.target
+
+[Service]
+#User=vault
+#Group=vault
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+SecureBits=keep-caps
+AmbientCapabilities=CAP_IPC_LOCK
+LimitMEMLOCK=infinity
+NoNewPrivileges=yes
+ExecStart=/usr/bin/vault server -config=/etc/vault.hcl
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+ReadOnlyPaths=/etc/vault
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Route to WireGuard VPN subnet
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ip route add 10.8.0.0/24 via 10.42.42.42
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

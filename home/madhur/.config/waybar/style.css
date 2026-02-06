@@ -3,7 +3,7 @@
     border-radius: 0px;
     /*font-family: VictorMono, Iosevka Nerd Font, Noto Sans CJK;*/
     font-family: JetBrains Mono Nerd Font;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     min-height: 0;
 }
@@ -115,7 +115,7 @@ window#waybar.hidden {
     background: #11161b;
     color: #f46521;
     margin-right: 30px;
-    padding: 10px;
+    padding: 0 10px;
 }
 
 #memory {

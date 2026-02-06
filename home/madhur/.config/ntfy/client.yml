@@ -1,0 +1,14 @@
+default-host: https://ntfy.madhur.co.in
+subscribe:
+  - topic: changes
+    command: 'notify-send -t 10000 --app-name=ntfy "$t" "$m"'
+  - topic: weekly
+    command: 'notify-send -t 10000 --app-name=ntfy "$t" "$m"'
+  - topic: daily
+    command: 'notify-send -t 10000 --app-name=ntfy "$t" "$m"'
+  - topic: monthly
+    command: 'notify-send -t 10000 --app-name=ntfy "$t" "$m"'
+  - topic: bootup
+    command: 'notify-send -t 10000 --app-name=ntfy "$t" "$m"'
+  - topic: olivetin
+    command: 'notify-send -t 10000 --app-name=ntfy "$t" "$m"'

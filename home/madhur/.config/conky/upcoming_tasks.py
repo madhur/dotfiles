@@ -31,7 +31,7 @@ def get_tasks(filter_args):
     """Fetch tasks from Taskwarrior using provided filter arguments"""
     try:
         # Build command: task [filter_args...] export
-        cmd = ['task'] + list(filter_args) + ['export']
+        cmd = ['task', 'rc.gc=0', 'rc.recurrence=0', 'rc.readonly=true'] + list(filter_args) + ['export']
 
         # Get tasks in JSON format
         result = subprocess.run(

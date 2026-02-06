@@ -1,6 +1,25 @@
 #!/bin/bash
 cd $(dirname $0)
 
+# Detect session type and compositor
+session_type="${XDG_SESSION_TYPE:-x11}"
+conky_dir="$(dirname "$0")"
+if [ "$session_type" = "wayland" ]; then
+    if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && [ -d "$conky_dir/hyprland" ]; then
+        config_dir="$conky_dir/hyprland"
+        echo "Detected Hyprland session, using hyprland configs"
+    elif [ -d "$conky_dir/wayland" ]; then
+        config_dir="$conky_dir/wayland"
+        echo "Detected Wayland session, using wayland configs"
+    else
+        config_dir="$conky_dir"
+        echo "Detected Wayland session, but no wayland configs found, using default configs"
+    fi
+else
+    config_dir="$conky_dir"
+    echo "Detected X11 session, using default configs"
+fi
+
 # Parse command line arguments
 mode="main"
 no_pause=false
@@ -129,8 +148,8 @@ start_wallpaper_conky() {
 start_main_conky() {
     echo "Starting main conky instances..."
     
-    start_conky "/home/madhur/.config/conky/conky.conf" "main conky"
-    start_conky "/home/madhur/.config/conky/secondary_conky.conf" "secondary conky"
+    start_conky "$config_dir/conky.conf" "main conky"
+    start_conky "$config_dir/secondary_conky.conf" "secondary conky"
 }
 
 # Main logic based on mode

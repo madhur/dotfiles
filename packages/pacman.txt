@@ -115,6 +115,7 @@ go
 go-yq
 goaccess
 gobject-introspection
+gpac
 gparted
 grafana
 grep

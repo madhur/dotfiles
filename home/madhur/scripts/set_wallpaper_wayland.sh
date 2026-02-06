@@ -38,11 +38,11 @@ kill_swaybg
 
 # Check for date-specific folder first
 folder=$(date +%d_%m)
-scaling_mode="stretch"  # swaybg scaling mode: stretch, fill, fit, center, tile
+scaling_mode="center"  # swaybg scaling mode: stretch, fill, fit, center, tile
 
 if [ -d "$folder" ]; then
     echo "Using date-specific folder: $base_folder/$folder"
-    filename=$(ls $base_folder/$folder | shuf -n 1)
+    filename=$(ls $base_folder/$folder | grep -iE '\.(jpe?g|png|gif|bmp|webp|tiff)$' | shuf -n 1)
     wallpaper_path="$base_folder/$folder/$filename"
     
     # Set same wallpaper on all monitors

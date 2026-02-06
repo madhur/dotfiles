@@ -1,0 +1,14 @@
+[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+Environment="PATH=/run/user/1000/fnm_multishells/763469_1745129541041/bin:/home/madhur/.local/share/fnm:/home/madhur/gitpersonal/git-fuzzy/bin:/home/madhur/.gvm/pkgsets/go1.22.2/global/bin:/home/madhur/.gvm/gos/go1.22.2/bin:/home/madhur/.gvm/pkgsets/go1.22.2/global/overlay/bin:/home/madhur/.gvm/bin:/home/madhur/.gvm/bin:/home/madhur/etcd:/usr/local/vitess/bin:/home/madhur/.gem/ruby/3.0.0/bin:/home/madhur/Android/Sdk/bundle-tool:/home/madhur/Android/Sdk/build-tools/32.0.0/bin:/home/madhur/Android/Sdk/build-tools/32.0.0:/home/madhur/Android/Sdk/tools:/home/madhur/Android/Sdk/platform-tools:/home/madhur/.sdkman/candidates/java/11.0.20-amzn/bin:/home/madhur/.local/bin:/home/madhur/bin:/home/madhur/scripts:/home/madhur/company:/home/madhur/.gem/ruby/3.0.0/bin:/home/madhur/.local/bin:/home/madhur/bin:/home/madhur/scripts:/home/madhur/.local/bin:/home/madhur/bin:/home/madhur/scripts:/home/madhur/.local/bin:/home/madhur/bin:/home/madhur/scripts:/home/madhur/.sdkman/candidates/java/current/bin:/home/madhur/.local/bin:/home/madhur/bin:/home/madhur/scripts:/home/madhur/company:/home/madhur/.gem/ruby/3.0.0/bin:/home/madhur/.local/bin:/home/madhur/bin:/home/madhur/scripts:/home/madhur/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/home/madhur/.cabal/bin:/home/madhur/maven/bin:/usr/local/sbin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/var/lib/snapd/snap/bin:/home/madhur/.rvm/bin:/home/madhur/.cabal/bin:/home/madhur/maven/bin:/home/madhur/.cabal/bin:/home/madhur/maven/bin:/home/madhur/.cabal/bin:/home/madhur/maven/bin:/home/madhur/maven/bin:/home/madhur/gradle/bin:/home/madhur/.rvm/bin:/home/madhur/go/bin:/home/madhur/.cabal/bin:/usr/local/go/bin:/home/madhur/.cargo/bin:/home/madhur/Downloads/mysql57/bin:/usr/bin"
+
+[Install]
+WantedBy=default.target

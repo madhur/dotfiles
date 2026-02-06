@@ -32,17 +32,11 @@ org.blueman.plugins.autoconnect services [('78:2B:64:A2:21:03', '00000000-0000-0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1769709384.2407703', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1770400229.449174', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
 org.blueman.transfer shared-path ''
-org.fedoraproject.FirewallConfig show-active-bindings true
-org.fedoraproject.FirewallConfig show-direct false
-org.fedoraproject.FirewallConfig show-helpers false
-org.fedoraproject.FirewallConfig show-icmp-types false
-org.fedoraproject.FirewallConfig show-ipsets true
-org.fedoraproject.FirewallConfig show-lockdown-whitelist false
 org.freedesktop.ColorHelper display-gamma 2.3999999999999999
 org.freedesktop.ColorHelper display-whitepoint 6500
 org.freedesktop.ColorHelper sample-delay 400
@@ -387,8 +381,8 @@ org.gnome.desktop.interface color-scheme 'prefer-dark'
 org.gnome.desktop.interface cursor-blink true
 org.gnome.desktop.interface cursor-blink-time 1200
 org.gnome.desktop.interface cursor-blink-timeout 10
-org.gnome.desktop.interface cursor-size 36
-org.gnome.desktop.interface cursor-theme 'Adwaita'
+org.gnome.desktop.interface cursor-size 24
+org.gnome.desktop.interface cursor-theme 'default'
 org.gnome.desktop.interface document-font-name 'Noto Sans Medium 11'
 org.gnome.desktop.interface enable-animations true
 org.gnome.desktop.interface enable-hot-corners true
@@ -805,10 +799,10 @@ org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 204
 org.gtk.Settings.FileChooser sort-column 'name'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'descending'
+org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 800)
+org.gtk.Settings.FileChooser window-position (1, 871)
 org.gtk.Settings.FileChooser window-size (1936, 3762)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

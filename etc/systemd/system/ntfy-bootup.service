@@ -1,0 +1,18 @@
+[Unit]
+Description=Notify on boot/shutdown
+After=network-online.target
+Wants=network-online.target
+Before=shutdown.target reboot.target halt.target
+DefaultDependencies=no
+Conflicts=shutdown.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+TimeoutStopSec=30
+ExecStartPre=/bin/sleep 30
+ExecStart=/usr/bin/curl -d "System booted up" https://ntfy.madhur.co.in/bootup
+ExecStop=/usr/bin/curl -m 10 -d "System shutting down" https://ntfy.madhur.co.in/bootup
+
+[Install]
+WantedBy=multi-user.target
