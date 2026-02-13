@@ -201,6 +201,7 @@ malcontent
 man-db
 man-pages
 mdadm
+mediainfo-gui
 meld
 mesa
 mesa-utils
@@ -286,6 +287,7 @@ python-defusedxml
 python-flake8
 python-packaging
 python-pipenv
+python-pipx
 python-pyqt5
 python-pywal
 python-readability-lxml

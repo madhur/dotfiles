@@ -2,6 +2,7 @@ activitywatch-bin
 apache-tools
 autokey-gtk
 awesome-git
+bento4
 brave-bin
 caffeine-ng
 charles
