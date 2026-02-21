@@ -23,7 +23,7 @@ org.blueman.general show-toolbar true
 org.blueman.general sort-by 'timestamp'
 org.blueman.general sort-order 'ascending'
 org.blueman.general symbolic-status-icons false
-org.blueman.general window-properties [1492, 892, 1174, 1489]
+org.blueman.general window-properties [1492, 892, 2083, 1134]
 org.blueman.network dhcp-handler @ms nothing
 org.blueman.network ip4-address @ms nothing
 org.blueman.network ip4-netmask '255.255.255.0'
@@ -32,7 +32,7 @@ org.blueman.plugins.autoconnect services [('78:2B:64:A2:21:03', '00000000-0000-0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1770400229.449174', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1771094942.974846', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -381,8 +381,8 @@ org.gnome.desktop.interface color-scheme 'prefer-dark'
 org.gnome.desktop.interface cursor-blink true
 org.gnome.desktop.interface cursor-blink-time 1200
 org.gnome.desktop.interface cursor-blink-timeout 10
-org.gnome.desktop.interface cursor-size 24
-org.gnome.desktop.interface cursor-theme 'default'
+org.gnome.desktop.interface cursor-size 36
+org.gnome.desktop.interface cursor-theme 'Adwaita'
 org.gnome.desktop.interface document-font-name 'Noto Sans Medium 11'
 org.gnome.desktop.interface enable-animations true
 org.gnome.desktop.interface enable-hot-corners true
@@ -802,7 +802,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1, 871)
+org.gtk.Settings.FileChooser window-position (1901, 871)
 org.gtk.Settings.FileChooser window-size (1936, 3762)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false
