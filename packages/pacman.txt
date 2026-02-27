@@ -412,7 +412,6 @@ which
 wireless-regdb
 wireless_tools
 wireplumber
-wireshark-cli
 wl-clipboard
 wlroots0.18
 wlsunset

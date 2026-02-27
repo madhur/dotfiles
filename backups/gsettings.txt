@@ -32,7 +32,7 @@ org.blueman.plugins.autoconnect services [('78:2B:64:A2:21:03', '00000000-0000-0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1771094942.974846', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1771648468.3705313', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -238,7 +238,7 @@ org.gnome.FileRoller.General compression-level 'normal'
 org.gnome.FileRoller.General editors @as []
 org.gnome.FileRoller.General encrypt-header false
 org.gnome.FileRoller.Listing list-mode 'as-folder'
-org.gnome.FileRoller.Listing name-column-width 1353
+org.gnome.FileRoller.Listing name-column-width 3290
 org.gnome.FileRoller.Listing show-path false
 org.gnome.FileRoller.Listing show-size true
 org.gnome.FileRoller.Listing show-time true
@@ -247,8 +247,8 @@ org.gnome.FileRoller.Listing sort-method 'name'
 org.gnome.FileRoller.Listing sort-type 'ascending'
 org.gnome.FileRoller.UI sidebar-width 200
 org.gnome.FileRoller.UI view-sidebar false
-org.gnome.FileRoller.UI window-height 2108
-org.gnome.FileRoller.UI window-width 1903
+org.gnome.FileRoller.UI window-height 2130
+org.gnome.FileRoller.UI window-width 3840
 org.gnome.GWeather4 default-location ('', 'KNYC', @m(dd) nothing)
 org.gnome.GWeather4 distance-unit 'default'
 org.gnome.GWeather4 pressure-unit 'default'
@@ -802,7 +802,7 @@ org.gtk.Settings.FileChooser sort-directories-first false
 org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
-org.gtk.Settings.FileChooser window-position (1901, 871)
+org.gtk.Settings.FileChooser window-position (1, 871)
 org.gtk.Settings.FileChooser window-size (1936, 3762)
 org.gtk.gtk4.Inspector.Recorder dark false
 org.gtk.gtk4.Inspector.Recorder debug-nodes false

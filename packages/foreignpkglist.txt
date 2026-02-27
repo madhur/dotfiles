@@ -74,6 +74,7 @@ qimgv
 qogir-gtk-theme
 qtile-extras-git
 qtile-git
+quickshell-git
 redis
 reiserfsprogs
 rofi-file-browser-extended-git

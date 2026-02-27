@@ -89,7 +89,7 @@ services=[('78:2B:64:A2:21:03', '00000000-0000-0000-0000-000000000000')]
 auto-power-on=@mb true
 
 [org/blueman/plugins/recentconns]
-recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1771094942.974846', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+recent-connections=[{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1771648468.3705313', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 
 [org/fedoraproject/FirewallConfig]
 show-active-bindings=true
@@ -220,15 +220,15 @@ window-size=(-1, -1)
 
 [org/gnome/file-roller/listing]
 list-mode='as-folder'
-name-column-width=1353
+name-column-width=3290
 show-path=false
 sort-method='name'
 sort-type='ascending'
 
 [org/gnome/file-roller/ui]
 sidebar-width=200
-window-height=2108
-window-width=1903
+window-height=2130
+window-width=3840
 
 [org/gnome/font-manager]
 charmap-font-size=24.812989921612541
@@ -346,7 +346,7 @@ sort-column='modified'
 sort-directories-first=false
 sort-order='descending'
 type-format='category'
-window-position=(1901, 871)
+window-position=(1, 871)
 window-size=(1936, 3762)
 
 [org/guake/general]

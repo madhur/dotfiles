@@ -1,2 +1,2 @@
-rm ~/Downloads/mysql57/mysql.sock.lock
+rm ~/Downloads/mysql8/mysql.sock.lock
 systemctl restart mysqld --user
