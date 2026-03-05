@@ -347,7 +347,7 @@ sort-directories-first=false
 sort-order='descending'
 type-format='category'
 window-position=(1, 871)
-window-size=(1936, 3762)
+window-size=(1936, 2106)
 
 [org/guake/general]
 compat-delete='delete-sequence'

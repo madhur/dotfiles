@@ -11,14 +11,14 @@ off
 output DP-0
 crtc 1
 mode 3840x2160
-pos 0x0
+pos 3840x0
 rate 60.00
 rotate left
 x-prop-non_desktop 0
 output DP-2
 crtc 0
 mode 3840x2160
-pos 2160x1106
+pos 0x840
 primary
 rate 60.00
 x-prop-non_desktop 0

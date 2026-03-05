@@ -8,7 +8,7 @@ Restart=on-failure
 
 #Change this line if you download the 
 #Prometheus on different path user
-ExecStart=/home/madhur/alertmanager/alertmanager --web.listen-address=:9095 
+ExecStart=/home/madhur/alertmanager/alertmanager --web.listen-address=:9095 --cluster.listen-address=""
 WorkingDirectory=/home/madhur/alertmanager
 
 [Install]

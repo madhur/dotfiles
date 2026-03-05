@@ -157,3 +157,4 @@ export GOPATH=/home/madhur/github/go
 export VAULT_ADDR=http://127.0.0.1:8200
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
+export PATH="$HOME/.npm-global/bin:$PATH"

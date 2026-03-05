@@ -1,0 +1,22 @@
+[Unit]
+Description=OpenClaw Gateway (v2026.2.26)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/node /home/madhur/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789
+Restart=always
+RestartSec=5
+KillMode=process
+Environment=HOME=/home/madhur
+Environment=TMPDIR=/tmp
+Environment=PATH=/home/madhur/.local/share/fnm/current/bin:/home/madhur/.local/bin:/home/madhur/.npm-global/bin:/home/madhur/bin:/home/madhur/.volta/bin:/home/madhur/.asdf/shims:/home/madhur/.bun/bin:/home/madhur/.nvm/current/bin:/home/madhur/.fnm/current/bin:/home/madhur/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin
+Environment=OPENCLAW_GATEWAY_PORT=18789
+Environment=OPENCLAW_GATEWAY_TOKEN=57dc08a08867bc9bacac8f1cd160362daa3815a9b1a919d9
+Environment=OPENCLAW_SYSTEMD_UNIT=openclaw-gateway.service
+Environment=OPENCLAW_SERVICE_MARKER=openclaw
+Environment=OPENCLAW_SERVICE_KIND=gateway
+Environment=OPENCLAW_SERVICE_VERSION=2026.2.26
+
+[Install]
+WantedBy=default.target

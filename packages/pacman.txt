@@ -18,7 +18,6 @@ aria2
 atuin
 autoconf
 automake
-autorandr
 aws-cli
 b43-fwcutter
 baobab
@@ -164,6 +163,7 @@ kubectl
 kubectx
 lazygit
 less
+lftp
 lib32-libglvnd
 lib32-libxml2
 lib32-mesa
@@ -383,6 +383,7 @@ taskwarrior-tui
 tcpdump
 texinfo
 thunar
+tigervnc
 tmux
 traceroute
 trash-cli

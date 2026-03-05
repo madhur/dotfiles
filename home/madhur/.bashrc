@@ -103,3 +103,4 @@ source ~/.functions
 eval "$(atuin init bash)"
 
 complete -C /usr/bin/vault vault
+export PATH="$HOME/.npm-global/bin:$PATH"

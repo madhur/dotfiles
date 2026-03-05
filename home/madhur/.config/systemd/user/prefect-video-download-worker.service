@@ -1,0 +1,32 @@
+[Unit]
+Description=SharePoint Video Download Prefect Worker
+Documentation=https://docs.prefect.io/
+
+[Service]
+Type=simple
+WorkingDirectory=/home/madhur/Desktop/python
+
+ExecStart=/home/madhur/.virtualenvs/python-rsha/bin/python prefect-worker.py worker
+
+Restart=always
+RestartSec=10
+
+LimitNOFILE=65536
+LimitNPROC=4096
+
+Environment="PYTHONUNBUFFERED=1"
+Environment="PREFECT_API_URL=http://localhost:4200/api"
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=prefect-video-download-worker
+
+NoNewPrivileges=true
+PrivateTmp=true
+
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

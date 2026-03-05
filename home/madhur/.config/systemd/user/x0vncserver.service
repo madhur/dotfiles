@@ -1,0 +1,11 @@
+[Unit]
+Description=Remote desktop service (VNC)
+
+[Service]
+Type=simple
+Environment=XAUTHORITY=%h/.Xauthority
+ExecStartPre=/bin/sh -c 'while ! xdpyinfo -display :0 >/dev/null 2>&1; do sleep 2; done'
+ExecStart=/usr/bin/x0vncserver -display :0 -rfbauth %h/.vnc/passwd
+
+[Install]
+WantedBy=default.target

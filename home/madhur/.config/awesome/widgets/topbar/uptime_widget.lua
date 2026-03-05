@@ -14,8 +14,8 @@ local uptime_widget = {}
 local config = {
     script_path = os.getenv("HOME") .. "/.config/conky/uptime_tracker.py",
     update_interval = 300, -- 5 minutes
-    weeks = 30, -- Number of weeks to display
-    popup_width = 900,
+    weeks = 34, -- Number of weeks to display
+    popup_width = 1300,
     popup_height = 500,
     show_dates = true, -- Set to false to hide dates
 }
