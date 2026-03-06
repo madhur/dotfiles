@@ -1,7 +1,7 @@
 Name                        Version                         Rev    Tracking       Publisher       Notes
 asana-snap                  1.6.0                           3      latest/stable  ahuja-madhur    -
 bare                        1.0                             5      latest/stable  canonical**     base
-core18                      20260105                        2979   latest/stable  canonical**     base
+core18                      20260204                        2999   latest/stable  canonical**     base
 core20                      20260105                        2717   latest/stable  canonical**     base
 core22                      20260128                        2339   latest/stable  canonical**     base
 core24                      20260107                        1349   latest/stable  canonical**     base
