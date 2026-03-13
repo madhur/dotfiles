@@ -104,10 +104,10 @@ gawk
 gcc
 gettext
 ghostscript
-ghostty
 git
 git-crypt
 git-delta
+git-lfs
 github-cli
 glances
 glow
@@ -151,6 +151,7 @@ inter-font
 inxi
 iotop
 iptables-nft
+irssi
 iwd
 jdk8-openjdk
 jfsutils
