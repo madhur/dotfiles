@@ -8,3 +8,4 @@
 #BROWSER=firefox
 #EDITOR=nano
 #PATH="$PATH:/home/madhur/maven/bin"
+EDITOR=micro

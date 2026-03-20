@@ -198,3 +198,10 @@ threshold = 1
 format = "[$symbol$number]($style) "
 symbol = "✦"
 style = "bold blue"
+
+[custom.idle_shutdown]
+command = "/home/madhur/scripts/idle-remaining.sh"
+when = '[ -z "$DISPLAY" ]'
+format = "$output "
+shell = ["bash"]
+description = "Show idle shutdown remaining time in text mode"

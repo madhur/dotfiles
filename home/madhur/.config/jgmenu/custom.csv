@@ -35,6 +35,7 @@ Back,^back()
 Brave,"brave", brave
 
 ^tag(apps-dir-System)
+Text Mode, sudo systemctl isolate multi-user.target, utilities-terminal
 Shutdown, /home/madhur/scripts/system.sh poweroff, system-shutdown
 Restart, /home/madhur/scripts/system.sh reboot, system-reboot
 Logout, /home/madhur/scripts/system.sh logoff, system-logout

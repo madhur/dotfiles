@@ -17,14 +17,13 @@ LOG_DIR="$HOME/logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/idle-shutdown.log"
 
-# Get idle time in milliseconds
-IDLE_TIME_MS=$(xprintidle 2>/dev/null)
-
-# Check if xprintidle returned a valid value
-if [ -z "$IDLE_TIME_MS" ] || [ "$IDLE_TIME_MS" -lt 0 ]; then
-    echo "$(date): ERROR - Could not get idle time from xprintidle" >> "$LOG_FILE"
+# Get idle time in milliseconds (supports X11 and text mode)
+source ~/scripts/idle-lib.sh
+if ! get_idle_ms; then
+    echo "$(date): ERROR - Could not get idle time (no DISPLAY and no TTY found)" >> "$LOG_FILE"
     exit 1
 fi
+IDLE_TIME_MS="$IDLE_MS"
 
 # 30 minutes in milliseconds (30 * 60 * 1000)
 #THRESHOLD_MS=1800000

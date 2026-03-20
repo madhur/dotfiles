@@ -2,6 +2,7 @@ activitywatch-bin
 apache-tools
 autokey-gtk
 awesome-git
+bdf2psf-debian-unstable
 bento4
 brave-bin
 caffeine-ng
@@ -58,6 +59,7 @@ offsetexplorer2
 offsetexplorer3
 oh-my-zsh-git
 openssl-1.1
+otf2bdf
 papirus-folders-git
 picom-git
 pipes.sh

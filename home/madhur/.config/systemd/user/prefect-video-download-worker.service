@@ -16,6 +16,7 @@ LimitNPROC=4096
 
 Environment="PYTHONUNBUFFERED=1"
 Environment="PREFECT_API_URL=http://localhost:4200/api"
+Environment="DISPLAY=:0"
 
 StandardOutput=journal
 StandardError=journal

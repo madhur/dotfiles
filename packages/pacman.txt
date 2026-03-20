@@ -92,6 +92,7 @@ firewalld
 flameshot
 flatpak
 flex
+fontforge
 foomatic-db
 foomatic-db-engine
 foomatic-db-gutenprint-ppds
@@ -158,6 +159,7 @@ jfsutils
 jgmenu
 jless
 jq
+kdeconnect
 keychain
 kitty
 kubectl
@@ -202,19 +204,20 @@ make
 malcontent
 man-db
 man-pages
+mc
 mdadm
 mediainfo-gui
 meld
 mesa
 mesa-utils
 meson
+micro
 mkinitcpio
 mkinitcpio-busybox
 mkinitcpio-nfs-utils
 modemmanager
 moreutils
 mpv
-msedit
 msmtp
 msmtp-mta
 mtools
@@ -274,6 +277,7 @@ pngquant
 pnpm
 polkit-gnome
 poppler-glib
+postgis
 postgresql
 power-profiles-daemon
 powertop
@@ -382,6 +386,7 @@ systemd-sysvcompat
 task
 taskwarrior-tui
 tcpdump
+terminus-font
 texinfo
 thunar
 tigervnc

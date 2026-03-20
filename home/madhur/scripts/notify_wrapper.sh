@@ -236,9 +236,10 @@ System: $system_info"
 $cmd_output"
         fi
         
-        if [ "$notify_enabled" != "false" ]; then
-            send_rich_notification "$topic" "✅ $description" "$success_msg" "default" "white_check_mark"
-        fi
+        # Success notifications suppressed — only failures are notified
+        #if [ "$notify_enabled" != "false" ]; then
+        #    send_rich_notification "$topic" "✅ $description" "$success_msg" "default" "white_check_mark"
+        #fi
         echo "[$end_timestamp] Completed successfully: $description (took $duration_formatted)"
         log_event "SUCCESS" "$topic" "$description - Duration: $duration_formatted"
     else

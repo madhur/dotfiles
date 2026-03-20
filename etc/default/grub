@@ -1,7 +1,7 @@
 # GRUB boot loader configuration
 
-GRUB_DEFAULT=0
-GRUB_TIMEOUT=2
+GRUB_DEFAULT="Arch Linux (Text Mode)"
+GRUB_TIMEOUT=10
 GRUB_DISTRIBUTOR="EndeavourOS"
 #GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 nowatchdog nvme_load=YES nvidia-drm.modeset=1 amd_pstate=active"
 GRUB_CMDLINE_LINUX=""
