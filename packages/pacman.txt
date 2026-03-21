@@ -32,6 +32,7 @@ bison
 blueman
 bluez
 bluez-utils
+btop
 btrfs-progs
 calc
 cantarell-fonts
@@ -456,6 +457,7 @@ xwayland-satellite
 yamllint
 zathura
 zathura-pdf-poppler
+zellij
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting

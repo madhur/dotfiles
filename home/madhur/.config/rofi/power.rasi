@@ -16,7 +16,7 @@ configuration {
 window {    
    
     font: "JetBrains Mono 14";
-	width:						    36%;
+	width:						    44%;
    
       background-color: @bg-trans;
       
@@ -61,7 +61,7 @@ inputbar {
 listview {
      background-color:              @transparent;
     padding:                        0px;
-    columns:                        5;
+    columns:                        6;
     lines:                          1;
     spacing:                        1%;
     cycle:                          true;

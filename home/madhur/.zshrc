@@ -165,3 +165,9 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 # Apply Dracula palette inside fbterm
 [[ $FBTERM == 1 ]] && source ~/.fbterm-colors
 export VISUAL=micro
+
+# Clone work repos with work SSH key (id_rsa_z).
+# Usage: wclone git@github.com:org/repo.git [dest]
+wclone() {
+    git clone -c core.sshCommand="ssh -i ~/.ssh/id_rsa_z" "$@"
+}

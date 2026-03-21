@@ -99,8 +99,8 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 
-# [includeIf "gitdir:/home/madhur/github/"]
-#     path = /home/madhur/.gitconfig-work
+[includeIf "gitdir:/home/madhur/github/"]
+    path = /home/madhur/.gitconfig-work
 
-# [includeIf "gitdir:/home/madhur/gitpersonal/"]
-#     path = /home/madhur/.gitconfig-personal
+[includeIf "gitdir:/home/madhur/gitpersonal/"]
+    path = /home/madhur/.gitconfig-personal

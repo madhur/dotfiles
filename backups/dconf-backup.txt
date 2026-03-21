@@ -338,13 +338,13 @@ selected-color=(true, 0.0, 0.0, 0.0, 1.0)
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=false
+show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=204
-sort-column='modified'
+sort-column='name'
 sort-directories-first=false
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
 window-position=(1, 871)
 window-size=(1936, 2106)

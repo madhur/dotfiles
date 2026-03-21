@@ -13,7 +13,7 @@ set -e
 set -u
 
 # All supported choices
-all=(shutdown reboot screensaver lockscreen logout)
+all=(shutdown textmode reboot screensaver lockscreen logout)
 
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")
@@ -24,6 +24,7 @@ texts[logout]="log out"
 texts[reboot]="reboot"
 texts[shutdown]="shut down"
 texts[screensaver]="screensaver"
+texts[textmode]="text mode"
 
 declare -A icons
 #icons[lockscreen]="system-lock-screen-symbolic"
@@ -36,6 +37,7 @@ icons[reboot]="<span color='orange'>勒</span>"
 #icons[reboot]="system-reboot-symbolic"
 #icons[shutdown]="system-shutdown-symbolic"
 icons[shutdown]="<span color='red'>⏻</span>"
+icons[textmode]="<span color='cyan'></span>"
 #icons[screensaver]="preferences-desktop-screensaver-symbolic"
 icons[cancel]="<U+F467> "
 
@@ -45,6 +47,7 @@ actions[screensaver]="screensaver.sh"
 actions[logout]="pkill -KILL -u $USER"
 actions[reboot]="systemctl reboot"
 actions[shutdown]="systemctl poweroff"
+actions[textmode]="systemctl isolate multi-user.target"
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=()
