@@ -12,6 +12,11 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
   # setopt XTRACE
 fi
 
+# Auto-start tmux on TTY login
+if [ -z "$TMUX" ] && [[ "$(tty)" =~ /dev/tty[0-9] ]]; then
+    exec tmux new-session -A -s main
+fi
+
 ## Zsh initialization
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="madhur"

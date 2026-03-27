@@ -26,6 +26,7 @@ application/octet-stream=code.desktop
 x-scheme-handler/webcal=brave-browser.desktop
 x-scheme-handler/postman=Postman.desktop
 application/pdf=org.pwmt.zathura.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 
 [Added Associations]
 application/x-shellscript=code.desktop;visual-studio-code.desktop;vim.desktop;

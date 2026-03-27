@@ -8,6 +8,12 @@ THRESHOLD_MS=3600000  # 1 hour, must match idle-shutdown.sh
 
 source ~/scripts/idle-lib.sh
 
+# Show disabled icon if the idle-shutdown timer is not active
+if ! systemctl --user is-active --quiet idle-shutdown.timer 2>/dev/null; then
+    printf "\033[2m[⏻ off]\033[0m"
+    exit 0
+fi
+
 get_idle_ms || exit 1
 
 REMAINING_MS=$(( THRESHOLD_MS - IDLE_MS ))

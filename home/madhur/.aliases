@@ -98,6 +98,7 @@ alias vg="vagrant"
 alias j11="~/.sdkman/candidates/java/11.0.12-open/bin/java"
 alias j8="~/.sdkman/candidates/java/8.0.302-open/bin/java"
 alias prev="fzf --reverse --preview 'bat --style numbers,changes -s --color=always {}'"
+alias rgrep='rg --line-number --no-heading --color=never . | fzf --reverse --delimiter=":" --with-nth=1,2 --preview "bat --style numbers,changes -s --color=always --highlight-line {2} {1}" --preview-window "~3:+{2}-3"'
 
 alias pacman='sudo pacman'
 alias pac='pacman -S'   # install
@@ -157,5 +158,10 @@ alias gui='sudo systemctl isolate graphical.target'
 alias sudo='doas'
 alias editor='msedit'
 alias mp4='mpv'
+
+# idle-shutdown timer
+alias idleon='systemctl --user start idle-shutdown.timer'
+alias idleoff='systemctl --user stop idle-shutdown.timer'
+alias idlestat='systemctl --user is-active idle-shutdown.timer'
 
 alias mytasks='_strip_colors(){ sed "s/\${color orange}/\x1b[33m/g; s/\${color}/\x1b[0m/g; s/\${color[^}]*}//g"; }; echo "=== RECURRING ===" && cd ~/.config/conky && python upcoming_tasks.py status:pending due.before:2days recurrence: | _strip_colors; echo ""; echo "=== SHORT TERM GOALS ===" && cd ~/.config/conky && python upcoming_tasks.py -- status:pending -RECURRING -PARENT -CHILD +work due.any: | _strip_colors; echo ""; echo "=== HOME TASKS ===" && cd ~/.config/conky && python upcoming_tasks.py status:pending +home | _strip_colors'

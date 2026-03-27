@@ -385,7 +385,6 @@ sysstat
 system-config-printer
 systemd-sysvcompat
 task
-taskwarrior-tui
 tcpdump
 terminus-font
 texinfo
