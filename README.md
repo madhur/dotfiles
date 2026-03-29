@@ -1,19 +1,27 @@
 ## My personal Desktop dotfiles (Linux)
 
-### Tools used (X11)
+### Tools used
 
-* [AwesomeWM](https://github.com/awesomeWM/awesome)
-* [rofi](https://github.com/davatorium/rofi)
-* [eww](https://github.com/elkowar/eww)
-* [Kitty](https://sw.kovidgoyal.net/kitty/)
-* [Copyq](https://github.com/hluk/CopyQ)
-* [Conky](https://github.com/brndnmtthws/conky)
-* [sxhkd](https://github.com/baskerville/sxhkd)
-* [picom](https://github.com/FT-Labs/picom)
-* [Xsettingsd](https://codeberg.org/derat/xsettingsd)
-* [Flameshot](https://github.com/flameshot-org/flameshot)
-* [Jgmenu](https://github.com/jgmenu/jgmenu)
-* [Indicator Sound Switcher](https://github.com/yktoo/indicator-sound-switcher)
+Supports both X11 (AwesomeWM) and Wayland (Hyprland) setups.
+
+| Category | X11 | Wayland (Hyprland) |
+|---|---|---|
+| Window Manager | [AwesomeWM](https://github.com/awesomeWM/awesome) | [Hyprland](https://github.com/hyprwm/Hyprland) |
+| Status Bar | [eww](https://github.com/elkowar/eww) / [Polybar](https://github.com/polybar/polybar) | [Waybar](https://github.com/Alexays/Waybar) |
+| Compositor | [picom](https://github.com/FT-Labs/picom) | built-in (Hyprland) |
+| Launcher | [rofi](https://github.com/davatorium/rofi) | [rofi](https://github.com/davatorium/rofi) (Wayland) |
+| Notification Daemon | [dunst](https://github.com/dunst-project/dunst) | [dunst](https://github.com/dunst-project/dunst) |
+| Hotkey Daemon | [sxhkd](https://github.com/baskerville/sxhkd) | Hyprland keybindings |
+| Screenshot | [Flameshot](https://github.com/flameshot-org/flameshot) | [grim](https://sr.ht/~emersion/grim/) + [slurp](https://github.com/emersion/slurp) |
+| Clipboard Manager | [CopyQ](https://github.com/hluk/CopyQ) | [cliphist](https://github.com/sentriz/cliphist) |
+| Wallpaper | — | [swww](https://github.com/LGFae/swww) + [waypaper](https://github.com/anufrievroman/waypaper) |
+| Lock Screen | — | [swaylock](https://github.com/swaywm/swaylock) |
+| Color Temperature | — | [wlsunset](https://sr.ht/~kennylevinsen/wlsunset/) |
+| Settings Daemon | [Xsettingsd](https://codeberg.org/derat/xsettingsd) | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
+| Context Menu | [Jgmenu](https://github.com/jgmenu/jgmenu) | — |
+| System Monitor | [Conky](https://github.com/brndnmtthws/conky) | — |
+| Audio Switcher | [Indicator Sound Switcher](https://github.com/yktoo/indicator-sound-switcher) | [Indicator Sound Switcher](https://github.com/yktoo/indicator-sound-switcher) |
+| Terminal | [Kitty](https://sw.kovidgoyal.net/kitty/) | [Kitty](https://sw.kovidgoyal.net/kitty/) |
 
 
 keybindings:

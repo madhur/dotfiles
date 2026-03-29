@@ -58,6 +58,7 @@ cp -r ~/.config/nwg-look $dfolder/.config/
 cp -r ~/.config/waybar $dfolder/.config/
 cp -r ~/.config/ntfy $dfolder/.config/
 cp -r ~/.config/waypaper $dfolder/.config/
+cp -r ~/.config/zellij $dfolder/.config/
 cp  ~/.rednotebook/configuration.cfg $dfolder/.rednotebook/configuration.cfg
 cp -r ~/.rednotebook/templates $dfolder/.rednotebook/
 
@@ -98,6 +99,8 @@ cp /etc/hosts ./etc/hosts
 cp /etc/rc.local ./etc/rc.local
 sudo cp /etc/default/* ./etc/default/
 sudo cp /etc/ssh/sshd_config.d/* ./etc/ssh/sshd_config.d/
+sudo cp /etc/ssh/sshd_config ./etc/ssh/
+sudo cp /etc/ssh/ssh_config ./etc/ssh/
 sudo cp /boot/grub/grub.cfg ./boot/grub/grub.cfg
 sudo cp /etc/exports.d/* ./etc/exports.d/
 sudo cp /etc/grafana.ini ./etc/grafana.ini
