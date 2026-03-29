@@ -12,9 +12,12 @@ if [[ -n "$ZSH_DEBUGRC" ]]; then
   # setopt XTRACE
 fi
 
-# Auto-start tmux on TTY login
-if [ -z "$TMUX" ] && [[ "$(tty)" =~ /dev/tty[0-9] ]]; then
-    exec tmux new-session -A -s main
+# Auto-start zellij on virtual-console login (text mode), not inside GUI/SSH/pts
+if [[ -z "${ZELLIJ:-}" ]] && [[ "$(tty)" =~ /dev/tty[0-9] ]]; then
+  export PATH="$HOME/.local/bin:$HOME/bin:$HOME/scripts:$PATH"
+  if command -v zellij >/dev/null 2>&1; then
+    exec zellij
+  fi
 fi
 
 ## Zsh initialization
