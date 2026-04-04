@@ -1,0 +1,54 @@
+// Top: built-in tab bar. Bottom: zjstatus. command_idle = ~/scripts idle-shutdown.timer status (see idle-remaining-plain.sh).
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane
+    pane size=1 borderless=true {
+        plugin location="file:/home/madhur/.config/zellij/plugins/zjstatus.wasm" {
+            format_left   "{mode} #[fg=#5c6a72,bg=#2d353b]{session} "
+            format_center "{datetime}"
+            // Right side: hostname/load, then shutdown-timer (rightmost): [⏻ off] or [⏻ Nm] per idle-remaining-plain.sh.
+            format_right  "{command_custom}  {command_idle}"
+            format_space  ""
+
+            mode_normal        "#[fg=#2d353b,bg=#a7c080,bold] NORMAL "
+            mode_locked        "#[fg=#2d353b,bg=#e67e80,bold] LOCKED "
+            mode_resize        "#[fg=#2d353b,bg=#dbbc7f,bold] RESIZE "
+            mode_pane          "#[fg=#2d353b,bg=#83c092,bold] PANE "
+            mode_tab           "#[fg=#2d353b,bg=#7fbbb3,bold] TAB "
+            mode_scroll        "#[fg=#2d353b,bg=#d699b6,bold] SCROLL "
+            mode_enter_search  "#[fg=#2d353b,bg=#d699b6,bold] SEARCH "
+            mode_search        "#[fg=#2d353b,bg=#d699b6,bold] SEARCH "
+            mode_rename_tab    "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME "
+            mode_rename_pane   "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME "
+            mode_move          "#[fg=#2d353b,bg=#83c092,bold] MOVE "
+            mode_session       "#[fg=#2d353b,bg=#7fbbb3,bold] SESSION "
+            mode_prompt        "#[fg=#2d353b,bg=#a7c080,bold] PROMPT "
+
+            datetime               "#[fg=#a7c080,bg=#2d353b,bold] {format} "
+            datetime_format        "%a %d %b  %H:%M"
+            datetime_interval      "60"
+            // IANA tz list: https://docs.rs/chrono-tz/latest/chrono_tz/enum.Tz.html
+            datetime_timezone      "Asia/Kolkata"
+
+            // Arbitrary shell (like tmux status-right '#(...)') — name becomes {command_NAME}
+            command_custom_command   "bash -c \"/home/madhur/.config/zellij/status-custom.sh\""
+            command_custom_format    "#[fg=#5c6a72,bg=#2d353b] {stdout}"
+            command_custom_interval  "10"
+            command_custom_rendermode "static"
+
+            // Same source as Starship/tmux; wrapper sets XDG_RUNTIME_DIR/DBUS/DISPLAY for zjstatus RunCommand
+            command_idle_command   "bash -c \"/home/madhur/.config/zellij/zjstatus-idle-env.sh\""
+            command_idle_format    "#[fg=#83c092,bg=#2d353b] {stdout}"
+            command_idle_interval  "30"
+            command_idle_rendermode "static"
+
+            // Second example: git branch in cwd (uncomment + add {command_git} to format_right)
+            // command_git_command   "bash -c \"git -C \\\"$HOME\\\" rev-parse --abbrev-ref HEAD 2>/dev/null || echo no-git\""
+            // command_git_format    "#[fg=#83c092]  {stdout} "
+            // command_git_interval  "15"
+            // command_git_rendermode "static"
+        }
+    }
+}

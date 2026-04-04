@@ -14,10 +14,18 @@ if ! systemctl --user is-active --quiet idle-shutdown.timer 2>/dev/null; then
     exit 0
 fi
 
-get_idle_ms || exit 1
+# Do not exit non-zero: consumers like zjstatus treat that as a plugin error; show unknown instead.
+if ! get_idle_ms; then
+    printf "\033[2m[⏻ ?]\033[0m"
+    exit 0
+fi
 
 REMAINING_MS=$(( THRESHOLD_MS - IDLE_MS ))
 REMAINING_MIN=$(( REMAINING_MS / 60000 ))
+# Past threshold before next timer run: show 0m instead of negative minutes
+if [ "$REMAINING_MIN" -lt 0 ]; then
+    REMAINING_MIN=0
+fi
 
 if [ "$REMAINING_MIN" -ge 30 ]; then
     COLOR="\033[32m"       # green

@@ -203,7 +203,7 @@ migrated=true
 height=2160
 recreate-folders=true
 skip-newer=false
-width=1587
+width=1141
 
 [org/gnome/file-roller/dialogs/new]
 default-extension='.zip'
@@ -342,9 +342,9 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=204
-sort-column='name'
+sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
 window-position=(1, 871)
 window-size=(1936, 2106)

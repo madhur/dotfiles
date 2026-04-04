@@ -10,7 +10,7 @@ source /home/madhur/scripts/notify_wrapper.sh
     run_with_notification "/home/madhur/scripts/rednotebook-backup.sh" "Rednotebook Backup" "daily"
     run_with_notification "sudo pacman -Syu --noconfirm" "System Update" "daily"
     run_with_notification "/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/weather_monitor.py fetch" "Weather Data Fetch" "daily"
-    run_with_notification "/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/weather_monitor.py graph" "Weather Graph Report" "daily"
+    run_with_notification "/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/weather_monitor.py graph --days 30" "Weather Graph Report" "daily"
 } 2>&1
 #find /home/madhur/.cache/ -type f -atime +30 -print -delete
 #docker system prune -af --volumes

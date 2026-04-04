@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Timeout for starship to scan files (in milliseconds)
-scan_timeout = 30
+scan_timeout = 31
 
 # Inserts a blank line between shell prompts
 add_newline = true
@@ -31,7 +31,7 @@ $status\
 $kubernetes\
 $character"""
 
-#right_format = """$kubernetes"""
+right_format = """$time"""
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
@@ -46,7 +46,7 @@ vicmd_symbol = "[❮](bold green)"
 disabled = true
 
 [kubernetes]
-disabled = false
+disabled = true
 #format = 'on [⛵ ($cluster in )$context \($namespace\)](dimmed green) '
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
 symbol = "☸ "
@@ -139,11 +139,12 @@ disabled = false
 
 
 [docker_context]
-disabled = false
-symbol = " "
-style = "blue bold"
-format = "via [$symbol$context]($style) "
-only_with_files = true
+disabled = true
+
+
+
+
+
 
 [env_var]
 disabled = false
@@ -198,4 +199,10 @@ threshold = 1
 format = "[$symbol$number]($style) "
 symbol = "✦"
 style = "bold blue"
+
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%d %b %H:%M:%S"
+style = "bold dimmed white"
 

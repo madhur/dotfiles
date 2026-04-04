@@ -179,3 +179,11 @@ export VISUAL=micro
 wclone() {
     git clone -c core.sshCommand="ssh -i ~/.ssh/id_rsa_z" "$@"
 }
+
+# Auto-rename Zellij tab to current directory
+function _zellij_tab_name() {
+    if [[ -n "$ZELLIJ" ]]; then
+        zellij action rename-tab "$(basename $PWD)"
+    fi
+}
+precmd_functions+=(_zellij_tab_name)

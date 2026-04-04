@@ -38,6 +38,7 @@ calc
 cantarell-fonts
 clang
 cliphist
+cmake
 cockpit
 conky
 cpio
@@ -70,6 +71,7 @@ dokuwiki
 dos2unix
 dosbox
 dosfstools
+drawio-desktop
 duf
 dunst
 e2fsprogs
@@ -165,6 +167,7 @@ keychain
 kitty
 kubectl
 kubectx
+lazydocker
 lazygit
 less
 lftp
@@ -383,6 +386,7 @@ sysdig
 sysfsutils
 sysstat
 system-config-printer
+systemctl-tui
 systemd-sysvcompat
 task
 tcpdump
@@ -438,6 +442,7 @@ xfsprogs
 xl2tpd
 xmlto
 xorg-server
+xorg-server-xvfb
 xorg-xbacklight
 xorg-xcursorgen
 xorg-xdpyinfo
