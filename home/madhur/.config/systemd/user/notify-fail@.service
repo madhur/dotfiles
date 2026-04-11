@@ -1,6 +1,8 @@
 [Unit]
 Description=Failure notification for %i
 DefaultDependencies=false
+StartLimitIntervalSec=600
+StartLimitBurst=3
 
 [Service]
 Type=oneshot

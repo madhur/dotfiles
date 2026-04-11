@@ -154,7 +154,7 @@ inotify-tools
 inter-font
 inxi
 iotop
-iptables-nft
+iptables
 irssi
 iwd
 jdk8-openjdk
@@ -372,7 +372,6 @@ smartmontools
 socat
 sof-firmware
 sox
-splix
 sshfs
 sshpass
 starship

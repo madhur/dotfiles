@@ -24,6 +24,7 @@ SyslogIdentifier=prefect-video-download-worker
 
 NoNewPrivileges=true
 PrivateTmp=true
+BindReadOnlyPaths=/tmp/.X11-unix
 
 KillMode=mixed
 KillSignal=SIGTERM

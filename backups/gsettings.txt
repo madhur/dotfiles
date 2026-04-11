@@ -6,7 +6,6 @@ com.github.finefindus.eyedropper name-sources-flag uint32 15
 com.github.finefindus.eyedropper precision-digits uint32 2
 com.github.finefindus.eyedropper rgb-notation 0
 com.github.finefindus.eyedropper visible-formats ['name', 'hex', 'rgb', 'hsl', 'hsv', 'cmyk']
-com.github.finefindus.eyedropper window-dimension (300, 500, false)
 net.launchpad.caffeine act-for-flash false
 net.launchpad.caffeine audio-peak-filtering true
 net.launchpad.caffeine show-notification true
@@ -23,7 +22,7 @@ org.blueman.general show-toolbar true
 org.blueman.general sort-by 'timestamp'
 org.blueman.general sort-order 'ascending'
 org.blueman.general symbolic-status-icons false
-org.blueman.general window-properties [1492, 892, 2083, 1134]
+org.blueman.general window-properties [1492, 892, 1174, 1489]
 org.blueman.network dhcp-handler @ms nothing
 org.blueman.network ip4-address @ms nothing
 org.blueman.network ip4-netmask '255.255.255.0'
@@ -32,7 +31,7 @@ org.blueman.plugins.autoconnect services [('78:2B:64:A2:21:03', '00000000-0000-0
 org.blueman.plugins.discvmanager time 60
 org.blueman.plugins.killswitch checked false
 org.blueman.plugins.recentconns max-items 6
-org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1771648468.3705313', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
+org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:13', 'address': '78:2B:64:A2:21:03', 'alias': 'Bose QC45', 'icon': 'blueman', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1775835518.5198653', 'device': '/org/bluez/hci0/dev_78_2B_64_A2_21_03'}]
 org.blueman.plugins.serialmanager script ''
 org.blueman.plugins.standarditems toggle-manager-onclick false
 org.blueman.transfer opp-accept false
@@ -261,6 +260,7 @@ org.gnome.desktop.a11y.applications screen-keyboard-enabled false
 org.gnome.desktop.a11y.applications screen-magnifier-enabled false
 org.gnome.desktop.a11y.applications screen-reader-enabled false
 org.gnome.desktop.a11y.interface high-contrast false
+org.gnome.desktop.a11y.interface reduced-motion 'no-preference'
 org.gnome.desktop.a11y.interface show-status-shapes false
 org.gnome.desktop.a11y.keyboard bouncekeys-beep-reject false
 org.gnome.desktop.a11y.keyboard bouncekeys-delay 300
@@ -345,13 +345,14 @@ org.gnome.desktop.break-reminders.movement notify-overdue true
 org.gnome.desktop.break-reminders.movement notify-upcoming true
 org.gnome.desktop.break-reminders.movement play-sound true
 org.gnome.desktop.calendar show-weekdate false
+org.gnome.desktop.calendar week-start-day 'default'
 org.gnome.desktop.datetime automatic-timezone false
 org.gnome.desktop.default-applications.office.calendar exec 'evolution -c calendar'
 org.gnome.desktop.default-applications.office.calendar needs-term false
 org.gnome.desktop.default-applications.office.tasks exec 'evolution -c tasks'
 org.gnome.desktop.default-applications.office.tasks needs-term false
 org.gnome.desktop.default-applications.terminal exec 'xdg-terminal-exec'
-org.gnome.desktop.default-applications.terminal exec-arg '-x'
+org.gnome.desktop.default-applications.terminal exec-arg '--'
 org.gnome.desktop.input-sources current uint32 0
 org.gnome.desktop.input-sources mru-sources @a(ss) []
 org.gnome.desktop.input-sources per-window false
@@ -382,7 +383,7 @@ org.gnome.desktop.interface font-rendering 'automatic'
 org.gnome.desktop.interface font-rgba-order 'rgb'
 org.gnome.desktop.interface gtk-color-palette 'black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90'
 org.gnome.desktop.interface gtk-color-scheme ''
-org.gnome.desktop.interface gtk-enable-primary-paste true
+org.gnome.desktop.interface gtk-enable-primary-paste false
 org.gnome.desktop.interface gtk-im-module ''
 org.gnome.desktop.interface gtk-im-preedit-style 'callback'
 org.gnome.desktop.interface gtk-im-status-style 'callback'
@@ -448,6 +449,7 @@ org.gnome.desktop.peripherals.pointingstick speed 0.0
 org.gnome.desktop.peripherals.touchpad accel-profile 'default'
 org.gnome.desktop.peripherals.touchpad click-method 'fingers'
 org.gnome.desktop.peripherals.touchpad disable-while-typing true
+org.gnome.desktop.peripherals.touchpad disable-while-typing-timeout uint32 500
 org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
 org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
 org.gnome.desktop.peripherals.touchpad middle-click-emulation false
@@ -506,6 +508,7 @@ org.gnome.desktop.search-providers disabled @as []
 org.gnome.desktop.search-providers enabled @as []
 org.gnome.desktop.search-providers sort-order ['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 org.gnome.desktop.session idle-delay uint32 300
+org.gnome.desktop.session save-restore true
 org.gnome.desktop.session session-name 'gnome'
 org.gnome.desktop.sound allow-volume-above-100-percent false
 org.gnome.desktop.sound event-sounds true
@@ -729,9 +732,9 @@ org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 204
-org.gtk.Settings.FileChooser sort-column 'modified'
+org.gtk.Settings.FileChooser sort-column 'name'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'descending'
+org.gtk.Settings.FileChooser sort-order 'ascending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
 org.gtk.Settings.FileChooser window-position (1, 871)

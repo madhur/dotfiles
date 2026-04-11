@@ -84,6 +84,7 @@ rofi-process-killer
 shell-color-scripts
 snapd
 snyk
+splix
 studio-3t
 systemd-timer-notify
 tabbed-flexipatch-git
