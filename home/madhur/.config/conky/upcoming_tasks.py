@@ -19,8 +19,8 @@ def parse_arguments():
                        help='Taskwarrior filter arguments (e.g., status:pending +work)')
     parser.add_argument('--no-auto-filter', action='store_true',
                        help='Disable automatic next-instance filtering for recurring tasks')
-    parser.add_argument('--max-width', type=int, default=30,
-                       help='Maximum description width (default: 30)')
+    parser.add_argument('--max-width', type=int, default=100,
+                       help='Maximum description width (default: 100)')
     parser.add_argument('--show-id', dest='show_id', action='store_true', default=True,
                        help='Show task ID column (default: true)')
     parser.add_argument('--no-show-id', dest='show_id', action='store_false',
@@ -155,7 +155,7 @@ def filter_next_instances(tasks):
 
     return all_tasks
 
-def display_tasks(tasks, show_id=True, max_width=30):
+def display_tasks(tasks, show_id=True, max_width=100):
     """Display tasks in Conky format: id, description followed by due"""
     for task in tasks:
         task_id = task.get('id', 0)

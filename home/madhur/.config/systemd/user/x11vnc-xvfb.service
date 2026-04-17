@@ -1,14 +1,13 @@
 [Unit]
 Description=x11vnc for Xvfb virtual display :98
-After=network.target
+After=xvfb.service
+Requires=xvfb.service
 
 [Service]
 Type=simple
-ExecStartPre=/bin/sh -c 'until [ -S /tmp/.X11-unix/X98 ]; do sleep 2; done'
-ExecStart=/usr/bin/x11vnc -display :98 -nopw -forever -nodpms -rfbport 5901
+ExecStart=/usr/bin/x11vnc -display :98 -nopw -forever -nodpms -rfbport 5902 -rfbportv6 5902
 Restart=on-failure
 RestartSec=10
-TimeoutStartSec=infinity
 
 StandardOutput=journal
 StandardError=journal

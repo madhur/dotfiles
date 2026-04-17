@@ -1,5 +1,5 @@
 [global]
-font = Roboto Medium 12
+font = JetBrains Mono Nerd Font 11
 icon_theme = "Papirus"
 enable_recursive_icon_lookup = true
 
@@ -24,7 +24,7 @@ markup = full
 #   %p  progress value if set ([  0%] to [100%]) or nothing
 # Markup is allowed
 format = "<b>%s</b>\n%b"
-corner_radius = 8
+corner_radius = 0
 
 # Sort messages by urgency.
 sort = no
@@ -107,7 +107,7 @@ mouse_right_click = close_all
 sticky_history = yes
 
 # Maximum amount of notifications kept in history
-history_length = 10
+history_length = 100
 
 # Display indicators for URLs (U) and actions (A).
 show_indicators = no
@@ -176,23 +176,21 @@ frame_width = 0
 # context = ctrl+shift+period
 
 [urgency_low]
-# IMPORTANT: colors have to be defined in quotation marks.
-# Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#7bc5e4"
-foreground = "#7bc5e4"
-background = "#282e49"
+frame_color = "#1a1b26"
+foreground = "#81a1c1"
+background = "#1a1b26"
 timeout = 10
 
 [urgency_normal]
-frame_color = "#7bc5e4"
-foreground = "#7bc5e4"
-background = "#282e49"
+frame_color = "#1a1b26"
+foreground = "#81a1c1"
+background = "#1a1b26"
 timeout = 10
 
 [urgency_critical]
-frame_color = "#f7768e"
-foreground = "#282e49"
-background = "#c45e71"
+frame_color = "#ff0000"
+foreground = "#ffffff"
+background = "#ff0000"
 timeout = 10
 
 [notify_send]

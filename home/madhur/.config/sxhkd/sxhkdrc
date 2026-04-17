@@ -69,3 +69,11 @@ super + F4
 
 super+k
    rofi -modi "processes:rofi-process-killer.sh" -show processes
+
+# Show notification history in rofi
+ctrl + grave
+    /home/madhur/scripts/dunst-history.sh
+
+# Close current notification
+ctrl + shift + grave
+    dunstctl close

@@ -11,6 +11,7 @@
 # default value.
 
 #Port 22
+Include /etc/ssh/sshd_config.d/*.conf
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
@@ -58,7 +59,6 @@ AuthorizedKeysFile	.ssh/authorized_keys
 #PermitEmptyPasswords no
 
 # Change to no to disable s/key passwords
-KbdInteractiveAuthentication no
 
 # Kerberos options
 #KerberosAuthentication no
@@ -79,7 +79,6 @@ KbdInteractiveAuthentication no
 # If you just want the PAM account and session checks to run without
 # PAM authentication, then enable this but set PasswordAuthentication
 # and KbdInteractiveAuthentication to 'no'.
-UsePAM yes
 
 #AllowAgentForwarding yes
 #AllowTcpForwarding yes
@@ -89,7 +88,6 @@ X11UseLocalhost no
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 #PermitTTY yes
-PrintMotd no
 #PrintLastLog yes
 #TCPKeepAlive yes
 #PermitUserEnvironment no
@@ -116,5 +114,4 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 #	PermitTTY no
 #	ForceCommand cvs server
 
-Include /etc/ssh/sshd_config.d/*.conf
 LogLevel DEBUG3

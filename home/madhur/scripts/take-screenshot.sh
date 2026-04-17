@@ -2,8 +2,14 @@
 
 # Set display environment for SSH/cron execution
 if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
-    export DISPLAY=:0
-    export XAUTHORITY="$HOME/.Xauthority"
+    # Only set DISPLAY if the X server is actually running
+    if [ -S /tmp/.X11-unix/X0 ]; then
+        export DISPLAY=:0
+        export XAUTHORITY="$HOME/.Xauthority"
+    else
+        echo "No display available (X server not running)"
+        exit 0
+    fi
 fi
 
 # Parse command line arguments

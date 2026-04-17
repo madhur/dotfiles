@@ -24,6 +24,7 @@ run_without_pcheck() {
 run_without_pcheck "WatchYourLAN"
 run_without_pcheck "/home/madhur/scripts/set_wallpaper.sh"
 
+run dunst
 run sxhkd
 run_without_pcheck /home/madhur/.config/conky/launch.sh
 #run conky --daemonize --quiet --config=/home/madhur/.config/conky/

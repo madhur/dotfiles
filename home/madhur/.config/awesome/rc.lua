@@ -1,5 +1,10 @@
 local awesome, client, tag = awesome, client, tag
 local tostring = tostring
+
+-- Prevent naughty from claiming the D-Bus notification name;
+-- dunst handles notifications instead.
+package.loaded["naughty.dbus"] = { config = {}, get_clients = function() return {} end }
+
 local awful = require("awful")
 local gears = require("gears")
 require("awful.autofocus")

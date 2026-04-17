@@ -53,11 +53,11 @@ palette-name='Tango'
 style='JetBrainsMono NF 14'
 
 [apps/seahorse/listing]
-keyrings-selected=['gnupg://']
+keyrings-selected=['secret-service:///org/freedesktop/secrets/collection/Default_5fkeyring']
 
 [apps/seahorse/windows/key-manager]
-height=3156
-width=2158
+height=2054
+width=1901
 
 [com/github/FontManager/FontManager]
 browse-pane-position=55.000000000000007

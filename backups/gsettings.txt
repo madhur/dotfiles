@@ -691,7 +691,7 @@ org.gnome.seahorse server-auto-publish false
 org.gnome.seahorse server-auto-retrieve false
 org.gnome.seahorse server-publish-to ''
 org.gnome.seahorse.manager item-filter 'personal'
-org.gnome.seahorse.manager keyrings-selected ['gnupg://']
+org.gnome.seahorse.manager keyrings-selected ['secret-service:///org/freedesktop/secrets/collection/Default_5fkeyring']
 org.gnome.seahorse.manager show-expiry false
 org.gnome.seahorse.manager show-trust false
 org.gnome.seahorse.manager show-type false

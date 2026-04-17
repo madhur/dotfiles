@@ -1,4 +1,4 @@
-Brave	com.brave.Browser	1.86.148	stable	flathub	system
+Brave	com.brave.Browser	1.89.132	stable	flathub	system
 CopyQ	com.github.hluk.copyq	7.1.0	stable	flathub	system
 Jellyfin Media Player	com.github.iwalton3.jellyfin-media-player	1.12.0	stable	flathub	system
 Termix	com.karmaa.termix	2.0.0	master	termix-origin	user
@@ -13,7 +13,7 @@ Freedesktop Platform	org.freedesktop.Platform	21.08.21	21.08	flathub	system
 Freedesktop Platform	org.freedesktop.Platform	22.08.24	22.08	flathub	system
 Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-23.08.21	23.08	flathub	system
 Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-24.08.28	24.08	flathub	system
-Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-25.08.7	25.08	flathub	system
+Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-25.08.8	25.08	flathub	system
 Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	flathub	system
 Mesa	org.freedesktop.Platform.GL.default	24.0.4	22.08	flathub	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.0.4	22.08-extra	flathub	system
@@ -21,8 +21,8 @@ Mesa	org.freedesktop.Platform.GL.default	24.3.1	23.08	flathub	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	23.08-extra	flathub	system
 Mesa	org.freedesktop.Platform.GL.default	25.3.3	24.08	flathub	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	25.3.3	24.08extra	flathub	system
-Mesa	org.freedesktop.Platform.GL.default	25.3.3	25.08	flathub	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	25.3.3	25.08-extra	flathub	system
+Mesa	org.freedesktop.Platform.GL.default	25.3.5	25.08	flathub	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	25.3.5	25.08-extra	flathub	system
 nvidia-530-41-03	org.freedesktop.Platform.GL.nvidia-530-41-03		1.4	flathub	system
 nvidia-535-104-05	org.freedesktop.Platform.GL.nvidia-535-104-05		1.4	flathub	system
 nvidia-535-54-03	org.freedesktop.Platform.GL.nvidia-535-54-03		1.4	flathub	system

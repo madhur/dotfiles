@@ -1,0 +1,16 @@
+[Unit]
+Description=TigerVNC headless server on display :1
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/Xvnc :1 -rfbport 5901 -rfbauth %h/.vnc/passwd -geometry 1920x1080 -depth 24 -localhost no -alwaysshared
+ExecStartPost=/bin/sh -c 'sleep 1 && DISPLAY=:1 awesome -c %h/.config/awesome/rc-vnc.lua &'
+Restart=on-failure
+RestartSec=10
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

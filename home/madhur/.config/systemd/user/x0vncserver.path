@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for X11 display :0 to start VNC
+
+[Path]
+PathExists=/tmp/.X11-unix/X0
+
+[Install]
+WantedBy=default.target
