@@ -96,6 +96,7 @@ vagrant
 visual-studio-code-bin
 watch-your-lan
 waypaper
+woeusb-ng
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night

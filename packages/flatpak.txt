@@ -19,8 +19,8 @@ Mesa	org.freedesktop.Platform.GL.default	24.0.4	22.08	flathub	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.0.4	22.08-extra	flathub	system
 Mesa	org.freedesktop.Platform.GL.default	24.3.1	23.08	flathub	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	23.08-extra	flathub	system
-Mesa	org.freedesktop.Platform.GL.default	25.3.3	24.08	flathub	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	25.3.3	24.08extra	flathub	system
+Mesa	org.freedesktop.Platform.GL.default	26.0.4	24.08	flathub	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	26.0.4	24.08extra	flathub	system
 Mesa	org.freedesktop.Platform.GL.default	25.3.5	25.08	flathub	system
 Mesa (Extra)	org.freedesktop.Platform.GL.default	25.3.5	25.08-extra	flathub	system
 nvidia-530-41-03	org.freedesktop.Platform.GL.nvidia-530-41-03		1.4	flathub	system
@@ -35,6 +35,7 @@ nvidia-565-77	org.freedesktop.Platform.GL.nvidia-565-77		1.4	flathub	system
 nvidia-570-153-02	org.freedesktop.Platform.GL.nvidia-570-153-02		1.4	flathub	system
 nvidia-575-64-05	org.freedesktop.Platform.GL.nvidia-575-64-05		1.4	flathub	system
 nvidia-590-48-01	org.freedesktop.Platform.GL.nvidia-590-48-01		1.4	flathub	system
+nvidia-595-71-05	org.freedesktop.Platform.GL.nvidia-595-71-05		1.4	flathub	system
 Nvidia VAAPI driver	org.freedesktop.Platform.VAAPI.nvidia		25.08	flathub	system
 Codecs Extra Extension	org.freedesktop.Platform.codecs-extra		25.08-extra	flathub	system
 FFmpeg extension with extra codecs	org.freedesktop.Platform.ffmpeg-full		24.08	flathub	system

@@ -42,7 +42,7 @@ local function factory(args)
             if tonumber(result) > 90 then
                 crit_count  =  crit_count + 1
                 awesome.emit_signal("critical", "temp")
-            elseif tonumber(result) > 60 then
+            elseif tonumber(result) > 80 then
                 warn_count = warn_count + 1
                 awesome.emit_signal("warning", "temp")            
             else
