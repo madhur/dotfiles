@@ -3,7 +3,7 @@ Description=Xvfb virtual framebuffer on display :98
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/Xvfb :98 -screen 0 1280x720x24 -ac
+ExecStart=/usr/bin/Xvfb :98 -screen 0 1600x1500x24 -ac
 Restart=on-failure
 RestartSec=5
 

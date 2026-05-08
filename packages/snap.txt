@@ -16,7 +16,7 @@ indicator-sound-switcher    2.3.10.1                        173    latest/stable
 insomnia                    12.5.0                          362    latest/stable  getinsomnia     -
 joplin-desktop              v3.5.13                         136    latest/stable  james-carroll*  -
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
-lunatask                    2.1.27                          101    latest/stable  lunatask        -
+lunatask                    2.1.28                          102    latest/stable  lunatask        -
 mesa-2404                   25.0.7-snap211                  1165   latest/stable  canonical**     -
 sdlpop                      1.23                            715    latest/stable  snapcrafters*   -
 snapcraft                   8.14.5                          17634  latest/stable  canonical**     classic

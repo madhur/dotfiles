@@ -1,0 +1,7 @@
+[Unit]
+Description=Script to do anything every 12 hours
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/every_12_hours.sh
+ExecStartPre=/bin/sleep 120

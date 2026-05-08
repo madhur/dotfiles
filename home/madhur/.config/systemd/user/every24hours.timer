@@ -1,0 +1,12 @@
+[Unit]
+Description=Run unit daily at 8 PM
+#Requires=every24hours.service     #Uncommenting this will trigger the service at boot
+
+[Timer]
+#OnBootSec=15min
+Persistent=true
+OnCalendar=*-*-* 20:00:00
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

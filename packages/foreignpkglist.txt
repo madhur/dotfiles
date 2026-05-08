@@ -43,6 +43,7 @@ lightdm-settings
 litecli
 logkeys
 mangowc-git
+matcha-client-bin
 microsoft-edge-stable-bin
 mkinitcpio-openswap
 mongodb-tools-bin

@@ -192,7 +192,7 @@ System: $system_info"
     local temp_output=$(mktemp)
     local exit_code=0
     
-    if eval "$cmd" > "$temp_output" 2>&1; then
+    if NTFY_TOPIC="$topic" eval "$cmd" > "$temp_output" 2>&1; then
         exit_code=0
     else
         exit_code=$?

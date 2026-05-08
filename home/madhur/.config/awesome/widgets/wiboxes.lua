@@ -184,7 +184,7 @@ local right_widgets = {
     pl((require("widgets.topbar.volume")), "true", "volume_new"),
     --pl((require("widgets.topbar.aws")), true, "aws"),
     --require("widgets.topbar.aws"),
-    pl((require("widgets.topbar.pacman")), true, "pacman"),
+    --pl((require("widgets.topbar.pacman")), true, "pacman"),
     --pl(top_left, true, ""),
     --gpick,
     --pl((require("widgets.topbar.notification")), true, "notification"),
