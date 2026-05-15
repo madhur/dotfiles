@@ -75,8 +75,6 @@ python37
 python38
 qimgv
 qogir-gtk-theme
-qtile-extras-git
-qtile-git
 quickshell-git
 redis
 reiserfsprogs

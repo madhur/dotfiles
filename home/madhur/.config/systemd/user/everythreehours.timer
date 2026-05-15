@@ -1,0 +1,12 @@
+[Unit]
+Description=Run unit every three hours
+
+[Timer]
+#OnBootSec=1min
+OnCalendar=00/3:00:00
+OnUnitActiveSec=3h
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

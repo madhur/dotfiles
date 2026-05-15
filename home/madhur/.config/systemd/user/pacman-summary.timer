@@ -1,0 +1,10 @@
+[Unit]
+Description=Run pacman summary daily at 08:10
+
+[Timer]
+OnCalendar=*-*-* 08:10:00
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

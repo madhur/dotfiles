@@ -1,0 +1,347 @@
+# This is an example Hyprland config file.
+# Refer to the wiki for more information.
+# https://wiki.hyprland.org/Configuring/Configuring-Hyprland/
+
+# Please note not all available settings / options are set here.
+# For a full list, see the wiki
+
+# You can split this configuration into multiple files
+# Create your files separately and then link them to this file like this:
+# source = ~/.config/hypr/myColors.conf
+
+env = XCURSOR_THEME,Adwaita
+env = XCURSOR_SIZE,36
+
+source = ~/.config/hypr/nvidia.conf # Nvidia specific settings
+################
+### MONITORS ###
+################
+
+# See https://wiki.hyprland.org/Configuring/Monitors/
+#monitor=,preferred,auto,auto
+
+#3monitor = DP-1, 3840x2160@60, 0x0, 1, transform, 1
+monitor = DP-2, 3840x2160@60, auto-left, 1.2
+
+###################
+### MY PROGRAMS ###
+###################
+
+# See https://wiki.hyprland.org/Configuring/Keywords/
+
+# Set programs that you use
+$terminal = kitty
+$fileManager = thunar
+$menu = /home/madhur/scripts/launcher.sh
+
+
+#################
+### AUTOSTART ###
+#################
+
+# Autostart necessary processes (like notifications daemons, status bars, etc.)
+# Or execute your favorite apps at launch like this:
+
+# exec-once = $terminal
+# exec-once = nm-applet &
+# exec-once = waybar & hyprpaper & firefox
+
+exec-once = waybar # launch the system bar
+#exec-once = waybar -c ~/.config/waybar/vertical.jsonc # launch the system bar
+exec-once = nm-applet --indicator # systray app for Network/Wifi
+exec-once = dunst # start notification demon
+exec-once = indicator-sound-switcher
+exec-once = xettingsd
+#exec-once = /usr/bin/gpclient
+#exec-once = redshift
+exec-once = wlsunset -t 4500 -T 6500 -l 12.97 -L 77.59
+exec-once = /home/madhur/scripts/set_wallpaper_wayland.sh
+#exec-once = hyprland-autoname-workspaces
+exec-once = hyprpm reload -n
+exec-once = wl-paste --watch cliphist store
+
+#############################
+### ENVIRONMENT VARIABLES ###
+#############################
+
+# See https://wiki.hyprland.org/Configuring/Environment-variables/
+
+env = XCURSOR_SIZE,36
+env = HYPRCURSOR_SIZE,36
+
+
+#####################
+### LOOK AND FEEL ###
+#####################
+
+# Refer to https://wiki.hyprland.org/Configuring/Variables/
+
+# https://wiki.hyprland.org/Configuring/Variables/#general
+general { 
+    gaps_in = 3
+    gaps_out = 0
+
+    border_size = 1
+
+    # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
+    col.active_border = rgba(4c7899ff)
+    col.inactive_border = rgba(595959aa)
+
+    # Set to true enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false 
+
+    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+    allow_tearing = false
+
+    layout = scrolling
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#decoration
+decoration {
+    rounding = 0
+
+    # Change transparency of focused and unfocused windows
+    active_opacity = 1.0
+    inactive_opacity = 1.0
+    fullscreen_opacity = 1.0
+
+    #drop_shadow = true
+    #shadow_range = 4
+    #shadow_render_power = 3
+    #col.shadow = rgba(1a1a1aee)
+
+    # https://wiki.hyprland.org/Configuring/Variables/#blur
+    blur {
+        enabled = true
+        size = 8
+        passes = 3
+        
+        vibrancy = 0.1696
+          noise = 0.0117
+        contrast = 0.8916
+        brightness = 0.8172
+        
+        # Blur specific surfaces
+        popups = true
+        popups_ignorealpha = 0.2
+
+        new_optimizations = true
+    }
+    # blurls = waybar
+    # layerrule = blur,waybar
+    # layerrule = blur, kitty-quick-access
+    # layerrule = blur, rofi
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#animations
+animations {
+    enabled = true
+
+    # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+
+    bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+
+    animation = windows, 1, 1, myBezier
+    animation = windowsOut, 1, 1, default, popin 80%
+    animation = border, 1, 1, default
+    animation = borderangle, 1, 1, default
+    animation = fade, 1, 1, default
+    animation = workspaces, 1, 1, default
+}
+
+# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+dwindle {
+#    pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = true # You probably want this
+}
+
+# See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+master {
+    new_status = master
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#misc
+misc { 
+    force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
+}
+
+scrolling {
+  fullscreen_on_one_column = true
+  focus_fit_method = 1
+  column_width = 0.985
+  follow_min_visible = 0
+  follow_focus = 1
+  explicit_column_widths = 0.3, 0.5, 0.65, 0.8, 0.985, 1.0
+}
+
+#############
+### INPUT ###
+#############
+
+# https://wiki.hyprland.org/Configuring/Variables/#input
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
+
+    follow_mouse = 1
+
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+
+    touchpad {
+        natural_scroll = false
+    }
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#gestures
+gestures {
+   # workspace_swipe = false
+   gesture = 4, horizontal, workspace
+}
+
+# Example per-device config
+# See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
+device {
+    name = epic-mouse-v1
+    sensitivity = -0.5
+}
+
+
+####################
+### KEYBINDINGSS ###
+####################
+
+# See https://wiki.hyprland.org/Configuring/Keywords/
+$mainMod = SUPER # Sets "Windows" key as main modifier
+$altMod = ALT       # Mod1 in AwesomeWM
+$ctrlMod = CTRL     # Control in AwesomeWM
+$shiftMod = SHIFT   # Shift in AwesomeWM
+
+# Example binds, see for more
+bind = $mainMod, Return, exec, $terminal
+bind = $mainMod, q, killactive,
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod Shift, f, togglefloating,
+bind = $mainMod, d, exec, $menu
+#bind = $mainMod, P, pseudo, # dwindle
+#bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod, M, fullscreen, 1
+bind = $mainMod, f, fullscreen, 0
+bind = $mainMod, x, exec, /home/madhur/scripts/key-power
+
+
+# Move focus with mainMod + arrow keys
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
+
+
+# Example special workspace (scratchpad)
+bind = $mainMod, S, togglespecialworkspace, magic
+bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+
+# Move/resize windows with mainMod + LMB/RMB and dragging
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+bind = SUPER SHIFT, R, exec, hyprctl reload
+bind = , mouse:274, killactive
+
+bind = $mainMod SHIFT, W, exec, killall waybar && waybar & && waybar -c ~/.config/waybar/vertical.jsonc &
+#bind = , mouse:273, exec, jgmenu_run
+bind = $mainMod , o, movewindow, mon:+1
+
+# Navigate to previous/next non-empty workspace
+bind = $altMod, Left, workspace, m-1
+bind = $altMod, Right, workspace, m+1
+
+bind = SUPER, grave, exec, kitten quick-access-terminal
+
+bind = SUPER, F2, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bind = SUPER, F1, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bind = SUPER, F3, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bind = $mainMod SUPER, f12 , exec, grim -g "$(slurp -d)" - | wl-copy
+bind = SUPER,F2, exec, /usr/bin/rofi -modi clipboard:/home/madhur/scripts/cliphist-rofi-img -show clipboard -show-icons
+
+# Resize windows (master width factor equivalent)
+bind = $mainMod, L, resizeactive, 50 0
+bind = $mainMod, H, resizeactive, -50 0
+
+# Cycle through layouts
+bind = $mainMod, Space, cyclenext, layout
+# Toggle top gap for DP-1
+#bind = $mainMod , G, exec, hyprctl keyword workspace "w[t1], gapsout:700 0 0 0" || hyprctl keyword workspace "w[t1], gapsout:0 0 0 0"
+
+##############################
+### WINDOWS AND WORKSPACES ###
+##############################
+
+# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+# See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
+
+# Example windowrule
+# windowrule = match:class ^(kitty)$, match:title ^(kitty)$, float on
+
+windowrule = match:class .*, suppress_event maximize # You'll probably like this.
+
+windowrule = match:class ^(Slack)$, workspace 0
+
+# PanGP and gpclient - floating, minimized, top-right
+#windowrule = match:class ^(PanGPUI)$, float on
+#windowrule = match:class ^(gpclient)$, float on
+#windowrule = match:class ^(gpclient)$, workspace 1
+#windowrule = match:class ^(gpclient)$, pin on
+#windowrule = match:class ^(gpclient)$, monitor DP-2
+#windowrule = match:class ^(PanGPUI)$, move 100%-w-20 20
+#windowrule = match:class ^(gpclient)$, move 100%-w-20 20
+layerrule = blur on, match:namespace waybar
+layerrule = blur on, match:namespace rofi
+# Conky window rules
+windowrule = match:class ^(Conky)$, float on
+windowrule = match:class ^(Conky)$, no_focus on
+windowrule = match:class ^(Conky)$, decorate off
+windowrule = match:class ^(Conky)$, border_size 0
+windowrule = match:class ^(Conky)$, pin on
+windowrule = match:class ^(Conky)$, opacity 0.67
+#layerrule = blur on, match:namespace wallpaper
+
+# plugin {
+#     split-monitor-workspaces {
+#         count = 5
+#         keep_focused = 0
+#         enable_notifications = 1
+#         enable_persistent_workspaces = 0
+#     }
+#     hyprscrolling {
+#         fullscreen_on_one_column = true
+#     }
+# }
+xwayland {
+force_zero_scaling = true
+}
+
+
+$mainMod = SUPER
+# Switch workspaces with mainMod + [0-5]
+# bind = $mainMod, 1, split-workspace, 1
+# bind = $mainMod, 2, split-workspace, 2
+# bind = $mainMod, 3, split-workspace, 3
+# bind = $mainMod, 4, split-workspace, 4
+# bind = $mainMod, 5, split-workspace, 5
+
+# # Move active window to a workspace with mainMod + SHIFT + [0-5]
+# bind = $mainMod SHIFT, 1, split-movetoworkspacesilent, 1
+# bind = $mainMod SHIFT, 2, split-movetoworkspacesilent, 2
+# bind = $mainMod SHIFT, 3, split-movetoworkspacesilent, 3
+# bind = $mainMod SHIFT, 4, split-movetoworkspacesilent, 4
+# bind = $mainMod SHIFT, 5, split-movetoworkspacesilent, 5
+
+workspace = 1, layout:scrolling

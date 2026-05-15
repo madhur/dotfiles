@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily Authelia login audit → n8n webhook
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/docker/n8n/scripts/authelia-audit.sh

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run container restart digest daily at 08:05
+
+[Timer]
+OnCalendar=*-*-* 08:05:00
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

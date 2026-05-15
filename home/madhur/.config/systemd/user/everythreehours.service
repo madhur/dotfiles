@@ -1,0 +1,6 @@
+[Unit]
+Description=Script to do anything every three hours
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/every_three_hours.sh
