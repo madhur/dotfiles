@@ -239,7 +239,6 @@ networkmanager-openvpn
 nfs-utils
 nginx
 nilfs-utils
-niri
 nnn
 noto-fonts
 noto-fonts-cjk

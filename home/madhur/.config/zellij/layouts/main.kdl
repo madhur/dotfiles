@@ -9,7 +9,7 @@ layout {
             format_left   "{mode} #[fg=#5c6a72,bg=#2d353b]{session} "
             format_center "{datetime}"
             // Right side: hostname/load, then shutdown-timer (rightmost): [⏻ off] or [⏻ Nm] per idle-remaining-plain.sh.
-            format_right  "{command_custom}  {command_idle}"
+            format_right  "{command_custom}  {pipe_idle}"
             format_space  ""
 
             mode_normal        "#[fg=#2d353b,bg=#a7c080,bold] NORMAL "
@@ -38,11 +38,16 @@ layout {
             command_custom_interval  "10"
             command_custom_rendermode "static"
 
-            // Same source as Starship/tmux; wrapper sets XDG_RUNTIME_DIR/DBUS/DISPLAY for zjstatus RunCommand
-            command_idle_command   "bash -c \"/home/madhur/.config/zellij/zjstatus-idle-env.sh\""
-            command_idle_format    "#[fg=#83c092,bg=#2d353b] {stdout}"
-            command_idle_interval  "30"
-            command_idle_rendermode "static"
+            // Idle widget: switched from command_* to pipe_* due to zjstatus #247
+            // (command widget panics under zellij's WASMI runtime).
+            // Pushed by idle-shutdown.sh on every 15-min timer fire.
+            //
+            // command_idle_command   "bash -c \"/home/madhur/.config/zellij/zjstatus-idle-env.sh\""
+            // command_idle_format    "#[fg=#83c092,bg=#2d353b] {stdout}"
+            // command_idle_interval  "30"
+            // command_idle_rendermode "static"
+            pipe_idle_format       "#[fg=#83c092,bg=#2d353b] {output}"
+            pipe_idle_rendermode   "static"
 
             // Second example: git branch in cwd (uncomment + add {command_git} to format_right)
             // command_git_command   "bash -c \"git -C \\\"$HOME\\\" rev-parse --abbrev-ref HEAD 2>/dev/null || echo no-git\""

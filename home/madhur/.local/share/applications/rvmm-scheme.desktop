@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=RVGL Launcher
+Type=Application
+Categories=Game;
+Path=/home/madhur/Downloads
+Exec="/usr/bin/python" "/home/madhur/Downloads/rvgl_launcher.py" %u
+Icon=/home/madhur/Downloads/icons/icon.png
+Terminal=false
+StartupNotify=false
+NoDisplay=true
+MimeType=x-scheme-handler/rvmm;

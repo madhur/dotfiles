@@ -44,5 +44,13 @@ else
     echo "$(date): System active (idle for ${IDLE_MINUTES} minutes). No action taken." >> "$LOG_FILE"
 fi
 
+# Push bar value into zellij — workaround for zjstatus #247 (command widget panics on WASMI).
+if command -v zellij >/dev/null 2>&1; then
+    VALUE=$("$HOME/scripts/idle-remaining-plain.sh" 2>/dev/null)
+    if [ -n "$VALUE" ]; then
+        zellij pipe "zjstatus::pipe::pipe_idle::${VALUE}" 2>/dev/null || true
+    fi
+fi
+
 exit 0
 

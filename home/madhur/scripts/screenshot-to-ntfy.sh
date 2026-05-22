@@ -13,19 +13,25 @@ TITLE="${NTFY_TITLE:-Screenshot ($(hostname))}"
 export DISPLAY="$DISPLAY_TARGET"
 export XAUTHORITY="${XAUTHORITY:-$HOME/.Xauthority}"
 
-if [ ! -S "/tmp/.X11-unix/X${DISPLAY_TARGET#:}" ]; then
-    echo "X server $DISPLAY_TARGET is not running" >&2
-    exit 1
-fi
-
-FILENAME="screenshot_$(date +%Y%m%d_%H%M%S).jpg"
-
 CURL_AUTH=()
 if [ -n "${NTFY_TOKEN:-}" ]; then
     CURL_AUTH=(-H "Authorization: Bearer ${NTFY_TOKEN}")
 elif [ -n "${NTFY_USERNAME:-}" ] && [ -n "${NTFY_PASSWORD:-}" ]; then
     CURL_AUTH=(-u "${NTFY_USERNAME}:${NTFY_PASSWORD}")
 fi
+
+if [ ! -S "/tmp/.X11-unix/X${DISPLAY_TARGET#:}" ]; then
+    echo "X server $DISPLAY_TARGET is not running" >&2
+    curl -fsS -X POST \
+        -H "Title: $TITLE" \
+        -H "Tags: warning" \
+        "${CURL_AUTH[@]}" \
+        -d "X server $DISPLAY_TARGET is not running" \
+        "$NTFY_URL" >/dev/null
+    exit 1
+fi
+
+FILENAME="screenshot_$(date +%Y%m%d_%H%M%S).jpg"
 
 # Buffer the encoded JPEG in tmpfs (RAM, not disk) so we can read its
 # dimensions/size before posting.

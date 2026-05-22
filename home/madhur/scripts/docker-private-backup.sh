@@ -75,8 +75,15 @@ rsync -av --delete \
     --exclude='vaultwarden/vw-data/icon_cache/' \
     --exclude='homeassistant/config/' \
     --exclude='jellyfin/config/' \
+    --exclude='firefly/database/database.sqlite*' \
     "$DOCKER_DIR/" \
     "$PRIVATE_BACKUP_DIR/" && RSYNC_EXIT=0 || RSYNC_EXIT=$?
+
+# One-time migration: previous runs rsync'd live firefly sqlite into the private
+# repo. Now excluded — remove any stale copy so it doesn't linger forever.
+rm -f "$PRIVATE_BACKUP_DIR/firefly/database/database.sqlite" \
+      "$PRIVATE_BACKUP_DIR/firefly/database/database.sqlite-wal" \
+      "$PRIVATE_BACKUP_DIR/firefly/database/database.sqlite-shm"
 if [ $RSYNC_EXIT -ne 0 ] && [ $RSYNC_EXIT -ne 23 ] && [ $RSYNC_EXIT -ne 24 ]; then
     handle_error "rsync failed with exit code $RSYNC_EXIT"
 fi
@@ -134,11 +141,40 @@ dump_pg_container() {
         || log_message "WARNING: pg_dump failed for $db via $container (container may be stopped)"
 }
 
-# Host postgres databases (localhost:5432) — credentials from each service's .env
-AUTHENTIK_PW=$(grep 'AUTHENTIK_POSTGRESQL__PASSWORD' "$DOCKER_DIR/authentik/.env" | cut -d= -f2)
-dump_pg_host "authentik" "authentik" "$AUTHENTIK_PW" "authentik"
+# SQLite snapshot as text SQL (git-diffable across snapshots, safe under WAL).
+dump_sqlite() {
+    local src="$1" outdir="$2" outname="$3"
+    if [ ! -f "$src" ]; then
+        log_message "WARNING: sqlite source not found: $src"
+        return
+    fi
+    mkdir -p "$PRIVATE_BACKUP_DIR/$outdir"
+    sqlite3 "$src" .dump > "$PRIVATE_BACKUP_DIR/$outdir/$outname" \
+        && log_message "Dumped sqlite: $src" \
+        || log_message "WARNING: sqlite dump failed for $src"
+}
 
+# Read KEY=VALUE from .env-style FILE without crashing if file/key missing.
+read_env_var() {
+    local file="$1" key="$2"
+    [ -f "$file" ] || return 0
+    grep "^${key}=" "$file" 2>/dev/null | head -1 | cut -d= -f2- || true
+}
+
+# Host postgres databases (localhost:5432) — credentials from each service's .env
 dump_pg_host "dawarich" "dawarich" "dawarich" "dawarich"
+
+PLANKA_PW=$(read_env_var "$DOCKER_DIR/planka/.env" "PLANKA_DB_PASSWORD")
+if [ -n "$PLANKA_PW" ]; then
+    dump_pg_host "planka" "planka" "$PLANKA_PW" "planka"
+else
+    log_message "WARNING: planka PLANKA_DB_PASSWORD missing, skipping dump"
+fi
+
+# SQLite-backed services
+dump_sqlite "$DOCKER_DIR/firefly/database/database.sqlite" "firefly" "firefly_dump.sql"
+dump_sqlite "$DOCKER_DIR/n8n/data/database.sqlite" "n8n" "n8n_dump.sql"
+dump_sqlite "$DOCKER_DIR/invoiceshelf/data/app/database.sqlite" "invoiceshelf" "invoiceshelf_dump.sql"
 
 # Paperless: media (actual PDFs) not backed up — DB alone is useless. Skip.
 # Gitea: git repos in ./data/ not backed up — DB metadata without repos is useless. Skip.

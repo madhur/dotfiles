@@ -27,6 +27,8 @@ x-scheme-handler/webcal=brave-browser.desktop
 x-scheme-handler/postman=Postman.desktop
 application/pdf=org.pwmt.zathura.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/rvmm=rvmm-scheme.desktop
+x-scheme-handler/discord-472158403830218762=discord-472158403830218762.desktop
 
 [Added Associations]
 application/x-shellscript=code.desktop;visual-studio-code.desktop;vim.desktop;

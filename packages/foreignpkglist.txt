@@ -42,7 +42,6 @@ lcov-git
 lightdm-settings
 litecli
 logkeys
-mangowc-git
 matcha-client-bin
 microsoft-edge-stable-bin
 mkinitcpio-openswap
