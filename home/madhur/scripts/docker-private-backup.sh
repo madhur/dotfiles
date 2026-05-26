@@ -190,7 +190,6 @@ docker exec bookstack_db mysqldump -u bookstack -psupersecretpassword bookstacka
 dump_pg_container "docmost_db" "docmost" "docmost" "docmost"
 
 # --- Commit and push ---
-COMMIT_MSG="Docker private backup $(date '+%Y-%m-%d %H:%M:%S')"
 
 # Stage all changes
 git add -A
@@ -199,6 +198,9 @@ git add -A
 if git diff --staged --quiet; then
     log_message "No changes to commit"
 else
+    # Try LLM-generated message; fall back to timestamped default on failure.
+    COMMIT_MSG=$(generate_llm_commit_message 2>/dev/null || true)
+    : "${COMMIT_MSG:=Docker private backup $(date '+%Y-%m-%d %H:%M:%S')}"
     git commit -m "$COMMIT_MSG"
     log_message "Committed: $COMMIT_MSG"
 fi

@@ -1,6 +1,0 @@
-[Unit]
-Description=Daily pacman activity summary → n8n webhook
-
-[Service]
-Type=oneshot
-ExecStart=/home/madhur/docker/n8n/scripts/pacman-summary.sh

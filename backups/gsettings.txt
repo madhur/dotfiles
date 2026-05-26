@@ -363,7 +363,7 @@ org.gnome.desktop.input-sources xkb-options @as []
 org.gnome.desktop.interface accent-color 'blue'
 org.gnome.desktop.interface avatar-directories @as []
 org.gnome.desktop.interface can-change-accels false
-org.gnome.desktop.interface clock-format '24h'
+org.gnome.desktop.interface clock-format '12h'
 org.gnome.desktop.interface clock-show-date true
 org.gnome.desktop.interface clock-show-seconds false
 org.gnome.desktop.interface clock-show-weekday false

@@ -65,6 +65,16 @@ window#waybar.hidden {
     color: #ffffff;
 }
 
+/* Hide workspaces with no windows (keep the active one visible) */
+#workspaces button.empty:not(.active) {
+    /* min-width is set on the base button rule, override it too */
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    font-size: 0;
+}
+
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio,  #tray,  #custom-hyprpicker, #disk, #custom-uptime {
     padding: 0 10px;

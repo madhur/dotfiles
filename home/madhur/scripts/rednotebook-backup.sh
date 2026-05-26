@@ -83,9 +83,10 @@ rsync -av --delete --exclude='*.log' --exclude='.git' --exclude='.gitignore' --e
 # Script version: Incremental v1.0 (with reusable git functions)
 # EOF
 
-# Use the reusable git function to add, commit, and push
-COMMIT_MSG="RedNotebook backup $(date '+%Y-%m-%d %H:%M:%S')"
-git_add_commit_push "$COMMIT_MSG"
+# Use the reusable git function to add, commit, and push.
+# Pass an empty message so git_add_commit_push generates one via
+# generate_llm_commit_message (with timestamp fallback).
+git_add_commit_push ""
 
 # Log repository statistics
 REPO_STATS=$(get_repo_stats)

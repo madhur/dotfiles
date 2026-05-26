@@ -139,9 +139,10 @@ start_wallpaper_conky() {
         start_conky "/home/madhur/.config/conky/wallpaper_monitor1.conf" "wallpaper monitor 1"
     fi
     
-    if [ -f "/home/madhur/.config/conky/wallpaper_monitor2.conf" ]; then
-        start_conky "/home/madhur/.config/conky/wallpaper_monitor2.conf" "wallpaper monitor 2"
-    fi
+    # wallpaper_monitor2 disabled — only monitor 1 should run
+    # if [ -f "/home/madhur/.config/conky/wallpaper_monitor2.conf" ]; then
+    #     start_conky "/home/madhur/.config/conky/wallpaper_monitor2.conf" "wallpaper monitor 2"
+    # fi
 }
 
 # Function to start main conky instances

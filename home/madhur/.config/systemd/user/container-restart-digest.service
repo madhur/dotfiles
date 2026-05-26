@@ -1,7 +1,0 @@
-[Unit]
-Description=Daily container restart digest → n8n webhook
-After=docker.service
-
-[Service]
-Type=oneshot
-ExecStart=/home/madhur/docker/n8n/scripts/container-restart-digest.sh
