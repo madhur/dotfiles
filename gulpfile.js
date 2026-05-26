@@ -18,9 +18,14 @@ gulp.task('gitadd', shell.task([
     verbose: true
 }));
 
-// Task to commit changes with timestamp (IST)
+// Task to commit changes. Tries generate_llm_commit_message from
+// ~/scripts/git-utils.sh first (LLM-generated, content-aware), falls back
+// to a timestamped backup message if the LLM call fails or returns empty.
+// gitadd has already staged everything before this runs.
 gulp.task('gitcommit', shell.task([
-    'git commit -m "backup: Dotfiles updated on ' + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST"'
+    'MSG=$(bash -c "source /home/madhur/scripts/git-utils.sh && generate_llm_commit_message" 2>/dev/null); ' +
+    '[ -z "$MSG" ] && MSG="backup: Dotfiles updated on ' + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST"; ' +
+    'git commit -m "$MSG"'
 ], {
     cwd: './',
     verbose: true
