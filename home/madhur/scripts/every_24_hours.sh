@@ -16,6 +16,8 @@ source /home/madhur/scripts/notify_wrapper.sh
     run_with_notification "/home/madhur/docker/n8n/scripts/authelia-audit.sh" "Authelia Login Audit → n8n" "monitoring"
     run_with_notification "/home/madhur/docker/n8n/scripts/container-restart-digest.sh" "Container Restart Digest → n8n" "monitoring"
     run_with_notification "/home/madhur/docker/n8n/scripts/pacman-summary.sh" "Pacman Activity Summary → n8n" "monitoring"
+    run_with_notification "/home/madhur/docker/n8n/scripts/fail2ban-summary.sh" "Fail2ban Daily Summary → n8n" "monitoring"
+    run_with_notification "/home/madhur/docker/n8n/scripts/journal-summary.sh" "Systemd Journal Digest → n8n" "monitoring"
 } 2>&1
 #find /home/madhur/.cache/ -type f -atime +30 -print -delete
 #docker system prune -af --volumes

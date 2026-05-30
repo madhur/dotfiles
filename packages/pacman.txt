@@ -84,6 +84,7 @@ expect
 eyedropper
 eza
 f2fs-tools
+fail2ban
 fakeroot
 fceux
 feh

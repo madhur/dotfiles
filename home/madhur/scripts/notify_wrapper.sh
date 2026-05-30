@@ -7,6 +7,8 @@ NTFY_SERVER="https://ntfy.madhur.co.in"
 # Set to "true" to include command output in notifications
 INCLUDE_OUTPUT_ON_SUCCESS="${INCLUDE_OUTPUT_ON_SUCCESS:-true}"
 INCLUDE_OUTPUT_ON_FAILURE="${INCLUDE_OUTPUT_ON_FAILURE:-true}"
+# Set to "true" to send notifications on success (default: false — only failures notify)
+NOTIFY_ON_SUCCESS="${NOTIFY_ON_SUCCESS:-false}"
 # Maximum number of lines to include (0 = all lines, -1 = disable)
 MAX_OUTPUT_LINES="${MAX_OUTPUT_LINES:-50}"
 # Maximum characters per line (0 = no limit)
@@ -236,10 +238,9 @@ System: $system_info"
 $cmd_output"
         fi
         
-        # Success notifications suppressed — only failures are notified
-        #if [ "$notify_enabled" != "false" ]; then
-        #    send_rich_notification "$topic" "✅ $description" "$success_msg" "default" "white_check_mark"
-        #fi
+        if [ "$notify_enabled" != "false" ] && [ "$NOTIFY_ON_SUCCESS" = "true" ]; then
+            send_rich_notification "$topic" "✅ $description" "$success_msg" "default" "white_check_mark"
+        fi
         echo "[$end_timestamp] Completed successfully: $description (took $duration_formatted)"
         log_event "SUCCESS" "$topic" "$description - Duration: $duration_formatted"
     else

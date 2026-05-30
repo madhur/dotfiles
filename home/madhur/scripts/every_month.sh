@@ -4,6 +4,7 @@
 #cd /home/madhur/Desktop/python/email_reader && /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/email_reader/gmail_reader.py
 
 source /home/madhur/scripts/notify_wrapper.sh
+export NOTIFY_ON_SUCCESS=true
 
 cd /home/madhur/gitpersonal/madhur.github.com 
 source /home/madhur/.rvm/scripts/rvm

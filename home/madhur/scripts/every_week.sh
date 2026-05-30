@@ -3,6 +3,7 @@
 #docker system prune -af --volumes
 
 source /home/madhur/scripts/notify_wrapper.sh
+export NOTIFY_ON_SUCCESS=true
 
 
 run_with_notification "cd /home/madhur/gitpersonal/dotfiles && node_modules/gulp-cli/bin/gulp.js backup-and-push" "Dotfiles update and push" "weekly"
