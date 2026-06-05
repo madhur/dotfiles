@@ -159,9 +159,10 @@ alias sudo='doas'
 alias editor='msedit'
 alias mp4='mpv'
 
-# idle-shutdown timer
-alias idleon='systemctl --user start idle-shutdown.timer'
-alias idleoff='systemctl --user stop idle-shutdown.timer'
+# idle-shutdown timer (toggles also push the bar value immediately, since the
+# 15s/1min timer is what normally pushes — see zjstatus #260 workaround)
+alias idleon='systemctl --user start idle-shutdown.timer; zellij pipe "zjstatus::pipe::pipe_idle::$(~/scripts/idle-remaining-plain.sh)" 2>/dev/null'
+alias idleoff='systemctl --user stop idle-shutdown.timer; zellij pipe "zjstatus::pipe::pipe_idle::$(~/scripts/idle-remaining-plain.sh)" 2>/dev/null'
 alias idlestat='systemctl --user is-active idle-shutdown.timer'
 
 alias mytasks='_strip_colors(){ sed "s/\${color orange}/\x1b[33m/g; s/\${color}/\x1b[0m/g; s/\${color[^}]*}//g"; }; echo "=== RECURRING ===" && cd ~/.config/conky && python upcoming_tasks.py status:pending due.before:2days recurrence: | _strip_colors; echo ""; echo "=== SHORT TERM GOALS ===" && cd ~/.config/conky && python upcoming_tasks.py -- status:pending -RECURRING -PARENT -CHILD +work due.any: | _strip_colors; echo ""; echo "=== HOME TASKS ===" && cd ~/.config/conky && python upcoming_tasks.py status:pending +home | _strip_colors'

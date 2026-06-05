@@ -13,21 +13,21 @@ TITLE="${NTFY_TITLE:-Screenshot ($(hostname))}"
 export DISPLAY="$DISPLAY_TARGET"
 export XAUTHORITY="${XAUTHORITY:-$HOME/.Xauthority}"
 
-CURL_AUTH=()
-if [ -n "${NTFY_TOKEN:-}" ]; then
-    CURL_AUTH=(-H "Authorization: Bearer ${NTFY_TOKEN}")
-elif [ -n "${NTFY_USERNAME:-}" ] && [ -n "${NTFY_PASSWORD:-}" ]; then
-    CURL_AUTH=(-u "${NTFY_USERNAME}:${NTFY_PASSWORD}")
-fi
+# Push via the instrumented homelab-ntfy bridge (service=ntfy metrics). It reads
+# NTFY_SERVER/NTFY_TOPIC (+ NTFY_TOKEN | NTFY_USERNAME/PASSWORD) from the env, so
+# split the configured URL into server + topic and export them.
+HOMELAB_NTFY="${HOMELAB_NTFY:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy}"
+export NTFY_SERVER="${NTFY_URL%/*}"
+export NTFY_TOPIC="${NTFY_URL##*/}"
+# Propagate any auth the caller set so the subprocess (homelab-ntfy) sees it.
+[ -n "${NTFY_TOKEN:-}" ] && export NTFY_TOKEN
+[ -n "${NTFY_USERNAME:-}" ] && export NTFY_USERNAME
+[ -n "${NTFY_PASSWORD:-}" ] && export NTFY_PASSWORD
 
 if [ ! -S "/tmp/.X11-unix/X${DISPLAY_TARGET#:}" ]; then
     echo "X server $DISPLAY_TARGET is not running" >&2
-    curl -fsS -X POST \
-        -H "Title: $TITLE" \
-        -H "Tags: warning" \
-        "${CURL_AUTH[@]}" \
-        -d "X server $DISPLAY_TARGET is not running" \
-        "$NTFY_URL" >/dev/null
+    "$HOMELAB_NTFY" --title "$TITLE" --tags warning --source screenshot_to_ntfy \
+        "X server $DISPLAY_TARGET is not running" >/dev/null || true
     exit 1
 fi
 
@@ -45,14 +45,13 @@ DIMS=$(magick identify -format "%wx%h" "$BUF")
 SIZE=$(stat -c %s "$BUF" | numfmt --to=iec --suffix=B --format="%.1f")
 MESSAGE="${DIMS} • ${SIZE}"
 
-curl -fsS -X POST \
-    -H "Title: $TITLE" \
-    -H "Message: $MESSAGE" \
-    -H "Filename: $FILENAME" \
-    -H "Tags: camera_flash" \
-    -H "Content-Type: image/jpeg" \
-    "${CURL_AUTH[@]}" \
-    --data-binary @"$BUF" \
-    "$NTFY_URL" >/dev/null
+# Rename the buffer to the desired ntfy filename; --file sets the attachment
+# Filename header from the path's basename.
+SHOT="$(dirname "$BUF")/$FILENAME"
+mv "$BUF" "$SHOT"
+trap 'rm -f "$SHOT"' EXIT
 
-echo "Posted $FILENAME ($MESSAGE) to $NTFY_URL"
+"$HOMELAB_NTFY" --file "$SHOT" --title "$TITLE" --tags camera_flash \
+    --source screenshot_to_ntfy "$MESSAGE" >/dev/null
+
+echo "Posted $FILENAME ($MESSAGE) to $NTFY_SERVER/$NTFY_TOPIC"

@@ -8,9 +8,10 @@ CLEAN_NAME="${SERVICE_NAME%.service}"
 # Configure ntfy topic - change this as needed
 NTFY_TOPIC="systemd"
 
-# Path to your Python script directory
-SCRIPT_DIR="$(dirname "$0")"
-PYTHON_SCRIPT="$SCRIPT_DIR/send_ntfy.py"
+# Instrumented ntfy bridge (homelab-ntfy console script → NtfyNotifier → metrics).
+# Replaces the old send_ntfy.py duplicate; absolute venv path so it works from
+# the minimal environment systemd hands a unit hook.
+HOMELAB_NTFY="${HOMELAB_NTFY:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy}"
 
 # Function to send both desktop and ntfy notifications
 send_notifications() {
@@ -18,13 +19,26 @@ send_notifications() {
     local message="$2"
     local icon="$3"
     local ntfy_method="$4"
-    
+
     # Send desktop notification
     #notify-send "$title" "$message" --icon="$icon"
-    
-    # Send ntfy notification if the Python script exists
-    if [ -f "$PYTHON_SCRIPT" ]; then
-        PYTHONPATH="$HOME/Desktop/python/email_reader:$PYTHONPATH" python3 "$PYTHON_SCRIPT" "$ntfy_method" "$CLEAN_NAME" "$message" "$NTFY_TOPIC"
+
+    # Map the logical method to ntfy tags + priority (mirrors what the old
+    # NtfyNotifier.send_<method>_notification helpers used).
+    local tags priority
+    case "$ntfy_method" in
+        error)   tags="x";                  priority="high" ;;
+        warning) tags="warning";            priority="high" ;;
+        success) tags="white_check_mark";   priority="default" ;;
+        *)       tags="information_source"; priority="default" ;;
+    esac
+
+    if [ -x "$HOMELAB_NTFY" ]; then
+        "$HOMELAB_NTFY" -t "$NTFY_TOPIC" \
+            --title "systemd: $CLEAN_NAME" \
+            --tags "$tags" --priority "$priority" \
+            --source service-notifier \
+            "$message" >/dev/null 2>&1 || true
     fi
 }
 

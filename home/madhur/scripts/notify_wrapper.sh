@@ -52,14 +52,35 @@ log_event() {
     echo "[$timestamp] [$level] [$topic] $message"
 }
 
+# Path to the instrumented metric emitter (best-effort; absent => no-op).
+HOMELAB_METRIC="${HOMELAB_METRIC:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-metric}"
+
 # Function to send rich notification - FIXED VERSION
+# Wrapper: times the real send and emits an instrumented ntfy metric (service=ntfy,
+# operation=publish, topic=<topic>) without changing the proven curl delivery path.
 send_rich_notification() {
+    local __topic="$1"
+    local __start __rc __dur __status
+    __start=$(date +%s.%N 2>/dev/null || echo 0)
+    _send_rich_notification_raw "$@"
+    __rc=$?
+    if [ -x "$HOMELAB_METRIC" ]; then
+        __dur=$(awk "BEGIN{d=$(date +%s.%N 2>/dev/null || echo 0)-$__start; if(d<0)d=0; print d}" 2>/dev/null || echo 0)
+        __status=ok; [ "$__rc" -ne 0 ] && __status=error
+        "$HOMELAB_METRIC" api --service ntfy --operation publish \
+            --source "${HOMELAB_SOURCE:-notify_wrapper}" --topic "$__topic" \
+            --status "$__status" --duration "$__dur" >/dev/null 2>&1 || true
+    fi
+    return $__rc
+}
+
+_send_rich_notification_raw() {
     local topic="$1"
     local title="$2"
     local message="$3"
     local priority="${4:-default}"
     local tags="${5:-}"
-    
+
     # Try different approaches based on what works with your server
     
     # Method 1: Simple POST with title in body (most compatible)
@@ -205,6 +226,20 @@ System: $system_info"
     local duration_formatted=$(format_duration $duration)
     local end_timestamp=$(date '+%Y-%m-%d %H:%M:%S')
     local final_system_info=$(get_system_info)
+
+    # Instrument the job itself (service=cron). Every command run through this
+    # wrapper emits throughput/latency/errors attributed to its schedule (source,
+    # e.g. every_24_hours), its job description (operation) and its ntfy topic —
+    # so the whole cron fleet is visible in Grafana from this one choke point.
+    # This is a distinct service value, so it never collides with the per-API
+    # client series (service=bedrock/gmail/ntfy/...) the called scripts emit.
+    if [ -x "$HOMELAB_METRIC" ]; then
+        local __jstatus=ok; [ $exit_code -ne 0 ] && __jstatus=error
+        local __jsource="${HOMELAB_SOURCE:-$(basename "${0%.sh}" 2>/dev/null || echo cron)}"
+        "$HOMELAB_METRIC" api --service cron --operation "$description" \
+            --source "$__jsource" --topic "$topic" \
+            --status "$__jstatus" --duration "$duration" >/dev/null 2>&1 || true
+    fi
     
     # Determine if we should include output
     local should_include_output=false

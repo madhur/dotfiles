@@ -18,10 +18,14 @@ import unicodedata
 from pathlib import Path
 
 try:
-    import boto3
-    from botocore.exceptions import ClientError
+    from homelab import set_source
+    from homelab.clients.bedrock import BedrockClient
+    from homelab.errors import BedrockError
 except ImportError:
-    sys.exit("Error: boto3 is required. Install it with: pip install boto3")
+    sys.exit("Error: the 'homelab' lib is required. Install it with: "
+             "pip install -e ~/Desktop/python/lib")
+
+set_source("rename_images")
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -155,36 +159,24 @@ def describe_image(client, model_id: str, image_bytes: bytes, media_type: str) -
         ],
     }
 
-    response = client.invoke_model(
-        modelId=model_id,
+    # client is a BedrockClient: it owns transient/throttle retry, metrics, and
+    # token accounting (homelab_llm_tokens_total{service=bedrock,operation=rename_image}).
+    result = client.invoke_model(
+        operation="rename_image",
+        model=model_id,
         contentType="application/json",
         accept="application/json",
         body=json.dumps(body),
     )
 
-    result = json.loads(response["body"].read())
     raw = result["content"][0]["text"].strip()
     return to_slug(raw)
 
 
 def invoke_with_retry(client, model_id: str, image_bytes: bytes, media_type: str, max_retries: int) -> str:
-    """Wrap describe_image with exponential backoff for transient errors."""
-    last_error = None
-    for attempt in range(max_retries + 1):
-        try:
-            return describe_image(client, model_id, image_bytes, media_type)
-        except ClientError as e:
-            code = e.response["Error"]["Code"]
-            if code in FATAL_CODES:
-                sys.exit(f"Fatal AWS error ({code}): {e.response['Error']['Message']}")
-            if code in RETRYABLE_CODES and attempt < max_retries:
-                wait = 2 ** (attempt + 1)
-                print(f"    [retry {attempt + 1}/{max_retries}] {code} - waiting {wait}s...")
-                time.sleep(wait)
-                last_error = e
-                continue
-            raise
-    raise last_error
+    """Retry now lives in BedrockClient (configured via --max-retries); this is a
+    thin passthrough kept so the call site is unchanged."""
+    return describe_image(client, model_id, image_bytes, media_type)
 
 
 # ---------------------------------------------------------------------------
@@ -252,10 +244,9 @@ def process_folder(folder: Path, client, model_id: str, apply: bool, max_retries
 
         try:
             slug = invoke_with_retry(client, model_id, image_bytes, media_type, max_retries)
-        except ClientError as e:
-            msg = f"{e.response['Error']['Code']}: {e.response['Error']['Message']}"
-            print(f"\n    Error: {msg}")
-            errors.append((name, msg))
+        except BedrockError as e:
+            print(f"\n    Error: {e}")
+            errors.append((name, str(e)))
             continue
         except Exception as e:
             print(f"\n    Error: {e}")
@@ -329,8 +320,10 @@ def main() -> None:
         sys.exit(f"Error: '{folder}' is not a directory.")
 
     try:
-        client = boto3.client("bedrock-runtime", region_name=args.region)
-    except Exception as e:
+        client = BedrockClient(
+            region=args.region, model=args.model, max_attempts=args.max_retries + 1
+        )
+    except BedrockError as e:
         sys.exit(f"Error creating Bedrock client: {e}")
 
     process_folder(folder, client, args.model, args.apply, args.max_retries)

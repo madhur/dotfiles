@@ -30,6 +30,12 @@ IDLE_TIME_MS="$IDLE_MS"
 #THRESHOLD_MS=900000
 THRESHOLD_MS=3600000 #one hour
 
+# Grace period (seconds): never poweroff if the timer was started very recently.
+# Guards against starting the timer (idleon) on an already-idle machine and having
+# the very first tick power it off instantly. Only positively-confirmed fresh starts
+# are protected; if duration can't be determined, normal behavior proceeds.
+GRACE_SECONDS=90
+
 # Convert to minutes for logging
 IDLE_MINUTES=$((IDLE_TIME_MS / 60000))
 
@@ -38,8 +44,21 @@ echo "$(date): Idle time: ${IDLE_MINUTES} minutes (${IDLE_TIME_MS} ms)" >> "$LOG
 
 # Check if idle time exceeds threshold
 if [ "$IDLE_TIME_MS" -ge "$THRESHOLD_MS" ]; then
-    echo "$(date): System idle for ${IDLE_MINUTES} minutes. Shutting down..." >> "$LOG_FILE"
-    sudo /usr/bin/systemctl poweroff
+    # Grace guard: how long has the timer been active? (monotonic, survives wall-clock changes)
+    ACTIVE_US=$(systemctl --user show idle-shutdown.timer -p ActiveEnterTimestampMonotonic --value 2>/dev/null)
+    NOW_US=$(awk '{print int($1*1000000)}' /proc/uptime 2>/dev/null)
+    if [[ "$ACTIVE_US" =~ ^[0-9]+$ ]] && [ "$ACTIVE_US" -gt 0 ] && [[ "$NOW_US" =~ ^[0-9]+$ ]]; then
+        ACTIVE_SECONDS=$(( (NOW_US - ACTIVE_US) / 1000000 ))
+        if [ "$ACTIVE_SECONDS" -lt "$GRACE_SECONDS" ]; then
+            echo "$(date): System idle for ${IDLE_MINUTES} minutes, but timer only active ${ACTIVE_SECONDS}s (< ${GRACE_SECONDS}s grace). Skipping shutdown." >> "$LOG_FILE"
+            ACTIVE_SECONDS=skip
+        fi
+    fi
+
+    if [ "${ACTIVE_SECONDS:-}" != "skip" ]; then
+        echo "$(date): System idle for ${IDLE_MINUTES} minutes. Shutting down..." >> "$LOG_FILE"
+        sudo /usr/bin/systemctl poweroff
+    fi
 else
     echo "$(date): System active (idle for ${IDLE_MINUTES} minutes). No action taken." >> "$LOG_FILE"
 fi

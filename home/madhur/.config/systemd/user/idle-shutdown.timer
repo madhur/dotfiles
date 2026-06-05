@@ -1,14 +1,15 @@
 [Unit]
-Description=Timer to check system idle time every 15 minutes
+Description=Timer to check system idle time every minute
 
 [Timer]
-# Run every 15 minutes
-OnCalendar=*:0/15
+# Run every minute (also drives the zjstatus idle-countdown bar push)
+OnCalendar=*:*:00
+# Fire crisply on the minute boundary
+AccuracySec=1s
+# No random delay: we want a predictable once-per-minute push
+RandomizedDelaySec=0
 # Run immediately if timer was missed (e.g., system was off)
 Persistent=false
-# Add a small random delay to avoid thundering herd (0-60 seconds)
-RandomizedDelaySec=60
 
 [Install]
 WantedBy=default.target
-

@@ -7,9 +7,9 @@ layout {
     pane size=1 borderless=true {
         plugin location="file:/home/madhur/.config/zellij/plugins/zjstatus.wasm" {
             format_left   "{mode} #[fg=#5c6a72,bg=#2d353b]{session} "
-            format_center "{pipe_clock}"
+            format_center "{datetime}"
             // Right side: hostname/load, then shutdown-timer (rightmost): [⏻ off] or [⏻ Nm] per idle-remaining-plain.sh.
-            format_right  "{pipe_load}  {pipe_idle}"
+            format_right  "{command_custom}  {pipe_idle}"
             format_space  ""
 
             mode_normal        "#[fg=#2d353b,bg=#a7c080,bold] NORMAL "
@@ -26,24 +26,17 @@ layout {
             mode_session       "#[fg=#2d353b,bg=#7fbbb3,bold] SESSION "
             mode_prompt        "#[fg=#2d353b,bg=#a7c080,bold] PROMPT "
 
-            // Clock + load: switched from {datetime} / command_* to pipe_* due to
-            // zjstatus #247 — the plugin's internal Timer freezes under WASMI, so
-            // both went stale. Now pushed every minute by zellij-bar.timer ->
-            // ~/scripts/zellij-bar-update.sh (independent of idleon/idleoff).
-            //
-            // datetime               "#[fg=#a7c080,bg=#2d353b,bold] {format} "
-            // datetime_format        "%a %d %b  %H:%M"
-            // datetime_interval      "60"
-            // datetime_timezone      "Asia/Kolkata"   // IANA tz: https://docs.rs/chrono-tz/latest/chrono_tz/enum.Tz.html
-            //
-            // command_custom_command   "bash -c \"/home/madhur/.config/zellij/status-custom.sh\""
-            // command_custom_format    "#[fg=#5c6a72,bg=#2d353b] {stdout}"
-            // command_custom_interval  "10"
-            // command_custom_rendermode "static"
-            pipe_clock_format      "#[fg=#a7c080,bg=#2d353b,bold] {output} "
-            pipe_clock_rendermode  "static"
-            pipe_load_format       "#[fg=#5c6a72,bg=#2d353b] {output}"
-            pipe_load_rendermode   "static"
+            datetime               "#[fg=#a7c080,bg=#2d353b,bold] {format} "
+            datetime_format        "%a %d %b  %H:%M"
+            datetime_interval      "60"
+            // IANA tz list: https://docs.rs/chrono-tz/latest/chrono_tz/enum.Tz.html
+            datetime_timezone      "Asia/Kolkata"
+
+            // Arbitrary shell (like tmux status-right '#(...)') — name becomes {command_NAME}
+            command_custom_command   "bash -c \"/home/madhur/.config/zellij/status-custom.sh\""
+            command_custom_format    "#[fg=#5c6a72,bg=#2d353b] {stdout}"
+            command_custom_interval  "10"
+            command_custom_rendermode "static"
 
             // Idle widget: switched from command_* to pipe_* due to zjstatus #247
             // (command widget panics under zellij's WASMI runtime).

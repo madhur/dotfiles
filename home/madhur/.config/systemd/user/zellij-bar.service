@@ -1,0 +1,11 @@
+[Unit]
+Description=Push load average + clock into the zellij zjstatus bar
+
+[Service]
+Type=oneshot
+ExecStart=/home/madhur/scripts/zellij-bar-update.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

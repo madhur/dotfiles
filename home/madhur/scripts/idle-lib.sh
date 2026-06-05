@@ -15,13 +15,22 @@ get_idle_ms() {
         fi
     fi
 
-    # Priority 2: Text mode — TTY last-access time
-    local tty_dev
-    tty_dev=$(who | grep "^${USER} " | awk '{print $2}' | head -1)
-    if [ -n "$tty_dev" ] && [ -e "/dev/$tty_dev" ]; then
+    # Priority 2: Text mode — TTY last-access time.
+    # The user may have several sessions open (e.g. tty1, tty2, an ssh pts);
+    # idleness is the time since *any* of them was last active, so take the
+    # most recently accessed (minimum idle), not just the first who(1) lists.
+    local tty_dev newest_access=""
+    while read -r tty_dev; do
+        [ -n "$tty_dev" ] && [ -e "/dev/$tty_dev" ] || continue
         local last_access
-        last_access=$(stat -c %X "/dev/$tty_dev")
-        IDLE_MS=$(( ( $(date +%s) - last_access ) * 1000 ))
+        last_access=$(stat -c %X "/dev/$tty_dev") || continue
+        if [ -z "$newest_access" ] || [ "$last_access" -gt "$newest_access" ]; then
+            newest_access="$last_access"
+        fi
+    done < <(who | grep "^${USER} " | awk '{print $2}')
+
+    if [ -n "$newest_access" ]; then
+        IDLE_MS=$(( ( $(date +%s) - newest_access ) * 1000 ))
         return 0
     fi
 

@@ -18,12 +18,13 @@ gulp.task('gitadd', shell.task([
     verbose: true
 }));
 
-// Task to commit changes. Tries generate_llm_commit_message from
-// ~/scripts/git-utils.sh first (LLM-generated, content-aware), falls back
-// to a timestamped backup message if the LLM call fails or returns empty.
-// gitadd has already staged everything before this runs.
+// Task to commit changes. Generates the message through the shared, instrumented
+// homelab lib (`homelab-git commit-message`, service="claude_cli" metrics),
+// falling back to a timestamped backup message if the LLM call fails or returns
+// empty. gitadd has already staged everything before this runs; the CLI reads
+// `git diff --staged` from cwd. --source tags the LLM spend as "dotfiles".
 gulp.task('gitcommit', shell.task([
-    'MSG=$(bash -c "source /home/madhur/scripts/git-utils.sh && generate_llm_commit_message" 2>/dev/null); ' +
+    'MSG=$(/home/madhur/.virtualenvs/python-rsha/bin/homelab-git commit-message --source dotfiles 2>/dev/null); ' +
     '[ -z "$MSG" ] && MSG="backup: Dotfiles updated on ' + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST"; ' +
     'git commit -m "$MSG"'
 ], {
