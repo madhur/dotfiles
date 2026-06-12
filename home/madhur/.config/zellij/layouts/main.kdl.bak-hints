@@ -12,20 +12,18 @@ layout {
             format_right  "{pipe_load}  {pipe_idle}"
             format_space  ""
 
-            // Each mode_* badge carries its own keybind hints (muted text after the
-            // colored label). zjstatus shows the matching one only while in that mode.
-            mode_normal        "#[fg=#2d353b,bg=#a7c080,bold] NORMAL #[fg=#859289,bg=#2d353b,nobold] Alt+s:scroll  Ctrl+p:pane  Ctrl+t:tab  Ctrl+n:resize  Ctrl+h:move  Ctrl+y:session  Ctrl+g:lock "
-            mode_locked        "#[fg=#2d353b,bg=#e67e80,bold] LOCKED #[fg=#859289,bg=#2d353b,nobold] Ctrl+g:unlock "
-            mode_resize        "#[fg=#2d353b,bg=#dbbc7f,bold] RESIZE #[fg=#859289,bg=#2d353b,nobold] h/j/k/l:grow  H/J/K/L:shrink  +/-:size  Esc:exit "
-            mode_pane          "#[fg=#2d353b,bg=#83c092,bold] PANE #[fg=#859289,bg=#2d353b,nobold] n:new  d/r:split  x:close  f:fullscreen  h/j/k/l:focus  Esc:exit "
-            mode_tab           "#[fg=#2d353b,bg=#7fbbb3,bold] TAB #[fg=#859289,bg=#2d353b,nobold] n:new  1-9:goto  h/l:prev/next  r:rename  x:close  b:break  Esc:exit "
-            mode_scroll        "#[fg=#2d353b,bg=#d699b6,bold] SCROLL #[fg=#859289,bg=#2d353b,nobold] j/k:line  Ctrl+f/b:page  d/u:half  s:search  e:editor  Esc:exit "
-            mode_enter_search  "#[fg=#2d353b,bg=#d699b6,bold] SEARCH #[fg=#859289,bg=#2d353b,nobold] type then Enter  Esc:back "
-            mode_search        "#[fg=#2d353b,bg=#d699b6,bold] SEARCH #[fg=#859289,bg=#2d353b,nobold] n/p:next/prev  c:case  w:wrap  o:word  Esc:exit "
-            mode_rename_tab    "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME #[fg=#859289,bg=#2d353b,nobold] type name  Enter:ok  Esc:cancel "
-            mode_rename_pane   "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME #[fg=#859289,bg=#2d353b,nobold] type name  Enter:ok  Esc:cancel "
-            mode_move          "#[fg=#2d353b,bg=#83c092,bold] MOVE #[fg=#859289,bg=#2d353b,nobold] h/j/k/l:move  n/p:cycle  Esc:exit "
-            mode_session       "#[fg=#2d353b,bg=#7fbbb3,bold] SESSION #[fg=#859289,bg=#2d353b,nobold] w:switch  d:detach  c:config  p:plugins  a:about  Esc:exit "
+            mode_normal        "#[fg=#2d353b,bg=#a7c080,bold] NORMAL "
+            mode_locked        "#[fg=#2d353b,bg=#e67e80,bold] LOCKED "
+            mode_resize        "#[fg=#2d353b,bg=#dbbc7f,bold] RESIZE "
+            mode_pane          "#[fg=#2d353b,bg=#83c092,bold] PANE "
+            mode_tab           "#[fg=#2d353b,bg=#7fbbb3,bold] TAB "
+            mode_scroll        "#[fg=#2d353b,bg=#d699b6,bold] SCROLL "
+            mode_enter_search  "#[fg=#2d353b,bg=#d699b6,bold] SEARCH "
+            mode_search        "#[fg=#2d353b,bg=#d699b6,bold] SEARCH "
+            mode_rename_tab    "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME "
+            mode_rename_pane   "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME "
+            mode_move          "#[fg=#2d353b,bg=#83c092,bold] MOVE "
+            mode_session       "#[fg=#2d353b,bg=#7fbbb3,bold] SESSION "
             mode_prompt        "#[fg=#2d353b,bg=#a7c080,bold] PROMPT "
 
             // Clock + load: switched from {datetime} / command_* to pipe_* due to

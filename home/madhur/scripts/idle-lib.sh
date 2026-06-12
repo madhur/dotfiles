@@ -29,6 +29,20 @@ get_idle_ms() {
         fi
     done < <(who | grep "^${USER} " | awk '{print $2}')
 
+    # A login OR logout is user activity, but it updates no tty's atime — it updates
+    # utmp/wtmp. Without this, ending the most-recently-active session makes idle jump
+    # to the next, staler session's age (e.g. a never-used tty1 login), which can vault
+    # past the shutdown threshold in a single tick. Use %Y (mtime); reads by who/last
+    # touch atime, not mtime, so our own polling won't reset it.
+    local ev m
+    for ev in /run/utmp /var/log/wtmp; do
+        [ -r "$ev" ] || continue
+        m=$(stat -c %Y "$ev" 2>/dev/null) || continue
+        if [ -z "$newest_access" ] || [ "$m" -gt "$newest_access" ]; then
+            newest_access="$m"
+        fi
+    done
+
     if [ -n "$newest_access" ]; then
         IDLE_MS=$(( ( $(date +%s) - newest_access ) * 1000 ))
         return 0

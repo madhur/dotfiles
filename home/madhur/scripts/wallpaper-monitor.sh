@@ -16,8 +16,13 @@ WATCH_DIRS=(
 # Path to your Python script
 PYTHON_SCRIPT="/home/madhur/Desktop/python/bedrock_image_location.py"
 
-# Python interpreter (use your venv if applicable)
-PYTHON="/usr/bin/python3"
+# Python interpreter — the python-rsha venv has the homelab client + boto3/PIL
+# (system /usr/bin/python3 lacks `homelab`, so it could not import the script).
+PYTHON="/home/madhur/.virtualenvs/python-rsha/bin/python"
+
+# Vision backend for bedrock_image_location.py:
+#   bedrock (metered) | claude_cli (fixed-cost Claude Code CLI)
+export IMAGE_LOCATION_BACKEND="claude_cli"
 
 log_message() {
     logger -t wallpaper-monitor "[$(date '+%Y-%m-%d %H:%M:%S')] $1"

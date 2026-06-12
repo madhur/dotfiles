@@ -114,7 +114,7 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "normal"
         }
-        bind "Ctrl o" { SwitchToMode "normal"; }
+        bind "Ctrl y" { SwitchToMode "normal"; }
         bind "p" {
             LaunchOrFocusPlugin "plugin-manager" {
                 floating true
@@ -173,7 +173,7 @@ keybinds clear-defaults=true {
         bind "Ctrl h" { SwitchToMode "move"; }
     }
     shared_except "locked" "session" {
-        bind "Ctrl o" { SwitchToMode "session"; }
+        bind "Ctrl y" { SwitchToMode "session"; }  // was Ctrl o; freed for Claude
     }
     shared_except "locked" "scroll" "search" {
         // bind "Ctrl s" { SwitchToMode "scroll"; }  // unbound: conflicts with micro

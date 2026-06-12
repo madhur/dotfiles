@@ -187,3 +187,14 @@ function _zellij_tab_name() {
     fi
 }
 precmd_functions+=(_zellij_tab_name)
+
+# Update the docker stack in the current folder: pull newer images, recreate, prune old ones.
+# Usage: cd into a stack folder (with docker-compose.yml), then run `dcup`
+dcup() {
+    if [[ ! -f docker-compose.yml && ! -f compose.yaml && ! -f docker-compose.yaml && ! -f compose.yml ]]; then
+        echo "dcup: no compose file in $(pwd)" >&2
+        return 1
+    fi
+    echo ">> Updating stack: $(basename "$PWD")"
+    docker compose pull && docker compose up -d --remove-orphans
+}
