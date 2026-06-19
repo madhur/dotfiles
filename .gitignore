@@ -1,1 +1,4 @@
 node_modules
+
+# Contains a live BookStack API token — keep local only (chmod 600)
+home/madhur/scripts/bookstack-digest.env

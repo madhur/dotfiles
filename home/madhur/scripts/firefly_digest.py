@@ -1,9 +1,17 @@
 #!/home/madhur/.virtualenvs/python-rsha/bin/python
-"""Firefly III daily financial digest -> Mailpit.
+"""Firefly III financial digest -> Mailpit (daily / weekly / monthly).
 
-Emails a summary of YESTERDAY's money movement from Firefly III: spent / earned /
-net headline, spend broken down by category, the day's individual transactions,
+Emails a summary of money movement from Firefly III over a period: spent / earned /
+net headline, spend broken down by category, the period's individual transactions,
 an uncategorized-transaction callout, and a transfers note.
+
+Pick the window with a positional argument (default ``daily``):
+  daily    -> yesterday (runs from ~/scripts/every_24_hours.sh)
+  weekly   -> trailing 7 days ending yesterday (runs from ~/scripts/every_week.sh)
+  monthly  -> the previous calendar month (runs from ~/scripts/every_month.sh)
+
+For weekly/monthly the per-transaction table is capped to the largest TXN_LIMIT
+rows (a month can have hundreds); the category/income breakdowns stay complete.
 
 Sibling of the AWS-cost and Claude-Code (ccusage) digests — together they cover
 cloud spend, LLM spend, and personal finance. Uses the shared instrumented
@@ -28,10 +36,11 @@ Config (override via firefly-digest.env):
 
 from __future__ import annotations
 
+import argparse
 import html as _html
 import os
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal
 from pathlib import Path
 
@@ -58,6 +67,44 @@ load_dotenv(FIREFLY_ENV_FILE)
 IST = timezone(timedelta(hours=5, minutes=30))
 _SYM = {"INR": "₹", "USD": "$", "EUR": "€", "GBP": "£"}
 
+# Cap the per-transaction table for multi-day periods (a month can run to
+# hundreds of rows). ``None`` -> show every transaction (the daily digest).
+TXN_LIMIT = {"daily": None, "weekly": 20, "monthly": 20}
+
+
+def resolve_period(period: str, today: date) -> dict:
+    """Map a period name to its date window and human labels."""
+    if period == "daily":
+        start = end = today - timedelta(days=1)
+        return {
+            "start": start,
+            "end": end,
+            "period_label": start.strftime("%A, %d %b %Y"),
+            "subject_tag": "",
+            "subject_range": start.strftime("%d %b"),
+        }
+    if period == "weekly":
+        end = today - timedelta(days=1)
+        start = end - timedelta(days=6)
+        return {
+            "start": start,
+            "end": end,
+            "period_label": f"{start.strftime('%d %b')} – {end.strftime('%d %b %Y')} · last 7 days",
+            "subject_tag": " · weekly",
+            "subject_range": f"{start.strftime('%d')}–{end.strftime('%d %b')}",
+        }
+    if period == "monthly":
+        end = today.replace(day=1) - timedelta(days=1)  # last day of previous month
+        start = end.replace(day=1)
+        return {
+            "start": start,
+            "end": end,
+            "period_label": start.strftime("%B %Y"),
+            "subject_tag": " · monthly",
+            "subject_range": start.strftime("%b %Y"),
+        }
+    raise ValueError(f"unknown period: {period!r}")
+
 # --------------------------------------------------------------------------- #
 # Formatting
 # --------------------------------------------------------------------------- #
@@ -74,27 +121,27 @@ def _esc(s) -> str:
 # --------------------------------------------------------------------------- #
 # Data
 # --------------------------------------------------------------------------- #
-def gather(ff: FireflyClient, day: str) -> dict:
-    """Collect everything the digest needs for the single date `day` (YYYY-MM-DD)."""
+def gather(ff: FireflyClient, start: str, end: str) -> dict:
+    """Collect everything the digest needs for the date range `start`..`end` (YYYY-MM-DD, inclusive)."""
     expense_cats = [
         {"name": r.get("name") or "(uncategorized)", "amount": abs(float(r.get("difference_float") or 0))}
-        for r in ff.insight_expense_by_category(day, day)
+        for r in ff.insight_expense_by_category(start, end)
     ]
     expense_cats.sort(key=lambda x: x["amount"], reverse=True)
     income_cats = [
         {"name": r.get("name") or "(uncategorized)", "amount": abs(float(r.get("difference_float") or 0))}
-        for r in ff.insight_income_by_category(day, day)
+        for r in ff.insight_income_by_category(start, end)
     ]
     income_cats.sort(key=lambda x: x["amount"], reverse=True)
 
     spent = sum(c["amount"] for c in expense_cats)
     earned = sum(c["amount"] for c in income_cats)
 
-    txns = ff.list_transactions(day, day, types=["withdrawal", "deposit"])
+    txns = ff.list_transactions(start, end, types=["withdrawal", "deposit"])
     txns.sort(key=lambda t: float(t["amount"]), reverse=True)
     uncategorized = [t for t in txns if not (t.get("category_name") or "").strip()]
 
-    transfers = ff.list_transactions(day, day, types=["transfer"])
+    transfers = ff.list_transactions(start, end, types=["transfer"])
     transfer_total = sum(float(t["amount"]) for t in transfers)
 
     return {
@@ -174,9 +221,11 @@ def build_html(ctx: dict, d: dict) -> str:
         inc_rows,
     )
 
-    # Transactions.
+    # Transactions (capped to the largest `txn_limit` rows for multi-day periods).
+    limit = ctx.get("txn_limit")
+    shown = d["txns"][:limit] if limit else d["txns"]
     txn_rows = []
-    for t in d["txns"]:
+    for t in shown:
         is_out = t["type"] == "withdrawal"
         counterparty = t["destination"] if is_out else t["source"]
         account = t["source"] if is_out else t["destination"]
@@ -193,11 +242,18 @@ def build_html(ctx: dict, d: dict) -> str:
             + _cell(amt, "right", color)
             + "</tr>"
         )
+    txn_note = (
+        f"Showing the {len(shown)} largest of {len(d['txns'])} transactions."
+        if limit and len(d["txns"]) > len(shown)
+        else ""
+    )
+    title = "🧾 Transactions" if not limit else "🧾 Top transactions"
     txn_table = _table(
-        "🧾 Transactions",
+        title,
         [("Description", "left"), ("Counterparty", "left"), ("Category", "left"),
          ("Account", "left"), ("Amount", "right")],
         txn_rows,
+        txn_note,
     )
 
     # Uncategorized callout.
@@ -235,7 +291,7 @@ def build_html(ctx: dict, d: dict) -> str:
 
     return f"""<html><head><meta name="color-scheme" content="dark"><style>html,body{{margin:0;background:#1b1b1d}}</style></head>
 <body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;color:#d7dade;background:#1b1b1d;padding:18px">
-<p style="color:#9aa0a6;margin-top:0">Firefly III · {ctx["day_label"]} · generated {ctx["generated"]}</p>
+<p style="color:#9aa0a6;margin-top:0">Firefly III · {ctx["period_label"]} · generated {ctx["generated"]}</p>
 {headline}
 {transfers_note}
 {cat_table}
@@ -250,26 +306,38 @@ def build_html(ctx: dict, d: dict) -> str:
 # Main
 # --------------------------------------------------------------------------- #
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Firefly III financial digest -> Mailpit.")
+    parser.add_argument(
+        "period",
+        nargs="?",
+        default="daily",
+        choices=["daily", "weekly", "monthly"],
+        help="reporting window (default: daily)",
+    )
+    args = parser.parse_args()
+    period = args.period
+
     today = datetime.now(IST).date()
-    yesterday = today - timedelta(days=1)
-    day = yesterday.isoformat()
+    p = resolve_period(period, today)
+    start, end = p["start"].isoformat(), p["end"].isoformat()
 
     try:
         with FireflyClient(dict(os.environ)) as ff:
-            d = gather(ff, day)
+            d = gather(ff, start, end)
     except FireflyError as e:
         print(f"ERROR: Firefly query failed: {e}", file=sys.stderr)
         return 1
 
     ctx = {
-        "day_label": yesterday.strftime("%A, %d %b %Y"),
+        "period_label": p["period_label"],
         "generated": datetime.now(IST).strftime("%d %b %H:%M IST"),
+        "txn_limit": TXN_LIMIT[period],
     }
 
     net = d["net"]
     subject = (
-        f"Firefly — {money(d['spent'])} spent · {money(d['earned'])} earned · "
-        f"net {money(net)} ({yesterday.strftime('%d %b')})"
+        f"Firefly{p['subject_tag']} — {money(d['spent'])} spent · {money(d['earned'])} earned · "
+        f"net {money(net)} ({p['subject_range']})"
     )
     if d["uncategorized"]:
         subject += f" · ⚠️{len(d['uncategorized'])} uncategorized"
@@ -278,7 +346,7 @@ def main() -> int:
         subject,
         sender=f"Firefly Digest <{MAIL_FROM}>",
         body=(
-            f"{ctx['day_label']}: spent {money(d['spent'])}, earned {money(d['earned'])}, "
+            f"{p['period_label']}: spent {money(d['spent'])}, earned {money(d['earned'])}, "
             f"net {money(net)} across {len(d['txns'])} transaction(s). "
             "View HTML in Mailpit for the category, transaction and balance tables."
         ),
@@ -290,7 +358,7 @@ def main() -> int:
         return 1
 
     print(
-        f"Sent Firefly digest -> {MAIL_TO} ({day}: spent {money(d['spent'])}, "
+        f"Sent Firefly {period} digest -> {MAIL_TO} ({start}..{end}: spent {money(d['spent'])}, "
         f"earned {money(d['earned'])}, net {money(net)}, {len(d['txns'])} txns, "
         f"{len(d['uncategorized'])} uncategorized)"
     )

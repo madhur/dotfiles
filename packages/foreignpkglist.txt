@@ -6,9 +6,7 @@ bdf2psf-debian-unstable
 bento4
 brave-bin
 caffeine-ng
-charles
 cheat-bin
-cloudflare-warp-bin
 downgrade
 elephant
 elephant-archlinuxpkgs
@@ -29,7 +27,6 @@ flat-remix-gtk
 glava
 gluqlo-git
 gnu-netcat
-google-chrome
 gtk-engine-murrine
 hey
 hyprland-autoname-workspaces-git
@@ -43,7 +40,6 @@ lightdm-settings
 litecli
 logkeys
 matcha-client-bin
-microsoft-edge-stable-bin
 mkinitcpio-openswap
 mongodb-tools-bin
 mongodb60-bin
@@ -55,7 +51,6 @@ ntfysh-bin
 nvidia-hook
 nvidia-inst
 oauth2l
-offsetexplorer2
 offsetexplorer3
 oh-my-zsh-git
 openssl-1.1
@@ -67,11 +62,9 @@ postman-bin
 powerline-fonts-git
 prettyzoo
 python-pulsectl-asyncio
-python2
 python310
 python312
 python37
-python38
 qimgv
 qogir-gtk-theme
 quickshell-git
@@ -81,7 +74,6 @@ rofi-file-browser-extended-git
 rofi-process-killer
 shell-color-scripts
 snapd
-snyk
 splix
 studio-3t
 systemd-timer-notify

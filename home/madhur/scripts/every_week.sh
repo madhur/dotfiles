@@ -13,3 +13,4 @@ run_with_notification "/home/madhur/scripts/git-automate.sh /home/madhur/Desktop
 run_with_notification "sudo bash -c 'cd /home/madhur/Desktop/python/disk_monitor && /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/disk_monitor/monitor_disk.py'" "Disk Monitor" "monitoring"
 run_with_notification "/usr/bin/paccache -r -k 1" "Pacman cache cleanup" "weekly"
 run_with_notification "docker image prune -f" "Docker image cleanup" "weekly"
+run_with_notification "/home/madhur/scripts/firefly_digest.py weekly" "Firefly Weekly Digest → Mailpit" "monitoring"
