@@ -198,3 +198,6 @@ dcup() {
     echo ">> Updating stack: $(basename "$PWD")"
     docker compose pull && docker compose up -d --remove-orphans
 }
+
+# Connected devices by AiMesh node (asusrouter helper)
+alias routerdevices='/home/madhur/Desktop/python/asusrouter/.venv-asus/bin/python /home/madhur/Desktop/python/asusrouter/list_devices_by_node.py'

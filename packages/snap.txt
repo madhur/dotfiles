@@ -12,10 +12,10 @@ gnome-46-2404               0+git.f1cd5fa-sdk0+git.ca9c59c  153    latest/stable
 gnome-calculator            48.1                            972    latest/stable  canonical**     -
 gtk-common-themes           0.1-81-g442e511                 1535   latest/stable  canonical**     -
 indicator-sound-switcher    2.3.10.1                        173    latest/stable  yktoo           -
-insomnia                    13.0.1                          368    latest/stable  getinsomnia     -
-joplin-desktop              v3.6.14                         144    latest/stable  james-carroll*  -
+insomnia                    13.0.2                          369    latest/stable  getinsomnia     -
+joplin-desktop              v3.6.15                         146    latest/stable  james-carroll*  -
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
-mesa-2404                   25.0.7-snap211                  1165   latest/stable  canonical**     -
+mesa-2404                   25.2.8-snap278                  1781   latest/stable  canonical**     -
 sdlpop                      1.23                            715    latest/stable  snapcrafters*   -
 snapcraft                   9.0.0                           18124  latest/stable  canonical**     classic
 snapd                       2.75.2                          26865  latest/stable  canonical**     snapd

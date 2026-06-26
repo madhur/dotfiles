@@ -644,7 +644,7 @@ org.gnome.meld custom-editor-command ''
 org.gnome.meld custom-font 'monospace, 14'
 org.gnome.meld detect-encodings @as []
 org.gnome.meld enable-space-drawer false
-org.gnome.meld filename-filters [('Backups', true, '#*# .#* ~* *~ *.{orig,bak,swp}'), ('OS-specific metadata', true, '.DS_Store ._* .Spotlight-V100 .Trashes Thumbs.db Desktop.ini'), ('Version Control', true, '_MTN .bzr .svn .svn .hg .fslckout _FOSSIL_ .fos CVS _darcs .git .svn .osc'), ('Binaries', true, '*.{pyc,a,obj,o,so,la,lib,dll,exe}'), ('Media', false, '*.{jpg,gif,png,bmp,wav,mp3,ogg,flac,avi,mpg,xcf,xpm}')]
+org.gnome.meld filename-filters [('Backups', true, '#*# .#* ~* *~ *.{orig,bak,swp}'), ('OS-Specific Metadata', true, '.DS_Store ._* .Spotlight-V100 .Trashes Thumbs.db Desktop.ini'), ('Version Control', true, '_MTN .bzr .svn .svn .hg .fslckout _FOSSIL_ .fos CVS _darcs .git .svn .osc'), ('Binaries', true, '*.{pyc,a,obj,o,so,la,lib,dll,exe}'), ('Media', false, '*.{jxl,jpg,jpeg,gif,png,avif,webp,heif,heic,bmp,tif,tiff,raw,dng,cr2,wav,wave,mp3,ogg,oga,vorbis,spx,opus,flac,ac3,aac,aif,aiff,aifc,alac,m4a,3gp,wma,aup,aup3,avi,mov,mpg,mpeg,mp4,m4v,webm,ogv,flv,xcf,xpm,ora,kra,psd,psp}')]
 org.gnome.meld folder-columns [('size', true), ('modification time', true), ('permissions', false)]
 org.gnome.meld folder-filter-text true
 org.gnome.meld folder-ignore-symlinks false
@@ -661,7 +661,7 @@ org.gnome.meld prefer-dark-theme false
 org.gnome.meld show-line-numbers false
 org.gnome.meld show-overview-map true
 org.gnome.meld style-scheme 'classic'
-org.gnome.meld text-filters [('CVS/SVN keywords', false, '\\$\\w+(:[^\\n$]+)?\\$'), ('C++ comment', false, '//.*'), ('C comment', false, '/\\*.*?\\*/'), ('All whitespace', false, '[ \\t\\r\\f\\v]*'), ('Leading whitespace', false, '^[ \\t\\r\\f\\v]*'), ('Trailing whitespace', false, '[ \\t\\r\\f\\v]*$'), ('Script comment', false, '#.*')]
+org.gnome.meld text-filters [('CVS/SVN Keywords', false, '\\$\\w+(:[^\\n$]+)?\\$'), ('C++ Comment', false, '//.*'), ('C Comment', false, '/\\*.*?\\*/'), ('All Whitespace', false, '[ \\t\\r\\f\\v]*'), ('Leading Whitespace', false, '^[ \\t\\r\\f\\v]*'), ('Trailing Whitespace', false, '[ \\t\\r\\f\\v]*$'), ('Script Comment', false, '#.*')]
 org.gnome.meld use-system-editor true
 org.gnome.meld use-system-font true
 org.gnome.meld vc-break-commit-message false
@@ -674,7 +674,6 @@ org.gnome.meld vc-show-commit-margin true
 org.gnome.meld vc-status-filters ['flatten', 'modified']
 org.gnome.meld wrap-mode 'none'
 org.gnome.meld.WindowState height 994
-org.gnome.meld.WindowState is-fullscreen false
 org.gnome.meld.WindowState is-maximized false
 org.gnome.meld.WindowState width 1901
 org.gnome.nm-applet disable-connected-notifications true
@@ -732,9 +731,9 @@ org.gtk.Settings.FileChooser show-hidden true
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser show-type-column true
 org.gtk.Settings.FileChooser sidebar-width 204
-org.gtk.Settings.FileChooser sort-column 'name'
+org.gtk.Settings.FileChooser sort-column 'modified'
 org.gtk.Settings.FileChooser sort-directories-first false
-org.gtk.Settings.FileChooser sort-order 'ascending'
+org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser startup-mode 'recent'
 org.gtk.Settings.FileChooser type-format 'category'
 org.gtk.Settings.FileChooser window-position (0, 30)

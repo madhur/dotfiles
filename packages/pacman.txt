@@ -246,6 +246,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 nss-mdns
 ntfs-3g
+ntfsprogs
 ntp
 numlockx
 nvidia-container-toolkit

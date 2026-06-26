@@ -1,0 +1,19 @@
+[Unit]
+Description=prometheus postgres exporter
+After=network.target
+
+[Service]
+PrivateTmp=yes
+#User=prometheus
+#Group=prometheus
+RuntimeDirectory=postgres_exporter
+Environment="DATA_SOURCE_NAME=postgresql://postgres_exporter@127.0.0.1:5432/postgres?sslmode=disable"
+ExecStart=/home/madhur/bin/postgres_exporter --web.listen-address=0.0.0.0:9187 --web.telemetry-path=/metrics
+StandardOutput=journal
+StandardError=journal
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+Restart=always
+
+[Install]
+WantedBy=default.target
