@@ -25,8 +25,8 @@ super + d
 super + b
      /home/madhur/scripts/rofi-bluetoth/rofi-bluetooth
 
-super  + s
-    eww open bindkeys --toggle
+#super  + s
+#    eww open bindkeys --toggle
 
 super + shift + s
     eww open bindkeys_nvim --toggle 
