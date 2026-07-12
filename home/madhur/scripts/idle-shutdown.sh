@@ -39,6 +39,17 @@ GRACE_SECONDS=90
 # Convert to minutes for logging
 IDLE_MINUTES=$((IDLE_TIME_MS / 60000))
 
+# Remaining time until shutdown, clamped to >= 0 (mirrors idle-remaining.sh)
+REMAINING_MS=$(( THRESHOLD_MS - IDLE_TIME_MS ))
+REMAINING_MINUTES=$(( REMAINING_MS / 60000 ))
+if [ "$REMAINING_MINUTES" -lt 0 ]; then
+    REMAINING_MINUTES=0
+fi
+
+# One-time alert when remaining time first drops to <= 5 minutes
+source ~/scripts/idle-alert-lib.sh
+maybe_send_idle_alert "$REMAINING_MINUTES"
+
 # Log the check
 echo "$(date): Idle time: ${IDLE_MINUTES} minutes (${IDLE_TIME_MS} ms)" >> "$LOG_FILE"
 
