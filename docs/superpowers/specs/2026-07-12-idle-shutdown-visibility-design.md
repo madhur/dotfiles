@@ -81,24 +81,61 @@ fires exactly once per idle streak:
 - Remaining > 5 → remove the state file if present (resets for the next
   streak — covers both real activity and a successful extend).
 
+### 4. Continuous dashboard visibility — glance & homepage widgets (added after initial rollout)
+
+The original design treated on-demand OliveTin status + the pre-shutdown alert
+as sufficient and explicitly deferred a persistent dashboard widget. After
+using it, the user asked for the widget after all. Neither `glance` nor
+`homepage` currently has any live-data widget (both are bookmark-link pages
+only), and neither can read a file directly — both need an HTTP JSON endpoint
+to poll.
+
+**New component: `idle-status`** — a new `~/docker/idle-status/` service
+(own directory, matching the existing per-service layout), running
+`nginx:alpine`, joined to `proxy-network` only — **no Traefik label, no host
+port**. It's reachable by container DNS name (`http://idle-status/status.json`)
+from other containers on that network, but not from the LAN or internet. This
+was chosen over a host-side `systemd` HTTP listener (the alternative
+considered) because it stays inside the same internal Docker-network trust
+boundary every other backend-to-backend call in this stack already uses,
+rather than opening a new host-firewall listener for no real benefit.
+
+`idle-shutdown.sh` writes `~/docker/idle-status/html/status.json` (bind-mounted
+read-only into the container) on every tick — i.e. only while the timer is
+active, so a stale `updated_at` is itself a visible "disabled or machine off"
+signal:
+
+```json
+{"idle_minutes": 12, "remaining_minutes": 48, "updated_at": "2026-07-12T08:20:00+05:30"}
+```
+
+- **glance**: a `custom-api` widget polling `http://idle-status/status.json`
+  every 30s, Go-template rendered with the same green(>10m)/orange(>5m)/red
+  color breakpoints as the existing wibar ring widget.
+- **homepage**: a `customapi` widget polling the same endpoint, showing
+  `remaining_minutes` and `updated_at` as plain text — homepage's widget
+  mapping doesn't support per-value color thresholds the way glance's
+  templates do, so this one is text-only by design, not an oversight.
+
 ### Explicitly out of scope
 
 - The `DISPLAY=:0` hardcoding bug in `idle-shutdown.service`/`idle-lib.sh`
   (discovered during investigation — the real X session runs on `:1`, so X11
   idle detection currently silently falls back to tty-based detection even
   when a GUI session is active). User asked not to touch this now.
-- A persistent dashboard widget (glance/homepage). Superseded by #2 (on-demand
-  check) + #3 (proactive alert) — revisit only if that combination turns out
-  to be insufficient in practice.
 - Any one-tap "Extend" button embedded directly in the ntfy notification
   (would require an Authelia bypass / token-authenticated webhook).
 
 ## Files touched
 
 - `~/scripts/idle-extend.sh` — new
-- `~/scripts/idle-shutdown.sh` — add alert block (state file check + push)
+- `~/scripts/idle-shutdown.sh` — add alert block (state file check + push);
+  add status.json write
 - `~/docker/olivetin/OliveTin-config/config.yaml` — new "Extend Idle Shutdown"
   action; "Check Idle Shutdown Status" action's shell command swapped
+- `~/docker/idle-status/docker-compose.yml` — new
+- `~/docker/glance/config/*.yml` — new custom-api widget
+- `~/docker/homepage/config/services.yaml` — new customapi widget
 
 ## Testing
 
@@ -110,3 +147,9 @@ fires exactly once per idle streak:
 - Trigger both updated/new OliveTin actions over SSH from the OliveTin UI and
   confirm expected output.
 - Confirm normal (non-extended, non-alerted) shutdown behavior is unaffected.
+- Curl `http://idle-status/status.json` from inside another container on
+  `proxy-network` (and confirm it's unreachable from the host's public/LAN
+  Traefik routes) to verify the internal-only exposure claim.
+- Load glance and homepage in a browser and confirm the widget renders and
+  updates within ~30s of a real idle-time change (e.g. after running
+  `idle-extend.sh`).
