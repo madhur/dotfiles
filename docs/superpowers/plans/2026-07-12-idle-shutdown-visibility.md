@@ -28,6 +28,271 @@
 - `~/scripts/idle-shutdown.sh` — modified. Computes `REMAINING_MINUTES` and calls `maybe_send_idle_alert`.
 - `~/docker/olivetin/OliveTin-config/config.yaml` — modified. New "Extend Idle Shutdown" action; "Check Idle Shutdown Status" action's `shell:` command swapped to report live remaining minutes.
 
+## Phase 2: Dashboard widgets (added after initial rollout, per updated spec §4)
+
+- `~/docker/idle-status/docker-compose.yml` — new. `nginx:alpine`, `proxy-network` only, no Traefik label, no host port.
+- `~/docker/idle-status/html/status.json` — new, machine-written. Bind-mounted read-only into the container.
+- `~/scripts/idle-shutdown.sh` — modified again. Writes `status.json` every tick.
+- `~/docker/glance/config/glance.yml` — modified. New `custom-api` widget on the Home page.
+- `~/docker/homepage/config/services.yaml` — modified. New `System` group with a `customapi` widget.
+
+---
+
+### Task 5: `idle-status` — internal-only status endpoint
+
+**Files:**
+- Create: `/home/madhur/docker/idle-status/docker-compose.yml`
+- Create: `/home/madhur/docker/idle-status/html/status.json` (placeholder, overwritten by Task 6)
+
+**Interfaces:**
+- Produces: an HTTP endpoint reachable at `http://idle-status/status.json` from any container on `proxy-network`. Not reachable via Traefik/LAN/internet — no route is defined for it anywhere.
+
+- [ ] **Step 1: Create the directory and a placeholder status file**
+
+```bash
+mkdir -p ~/docker/idle-status/html
+cat > ~/docker/idle-status/html/status.json <<'EOF'
+{"idle_minutes": 0, "remaining_minutes": 0, "updated_at": "1970-01-01T00:00:00+00:00"}
+EOF
+```
+
+- [ ] **Step 2: Write the compose file**
+
+```yaml
+services:
+  idle-status:
+    image: nginx:alpine
+    container_name: idle-status
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    external: true
+```
+
+Save to `~/docker/idle-status/docker-compose.yml`.
+
+- [ ] **Step 3: Start the service**
+
+Run: `cd ~/docker/idle-status && docker compose up -d`
+Expected: `Container idle-status Started`.
+
+- [ ] **Step 4: Verify internal reachability from another container on proxy-network**
+
+Run: `docker exec olivetin wget -qO- http://idle-status/status.json`
+Expected: prints the placeholder JSON from Step 1.
+
+- [ ] **Step 5: Verify it is NOT reachable via Traefik/LAN/internet**
+
+Run: `curl -sk -o /dev/null -w "%{http_code}\n" https://idle-status.desktop.madhur.co.in/status.json --connect-timeout 3 || echo "no route (expected)"`
+Expected: connection failure / no route — there is no Traefik router for this service at all, by design (no `traefik.enable` label was set).
+
+- [ ] **Step 6: Commit**
+
+`~/docker` doesn't gitignore `docker-compose.yml` files (see Global Constraints precedent from Task 4 — only `config.yaml`-style service configs are excluded, not compose files):
+
+```bash
+cd ~/docker
+git add idle-status/docker-compose.yml
+git commit -m "$(cat <<'EOF'
+Add idle-status: internal-only nginx serving idle-shutdown status
+
+No Traefik label, no host port — reachable only by container DNS
+name from other services on proxy-network. Feeds live idle-shutdown
+countdown data to glance/homepage widgets without exposing anything
+new to the LAN or internet.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+```
+
+Note: `~/docker/idle-status/html/status.json` is machine-written and will already be covered by the repo's blanket `**/data/`-style exclusions or the top-level `*` ignore-everything rule (it's not `docker-compose.yml`/`compose.yaml`/etc.) — confirm it's *not* staged by the `git add` above (it shouldn't show in `git status` as trackable). If it does show as untracked-but-addable, do not add it — it's generated, machine-local state, matching how `OliveTin-config/config.yaml` was left out in Task 4.
+
+---
+
+### Task 6: Write `status.json` from `idle-shutdown.sh`
+
+**Files:**
+- Modify: `/home/madhur/scripts/idle-shutdown.sh` (immediately after the `maybe_send_idle_alert` call added in Task 3)
+
+**Interfaces:**
+- Consumes: `$IDLE_MINUTES`, `$REMAINING_MINUTES` (already computed earlier in the script, from Task 3).
+- Produces: `~/docker/idle-status/html/status.json`, read by Task 5's nginx container and Task 7's dashboard widgets.
+
+- [ ] **Step 1: Insert the status-file write**
+
+Edit `~/scripts/idle-shutdown.sh`, immediately after the `maybe_send_idle_alert "$REMAINING_MINUTES"` line added in Task 3 (and before `# Log the check`), inserting:
+
+```bash
+
+# Publish live status for the glance/homepage dashboard widgets
+STATUS_FILE="$HOME/docker/idle-status/html/status.json"
+mkdir -p "$(dirname "$STATUS_FILE")"
+cat > "$STATUS_FILE" <<EOF
+{"idle_minutes": ${IDLE_MINUTES}, "remaining_minutes": ${REMAINING_MINUTES}, "updated_at": "$(date -Iseconds)"}
+EOF
+```
+
+The full block, in order, should now read:
+
+```bash
+# Remaining time until shutdown, clamped to >= 0 (mirrors idle-remaining.sh)
+REMAINING_MS=$(( THRESHOLD_MS - IDLE_TIME_MS ))
+REMAINING_MINUTES=$(( REMAINING_MS / 60000 ))
+if [ "$REMAINING_MINUTES" -lt 0 ]; then
+    REMAINING_MINUTES=0
+fi
+
+# One-time alert when remaining time first drops to <= 5 minutes
+source ~/scripts/idle-alert-lib.sh
+maybe_send_idle_alert "$REMAINING_MINUTES"
+
+# Publish live status for the glance/homepage dashboard widgets
+STATUS_FILE="$HOME/docker/idle-status/html/status.json"
+mkdir -p "$(dirname "$STATUS_FILE")"
+cat > "$STATUS_FILE" <<EOF
+{"idle_minutes": ${IDLE_MINUTES}, "remaining_minutes": ${REMAINING_MINUTES}, "updated_at": "$(date -Iseconds)"}
+EOF
+
+# Log the check
+```
+
+- [ ] **Step 2: Run the script and verify the file updates**
+
+Run: `bash ~/scripts/idle-shutdown.sh && cat ~/docker/idle-status/html/status.json`
+Expected: valid JSON with `idle_minutes`, `remaining_minutes`, and a current `updated_at` timestamp (no longer the 1970 placeholder).
+
+- [ ] **Step 3: Verify the container serves the updated content (no restart needed — bind mount is live)**
+
+Run: `docker exec olivetin wget -qO- http://idle-status/status.json`
+Expected: matches the content just written in Step 2, not the old placeholder.
+
+- [ ] **Step 4: Commit**
+
+```bash
+cd ~/gitpersonal/dotfiles
+cp ~/scripts/idle-shutdown.sh home/madhur/scripts/idle-shutdown.sh
+git add home/madhur/scripts/idle-shutdown.sh
+git commit -m "$(cat <<'EOF'
+Write live status.json for the glance/homepage idle widgets
+
+Every tick, idle-shutdown.sh now publishes idle/remaining minutes
+and a timestamp to the idle-status container's bind-mounted html
+dir, on top of the existing log line and one-time alert.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+```
+
+---
+
+### Task 7: glance & homepage widgets
+
+**Files:**
+- Modify: `/home/madhur/docker/glance/config/glance.yml`
+- Modify: `/home/madhur/docker/homepage/config/services.yaml`
+
+**Interfaces:**
+- Consumes: `http://idle-status/status.json` (Task 5/6) — fields `remaining_minutes` (int), `idle_minutes` (int), `updated_at` (ISO 8601 string).
+
+- [ ] **Step 1: Add the glance widget**
+
+In `~/docker/glance/config/glance.yml`, in the `Home` page's `full` column, insert a new widget entry directly before the existing `bookmarks` widget:
+
+```yaml
+      - size: full
+        widgets:
+          - type: custom-api
+            title: Idle Shutdown
+            cache: 30s
+            url: http://idle-status/status.json
+            template: |
+              {{ $remaining := .JSON.Int "remaining_minutes" }}
+              {{ if gt $remaining 10 }}
+              <div style="font-size: 1.5rem; color: #4ade80;">⏻ {{ $remaining }}m</div>
+              {{ else if gt $remaining 5 }}
+              <div style="font-size: 1.5rem; color: #fbbf24;">⏻ {{ $remaining }}m</div>
+              {{ else }}
+              <div style="font-size: 1.5rem; color: #f87171;">⏻ {{ $remaining }}m</div>
+              {{ end }}
+
+          - type: bookmarks
+            groups:
+```
+
+(The `groups:` line and everything indented under it is the existing content — leave it untouched; only the new `custom-api` widget block above it is new.)
+
+- [ ] **Step 2: Add the homepage widget**
+
+In `~/docker/homepage/config/services.yaml`, insert a new group at the top of the file (right after the `---` line, before `# Local Monitoring`):
+
+```yaml
+# System
+- System:
+    - Idle Shutdown:
+        icon: mdi-timer-sand
+        description: Remaining time before auto-shutdown
+        widget:
+          type: customapi
+          url: http://idle-status/status.json
+          refreshInterval: 30000
+          mappings:
+            - field: remaining_minutes
+              label: Remaining (min)
+            - field: updated_at
+              label: Last updated
+
+```
+
+- [ ] **Step 3: Restart both dashboards**
+
+Run: `cd ~/docker/glance && docker compose up -d --force-recreate && cd ~/docker/homepage && docker compose up -d --force-recreate`
+Expected: both containers report `Started`/`Recreated` with no errors.
+
+- [ ] **Step 4: Verify in the browser**
+
+Open `https://glance.desktop.madhur.co.in` — confirm the Idle Shutdown widget renders on the Home page with a colored remaining-minutes value, no template error shown.
+Open `https://home.desktop.madhur.co.in` — confirm the new "System" group shows "Idle Shutdown" with `Remaining (min)` and `Last updated` values, no widget error shown.
+
+If either shows a template/widget error, treat it as expected first-pass friction (both apps report parse errors directly in the widget in place of a crash) — read the error, fix the syntax, re-run Step 3, and re-check.
+
+- [ ] **Step 5: Verify live update**
+
+Run: `~/scripts/idle-extend.sh` (resets idle to 0, so remaining jumps back to ~60), wait up to 30s (glance/homepage's `cache`/`refreshInterval`), then reload both dashboard pages.
+Expected: both widgets now show a remaining-minutes value close to 60, up from whatever it was before, and glance's color has correspondingly returned to green.
+
+- [ ] **Step 6: Commit**
+
+```bash
+cd ~/docker
+git add glance/config/glance.yml homepage/config/services.yaml
+git commit -m "$(cat <<'EOF'
+Add idle-shutdown countdown widgets to glance and homepage
+
+Both poll the new internal idle-status endpoint every 30s. glance
+gets the full green/orange/red treatment matching the wibar ring;
+homepage shows plain remaining-minutes + last-updated text (its
+customapi widget doesn't support per-value color thresholds).
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+```
+
+## Phase 2 Self-Review
+
+**Spec coverage:** New `idle-status` internal-only endpoint → Task 5. `status.json` publishing → Task 6. glance + homepage widgets → Task 7. All three match spec §4 exactly, including the internal-only exposure claim (verified in Task 5 Step 5) and the homepage text-only / glance color-coded distinction called out explicitly in the spec.
+
+**Placeholder scan:** No TBD/TODO; every step has literal file content, commands, or expected output.
+
+**Type/consistency:** `status.json` field names (`idle_minutes`, `remaining_minutes`, `updated_at`) match exactly across Task 6 (the writer) and Task 7 (both widget configs' field references). Container/DNS name `idle-status` matches between Task 5's `container_name`, Task 5/6/7's `http://idle-status/status.json` URLs. `$IDLE_MINUTES`/`$REMAINING_MINUTES` variable names match their definitions from Task 3/earlier in `idle-shutdown.sh`.
+
 ---
 
 ### Task 1: `idle-extend.sh` — simulate a keypress to reset idle time
