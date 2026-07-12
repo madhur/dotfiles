@@ -50,6 +50,13 @@ fi
 source ~/scripts/idle-alert-lib.sh
 maybe_send_idle_alert "$REMAINING_MINUTES"
 
+# Publish live status for the glance/homepage dashboard widgets
+STATUS_FILE="$HOME/docker/idle-status/html/status.json"
+mkdir -p "$(dirname "$STATUS_FILE")"
+cat > "$STATUS_FILE" <<EOF
+{"idle_minutes": ${IDLE_MINUTES}, "remaining_minutes": ${REMAINING_MINUTES}, "updated_at": "$(date -Iseconds)"}
+EOF
+
 # Log the check
 echo "$(date): Idle time: ${IDLE_MINUTES} minutes (${IDLE_TIME_MS} ms)" >> "$LOG_FILE"
 
