@@ -135,9 +135,9 @@ hl.config({
 hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 hl.curve("easy",     { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
 
-hl.animation({ leaf = "windows",     enabled = true, speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn",   enabled = true, speed = 4.1,  spring = "easy", style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",  enabled = true, speed = 1.49, bezier = "default", style = "popin 80%" })
+hl.animation({ leaf = "windows",     enabled = true, speed = 1,    bezier = "myBezier" })
+hl.animation({ leaf = "windowsIn",   enabled = true, speed = 1,    bezier = "myBezier", style = "popin 87%" })
+hl.animation({ leaf = "windowsOut",  enabled = true, speed = 1,    bezier = "default", style = "popin 80%" })
 hl.animation({ leaf = "border",      enabled = true, speed = 1,    bezier = "default" })
 hl.animation({ leaf = "borderangle", enabled = true, speed = 1,    bezier = "default" })
 hl.animation({ leaf = "fade",        enabled = true, speed = 1,    bezier = "default" })
