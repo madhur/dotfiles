@@ -57,3 +57,4 @@ x-scheme-handler/https=xfce4-web-browser.desktop;
 video/x-matroska=mpv.desktop;
 application/zip=org.gnome.FileRoller.desktop;
 image/webp=qimgv.desktop;
+video/quicktime=mpv.desktop;

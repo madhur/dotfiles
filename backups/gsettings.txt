@@ -231,7 +231,7 @@ org.gnome.FileRoller.General compression-level 'normal'
 org.gnome.FileRoller.General editors @as []
 org.gnome.FileRoller.General encrypt-header false
 org.gnome.FileRoller.Listing list-mode 'as-folder'
-org.gnome.FileRoller.Listing name-column-width 3290
+org.gnome.FileRoller.Listing name-column-width 1353
 org.gnome.FileRoller.Listing show-path false
 org.gnome.FileRoller.Listing show-size true
 org.gnome.FileRoller.Listing show-time true
@@ -240,8 +240,8 @@ org.gnome.FileRoller.Listing sort-method 'name'
 org.gnome.FileRoller.Listing sort-type 'ascending'
 org.gnome.FileRoller.UI sidebar-width 200
 org.gnome.FileRoller.UI view-sidebar false
-org.gnome.FileRoller.UI window-height 2130
-org.gnome.FileRoller.UI window-width 3840
+org.gnome.FileRoller.UI window-height 695
+org.gnome.FileRoller.UI window-width 1903
 org.gnome.baobab.preferences excluded-uris @as []
 org.gnome.baobab.ui active-chart 'rings'
 org.gnome.baobab.ui is-maximized false

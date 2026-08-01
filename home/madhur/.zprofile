@@ -15,7 +15,7 @@ if ! pgrep -x "ssh-agent" > /dev/null
 then
     export HOST=$(hostname)
     source ~/company/passwords.env
-    /usr/bin/keychain --quiet --nogui $HOME/.ssh/id_rsa
+    /usr/bin/keychain --quiet --nogui --no-lock $HOME/.ssh/id_rsa
 fi
 source $HOME/.keychain/$HOST-sh
 

@@ -86,6 +86,7 @@ vagrant
 visual-studio-code-bin
 watch-your-lan
 waypaper
+windows95-bin
 woeusb-ng
 wscat
 xcolorsel

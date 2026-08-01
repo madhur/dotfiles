@@ -25,6 +25,7 @@ source /home/madhur/scripts/notify_wrapper.sh
     run_with_notification "/home/madhur/scripts/ccusage_digest.py" "Claude Code Usage Digest → Mailpit" "monitoring"
     run_with_notification "/home/madhur/scripts/firefly_digest.py" "Firefly Financial Digest → Mailpit" "monitoring"
     run_with_notification "/home/madhur/scripts/docker_digest.py" "Docker Homelab Digest → Mailpit" "monitoring"
+    run_with_notification "cd /home/madhur/Desktop/python/email_reader/act_usage && /home/madhur/.virtualenvs/python-rsha/bin/python act_usage_digest.py" "ACT Usage Daily Digest" "monitoring"
     run_with_notification "cd /home/madhur/github/python-scripts/process-rewardable-events && /home/madhur/.virtualenvs/python-scripts-yxaz/bin/python /home/madhur/github/python-scripts/process-rewardable-events/reward_offer_monitor_watch.py" "Reward Offer Monitor → Mailpit" "monitoring"
 } 2>&1
 #find /home/madhur/.cache/ -type f -atime +30 -print -delete

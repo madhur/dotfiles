@@ -18,4 +18,4 @@ kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable
 mesa-2404                   25.2.8-snap288                  1839   latest/stable  canonical**     -
 sdlpop                      1.23                            715    latest/stable  snapcrafters*   -
 snapcraft                   9.0.1                           18514  latest/stable  canonical**     classic
-snapd                       2.75.2                          26865  latest/stable  canonical**     snapd
+snapd                       2.76.1                          27591  latest/stable  canonical**     snapd

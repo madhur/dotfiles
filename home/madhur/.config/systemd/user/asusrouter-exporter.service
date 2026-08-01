@@ -1,0 +1,14 @@
+[Unit]
+Description=Asus Router Prometheus Exporter
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/madhur/gitpersonal/asus-scrape
+ExecStart=/home/madhur/gitpersonal/asus-scrape/.venv/bin/python -m exporter.main --config /home/madhur/.config/asusrouter-exporter/config.yaml
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
