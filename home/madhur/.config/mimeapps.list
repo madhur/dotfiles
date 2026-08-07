@@ -58,3 +58,4 @@ video/x-matroska=mpv.desktop;
 application/zip=org.gnome.FileRoller.desktop;
 image/webp=qimgv.desktop;
 video/quicktime=mpv.desktop;
+text/x-python3=code.desktop;

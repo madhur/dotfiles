@@ -14,3 +14,4 @@ run_with_notification "sudo bash -c 'cd /home/madhur/Desktop/python/disk_monitor
 run_with_notification "/usr/bin/paccache -r -k 1" "Pacman cache cleanup" "weekly"
 run_with_notification "docker image prune -f" "Docker image cleanup" "weekly"
 run_with_notification "/home/madhur/scripts/firefly_digest.py weekly" "Firefly Weekly Digest → Mailpit" "monitoring"
+run_with_notification "/home/madhur/scripts/loan_prepayment_digest.py" "Loan Prepayment Digest → Mailpit" "monitoring"
