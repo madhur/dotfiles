@@ -82,7 +82,8 @@ tag.connect_signal("request::default_layouts", function()
 		bling.layout.equalarea,
 		awful.layout.suit.max,
 		--bling.layout.mstab,
-		madhur.layout.horizontal_scroll
+		madhur.layout.horizontal_scroll,
+		madhur.layout.lefttall
 	})
 end)
 
@@ -185,5 +186,4 @@ awful.spawn.with_shell("~/scripts/autostart.sh")
 --awful.spawn.once("xrandr --output DP-0 --scale 0.8x0.8")
 
 --- Enable for lower memory consumption
-collectgarbage("setpause", 110)
-collectgarbage("setstepmul", 1000)
+collectgarbage("incremental", 110, 1000)

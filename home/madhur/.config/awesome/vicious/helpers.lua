@@ -166,11 +166,13 @@ end
 -- {{{ Format a string with args
 function helpers.format(format, args)
     for var, val in pairs(args) do
-        if tonumber(var) == nil then
-            var = var:gsub("[-+?*]", function(i) return "%"..i end)
+        local key = var
+        if tonumber(key) == nil then
+            key = key:gsub("[-+?*]", function(i) return "%"..i end)
         end
-        if type(val) == "string" then val = val:gsub("%%", "%%%%") end
-        format = format:gsub("$" .. var, val)
+        local value = val
+        if type(value) == "string" then value = value:gsub("%%", "%%%%") end
+        format = format:gsub("$" .. key, value)
     end
     return format
 end

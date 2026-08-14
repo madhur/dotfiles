@@ -229,7 +229,7 @@ local globalkeys =
         {modkey},
         "l",
         function()
-            awful.tag.incmwfact(0.05)
+            madhur.helpers.incmwfact(0.05)
         end,
         {
             description = "increase master width factor",
@@ -240,7 +240,7 @@ local globalkeys =
         {modkey},
         "h",
         function()
-            awful.tag.incmwfact(-0.05)
+            madhur.helpers.incmwfact(-0.05)
         end,
         {
             description = "decrease master width factor",
@@ -319,21 +319,15 @@ local globalkeys =
         "e",
         function(_)
             local clients = awful.screen.focused().all_clients
-            local s = awful.screen.focused()
             for _i, c in ipairs(clients) do
                 c.maximized = false
             end
 
             awful.screen.focused().selected_tag.master_count = 1
-            if madhur.helpers.is_portrait(s)  then
-                awful.layout.set(awful.layout.suit.tile.bottom)
-            else
-                awful.layout.set(awful.layout.suit.tile.right)
-            end
-            
+            awful.layout.set(madhur.layout.lefttall)
         end,
         {
-            description = "Switch to tall layout",
+            description = "Switch to lefttall layout",
             group = "layout"
         }
     ),

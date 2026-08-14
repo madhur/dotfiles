@@ -20,6 +20,7 @@ autoconf
 automake
 aws-cli
 b43-fwcutter
+bandwhich
 baobab
 base
 base-devel
@@ -145,6 +146,7 @@ helm
 hplip
 htop
 httpie
+hugo
 hwdetect
 hwinfo
 hyprland
@@ -414,6 +416,7 @@ uthash
 vault
 vim
 virtualbox
+vnstat
 vpnc
 vulkan-tools
 w3m

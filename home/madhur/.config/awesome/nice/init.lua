@@ -917,8 +917,7 @@ function nice.initialize(args)
             if table_args[prop] == true then
                 crush(_private[prop], value)
             elseif prop == "titlebar_radius" then
-                value = max(3, value)
-                _private[prop] = value
+                _private[prop] = max(3, value)
             else
                 _private[prop] = value
             end

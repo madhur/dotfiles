@@ -27,9 +27,9 @@ local function temp_to_rgb(temp)
         end
     else
         -- Red component
-        r = 329.698727446 * math.pow(temp/100 - 60, -0.1332047592)
+        r = 329.698727446 * (temp/100 - 60) ^ -0.1332047592
         -- Green component
-        g = 288.1221695283 * math.pow(temp/100 - 60, -0.0755148492)
+        g = 288.1221695283 * (temp/100 - 60) ^ -0.0755148492
         -- Blue component
         b = 255
     end

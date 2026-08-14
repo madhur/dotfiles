@@ -70,7 +70,7 @@ local function worker(format, warg)
     if f then -- Get ATI info from the debug filesystem
         for line in f:lines() do
             for k, unit in string.gmatch(line, "(%a+[%a%s]*):[%s]+([%d]+)") do
-                unit = tonumber(unit)
+                local n = tonumber(unit)
 
                 _data["{dpm_power_level}"] = -- DPM active?
                         tonumber(string.match(line, "power level ([%d])")) or "N/A"
@@ -78,7 +78,7 @@ local function worker(format, warg)
                 if _reps[k] then
                     for u, v in pairs(_reps[k].units) do
                         _data["{".._reps[k].name.." "..u.."}"] =
-                             (unit * (_reps[k].mul or 1)) / v
+                             (n * (_reps[k].mul or 1)) / v
                     end
                 end
             end

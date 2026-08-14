@@ -1,0 +1,12 @@
+[Unit]
+Description=Alert via ntfy when n8n's sms-realtime webhook fails to parse a request
+After=docker.service
+
+[Service]
+Type=simple
+ExecStart=/home/madhur/scripts/n8n-sms-webhook-alert.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

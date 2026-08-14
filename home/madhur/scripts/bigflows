@@ -1,0 +1,465 @@
+#!/usr/bin/env python3
+"""
+bigflows - query the persisted ntopng flow dump (journald namespace
+'ntopng-flows') for large individual connections.
+
+This reads structured NetFlow-style JSON records that ntopng writes to
+syslog for every flow as it expires (see -F syslog in the ntopng
+systemd override). Each record has src/dst IP+port, app protocol
+(nDPI), TLS SNI hostname when available, byte counts and timing.
+
+Usage:
+  bigflows                              # last hour, >=20MB, all hosts
+  bigflows --host 192.168.1.211         # only flows touching this IP
+  bigflows --min-mb 100 --since "-6h"   # bigger threshold, longer window
+  bigflows --html ~/scripts/ntopng-flow-report/index.html
+  bigflows --json                       # machine-readable output
+
+No sudo needed: the `ntopng-flows` journal namespace directory carries a
+static ACL (`group:wheel:r--`), so any user in `wheel` can read it via
+plain `journalctl --namespace=ntopng-flows` - no elevated privilege
+required to run this as a user-level systemd unit.
+"""
+import argparse
+import html as htmlmod
+import json
+import subprocess
+import sys
+from datetime import datetime, timedelta
+
+
+def fetch_records(since, until):
+    cmd = ["journalctl", "--namespace=ntopng-flows",
+           "-o", "cat", "--since", since]
+    if until:
+        cmd += ["--until", until]
+    try:
+        out = subprocess.run(cmd, capture_output=True, text=True, check=True).stdout
+    except subprocess.CalledProcessError as e:
+        print(f"journalctl failed: {e.stderr}", file=sys.stderr)
+        sys.exit(1)
+    for line in out.splitlines():
+        line = line.strip()
+        if not line.startswith("{"):
+            continue
+        try:
+            yield json.loads(line)
+        except json.JSONDecodeError:
+            continue
+
+
+def fmt_ts(epoch):
+    if not epoch:
+        return "?"
+    return datetime.fromtimestamp(epoch).strftime("%m-%d %H:%M:%S")
+
+
+# Known LAN devices, by IP - overrides whatever ntopng resolved (its
+# mDNS/DHCP-lease-derived SRC_NAME/DST_NAME drifts over time and is often
+# stale or wrong, e.g. 192.168.1.82 has shown up as "PicoW", "lwip0" and
+# "kafka" depending on what last touched the reverse-resolution cache -
+# see dedupe_hairpin_flows for the related hairpin-duplicate story on
+# that same IP). Edit this dict directly to add/rename devices.
+STATIC_HOSTNAMES = {
+    "192.168.1.82": "madhur-pc",
+    "192.168.1.227": "fire-tv",
+    "192.168.1.129": "anjli-iphone",
+    "192.168.1.211": "office-mac",
+    "192.168.1.181": "manav-pc",
+}
+
+
+def resolve_name(ip, fallback):
+    """Static device name for a known LAN IP; otherwise whatever name
+    ntopng resolved for it (fallback), which may be empty."""
+    return STATIC_HOSTNAMES.get(ip, fallback)
+
+
+def get_self_ips():
+    """This host's own IPv4 addresses (physical NIC + every docker/veth
+    bridge). Used by dedupe_hairpin_flows to recognize this router's own
+    copy of a hairpinned flow without hardcoding an IP that
+    deploy_static_ip() could one day change.
+    """
+    try:
+        out = subprocess.run(["ip", "-json", "addr", "show"],
+                              capture_output=True, text=True, check=True).stdout
+        ifaces = json.loads(out)
+    except (subprocess.CalledProcessError, json.JSONDecodeError, FileNotFoundError):
+        return set()
+    return {
+        addr["local"]
+        for iface in ifaces
+        for addr in iface.get("addr_info", [])
+        if addr.get("family") == "inet"
+    }
+
+
+def dedupe_hairpin_flows(rows, self_ips):
+    """Collapse the duplicate flow records caused by this box's own NAT
+    hairpin (nft table `router_hairpin`, chain postrouting: LAN flows
+    this router forwards get masqueraded and re-sent back out the same
+    physical NIC toward the real gateway). ntopng's promiscuous capture
+    on that one interface sees each conversation twice - once under the
+    real client's IP, once under this router's own IP after SNAT. Same
+    dest, same port/proto, same timing; only the source address (and,
+    it turns out, the byte counts) differ.
+
+    Grouping key deliberately excludes IN_BYTES/OUT_BYTES: verified on a
+    live sample that the router's own SNAT'd copy of a flow can report a
+    slightly different IN_BYTES than the real client's copy (a
+    reproducible ~166-byte gap on one long-lived QUIC flow, consistent
+    across two separate windows of the same flow) even though dest,
+    port, proto, FIRST_SWITCHED and LAST_SWITCHED all match exactly. An
+    exact-byte key let those pairs slip through as two separate "big
+    flows" instead of one.
+
+    Only merges when the duplicate set actually contains one of this
+    host's own IPs alongside a different source - the confirmed hairpin
+    signature (verified against a live sample: ~96% of same-content
+    duplicate flow groups contain this router's own address). Groups
+    that DON'T mix a self IP with a different source are left alone -
+    e.g. two distinct devices with coincidentally identical dest/timing,
+    or (rarer) a group where every member is a self IP - since merging
+    those would be a guess rather than a known artifact.
+    """
+    if not self_ips:
+        return rows
+
+    groups = {}
+    order = []
+    for r in rows:
+        key = (r.get("IPV4_DST_ADDR"), r.get("L4_DST_PORT"), r.get("L7_PROTO_NAME"),
+               r.get("FIRST_SWITCHED"), r.get("LAST_SWITCHED"))
+        if key not in groups:
+            groups[key] = []
+            order.append(key)
+        groups[key].append(r)
+
+    out = []
+    for key in order:
+        members = groups[key]
+        if len(members) == 1:
+            out.append(members[0])
+            continue
+        non_self = [r for r in members if r.get("IPV4_SRC_ADDR") not in self_ips]
+        if non_self and len(non_self) < len(members):
+            out.append(non_self[0])   # real device gets the credit
+        else:
+            out.extend(members)       # not a confirmed hairpin dup - leave alone
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__,
+                                  formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--host", action="append", default=[],
+                     help="filter: flow must involve this IP (repeatable)")
+    ap.add_argument("--min-mb", type=float, default=20,
+                     help="minimum combined IN+OUT bytes, in MB (default: 20)")
+    ap.add_argument("--sni", default=None, help="substring filter on TLS SNI / hostname")
+    ap.add_argument("--since", default="-1h", help="journalctl --since value (default: -1h)")
+    ap.add_argument("--until", default=None, help="journalctl --until value")
+    ap.add_argument("--limit", type=int, default=100,
+                     help="max rows, 0 for unlimited (default: 100)")
+    ap.add_argument("--html", metavar="PATH", help="write an HTML report to this path instead of printing")
+    ap.add_argument("--conky-grid", metavar="PATH",
+                     help="also write a pre-rendered conky ${execp}-able hourly grid here "
+                          "(gradient-colored by volume; pairs with --html; same fetched rows)")
+    ap.add_argument("--json", action="store_true", help="print raw matching records as JSON lines")
+    ap.add_argument("--no-hairpin-dedupe", action="store_true",
+                     help="don't collapse this router's own NAT-hairpin duplicate "
+                          "of each flow (see dedupe_hairpin_flows) - useful for "
+                          "debugging the hairpin/capture setup itself")
+    args = ap.parse_args()
+
+    hosts = set(args.host)
+    rows = []
+    for rec in fetch_records(args.since, args.until):
+        if "IPV4_SRC_ADDR" not in rec:
+            continue
+        total = rec.get("IN_BYTES", 0) + rec.get("OUT_BYTES", 0)
+        if total < args.min_mb * 1e6:
+            continue
+        if hosts and rec.get("IPV4_SRC_ADDR") not in hosts and rec.get("IPV4_DST_ADDR") not in hosts:
+            continue
+        sni = rec.get("TLS_SERVER_NAME") or rec.get("DST_NAME") or ""
+        if args.sni and args.sni.lower() not in sni.lower():
+            continue
+        rows.append(rec)
+
+    if not args.no_hairpin_dedupe:
+        rows = dedupe_hairpin_flows(rows, get_self_ips())
+
+    if args.html or args.conky_grid:
+        # newest-first: this page answers "what just happened", not "what's
+        # ever been biggest" - sorting by size instead makes it look stuck
+        # on old data whenever recurring transfers are near-identical in size
+        rows.sort(key=lambda r: r.get("FIRST_SWITCHED", 0), reverse=True)
+        if args.html:
+            # write_html trims to --limit for the table itself, but charts
+            # off the full `rows` so the hourly graph stays accurate even
+            # once the table's row cap is hit (it already is, most days).
+            n = write_html(rows, args)
+            print(f"wrote {n} rows to {args.html}")
+        if args.conky_grid:
+            # reuses the same fetched `rows` - no extra journalctl query
+            write_conky_grid(rows, args.conky_grid)
+            print(f"wrote hourly conky grid to {args.conky_grid}")
+        return
+
+    rows.sort(key=lambda r: r.get("IN_BYTES", 0) + r.get("OUT_BYTES", 0), reverse=True)
+    if args.limit:
+        rows = rows[:args.limit]
+
+    if args.json:
+        for r in rows:
+            print(json.dumps(r))
+        return
+
+    if not rows:
+        print("No matching flows.")
+        return
+
+    hdr = f'{"TIME":17} {"MB":>9}  {"SRC":16} {"DST":16} {"DEST NAME":30} {"PROTO":18} {"DUR":>5}'
+    print(hdr)
+    print("-" * len(hdr))
+    for r in rows:
+        total_mb = (r.get("IN_BYTES", 0) + r.get("OUT_BYTES", 0)) / 1e6
+        dur = max(1, r.get("LAST_SWITCHED", 0) - r.get("FIRST_SWITCHED", 0))
+        name = resolve_name(r.get("IPV4_DST_ADDR", ""), r.get("TLS_SERVER_NAME") or r.get("DST_NAME") or "")
+        print(f'{fmt_ts(r.get("FIRST_SWITCHED")):17} {total_mb:9.1f}  '
+              f'{r.get("IPV4_SRC_ADDR",""):16} {r.get("IPV4_DST_ADDR",""):16} '
+              f'{name[:30]:30} {r.get("L7_PROTO_NAME",""):18} {dur:>4}s')
+
+
+def fmt_mb_human(mb):
+    """Friendly unit label: 22479 -> '22.5 GB', 342.1 -> '342 MB', 3.2 -> '3.2 MB'."""
+    if mb >= 1000:
+        return f"{mb / 1000:,.1f} GB"
+    if mb >= 10:
+        return f"{mb:,.0f} MB"
+    return f"{mb:.1f} MB"
+
+
+def fmt_mb_compact(mb):
+    """Tight unit label for the conky grid (no space, single-letter unit):
+    22479 -> '22.5G', 342.1 -> '342M', 3.2 -> '3.2M'. Max width 6 ('999.9G')."""
+    if mb >= 1000:
+        return f"{mb / 1000:.1f}G"
+    if mb >= 10:
+        return f"{mb:.0f}M"
+    return f"{mb:.1f}M"
+
+
+def compute_hourly_buckets(rows):
+    """24 one-hour buckets covering [now-24h, now), oldest first.
+
+    Shared by the HTML chart and the conky grid export so both read off
+    the exact same aggregation.
+    """
+    now = datetime.now()
+    bucket_start = now.replace(minute=0, second=0, microsecond=0) - timedelta(hours=23)
+    start_epoch = bucket_start.timestamp()
+
+    bucket_mb = [0.0] * 24
+    bucket_n = [0] * 24
+    for r in rows:
+        ts = r.get("FIRST_SWITCHED")
+        if not ts:
+            continue
+        idx = int((ts - start_epoch) // 3600)
+        if 0 <= idx < 24:
+            bucket_mb[idx] += (r.get("IN_BYTES", 0) + r.get("OUT_BYTES", 0)) / 1e6
+            bucket_n[idx] += 1
+
+    return bucket_start, bucket_mb, bucket_n
+
+
+def gradient_hex(pct):
+    """0-100 -> hex color, muted slate (low) to vivid blue (high), no '#'.
+
+    Bright/saturated marks the big hours so they stay legible and eye-
+    catching against conky's dark background; quiet hours fade toward a
+    desaturated gray-blue instead of vanishing into it. (A literal light-
+    blue-to-dark-blue ramp inverts this on a dark surface - the biggest
+    numbers would end up lowest-contrast - so this ramp runs muted->vivid
+    instead, anchored on the same blue already used for the web chart.)
+    """
+    t = max(0.0, min(1.0, pct / 100))
+    lo = (0x4b, 0x55, 0x63)  # muted slate-blue - quiet hour
+    hi = (0x38, 0x87, 0xe5)  # vivid blue, matches the web chart's #3987e5
+    r, g, b = (round(lo[i] + (hi[i] - lo[i]) * t) for i in range(3))
+    return f"{r:02x}{g:02x}{b:02x}"
+
+
+def write_conky_grid(rows, path, cols=12):
+    """Pre-rendered conky markup: a cols-wide grid of 'HH  value' cells,
+    oldest hour first, value color gradiented by that hour's share of the
+    day's peak. Meant to be dropped in whole via conky's ${execp cat path}
+    (execp, unlike exec, gets its output re-parsed as conky syntax - the
+    same trick uptime_tracker.py's `display` command already relies on),
+    so no per-cell ${exec}/${execbar} calls are needed in the conky config.
+    """
+    bucket_start, bucket_mb, _ = compute_hourly_buckets(rows)
+    max_mb = max(bucket_mb)
+
+    cells = []
+    for i, mb in enumerate(bucket_mb):
+        hour = (bucket_start + timedelta(hours=i)).strftime("%H")
+        value = fmt_mb_compact(mb) if mb > 0 else "-"
+        pct = mb / max_mb * 100 if max_mb > 0 else 0
+        cells.append(
+            f"${{color0}}{hour}${{color}} "
+            f"${{color {gradient_hex(pct)}}}{value:>6}${{color}}"
+        )
+
+    rows_out = [
+        "  ".join(cells[i:i + cols]) for i in range(0, len(cells), cols)
+    ]
+    with open(path, "w") as f:
+        f.write("\n".join(rows_out) + "\n")
+
+
+def render_chart(rows):
+    """Hourly bar chart (last 24h, ending now) of summed big-flow MB.
+
+    Self-contained inline SVG: no client-side JS, no external assets.
+    Per-bar hover info rides on a native SVG <title> instead of JS.
+    """
+    bucket_start, bucket_mb, bucket_n = compute_hourly_buckets(rows)
+
+    max_mb = max(bucket_mb)
+    if max_mb <= 0:
+        return '<div class="chart empty">No big flows in the last 24h.</div>'
+
+    w, h = 960, 150
+    pad_top, pad_bottom = 26, 22
+    plot_h = h - pad_top - pad_bottom
+    col_w = w / 24
+    bar_gap = 2
+    bar_w = col_w - bar_gap
+
+    bars = []
+    for i in range(24):
+        mb = bucket_mb[i]
+        x = i * col_w + bar_gap / 2
+        bar_h = (mb / max_mb) * plot_h
+        y = pad_top + (plot_h - bar_h)
+        slot_start = bucket_start + timedelta(hours=i)
+        slot_end = slot_start + timedelta(hours=1)
+        n = bucket_n[i]
+        title = htmlmod.escape(
+            f'{slot_start:%H:%M}–{slot_end:%H:%M} · {fmt_mb_human(mb)} · '
+            f'{n} flow{"s" if n != 1 else ""}'
+        )
+        label = ""
+        if mb > 0:
+            label = (f'<text x="{x + bar_w / 2:.1f}" y="{y - 4:.1f}" '
+                      f'text-anchor="middle" class="chart-val">{fmt_mb_human(mb)}</text>')
+        bars.append(
+            f'<g><rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" '
+            f'height="{max(bar_h, 0):.1f}" rx="4" class="chart-bar">'
+            f'<title>{title}</title></rect>{label}</g>'
+        )
+
+    axis = []
+    for i in range(0, 24, 4):
+        x = i * col_w + col_w / 2
+        slot_start = bucket_start + timedelta(hours=i)
+        axis.append(f'<text x="{x:.1f}" y="{h - 4}" text-anchor="middle" '
+                     f'class="chart-axis">{slot_start:%H:00}</text>')
+
+    baseline_y = pad_top + plot_h
+    return (
+        f'<div class="chart"><svg viewBox="0 0 {w} {h}" role="img" '
+        f'aria-label="Big-flow traffic per hour, last 24 hours">'
+        f'{"".join(bars)}{"".join(axis)}'
+        f'<line x1="0" y1="{baseline_y}" x2="{w}" y2="{baseline_y}" class="chart-baseline"/>'
+        f'</svg></div>'
+    )
+
+
+def write_html(rows, args):
+    generated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    chart_html = render_chart(rows)
+    table_rows = rows[:args.limit] if args.limit else rows
+    trs = []
+    for r in table_rows:
+        total_mb = (r.get("IN_BYTES", 0) + r.get("OUT_BYTES", 0)) / 1e6
+        dur = max(1, r.get("LAST_SWITCHED", 0) - r.get("FIRST_SWITCHED", 0))
+        rate = total_mb / dur
+        src_ip = r.get("IPV4_SRC_ADDR", "")
+        dst_ip = r.get("IPV4_DST_ADDR", "")
+        name = htmlmod.escape(resolve_name(dst_ip, r.get("TLS_SERVER_NAME") or r.get("DST_NAME") or ""))
+        proto = htmlmod.escape(r.get("L7_PROTO_NAME", ""))
+        src = htmlmod.escape(src_ip)
+        dst = htmlmod.escape(dst_ip)
+        srcname = htmlmod.escape(resolve_name(src_ip, r.get("SRC_NAME", "") or ""))
+        big = "big" if total_mb >= 500 else ""
+        # Lead with the resolved name (device hostname / TLS SNI) since
+        # that's what's actually useful at a glance; the bare IP is
+        # secondary detail, shown smaller underneath. Falls back to the
+        # IP as the main line when nothing resolved (no redundant sub).
+        srcline, srcsub = (srcname, src) if srcname else (src, "")
+        dstline, dstsub = (name, dst) if name else (dst, "")
+        trs.append(f"""<tr class="{big}">
+          <td>{fmt_ts(r.get("FIRST_SWITCHED"))}</td>
+          <td class="num">{total_mb:,.1f}</td>
+          <td class="num">{rate:,.1f}</td>
+          <td>{srcline}<div class="sub">{srcsub}</div></td>
+          <td>{dstline}<div class="sub">{dstsub}</div></td>
+          <td>{proto}</td>
+          <td class="num">{dur}s</td>
+        </tr>""")
+
+    page = f"""<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="300">
+<title>Big flows</title>
+<style>
+  body {{ font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; background:#0f1115; color:#e6e6e6; }}
+  h1 {{ font-size: 1.3rem; }}
+  .meta {{ color: #999; margin-bottom: 1rem; font-size: .85rem; }}
+  .tablewrap {{ width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }}
+  table {{ border-collapse: collapse; width: 100%; min-width: 640px; font-size: .85rem; }}
+  th, td {{ padding: .4rem .6rem; border-bottom: 1px solid #2a2d35; text-align: left; }}
+  th {{ background: #1a1d24; position: sticky; top: 0; }}
+  tr:hover {{ background: #1a1d24; }}
+  tr.big {{ background: #2a1010; }}
+  tr.big:hover {{ background: #3a1515; }}
+  .num {{ text-align: right; font-variant-numeric: tabular-nums; }}
+  .sub {{ color: #999; font-size: .75rem; }}
+  .chart {{ margin-bottom: 1.2rem; }}
+  .chart svg {{ width: 100%; height: auto; display: block; }}
+  .chart-bar {{ fill: #3987e5; }}
+  .chart-val {{ fill: #e6e6e6; font-size: 9px; }}
+  .chart-axis {{ fill: #999; font-size: 9px; }}
+  .chart-baseline {{ stroke: #2a2d35; stroke-width: 1; }}
+  .chart.empty {{ color: #999; font-size: .85rem; }}
+  @media (max-width: 600px) {{
+    body {{ margin: .75rem; }}
+    h1 {{ font-size: 1.1rem; }}
+    table {{ font-size: .78rem; }}
+    th, td {{ padding: .35rem .45rem; }}
+  }}
+</style></head><body>
+<h1>Flows &ge; {args.min_mb:g} MB {"for " + ", ".join(args.host) if args.host else "(all hosts)"}</h1>
+<div class="meta">Generated {generated} &middot; window: since {args.since}{(' until ' + args.until) if args.until else ''} &middot; auto-refreshes every 5 min</div>
+{chart_html}
+<div class="tablewrap">
+<table>
+<thead><tr><th>Time</th><th class="num">MB</th><th class="num">MB/s</th><th>Source</th><th>Destination</th><th>Protocol</th><th class="num">Dur</th></tr></thead>
+<tbody>
+{''.join(trs) if trs else '<tr><td colspan="7">No matching flows in this window.</td></tr>'}
+</tbody>
+</table>
+</div>
+</body></html>"""
+    with open(args.html, "w") as f:
+        f.write(page)
+    return len(table_rows)
+
+
+if __name__ == "__main__":
+    main()

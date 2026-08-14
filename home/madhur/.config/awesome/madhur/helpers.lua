@@ -57,14 +57,15 @@ function helpers.dump(o)
        local s = '{ '
        for k,v in pairs(o) do
 
-          if type(k) == 'function' then
-            k = 'function'
+          local key = k
+          if type(key) == 'function' then
+            key = 'function'
           end
-          if type(k) == 'table' then
-            k = 'table'
+          if type(key) == 'table' then
+            key = 'table'
           end
-          if type(k) ~= 'number' and type(k) ~='table' then k = '"'..k..'"' end
-          s = s .. '['..k..'] = ' .. helpers.dump(v) .. ','
+          if type(key) ~= 'number' and type(key) ~='table' then key = '"'..key..'"' end
+          s = s .. '['..key..'] = ' .. helpers.dump(v) .. ','
        end
        return s .. '} '
     else
@@ -98,6 +99,19 @@ function helpers.is_portrait(screen)
     local geometry = screen.geometry
     -- Return true if height > width (portrait), false otherwise (landscape)
     return geometry.height > geometry.width
+end
+
+-- awful.tag.incmwfact() just adds `delta` to the current master_width_factor
+-- with plain float arithmetic. Repeated +/-0.05 presses drift off their exact
+-- decimal value (e.g. 0.9500000000000004), and once a press overshoots 1 or 0
+-- by even a tiny epsilon, awful's own setter silently rejects it -- mwfact
+-- gets stuck just short of the edge no matter how many more times you press
+-- the key. Round to 2 decimals every step so it can't drift past the bounds.
+function helpers.incmwfact(delta, t)
+    t = t or awful.screen.focused().selected_tag
+    local new = t.master_width_factor + delta
+    new = math.floor(new * 100 + 0.5) / 100
+    t.master_width_factor = math.min(1, math.max(0, new))
 end
 -- }}}
 

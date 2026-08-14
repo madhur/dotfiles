@@ -48,6 +48,7 @@ nerd-fonts-complete
 ngrok
 nodejs-jsonlint
 ntfysh-bin
+ntopng
 nvidia-hook
 nvidia-inst
 oauth2l
@@ -68,7 +69,6 @@ python37
 qimgv
 qogir-gtk-theme
 quickshell-git
-redis
 reiserfsprogs
 rofi-file-browser-extended-git
 rofi-process-killer

@@ -15,3 +15,4 @@ run_with_notification "/usr/bin/paccache -r -k 1" "Pacman cache cleanup" "weekly
 run_with_notification "docker image prune -f" "Docker image cleanup" "weekly"
 run_with_notification "/home/madhur/scripts/firefly_digest.py weekly" "Firefly Weekly Digest → Mailpit" "monitoring"
 run_with_notification "/home/madhur/scripts/loan_prepayment_digest.py" "Loan Prepayment Digest → Mailpit" "monitoring"
+run_with_notification "cd /home/madhur/Desktop/python && DISPLAY=:98 /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/hdtorrents_login.py" "HD-Torrents Login Screenshot" "daily"

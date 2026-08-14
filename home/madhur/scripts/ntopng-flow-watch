@@ -1,0 +1,186 @@
+#!/usr/bin/env python3
+"""
+ntopng-flow-watch - tails the persisted ntopng flow dump in real time
+and sends an ntfy push notification for any single connection whose
+combined bytes exceed a threshold.
+
+Also tracks RECURRENCE: if the same (source, destination-name) pair
+crosses the threshold repeatedly within a sliding window, the alert
+says so explicitly ("4th time in the last 47 min, every ~15 min") and
+escalates priority - this is what actually flags a stuck retry loop
+or a runaway scheduled job, as opposed to a one-off big download.
+
+Runs as a systemd --user service, reading `journalctl --namespace
+ntopng-flows -f`. No elevated privilege needed: the journal namespace
+directory carries a static `group:wheel:r--` ACL.
+
+Dedup note: on this box's one-armed NAT setup, a LAN device's flow to
+the internet gets logged TWICE by ntopng - once with the real LAN
+device as source, once with the router's own IP (post-NAT) as source,
+because the interface sees the packet hairpin through both legs. We
+hold each candidate briefly (HOLD_SECONDS) and prefer the real-device
+version so you get one useful alert, not two.
+"""
+import json
+import os
+import subprocess
+import sys
+import threading
+import time
+import urllib.request
+
+ROUTER_IP = os.environ.get("FLOWWATCH_ROUTER_IP", "192.168.1.82")
+THRESHOLD_MB = float(os.environ.get("FLOWWATCH_THRESHOLD_MB", "250"))
+NTFY_URL = os.environ.get("FLOWWATCH_NTFY_URL", "http://172.22.0.24/monitoring")
+RECURRENCE_WINDOW_MIN = float(os.environ.get("FLOWWATCH_RECURRENCE_WINDOW_MIN", "180"))
+RECURRENCE_ALERT_AT = int(os.environ.get("FLOWWATCH_RECURRENCE_ALERT_AT", "3"))
+HISTORY_FILE = os.environ.get("FLOWWATCH_HISTORY_FILE", "/var/lib/ntopng-flow-report/flowwatch_history.json")
+HOLD_SECONDS = 4.0
+
+pending = {}
+lock = threading.Lock()
+
+history_lock = threading.Lock()
+history = {}  # key -> list of epoch timestamps (wall clock)
+
+
+def load_history():
+    global history
+    try:
+        with open(HISTORY_FILE) as f:
+            history = json.load(f)
+    except Exception:
+        history = {}
+
+
+def save_history():
+    try:
+        os.makedirs(os.path.dirname(HISTORY_FILE), exist_ok=True)
+        tmp = HISTORY_FILE + ".tmp"
+        with open(tmp, "w") as f:
+            json.dump(history, f)
+        os.replace(tmp, HISTORY_FILE)
+    except Exception as e:
+        print(f"[flowwatch] could not save history: {e}", file=sys.stderr)
+
+
+def dest_key(rec):
+    name = rec.get("TLS_SERVER_NAME") or rec.get("DST_NAME") or rec.get("IPV4_DST_ADDR", "?")
+    src = rec.get("IPV4_SRC_ADDR", "?")
+    return f"{src}|{name}"
+
+
+def record_and_count(rec):
+    """Append this occurrence, prune the window, return (count, span_minutes, name)."""
+    key = dest_key(rec)
+    now = time.time()
+    window_sec = RECURRENCE_WINDOW_MIN * 60
+    with history_lock:
+        times = history.get(key, [])
+        times = [t for t in times if now - t <= window_sec]
+        times.append(now)
+        history[key] = times
+        save_history()
+        count = len(times)
+        span_min = (times[-1] - times[0]) / 60.0 if count > 1 else 0.0
+    name = rec.get("TLS_SERVER_NAME") or rec.get("DST_NAME") or rec.get("IPV4_DST_ADDR", "?")
+    return count, span_min, name
+
+
+def sig_for(rec):
+    # same destination+port within a 5s bucket of first-seen == same underlying flow
+    return (rec.get("IPV4_DST_ADDR"), rec.get("L4_DST_PORT"),
+            round(rec.get("FIRST_SWITCHED", 0) / 5) * 5)
+
+
+def notify(rec):
+    total_mb = (rec.get("IN_BYTES", 0) + rec.get("OUT_BYTES", 0)) / 1e6
+    src = rec.get("IPV4_SRC_ADDR", "?")
+    srcname = rec.get("SRC_NAME") or src
+    dst = rec.get("IPV4_DST_ADDR", "?")
+    proto = rec.get("L7_PROTO_NAME", "?")
+    dur = max(1, rec.get("LAST_SWITCHED", 0) - rec.get("FIRST_SWITCHED", 0))
+    rate = total_mb / dur
+
+    count, span_min, dstname = record_and_count(rec)
+
+    recurring = count >= 2
+    title = f"Big transfer: {srcname} -> {dstname}"
+    priority = "high"
+    tags = "warning,satellite"
+    extra = ""
+
+    if recurring:
+        avg_gap = span_min / (count - 1) if count > 1 else 0
+        title = f"({count}x) {srcname} -> {dstname}"
+        extra = f"\n⚠ {count}x in last {span_min:.0f} min, ~every {avg_gap:.0f} min"
+        if count >= RECURRENCE_ALERT_AT:
+            priority = "urgent"
+            tags = "rotating_light,warning,satellite"
+            extra += "\n→ looks like a repeating job/loop, not a one-off"
+
+    body = (f"{total_mb:.0f} MB in {dur}s (~{rate:.1f} MB/s)\n"
+            f"{src} -> {dst}:{rec.get('L4_DST_PORT','?')}\n"
+            f"proto: {proto}{extra}")
+
+    req = urllib.request.Request(
+        NTFY_URL, data=body.encode(), method="POST",
+        headers={"Title": title, "Priority": priority, "Tags": tags},
+    )
+    try:
+        urllib.request.urlopen(req, timeout=5)
+        print(f"[flowwatch] alerted: {title} ({total_mb:.0f}MB) count={count}", file=sys.stderr)
+    except Exception as e:
+        print(f"[flowwatch] ntfy publish failed: {e}", file=sys.stderr)
+
+
+def flush_loop():
+    while True:
+        time.sleep(1)
+        now = time.monotonic()
+        with lock:
+            expired = [s for s, (_, t) in pending.items() if now - t >= HOLD_SECONDS]
+            for s in expired:
+                rec, _ = pending.pop(s)
+                notify(rec)
+
+
+def handle(rec):
+    total = rec.get("IN_BYTES", 0) + rec.get("OUT_BYTES", 0)
+    if total < THRESHOLD_MB * 1e6:
+        return
+    if not (rec.get("SRC_ADDR_LOCAL") or rec.get("DST_ADDR_LOCAL")):
+        return
+    s = sig_for(rec)
+    with lock:
+        cur = pending.get(s)
+        if cur is None:
+            pending[s] = (rec, time.monotonic())
+        else:
+            cur_rec, t = cur
+            if cur_rec.get("IPV4_SRC_ADDR") == ROUTER_IP and rec.get("IPV4_SRC_ADDR") != ROUTER_IP:
+                pending[s] = (rec, t)  # upgrade to the real-device leg, keep original hold timer
+
+
+def main():
+    load_history()
+    print(f"[flowwatch] starting, threshold={THRESHOLD_MB}MB, ntfy={NTFY_URL}, "
+          f"recurrence_window={RECURRENCE_WINDOW_MIN}min, alert_at={RECURRENCE_ALERT_AT}x", file=sys.stderr)
+    threading.Thread(target=flush_loop, daemon=True).start()
+    cmd = ["journalctl", "--namespace=ntopng-flows", "-f", "-n", "0", "-o", "cat"]
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, text=True, bufsize=1)
+    for line in proc.stdout:
+        line = line.strip()
+        if not line.startswith("{"):
+            continue
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if "IPV4_SRC_ADDR" not in rec:
+            continue
+        handle(rec)
+
+
+if __name__ == "__main__":
+    main()

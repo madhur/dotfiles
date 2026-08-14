@@ -21,9 +21,9 @@ function pactl.get_volume(device)
 
     local volsum, volcnt = 0, 0
     for vol in string.gmatch(stdout, "(%d?%d?%d)%%") do
-        vol = tonumber(vol)
-        if vol ~= nil then
-            volsum = volsum + vol
+        local n = tonumber(vol)
+        if n ~= nil then
+            volsum = volsum + n
             volcnt = volcnt + 1
         end
     end

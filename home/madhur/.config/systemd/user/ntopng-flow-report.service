@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate the big-flows HTML report
+
+[Service]
+Type=oneshot
+ExecStart=%h/scripts/bigflows --min-mb 20 --since -24h --limit 0 --html %h/scripts/ntopng-flow-report/index.html --conky-grid %h/scripts/ntopng-flow-report/hourly_conky.txt
