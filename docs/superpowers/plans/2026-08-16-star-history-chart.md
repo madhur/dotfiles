@@ -350,6 +350,8 @@ If it doesn't exist (Task 2 Step 3 was skipped), run it now: `/home/madhur/scrip
 
 Confirm the current file's checksum, then run the script against a repo that will make `gh api` fail (a nonexistent repo), and confirm the real chart is untouched:
 
+Note: reassigning `shd.REPO` after import does NOT affect `fetch_starred_at`'s default argument (Python binds default values at function-definition time) — monkeypatch the function itself instead, as below.
+
 ```bash
 cd /home/madhur/gitpersonal/dotfiles
 md5sum screenshots/star-history.png > /tmp/before.md5
@@ -357,7 +359,11 @@ python3 -c "
 import sys
 sys.path.insert(0, '/home/madhur/scripts')
 import star_history_digest as shd
-shd.REPO = 'madhur/this-repo-does-not-exist-12345'
+
+def _boom():
+    raise RuntimeError('simulated gh api failure')
+
+shd.fetch_starred_at = _boom
 sys.exit(shd.main())
 "
 echo "exit code: $?"
