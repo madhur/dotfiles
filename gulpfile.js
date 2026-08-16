@@ -23,10 +23,15 @@ gulp.task('gitadd', shell.task([
 // falling back to a timestamped backup message if the LLM call fails or returns
 // empty. gitadd has already staged everything before this runs; the CLI reads
 // `git diff --staged` from cwd. --source tags the LLM spend as "dotfiles".
+//
+// On a successful commit, also pushes the message to ntfy via `homelab-ntfy`
+// (topic/server/auth from $NTFY_TOPIC etc., already exported by the calling
+// run_with_notification wrapper) so the notification carries the actual
+// change summary instead of raw gulp/git console noise.
 gulp.task('gitcommit', shell.task([
     'MSG=$(/home/madhur/.virtualenvs/python-rsha/bin/homelab-git commit-message --source dotfiles 2>/dev/null); ' +
     '[ -z "$MSG" ] && MSG="backup: Dotfiles updated on ' + new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST"; ' +
-    'git commit -m "$MSG"'
+    'git commit -m "$MSG" && echo "$MSG" | /home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy --source dotfiles --title "✅ dotfiles" --tags git'
 ], {
     cwd: './',
     verbose: true

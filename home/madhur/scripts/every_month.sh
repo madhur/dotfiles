@@ -6,9 +6,8 @@
 source /home/madhur/scripts/notify_wrapper.sh
 export NOTIFY_ON_SUCCESS=true
 
-cd /home/madhur/gitpersonal/madhur.github.com 
-source /home/madhur/.rvm/scripts/rvm
-rvm use 2.7.3
-/home/madhur/.rvm/gems/ruby-2.7.3/bin/bundle exec jekyll build
-run_with_notification "cd /home/madhur/gitpersonal/madhur.github.com && node_modules/gulp-cli/bin/gulp.js deploywithoutbuild" "madhur.co.in blog publish" "monthly"
+# Blog moved from Jekyll to Hugo (2026-08). scripts/deploy.sh builds and
+# pushes to master in one step, so there's no separate build command here
+# anymore -- no Ruby/rvm needed either, Hugo is a single binary on PATH.
+run_with_notification "cd /home/madhur/gitpersonal/madhur.github.com && bash scripts/deploy.sh" "madhur.co.in blog publish" "monthly"
 run_with_notification "/home/madhur/scripts/firefly_digest.py monthly" "Firefly Monthly Digest → Mailpit" "monitoring"

@@ -5,13 +5,20 @@ source /home/madhur/scripts/notify_wrapper.sh
 {
     run_with_notification "python /home/madhur/scripts/delete_old_screenshots.py /home/madhur/Screenshots/Timeline" "Screenshots Cleanup" "daily"
     run_with_notification "trash-empty 7 -f -v" "Empty Trash last 7 days" "daily"
-    run_with_notification "/home/madhur/scripts/rednotebook-backup.sh" "Rednotebook Backup" "daily"
+    # include_output=false: backup_rednotebook() now pushes its own ntfy
+    # notification with just the LLM commit message (see homelab.clients.git).
+    run_with_notification "/home/madhur/scripts/rednotebook-backup.sh" "Rednotebook Backup" "daily" "false" "true" "false"
     run_with_notification "sudo pacman -Syu --noconfirm" "System Update" "daily"
     run_with_notification "/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/weather_monitor.py fetch" "Weather Data Fetch" "weather"
     run_with_notification "/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/weather_monitor.py graph --days 30" "Weather Graph Report" "weather"
     run_with_notification "cd /home/madhur/Desktop/python/email_reader && /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/email_reader/call_log_uploader.py --commit" "Call Log → Nextcloud Calendar" "backup"
     run_with_notification "cd /home/madhur/Desktop/python/email_reader && /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/email_reader/sms_uploader_firefly.py --commit" "Sync Bank SMS to Firefly (Madhur)" "transactions"
     run_with_notification "cd /home/madhur/Desktop/python/email_reader && /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/email_reader/sms_calendar_uploader.py --commit" "SMS → Nextcloud Calendar" "backup"
+    # include_output=false: the reconciler pushes its own ntfy notification
+    # (channel "transactions") only when it actually merges/repoints a
+    # transfer pair — dry-run no-ops stay silent. Failures still hit this
+    # wrapper's default on-nonzero-exit notification.
+    run_with_notification "cd /home/madhur/Desktop/python/email_reader && /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/email_reader/firefly_transfer_reconciler.py --commit" "Firefly Transfer Reconciler" "transactions" "false" "true" "false"
     #run_with_notification "cd /home/madhur/Desktop/python/google_photos_fetcher && DISPLAY=:98 /home/madhur/.virtualenvs/python-rsha/bin/python screenshot_homepage.py" "Dad Google Photos Screenshot" "private"
     run_with_notification "cd /home/madhur/Desktop/python/icici_reader && DISPLAY=:98 /home/madhur/.virtualenvs/python-rsha/bin/python ./icici_login.py --profile anjli" "ICICI Anjli Transactions Screenshot" "private"
     run_with_notification "/home/madhur/scripts/authelia-audit.sh" "Authelia Login Audit → n8n" "monitoring"

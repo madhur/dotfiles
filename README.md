@@ -55,7 +55,7 @@ Neovim:
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=madhur/dotfiles&type=date&legend=top-left)](https://www.star-history.com/#madhur/dotfiles&type=date&legend=top-left)
+<img alt="Star History Chart" src="https://raw.githubusercontent.com/madhur/dotfiles/master/screenshots/star-history.png" />
 
 
 <div style="float:clear"></div>
