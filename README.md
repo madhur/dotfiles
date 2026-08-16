@@ -7,7 +7,7 @@ Supports both X11 (AwesomeWM) and Wayland (Hyprland) setups.
 | Category | X11 | Wayland (Hyprland) |
 |---|---|---|
 | Window Manager | [AwesomeWM](https://github.com/awesomeWM/awesome) | [Hyprland](https://github.com/hyprwm/Hyprland) |
-| Status Bar | [wibar](https://awesomewm.org/apidoc/classes/awful.wibar.html) | [Waybar](https://github.com/Alexays/Waybar) |
+| Status Bar | [wibar](https://awesomewm.org/doc/api/classes/awful.wibar.html) | [Waybar](https://github.com/Alexays/Waybar) |
 | Compositor | [picom](https://github.com/FT-Labs/picom) | built-in (Hyprland) |
 | Launcher | [rofi](https://github.com/davatorium/rofi) | [rofi](https://github.com/davatorium/rofi) (Wayland) |
 | Notification Daemon | [dunst](https://github.com/dunst-project/dunst) | [dunst](https://github.com/dunst-project/dunst) |
