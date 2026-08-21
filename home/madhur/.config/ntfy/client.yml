@@ -1,4 +1,5 @@
 default-host: https://ntfy.madhur.co.in
+default-token: tk_xavrpu95fbb4dtqdgoair57fyfoyj
 subscribe:
   - topic: changes
     command: 'notify-send -t 10000 --app-name=ntfy "$t" "$m"'

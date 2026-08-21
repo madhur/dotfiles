@@ -55,10 +55,6 @@ log_event() {
 # Path to the instrumented metric emitter (best-effort; absent => no-op).
 HOMELAB_METRIC="${HOMELAB_METRIC:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-metric}"
 
-# Path to the instrumented ntfy publisher (homelab-ntfy CLI → NtfyNotifier).
-# Reads NTFY_SERVER/NTFY_TOKEN from ~/.ntfy_config (sourced above).
-HOMELAB_NTFY="${HOMELAB_NTFY:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy}"
-
 # Function to send rich notification - FIXED VERSION
 # Wrapper: times the real send and emits an instrumented ntfy metric (service=ntfy,
 # operation=publish, topic=<topic>) without changing the proven curl delivery path.
@@ -85,8 +81,54 @@ _send_rich_notification_raw() {
     local priority="${4:-default}"
     local tags="${5:-}"
 
-    "$HOMELAB_NTFY" --topic "$topic" --title "$title" --priority "$priority" \
-        ${tags:+--tags "$tags"} --source notify_wrapper "$message" >/dev/null 2>&1
+    # Try different approaches based on what works with your server
+    
+    # Method 1: Simple POST with title in body (most compatible)
+    local full_message="$title
+
+$message"
+    
+    if curl -f -s -m 10 -d "$full_message" "$NTFY_SERVER/$topic" >/dev/null 2>&1; then
+        return 0
+    fi
+    
+    # Method 2: If your server supports headers, try this
+    if curl -f -s -m 10 \
+         -H "Title: $title" \
+         -H "Priority: $priority" \
+         ${tags:+-H "Tags: $tags"} \
+         -d "$message" \
+         "$NTFY_SERVER/$topic" >/dev/null 2>&1; then
+        return 0
+    fi
+    
+    # Method 3: If your server requires JSON, use this (with proper escaping)
+    if command -v jq >/dev/null 2>&1; then
+        local payload
+        if [ -n "$tags" ]; then
+            payload=$(jq -n \
+                --arg topic "$topic" \
+                --arg title "$title" \
+                --arg message "$message" \
+                --arg priority "$priority" \
+                --arg tags "$tags" \
+                '{topic: $topic, title: $title, message: $message, priority: $priority, tags: [$tags]}')
+        else
+            payload=$(jq -n \
+                --arg topic "$topic" \
+                --arg title "$title" \
+                --arg message "$message" \
+                --arg priority "$priority" \
+                '{topic: $topic, title: $title, message: $message, priority: $priority}')
+        fi
+        
+        curl -f -s -m 10 -X POST "$NTFY_SERVER" \
+             -H "Content-Type: application/json" \
+             -d "$payload" >/dev/null 2>&1
+    else
+        # Fallback: just send a simple message
+        curl -f -s -m 10 -d "$full_message" "$NTFY_SERVER/$topic" >/dev/null 2>&1
+    fi
 }
 
 # Function to format command output for inclusion in notification
@@ -342,7 +384,42 @@ run_batch_with_notification() {
     return $failure_count
 }
 
+# Debug function to test your ntfy server
+test_ntfy_server() {
+    echo "Testing ntfy server: $NTFY_SERVER"
+    
+    # Test 1: Basic connectivity
+    echo "Test 1: Basic connectivity"
+    if curl -f -s -m 5 "$NTFY_SERVER" >/dev/null; then
+        echo "✅ Server is reachable"
+    else
+        echo "❌ Server unreachable"
+        return 1
+    fi
+    
+    # Test 2: Simple message
+    echo "Test 2: Sending simple message"
+    if curl -f -s -m 10 -d "Test message from script" "$NTFY_SERVER/test-topic-$(date +%s)"; then
+        echo "✅ Simple message sent successfully"
+    else
+        echo "❌ Failed to send simple message"
+    fi
+    
+    # Test 3: Message with headers
+    echo "Test 3: Message with headers"
+    if curl -f -s -m 10 \
+         -H "Title: Test Title" \
+         -H "Priority: normal" \
+         -d "Test message with headers" \
+         "$NTFY_SERVER/test-topic-$(date +%s)"; then
+        echo "✅ Message with headers sent successfully"
+    else
+        echo "❌ Failed to send message with headers"
+    fi
+}
+
 # Usage examples:
+# test_ntfy_server
 # run_with_notification "/path/to/cleanup.sh" "Database cleanup" "daily-tasks"
 # run_with_notification "rsync -av /source/ /backup/" "Backup sync" "backup-tasks" "false"
 # run_with_notification "/path/to/script.sh" "Script name" "topic" "false" "false"  # Disable notifications for this command

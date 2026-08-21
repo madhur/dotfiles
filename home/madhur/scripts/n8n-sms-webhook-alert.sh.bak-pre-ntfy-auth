@@ -9,22 +9,21 @@
 # inside the workflow itself — has to be watched from outside.
 set -uo pipefail
 
-[ -f ~/.ntfy_config ] && source ~/.ntfy_config
-NTFY_TOPIC="${NTFY_TOPIC:-monitoring}"
-HOMELAB_NTFY="${HOMELAB_NTFY:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy}"
+NTFY_URL="${NTFY_URL:-https://ntfy.madhur.co.in/monitoring}"
 CONTAINER="${CONTAINER:-n8n}"
 PATTERN='webhook request POST /webhook/sms-realtime: Failed to parse request body'
 
 docker logs -f --since 0s "$CONTAINER" 2>&1 | while IFS= read -r line; do
     case "$line" in
         *"$PATTERN"*)
-            "$HOMELAB_NTFY" --topic "$NTFY_TOPIC" \
-                --title "SMS webhook: bad JSON from MacroDroid" \
-                --priority high --tags "warning,sms" \
-                --source n8n_sms_webhook_alert \
-                "n8n sms-realtime webhook rejected a request: Failed to parse request body.
+            curl -fsS -m 10 \
+                -H "Title: SMS webhook: bad JSON from MacroDroid" \
+                -H "Priority: high" \
+                -H "Tags: warning,sms" \
+                -d "n8n sms-realtime webhook rejected a request: Failed to parse request body.
 Likely an unescaped newline/control char in the forwarded SMS text.
-$(date '+%Y-%m-%d %H:%M:%S %Z')" >/dev/null 2>&1 || true
+$(date '+%Y-%m-%d %H:%M:%S %Z')" \
+                "$NTFY_URL" >/dev/null 2>&1 || true
             ;;
     esac
 done

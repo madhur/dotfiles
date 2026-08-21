@@ -1,11 +1,11 @@
 [Unit]
-Description=Run unit twice daily at 7 AM and 8 PM
+Description=Run unit twice daily at 8 AM and 8 PM
 #Requires=every12hours.service     #Uncommenting this will trigger the service at boot
 
 [Timer]
 #OnBootSec=15min
 Persistent=true
-OnCalendar=*-*-* 07:00:00
+OnCalendar=*-*-* 08:00:00
 OnCalendar=*-*-* 20:00:00
 RandomizedDelaySec=300
 

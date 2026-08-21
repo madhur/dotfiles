@@ -17,7 +17,6 @@ export XAUTHORITY="${XAUTHORITY:-$HOME/.Xauthority}"
 # NTFY_SERVER/NTFY_TOPIC (+ NTFY_TOKEN | NTFY_USERNAME/PASSWORD) from the env, so
 # split the configured URL into server + topic and export them.
 HOMELAB_NTFY="${HOMELAB_NTFY:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy}"
-[ -f ~/.ntfy_config ] && source ~/.ntfy_config
 export NTFY_SERVER="${NTFY_URL%/*}"
 export NTFY_TOPIC="${NTFY_URL##*/}"
 # Propagate any auth the caller set so the subprocess (homelab-ntfy) sees it.

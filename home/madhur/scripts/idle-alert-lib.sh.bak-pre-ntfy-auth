@@ -8,8 +8,6 @@
 # remaining goes back above the threshold (real activity or a successful
 # extend), re-arming the alert for the next idle streak.
 
-[ -f ~/.ntfy_config ] && source ~/.ntfy_config
-
 ALERT_STATE_FILE="${ALERT_STATE_FILE:-$HOME/.local/state/idle-shutdown-alerted}"
 ALERT_THRESHOLD_MIN="${ALERT_THRESHOLD_MIN:-5}"
 NTFY_CMD="${NTFY_CMD:-/home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy}"

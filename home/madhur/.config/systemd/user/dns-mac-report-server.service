@@ -1,0 +1,13 @@
+[Unit]
+Description=Serve the Mac DNS query report on the LAN
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/scripts/dns-mac-report
+ExecStart=/usr/bin/python3 -m http.server 9200 --bind 0.0.0.0
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

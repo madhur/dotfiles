@@ -27,12 +27,11 @@ import subprocess
 import sys
 import threading
 import time
+import urllib.request
 
 ROUTER_IP = os.environ.get("FLOWWATCH_ROUTER_IP", "192.168.1.82")
 THRESHOLD_MB = float(os.environ.get("FLOWWATCH_THRESHOLD_MB", "250"))
 NTFY_URL = os.environ.get("FLOWWATCH_NTFY_URL", "http://172.22.0.24/monitoring")
-NTFY_SERVER, _, NTFY_TOPIC = NTFY_URL.rpartition("/")
-NTFY_CMD = os.environ.get("HOMELAB_NTFY", "/home/madhur/.virtualenvs/python-rsha/bin/homelab-ntfy")
 RECURRENCE_WINDOW_MIN = float(os.environ.get("FLOWWATCH_RECURRENCE_WINDOW_MIN", "180"))
 RECURRENCE_ALERT_AT = int(os.environ.get("FLOWWATCH_RECURRENCE_ALERT_AT", "3"))
 HISTORY_FILE = os.environ.get("FLOWWATCH_HISTORY_FILE", "/var/lib/ntopng-flow-report/flowwatch_history.json")
@@ -124,17 +123,13 @@ def notify(rec):
             f"{src} -> {dst}:{rec.get('L4_DST_PORT','?')}\n"
             f"proto: {proto}{extra}")
 
+    req = urllib.request.Request(
+        NTFY_URL, data=body.encode(), method="POST",
+        headers={"Title": title, "Priority": priority, "Tags": tags},
+    )
     try:
-        result = subprocess.run(
-            [NTFY_CMD, "--server", NTFY_SERVER, "--topic", NTFY_TOPIC,
-             "--title", title, "--priority", priority, "--tags", tags,
-             "--source", "ntopng_flow_watch", body],
-            capture_output=True, timeout=10, text=True,
-        )
-        if result.returncode == 0:
-            print(f"[flowwatch] alerted: {title} ({total_mb:.0f}MB) count={count}", file=sys.stderr)
-        else:
-            print(f"[flowwatch] ntfy publish failed: {result.stderr.strip()}", file=sys.stderr)
+        urllib.request.urlopen(req, timeout=5)
+        print(f"[flowwatch] alerted: {title} ({total_mb:.0f}MB) count={count}", file=sys.stderr)
     except Exception as e:
         print(f"[flowwatch] ntfy publish failed: {e}", file=sys.stderr)
 

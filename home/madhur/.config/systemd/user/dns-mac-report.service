@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate the Mac DNS query report
+
+[Service]
+Type=oneshot
+ExecStart=%h/scripts/dns_mac_report.py --html %h/scripts/dns-mac-report/index.html

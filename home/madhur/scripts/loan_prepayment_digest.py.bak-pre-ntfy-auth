@@ -333,7 +333,6 @@ def main() -> int:
         "enabled": True,
         "server_url": NTFY_SERVER,
         "topic": LOAN_NTFY_TOPIC,
-        "token": os.environ.get("NTFY_TOKEN"),
     })
     ntfy_ok = notifier.send_notification(message=ntfy_body, title=ntfy_title, tags="house")
     if not ntfy_ok:

@@ -22,6 +22,7 @@ script itself has no email/homelab-metrics integration.
 """
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 from datetime import datetime
@@ -83,7 +84,12 @@ def cumulative_series(timestamps: list[datetime]) -> tuple[list[datetime], list[
 # Render (I/O)
 # --------------------------------------------------------------------------- #
 def render_chart(xs: list[datetime], ys: list[int], output_path: Path, repo: str = REPO) -> None:
-    """Render the cumulative series as a PNG, creating parent dirs as needed."""
+    """Render the cumulative series as a PNG, creating parent dirs as needed.
+
+    Writes to a temp file first and atomically replaces output_path via
+    os.replace() — a failure mid-savefig (disk full, signal, backend error)
+    never leaves a truncated/corrupt file at the live path.
+    """
     fig, ax = plt.subplots(figsize=(10, 5), facecolor="white")
     ax.step(xs, ys, where="post", color="#0969da", linewidth=2)
     ax.set_title(f"{repo} star history")
@@ -94,8 +100,12 @@ def render_chart(xs: list[datetime], ys: list[int], output_path: Path, repo: str
     fig.autofmt_xdate()
     fig.tight_layout()
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output_path, dpi=150)
-    plt.close(fig)
+    tmp_path = output_path.with_suffix(output_path.suffix + ".tmp")
+    try:
+        fig.savefig(tmp_path, dpi=150, format="png")
+        os.replace(tmp_path, output_path)
+    finally:
+        plt.close(fig)
 
 
 # --------------------------------------------------------------------------- #
@@ -107,11 +117,11 @@ def main() -> int:
         if not raw_lines:
             raise RuntimeError("zero stargazers returned")
         timestamps = parse_and_sort(raw_lines)
+        xs, ys = cumulative_series(timestamps)
+        render_chart(xs, ys, OUTPUT_PATH)
     except Exception as e:
         print(f"star_history_digest: FAILED - {e}", file=sys.stderr)
         return 1
-    xs, ys = cumulative_series(timestamps)
-    render_chart(xs, ys, OUTPUT_PATH)
     print(f"star_history_digest: wrote {OUTPUT_PATH} ({len(timestamps)} stars)")
     return 0
 

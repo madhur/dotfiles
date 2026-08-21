@@ -1,0 +1,18 @@
+# logrotate stanza for the dnsmasq query log (currently ~80MB+, growing
+# unrotated). Installed to /etc/logrotate.d/dnsmasq-router-hairpin by
+# deploy_dnsmasq_log_acl() in scripts/deploy.sh.
+#
+# copytruncate (not the default create+signal): dnsmasq is never told to
+# reopen its log, so the file's inode never changes -- which matters because
+# the wheel-group read ACL from config/dnsmasq-log-acl.conf lives on that
+# inode. A create-based rotation would hand dnsmasq a brand-new, ACL-less
+# file and dns_mac_report.py would start failing to read it again.
+/var/log/dnsmasq-router-hairpin.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    copytruncate
+}

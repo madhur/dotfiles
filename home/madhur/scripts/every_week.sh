@@ -20,4 +20,7 @@ run_with_notification "/usr/bin/paccache -r -k 1" "Pacman cache cleanup" "weekly
 run_with_notification "docker image prune -f" "Docker image cleanup" "weekly"
 run_with_notification "/home/madhur/scripts/firefly_digest.py weekly" "Firefly Weekly Digest → Mailpit" "monitoring"
 run_with_notification "/home/madhur/scripts/loan_prepayment_digest.py" "Loan Prepayment Digest → Mailpit" "monitoring"
-run_with_notification "cd /home/madhur/Desktop/python && DISPLAY=:98 /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/hdtorrents_login.py" "HD-Torrents Login Screenshot" "daily"
+run_with_notification "cd /home/madhur/Desktop/python && DISPLAY=:98 /home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/hdtorrents_login.py" "HD-Torrents Login Screenshot" "weekly"
+run_with_notification "/home/madhur/scripts/fail2ban-summary.sh" "Fail2ban Daily Summary → n8n" "monitoring"
+run_with_notification "/home/madhur/scripts/docker_digest.py" "Docker Homelab Digest → Mailpit" "monitoring"
+run_with_notification "/home/madhur/.virtualenvs/python-rsha/bin/python /home/madhur/Desktop/python/aws_cost_explorer/aws_cost_digest.py" "AWS Cost Daily Digest → Mailpit" "monitoring"

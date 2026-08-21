@@ -11,7 +11,7 @@ Type=simple
 ExecStart=%h/scripts/ntopng-flow-watch
 Environment=FLOWWATCH_THRESHOLD_MB=250
 Environment=FLOWWATCH_ROUTER_IP=192.168.1.82
-Environment=FLOWWATCH_NTFY_URL=https://ntfy.madhur.co.in/monitoring
+Environment=FLOWWATCH_NTFY_URL=http://172.22.0.24/monitoring
 Environment=FLOWWATCH_HISTORY_FILE=%h/scripts/ntopng-flow-report/flowwatch_history.json
 Environment=NTFY_TOKEN=tk_xavrpu95fbb4dtqdgoair57fyfoyj
 Restart=always

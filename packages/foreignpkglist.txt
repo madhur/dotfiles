@@ -87,6 +87,7 @@ visual-studio-code-bin
 watch-your-lan
 waypaper
 windows95-bin
+wlroots0.18
 woeusb-ng
 wscat
 xcolorsel

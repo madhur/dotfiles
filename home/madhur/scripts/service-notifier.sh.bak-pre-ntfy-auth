@@ -1,5 +1,4 @@
 #!/bin/bash
-[ -f ~/.ntfy_config ] && source ~/.ntfy_config
 SERVICE_NAME="$1"
 ACTION="$2"
 

@@ -1,10 +1,12 @@
 [Unit]
-Description=Run unit every six hours
+Description=Run unit at 8 AM, 2 PM, 8 PM, and 11 PM
 
 [Timer]
 #OnBootSec=1min
-OnCalendar=00/6:00:00
-OnUnitActiveSec=6h
+OnCalendar=*-*-* 08:00:00
+OnCalendar=*-*-* 14:00:00
+OnCalendar=*-*-* 20:00:00
+OnCalendar=*-*-* 23:00:00
 Persistent=true
 RandomizedDelaySec=300
 
