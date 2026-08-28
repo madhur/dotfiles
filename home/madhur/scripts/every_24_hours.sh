@@ -28,13 +28,15 @@ source /home/madhur/scripts/notify_wrapper.sh
 
     run_with_notification "/home/madhur/scripts/journal-summary.sh" "Systemd Journal Digest → n8n" "monitoring"
     run_with_notification "/home/madhur/scripts/bookstack_digest.py" "BookStack Daily Digest → Mailpit" "monitoring"
-    
+    run_with_notification "/home/madhur/docker/bookstack/scripts/sync-wiki-markdown.sh pull" "BookStack Wiki Markdown Sync" "monitoring"
+
     #run_with_notification "/home/madhur/scripts/ccusage_digest.py" "Claude Code Usage Digest → Mailpit" "monitoring"
     run_with_notification "/home/madhur/scripts/firefly_digest.py" "Firefly Financial Digest → Mailpit" "monitoring"
    
     #run_with_notification "/home/madhur/scripts/vnstat_digest.py" "vnstat Daily Digest → Mailpit" "monitoring"
     run_with_notification "cd /home/madhur/Desktop/python/email_reader/act_usage && /home/madhur/.virtualenvs/python-rsha/bin/python act_usage_digest.py" "ACT Usage Daily Digest" "monitoring"
     run_with_notification "cd /home/madhur/github/python-scripts/process-rewardable-events && /home/madhur/.virtualenvs/python-scripts-yxaz/bin/python /home/madhur/github/python-scripts/process-rewardable-events/reward_offer_monitor_watch.py" "Reward Offer Monitor → Mailpit" "monitoring"
+    run_with_notification "cd /home/madhur/github/python-scripts/temporal && /home/madhur/.virtualenvs/python-scripts-yxaz/bin/python list_workflow_userids.py --env-file .env_prod" "Temporal Workflow UserIds Sync" "backup"
 } 2>&1
 #find /home/madhur/.cache/ -type f -atime +30 -print -delete
 #docker system prune -af --volumes

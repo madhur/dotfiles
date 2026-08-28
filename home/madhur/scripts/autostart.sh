@@ -21,7 +21,7 @@ run_without_pcheck() {
 
 
 #autorandr --load two
-run_without_pcheck "WatchYourLAN"
+#run_without_pcheck "WatchYourLAN"  # disabled 2026-08-23: unused, was writing ~100MB/hr to disk
 run_without_pcheck "/home/madhur/scripts/set_wallpaper.sh"
 
 run dunst
@@ -39,7 +39,7 @@ run "xscreensaver"
 #run "eww daemon"
 (sleep 5 && run "redshift") &
 run "systemd-timer-notify"
-run "aw-qt"
+#run "aw-qt"  # disabled 2026-08-23: unused, ActivityWatch stack was writing ~157MB/hr to disk
 flatpak run com.github.hluk.copyq
 
 
