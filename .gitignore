@@ -2,3 +2,11 @@ node_modules
 
 # Contains a live BookStack API token — keep local only (chmod 600)
 home/madhur/scripts/bookstack-digest.env
+
+# Contains ntfy credentials — keep local only
+home/madhur/.ntfy_config
+
+# Contains a live ntfy API token — keep local only (was tracked and public; token needs rotating)
+home/madhur/.config/ntfy/client.yml
+home/madhur/.config/systemd/user/ntopng-flow-watch.service
+home/madhur/.config/systemd/user/ntopng-flow-watch.service.bak-pre-final-fix
