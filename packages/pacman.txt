@@ -115,6 +115,7 @@ git-crypt
 git-delta
 git-lfs
 github-cli
+gitleaks
 glances
 glow
 go
@@ -302,7 +303,6 @@ python-packaging
 python-pipenv
 python-pipx
 python-pyqt5
-python-pywal
 python-readability-lxml
 python-reportlab
 python-setuptools
@@ -420,7 +420,6 @@ vnstat
 vpnc
 vulkan-tools
 w3m
-waybar
 wget
 which
 wireless-regdb

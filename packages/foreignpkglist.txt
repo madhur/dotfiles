@@ -63,6 +63,7 @@ postman-bin
 powerline-fonts-git
 prettyzoo
 python-pulsectl-asyncio
+python-pywal
 python310
 python312
 python37
@@ -85,6 +86,7 @@ topydo-git
 vagrant
 visual-studio-code-bin
 watch-your-lan
+waybar-git
 waypaper
 windows95-bin
 wlroots0.18

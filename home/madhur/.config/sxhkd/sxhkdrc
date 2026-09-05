@@ -23,7 +23,7 @@ super + d
     /home/madhur/scripts/launcher.sh
 
 super + b
-     /home/madhur/scripts/rofi-bluetoth/rofi-bluetooth
+    rofi -show bt -modi "bt:/home/madhur/Desktop/python/bluetooth/bt_toggle.sh"
 
 #super  + s
 #    eww open bindkeys --toggle
