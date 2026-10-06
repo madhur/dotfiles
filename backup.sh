@@ -26,8 +26,7 @@ cp ~/.config/kitty/* $dfolder/.config/kitty/
 cp -r ~/.config/picom $dfolder/.config/
 rsync -avh --delete --exclude='.git/' ~/.config/awesome $dfolder/.config/
 #cp -r ~/.config/qtile $dfolder/.config/
-rsync -avh --delete --exclude='.git/' ~/.config/systemd $dfolder/.config/
-#cp -r ~/.config/systemd $dfolder/.config/
+# systemd user units/timers are work/scheduler related and gitignored - not backed up
 # do not want rofi subfolder themes
 rsync -avh --delete --exclude='.git/' ~/.config/rofi $dfolder/.config/
 cp -r ~/.config/sxhkd $dfolder/.config/
@@ -62,13 +61,12 @@ cp -r ~/.config/zellij $dfolder/.config/
 cp  ~/.rednotebook/configuration.cfg $dfolder/.rednotebook/configuration.cfg
 cp -r ~/.rednotebook/templates $dfolder/.rednotebook/
 
-cp -r ~/.task $dfolder/
+# ~/.task contains work tasks and is gitignored - not backed up
 
 #tmux contains company data
 #cp -r ~/tmux $dfolder/
 
-#Scripts contain company data
-rsync -avh --delete  ~/scripts ./home/madhur/
+# Scripts (incl. scheduler scripts) contain company data and are gitignored - not backed up
 cp -r ~/.bashrc $dfolder/
 cp -r ~/.zshrc $dfolder/
 cp -r ~/.zprofile $dfolder/
@@ -86,7 +84,7 @@ cp ~/.dir_colors $dfolder/
 cp ~/.aliases $dfolder/
 cp ~/.functions $dfolder/
 # Backup user-level .desktop files
-rsync -avh --delete --exclude='.git/' ~/.local/share/applications/ $dfolder/.local/share/applications/
+rsync -avh --delete --exclude='.git/' --exclude='brave-browser-work.desktop' ~/.local/share/applications/ $dfolder/.local/share/applications/
 # Backup flatpak user-level .desktop files
 rsync -avh --delete --exclude='.git/' ~/.local/share/flatpak/exports/share/applications/ $dfolder/.local/share/flatpak/exports/share/applications/ 2>/dev/null || true
 
@@ -113,15 +111,7 @@ sudo cp /etc/doas.conf ./etc/doas.conf
 #cp /etc/resolvconf.conf ./etc/resolvconf.conf
 #cp /etc/resolv.conf ./etc/resolv.conf
 
-# Custom systemd system services
-sudo cp /etc/systemd/system/rc-local.service ./etc/systemd/system/
-sudo cp /etc/systemd/system/wol@.service ./etc/systemd/system/
-sudo cp /etc/systemd/system/ollama.service ./etc/systemd/system/
-sudo cp /etc/systemd/system/msmtpd@.service ./etc/systemd/system/
-sudo cp /etc/systemd/system/vault.service ./etc/systemd/system/
-sudo cp /etc/systemd/system/ntfy-bootup.service ./etc/systemd/system/
-sudo cp /etc/systemd/system/wg-route.service ./etc/systemd/system/
-sudo cp -r /etc/systemd/system/rtkit-daemon.service.d/* ./etc/systemd/system/rtkit-daemon.service.d/
+# Custom systemd system services are gitignored (etc/systemd/) - not backed up
 
 # Boot / initramfs
 sudo cp /etc/mkinitcpio.conf ./etc/mkinitcpio.conf
