@@ -1,0 +1,175 @@
+function perf {
+  curl -o /dev/null -s -w "%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1"
+}
+
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1       ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+ }
+
+
+function java11() {
+  sdk use java 11.0.20-amzn
+  export PATH=/home/madhur/.sdkman/candidates/java/11.0.20-amzn/bin:$PATH
+}
+
+function java8() {
+  export PATH=/usr/lib/jvm/java-8-openjdk/bin:$PATH
+  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+  #sdk use java 8.0.382-amzn
+}
+
+function java17() {
+     export PATH=/home/madhur/.sdkman/candidates/java/17.0.7-amzn/bin:$PATH
+     sdk use java 17.0.7-amzn
+}
+
+function java21() {
+     export PATH=/home/madhur/.sdkman/candidates/java/21-amzn/bin:$PATH
+     sdk use java 21-amzn
+}
+export PATH=/home/madhur/.sdkman/candidates/java/17.0.7-amzn/bin:$PATH
+
+function graal() {
+  sdk use java 21.0.1-graal
+}
+
+emr-ssh(){
+	ssh -i ~/.ssh/mec-emr.pem "ec2-user@$1"
+}
+
+aws-ip() {
+    hostname=$1
+    hostip=$(echo ${hostname%%.*} | sed -e 's/ip-//' -e 's/-/./g')
+    echo $hostip
+}
+
+## Automatically invoke nvm use when .nvmrc is find
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+
+
+
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [[ "${NNNLVL:-0}" -ge 1 ]]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
+    # see. To cd on quit only on ^G, remove the "export" and make sure not to
+    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    # The backslash allows one to alias n to nnn if desired without making an
+    # infinitely recursive alias
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
+klocal() {
+    export KUBECONFIG=/home/madhur/vagrant/vagrant-kubeadm-kubernetes/configs/config
+}
+
+function view_csv_pretty {
+    if [ -z "$1" ]; then echo "Usage: view_csv_pretty <file.csv>"
+    else cat "$1" | column -s, -t | less -F -S -X -K
+    fi
+}
+
+function recently_modified() {
+    recent_file=$(ls -t | head -n1)
+    echo "Most recently modified file: $recent_file"
+}
+
+function compress_files() {
+    if [ -z "$1" ]; then echo "Usage: compress_files <archive_name.zip> <file1> <file2> ..."
+    else zip -r "$1" "${@:2}"
+    fi
+}
+
+function search_text_in_files() {
+    if [ -z "$1" ] || [ -z "$2" ]; then echo "Usage: search_text_in_files <directory> <search_term>"
+    else grep -rnw "$1" -e "$2"
+    fi
+}
+
+function process_with_most_memory() {
+    ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+}
+
+function list_open_ports() {
+    netstat -tuln
+}
+
+function find_listening_ports() {
+    if [ -z "$1" ]; then echo "Usage: find_listening_ports <pid>"
+    else ss -tulnp | grep "$1"
+    fi
+}
+
+function cheat() {
+    command cheat "$1" | glow
+}
+
+fpkill() {
+    local selection
+    selection=$(ps -e -o pid,comm | fzf)
+    local pid=$(echo "$selection" | awk '{print $1}')
+    local pname=$(echo "$selection" | awk '{print $2}')
+    if [ "$pid" != "" ]; then
+        kill -9 "$pid" > /dev/null 2>&1 && echo "Process $pname (PID $pid) has been successfully killed."
+    fi
+}
+
+jwt() {
+  jq -R 'split(".") |.[0:2] | map(gsub("-"; "+") | gsub("_"; "/") | gsub("%3D"; "=") | @base64d) | map(fromjson)' <<< $1
+}
+

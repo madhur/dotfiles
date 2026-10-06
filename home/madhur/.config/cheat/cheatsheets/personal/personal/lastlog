@@ -1,0 +1,2 @@
+# Clear the lastlog
+echo > /var/log/lastlog

@@ -1,0 +1,168 @@
+{
+  "position": "top",
+  "layer": "top",
+  "height": 30,
+  "margin-top": 0,
+  "output": "DP-2",
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "custom/temperature",
+    "memory",
+    "disk",
+    "network",
+    "custom/uptime",
+    "pulseaudio",
+   
+    "custom/hyprpicker",
+    "systemd-failed-units",
+     "tray"
+  ],
+  // Modules configuration
+  "clock": {
+    "format": " {:%d %b %H:%M}",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m}"
+  },
+  "custom/temperature": {
+    "exec": "/home/madhur/scripts/cpu-temp.sh",
+    "interval": 2,
+    "return-type": "text",
+    "format": " {}"
+  },
+  "temperature": {
+    "thermal-zone": 0,
+    "format": "{temperatureC}°C ",
+    "format-alt": "󰖁 {temp}°C",
+    "interval": 2,
+    "path": "/sys/class/thermal/thermal_zone0/temp",
+    "scale": 1000, // Scale the temperature value by 1000
+  },
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true,
+    "all-outputs": false,
+    "active-only": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "persistent-workspaces": {},
+    "format-icons": {
+      "urgent": "⚠️",
+      "active": "✘",
+      "default": "〇"
+    },
+    "sort-by-number": true,
+    "window-rewrite": {
+      "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+      "class<brave>": "", // Windows whose classes are "firefox"
+      "class<brave> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+      "kitty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+      "code": "󰨞",
+      "title<.* - (.*) - VSCodium>": "codium $1" // captures part of the window title and formats it into output
+    }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Brave": "🌐 $1",
+      "(.*) - fish": "> [$1]",
+      "(.*) - zsh": "> [$1]",
+      "(.*) - bash": "> [$1]",
+      "(.*) - kitty": "> $1",
+      "(.*) - Code": " $1",
+      "": "Desktop",
+      "on-click": "hyprctl dispatch movetoworkspacesilent special:minimized"
+    },
+    "separate-outputs": true,
+    "max-length": 50
+  },
+  "memory": {
+    "format": "󰍛 {used} GB",
+    "format-alt": "󰍛 {used}/{total} GiB",
+    "interval": 5
+  },
+  "cpu": {
+    "format": " {usage}% {max_frequency} GHz",
+    "format-alt": "󰻠 {usage}% {max_frequency} GHz",
+    "interval": 2
+  },
+  "disk": {
+    "format": " {percentage_used}%",
+    "format-alt": "󰋊 {used}/{total} GiB",
+    "interval": 5,
+    "path": "/"
+  },
+  "network": {
+    "format-wifi": "󰤨",
+    "interval": 2,
+    "format-ethernet": "  󰶡 {bandwidthDownBytes}  󰶣 {bandwidthUpBytes}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "󰤭",
+    "format-alt": " {ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{essid}",
+    "on-click-right": "nm-connection-editor"
+  },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 5,
+    "show-passive-items": true
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-right-click": "bash ~/.scripts/volume mute",
+    "on-scroll-up": "bash ~/.scripts/volume up",
+    "on-scroll-down": "bash ~/.scripts/volume down",
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+  "custom/launcher": {
+    "format": " 󰣇 ",
+    "on-click": "jgmenu_run"
+  },
+  "custom/wf-recorder": {
+    "format": "{}",
+    "interval": "once",
+    "exec": "echo ''",
+    "tooltip": "false",
+    "exec-if": "pgrep 'wf-recorder'",
+    "on-click": "exec ./scripts/wlrecord.sh",
+    "signal": 8
+  },
+  "custom/hyprpicker": {
+    "format": "󰈋",
+    "on-click": "hyprpicker -a -f hex",
+    "on-click-right": "hyprpicker -a -f rgb"
+  },
+  "custom/uptime": {
+    "format": " {}",
+    "interval": 5,
+    "exec": "/home/madhur/scripts/uptime.sh"
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false, // Do not hide if there is zero failed units.
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": true, // Monitor failed systemwide units.
+    "user": false // Ignore failed user units.
+  }
+}

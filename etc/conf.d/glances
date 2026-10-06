@@ -1,0 +1,5 @@
+# The GLANCES_ARGS environment variable is used to provide flags
+# and extra arguments to `glances` when running glances.service or glances-web.service.
+# See `man 1 glances` or `glances --help` for more information.
+
+GLANCES_ARGS=

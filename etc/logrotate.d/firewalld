@@ -1,0 +1,7 @@
+/var/log/firewalld {
+    weekly
+    missingok
+    rotate 4
+    copytruncate
+    minsize 1M
+}

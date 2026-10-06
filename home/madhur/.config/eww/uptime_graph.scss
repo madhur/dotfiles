@@ -1,0 +1,32 @@
+@import "colors.scss";
+
+// GitHub-style contribution graph colors
+$level0: #21262d;  // Dark gray (no activity)
+$level1: #0e4429;  // Dark green (low activity)
+$level2: #006d32;  // Medium green
+$level3: #26a641;  // Bright green
+$level4: #39d353;  // Brightest green
+
+.uptime-graph-win {
+  background-color: #1a1b26;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #4c7899;
+}
+
+.uptime-header {
+  margin-bottom: 10px;
+}
+
+.uptime-title {
+  color: #81a1c1;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "JetBrains Mono";
+}
+
+.uptime-graph {
+  color: #c9d1d9;
+  font-size: 14px;
+  font-family: "JetBrains Mono";
+}

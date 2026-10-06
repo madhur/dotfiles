@@ -1,0 +1,10 @@
+/var/log/nginx/*log {
+	missingok
+	notifempty
+	create 640 http root
+	sharedscripts
+	compress
+	postrotate
+		if systemctl -q is-active nginx; then systemctl -q kill --signal=USR1 --kill-whom=main nginx; fi
+	endscript
+}

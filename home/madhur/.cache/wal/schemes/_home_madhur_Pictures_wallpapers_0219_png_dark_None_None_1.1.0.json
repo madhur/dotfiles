@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/madhur/Pictures/wallpapers/0219.png",
+    "alpha": "100",
+    "special": {
+        "background": "#010A0F",
+        "foreground": "#96abb7",
+        "cursor": "#96abb7"
+    },
+    "colors": {
+        "color0": "#010A0F",
+        "color1": "#1F4860",
+        "color2": "#355464",
+        "color3": "#335568",
+        "color4": "#3B6279",
+        "color5": "#415E6F",
+        "color6": "#44677B",
+        "color7": "#96abb7",
+        "color8": "#697780",
+        "color9": "#1F4860",
+        "color10": "#355464",
+        "color11": "#335568",
+        "color12": "#3B6279",
+        "color13": "#415E6F",
+        "color14": "#44677B",
+        "color15": "#96abb7"
+    }
+}

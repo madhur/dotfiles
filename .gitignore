@@ -1,0 +1,29 @@
+node_modules
+
+# Contains a live BookStack API token — keep local only (chmod 600)
+home/madhur/scripts/bookstack-digest.env
+
+# Contains ntfy credentials — keep local only
+home/madhur/.ntfy_config
+
+# Contains a live ntfy API token — keep local only (was tracked and public; token needs rotating)
+home/madhur/.config/ntfy/client.yml
+home/madhur/.config/systemd/user/ntopng-flow-watch.service
+home/madhur/.config/systemd/user/ntopng-flow-watch.service.bak-pre-final-fix
+
+# Schedulers: systemd units/timers, scheduled scripts
+home/madhur/.config/systemd/
+etc/systemd/
+home/madhur/scripts/
+
+# Work related
+home/madhur/.aws/
+home/madhur/.ssh/
+home/madhur/tmux/
+home/madhur/.local/share/applications/brave-browser-work.desktop
+
+# Work tasks
+home/madhur/.task/
+
+# Work scheduler scripts (explicit, in case the folder rule is ever loosened)
+home/madhur/scripts/every_*.sh

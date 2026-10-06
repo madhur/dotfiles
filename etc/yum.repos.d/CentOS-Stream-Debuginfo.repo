@@ -1,0 +1,11 @@
+# CentOS-Stream-Debuginfo.repo
+#
+# All debug packages are merged into a single repo, split by basearch, and are
+# not signed.
+
+[debuginfo]
+name=CentOS Stream $releasever - Debuginfo
+baseurl=http://debuginfo.centos.org/$stream/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial

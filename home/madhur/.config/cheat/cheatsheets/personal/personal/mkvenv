@@ -1,0 +1,2 @@
+# create virtualenv with different python version
+mkvenv -p python3.12

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Game 472158403830218762
+Exec="/usr/bin/python" "/home/madhur/Downloads/rvgl_launcher.py" %u
+Type=Application
+NoDisplay=true
+Categories=Discord;Games;
+MimeType=x-scheme-handler/discord-472158403830218762;

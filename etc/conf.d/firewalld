@@ -1,0 +1,3 @@
+# firewalld command line args
+# possible values: --debug
+FIREWALLD_ARGS=

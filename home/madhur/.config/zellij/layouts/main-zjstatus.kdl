@@ -1,0 +1,39 @@
+// Same geometry as main.kdl but top strip is zjstatus. Try: default_layout "main-zjstatus"
+layout {
+    pane size=1 borderless=true {
+        plugin location="file:/home/madhur/.config/zellij/plugins/zjstatus.wasm" {
+            format_left   "{mode}#[fg=#5c6a72,bg=#2d353b] {session}"
+            format_center "{datetime}"
+            format_right  "{tabs}"
+            format_space  ""
+
+            mode_normal        "#[fg=#2d353b,bg=#a7c080,bold] NORMAL "
+            mode_locked        "#[fg=#2d353b,bg=#e67e80,bold] LOCKED "
+            mode_resize        "#[fg=#2d353b,bg=#dbbc7f,bold] RESIZE "
+            mode_pane          "#[fg=#2d353b,bg=#83c092,bold] PANE "
+            mode_tab           "#[fg=#2d353b,bg=#7fbbb3,bold] TAB "
+            mode_scroll        "#[fg=#2d353b,bg=#d699b6,bold] SCROLL "
+            mode_enter_search  "#[fg=#2d353b,bg=#d699b6,bold] SEARCH "
+            mode_search        "#[fg=#2d353b,bg=#d699b6,bold] SEARCH "
+            mode_rename_tab    "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME "
+            mode_rename_pane   "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME "
+            mode_move          "#[fg=#2d353b,bg=#83c092,bold] MOVE "
+            mode_session       "#[fg=#2d353b,bg=#7fbbb3,bold] SESSION "
+            mode_prompt        "#[fg=#2d353b,bg=#a7c080,bold] PROMPT "
+
+            tab_normal   "#[fg=#5c6a72,bg=#2d353b] {index}: {name} "
+            tab_active   "#[fg=#2d353b,bg=#a7c080,bold] {index}: {name} "
+
+            datetime          "#[fg=#a7c080,bg=#2d353b,bold]  {format} "
+            datetime_format   "%a %d %b  %H:%M"
+            datetime_interval "60"
+        }
+    }
+    pane split_direction="vertical" {
+        pane
+        pane size=40 {
+            command "bash"
+            args "-c" "/home/madhur/.config/zellij/cheatsheet.sh"
+        }
+    }
+}

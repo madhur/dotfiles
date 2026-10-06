@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=MQTTX
+Exec=env DESKTOPINTEGRATION=1 /home/madhur/AppImages/mqttx.appimage --no-sandbox %U
+TryExec=/home/madhur/AppImages/mqttx.appimage
+Icon=/home/madhur/AppImages/.icons/mqttx.png
+Terminal=false
+Type=Application
+
+StartupWMClass=MQTTX
+
+Comment=MQTT desktop client
+Categories=Utility;
+
+X-AppImage-Version=1.12.0

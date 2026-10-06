@@ -1,0 +1,2 @@
+# Display hidden characters
+echo "<string>" | cat -v

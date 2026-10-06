@@ -1,0 +1,32 @@
+# Standard host addresses
+127.0.0.1  localhost
+::1        localhost ip6-localhost ip6-loopback
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+# This host address
+127.0.0.1  madhur-b550mds3h
+
+# Vagrant hosts
+192.168.56.2 vkc-zk1
+192.168.56.3 vkc-zk2
+192.168.56.4 vkc-zk3
+
+192.168.56.30 vkc-br1
+192.168.56.20 vkc-br2
+192.168.56.10 vkc-br3
+192.168.100.128 proxmox
+
+
+#192.168.1.82 zk.docker.dev
+#192.168.1.82 redis
+192.168.1.82 kafka
+192.168.1.82 redis1
+127.0.0.1 cassandra
+127.0.0.1 mongo
+192.168.1.82 mysql
+192.168.1.82 zookeeper
+127.0.0.1 rmq
+
+192.168.1.41 rancher.my.org
+
+20.207.73.82 github-zeta-enterprise

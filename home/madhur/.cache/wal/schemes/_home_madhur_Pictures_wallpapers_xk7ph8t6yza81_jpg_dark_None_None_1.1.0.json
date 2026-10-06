@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/madhur/Pictures/wallpapers/xk7ph8t6yza81.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#111019",
+        "foreground": "#c3dee5",
+        "cursor": "#c3dee5"
+    },
+    "colors": {
+        "color0": "#111019",
+        "color1": "#8F79AF",
+        "color2": "#6E92CC",
+        "color3": "#73B2C4",
+        "color4": "#7DB8CF",
+        "color5": "#8E93BA",
+        "color6": "#85A7C7",
+        "color7": "#c3dee5",
+        "color8": "#889ba0",
+        "color9": "#8F79AF",
+        "color10": "#6E92CC",
+        "color11": "#73B2C4",
+        "color12": "#7DB8CF",
+        "color13": "#8E93BA",
+        "color14": "#85A7C7",
+        "color15": "#c3dee5"
+    }
+}

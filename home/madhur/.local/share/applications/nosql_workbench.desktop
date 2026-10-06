@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=NoSQL Workbench
+Exec=env DESKTOPINTEGRATION=1 /home/madhur/AppImages/nosql_workbench.appimage --no-sandbox %U
+TryExec=/home/madhur/AppImages/nosql_workbench.appimage
+Icon=/home/madhur/AppImages/.icons/nosql_workbench.png
+Terminal=false
+Type=Application
+
+StartupWMClass=NoSQL Workbench
+
+Comment=NoSQL Workbench
+Categories=Utility;
+
+X-AppImage-Version=3.13.4

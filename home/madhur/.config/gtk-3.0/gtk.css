@@ -1,0 +1,6 @@
+scrollbar slider {
+	min-width: 15px;
+	min-height: 15px;}
+
+    wnck-pager { background: #333; color: #ccc }
+    wnck-pager:selected { background: #ff9900; color: black }    

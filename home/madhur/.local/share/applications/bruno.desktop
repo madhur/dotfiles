@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Bruno
+Exec=env DESKTOPINTEGRATION=1 /home/madhur/AppImages/bruno.appimage --no-sandbox %U
+TryExec=/home/madhur/AppImages/bruno.appimage
+Icon=/home/madhur/AppImages/.icons/bruno.png
+Terminal=false
+Type=Application
+
+StartupWMClass=Bruno
+
+Comment=Opensource API Client for Exploring and Testing APIs
+Categories=Development;
+
+X-AppImage-Version=1.22.0

@@ -1,0 +1,34 @@
+;; Uptime Contribution Graph Widget
+
+;; Poll the uptime data every 5 minutes
+(defpoll UPTIME_GRAPH :interval "300s"
+  `cd ~/.config/conky && python3 uptime_tracker.py terminal --weeks 16`)
+
+;; Widget definition
+(defwidget uptime_graph []
+  (box :class "uptime-graph-win"
+       :orientation "v"
+       :spacing 10
+       :space-evenly false
+    (box :class "uptime-header"
+         :orientation "h"
+         :halign "start"
+      (label :class "uptime-title"
+             :text "UPTIME CONTRIBUTION GRAPH"))
+    (label :class "uptime-graph"
+           :halign "start"
+           :text UPTIME_GRAPH)))
+
+;; Window definition
+(defwindow uptime_graph
+  :monitor 0
+  :stacking "bg"
+  :windowtype "desktop"
+  :wm-ignore true
+  :geometry (geometry
+    :x "20px"
+    :y "100px"
+    :width "900px"
+    :height "250px"
+    :anchor "top left")
+  (uptime_graph))

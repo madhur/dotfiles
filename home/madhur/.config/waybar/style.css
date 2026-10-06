@@ -1,0 +1,163 @@
+* {
+    border: none;
+    border-radius: 0px;
+    /*font-family: VictorMono, Iosevka Nerd Font, Noto Sans CJK;*/
+    font-family: JetBrains Mono Nerd Font;
+    font-size: 14px;
+    font-style: normal;
+    min-height: 0;
+}
+
+
+
+
+window#waybar {
+    background: rgba(43, 48, 59, 0.5);
+    border-bottom: 0px solid rgba(100, 114, 125, 0.5);
+    color: #81a1c1;
+}
+
+window#waybar.hidden {
+    opacity: 0.0;
+}
+
+
+#workspaces {
+    background:  #11161b;
+    margin: 2px 4px 2px 4px;
+    padding: 0px 0px;
+    border-radius: 0px;
+    border: 0px;
+    font-style: normal;
+    color: #81a1c1;
+}
+
+#workspaces button {
+    padding: 0px 8px;
+    margin: 4px 2px;
+    border-radius: 0px;
+    border: 0px;
+    color: #888888;
+    background: transparent;
+    opacity: 0.7;
+    font-size: 14px;
+    min-width: 20px;
+}
+
+/* This is the key part - styling for active workspace */
+#workspaces button.active {
+    color: #ffffff;
+    background: #5e81ac;  /* Blue background for active */
+    opacity: 1.0;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#workspaces button:hover {
+    background: #4c566a;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+/* Optional: style for urgent workspaces */
+#workspaces button.urgent {
+    background: #bf616a;  /* Red for urgent */
+    color: #ffffff;
+}
+
+/* Hide workspaces with no windows (keep the active one visible) */
+#workspaces button.empty:not(.active) {
+    /* min-width is set on the base button rule, override it too */
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    font-size: 0;
+}
+
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio,  #tray,  #custom-hyprpicker, #disk, #custom-uptime {
+    padding: 0 10px;
+    margin: 0 15px;
+}
+
+#clock , #disk, #custom-uptime{
+    background-color: #11161b;
+}
+
+#clock {
+    color: #85dfa8;
+}
+
+#disk {
+    color: #e2a6ff;
+}
+
+#custom-uptime {
+    color: #85dfa8;
+}
+
+#custom-launcher {
+      background-color: #11161b;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+
+
+
+#cpu, #custom-temperature {
+    background: #11161b;
+    color: #f46521;
+    margin-right: 30px;
+    padding: 0 10px;
+}
+
+#memory {
+    background: #11161b;
+    color: #297639;
+}
+
+#custom-hyprpicker {
+    background: #11161b;
+}
+
+#network {
+    background: #11161b;
+    color: #90daff;
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#pulseaudio {
+    background: #11161b;
+    color: #ffeba6;
+}
+
+#pulseaudio.muted {
+    background: #90b1b1;
+    color: #2a5c45;
+}
+
+
+#tray {
+    background-color: #11161b;
+}
+

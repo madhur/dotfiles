@@ -1,0 +1,7 @@
+/home/madhur/Downloads/mysql57/logs/*.log {
+	rotate 5
+	daily
+	missingok
+	notifempty
+	compress
+}

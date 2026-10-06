@@ -1,0 +1,7 @@
+cmd        "code"
+oc-cmd     "code;icon:visual-studio-code;name:VSCode"
+oc-cmd     "flatpak run com.jetbrains.IntelliJ-IDEA-Community;icon:com.jetbrains.IntelliJ-IDEA-Community;name:IntelliJ"
+oc-cmd      "thunar;icon:org.xfce.thunar;name:Thunar"
+depth      2
+
+#open-parent-as-self

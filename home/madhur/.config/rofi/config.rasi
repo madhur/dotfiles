@@ -1,0 +1,94 @@
+
+configuration {
+  combi-modi: "drun";
+  font: "JetBrains Mono 14";
+  width: 900px;
+      border-color: #2e343f;
+   show-icons: true;
+  icon-theme: "Papirus";
+    display-drun: "";
+  drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  location: 0;
+    sidebar-mode: false;
+}
+
+
+ @theme "slate"
+/* Dark theme. */
+
+
+* {
+  background-color: @bg;
+  border-color: #2e343f;
+  text-color: #8ca0aa;
+  spacing: 0;
+  width: 1000px;
+  font: "JetBrains Mono 14";
+  vertical-align: 0.5;
+  show-icons: true;
+  icon-theme: "Papirus";
+  drun-display-format: "{name}";
+
+}
+
+inputbar {
+  border: 0 0 1px 0;
+  children: [entry];
+  background-color:@win-bg;
+}
+
+prompt {
+  padding: 16px;
+  border: 0 1px 0 0;
+
+}
+
+textbox {
+
+  border: 0 0 1px 0;
+  border-color: #282C33;
+  padding: 8px 16px;
+}
+
+entry {
+  padding: 16px;
+}
+
+listview {
+  cycle: false;
+  margin: 0 0 -1px 0;
+  scrollbar: true;
+}
+
+element {
+  border: 0 0 1px 0;
+  padding: 0px;
+  children: [element-icon, element-text];
+}
+
+element selected.active {
+   background-color: @bg;
+   text-color: @selected-fg;
+}
+
+element selected.normal {
+    background-color: @selected-bg;
+
+}
+
+element-icon {
+  size: 4ch ;
+  padding: 10px;
+ }
+
+element selected {
+  background-color: @bg;
+}
+
+
+
+
+
+window {
+        height: 60%;
+    }

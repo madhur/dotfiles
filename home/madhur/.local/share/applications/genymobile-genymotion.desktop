@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Genymotion
+GenericName=Android Emulator
+GenericName[fr]=Emulateur Android
+Icon=/home/madhur/Desktop/genymotion/icons/genymotion-logo.png
+Exec=/home/madhur/Desktop/genymotion/genymotion
+Categories=Development;Emulator;

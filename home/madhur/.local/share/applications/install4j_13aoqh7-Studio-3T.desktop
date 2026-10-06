@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Studio 3T Linux
+Exec="/home/madhur/.cache/yay/studio-3t/src/studio-3t/Studio-3T" %U
+Icon=/home/madhur/.cache/yay/studio-3t/src/studio-3t/.install4j/Studio-3T.png
+Categories=Application;
+StartupWMClass=install4j-t3-dataman-mongodb-app-Studio3TApp

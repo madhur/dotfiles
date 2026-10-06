@@ -1,0 +1,68 @@
+// Top: built-in tab bar. Bottom: zjstatus. command_idle = ~/scripts idle-shutdown.timer status (see idle-remaining-plain.sh).
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane
+    pane size=1 borderless=true {
+        plugin location="file:/home/madhur/.config/zellij/plugins/zjstatus.wasm" {
+            format_left   "{mode} #[fg=#5c6a72,bg=#2d353b]{session} "
+            format_center "{pipe_clock}"
+            // Right side: hostname/load, then shutdown-timer (rightmost): [⏻ off] or [⏻ Nm] per idle-remaining-plain.sh.
+            format_right  "{pipe_load}  {pipe_idle}"
+            format_space  ""
+
+            // Each mode_* badge carries its own keybind hints (muted text after the
+            // colored label). zjstatus shows the matching one only while in that mode.
+            mode_normal        "#[fg=#2d353b,bg=#a7c080,bold] NORMAL #[fg=#859289,bg=#2d353b,nobold] Alt+s:scroll  Ctrl+p:pane  Ctrl+t:tab  Ctrl+n:resize  Ctrl+h:move  Ctrl+y:session  Ctrl+g:lock "
+            mode_locked        "#[fg=#2d353b,bg=#e67e80,bold] LOCKED #[fg=#859289,bg=#2d353b,nobold] Ctrl+g:unlock "
+            mode_resize        "#[fg=#2d353b,bg=#dbbc7f,bold] RESIZE #[fg=#859289,bg=#2d353b,nobold] h/j/k/l:grow  H/J/K/L:shrink  +/-:size  Esc:exit "
+            mode_pane          "#[fg=#2d353b,bg=#83c092,bold] PANE #[fg=#859289,bg=#2d353b,nobold] n:new  d/r:split  x:close  f:fullscreen  h/j/k/l:focus  Esc:exit "
+            mode_tab           "#[fg=#2d353b,bg=#7fbbb3,bold] TAB #[fg=#859289,bg=#2d353b,nobold] n:new  1-9:goto  h/l:prev/next  r:rename  x:close  b:break  Esc:exit "
+            mode_scroll        "#[fg=#2d353b,bg=#d699b6,bold] SCROLL #[fg=#859289,bg=#2d353b,nobold] j/k:line  Ctrl+f/b:page  d/u:half  s:search  e:editor  Esc:exit "
+            mode_enter_search  "#[fg=#2d353b,bg=#d699b6,bold] SEARCH #[fg=#859289,bg=#2d353b,nobold] type then Enter  Esc:back "
+            mode_search        "#[fg=#2d353b,bg=#d699b6,bold] SEARCH #[fg=#859289,bg=#2d353b,nobold] n/p:next/prev  c:case  w:wrap  o:word  Esc:exit "
+            mode_rename_tab    "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME #[fg=#859289,bg=#2d353b,nobold] type name  Enter:ok  Esc:cancel "
+            mode_rename_pane   "#[fg=#2d353b,bg=#dbbc7f,bold] RENAME #[fg=#859289,bg=#2d353b,nobold] type name  Enter:ok  Esc:cancel "
+            mode_move          "#[fg=#2d353b,bg=#83c092,bold] MOVE #[fg=#859289,bg=#2d353b,nobold] h/j/k/l:move  n/p:cycle  Esc:exit "
+            mode_session       "#[fg=#2d353b,bg=#7fbbb3,bold] SESSION #[fg=#859289,bg=#2d353b,nobold] w:switch  d:detach  c:config  p:plugins  a:about  Esc:exit "
+            mode_prompt        "#[fg=#2d353b,bg=#a7c080,bold] PROMPT "
+
+            // Clock + load: switched from {datetime} / command_* to pipe_* due to
+            // zjstatus #247 — the plugin's internal Timer freezes under WASMI, so
+            // both went stale. Now pushed every minute by zellij-bar.timer ->
+            // ~/scripts/zellij-bar-update.sh (independent of idleon/idleoff).
+            //
+            // datetime               "#[fg=#a7c080,bg=#2d353b,bold] {format} "
+            // datetime_format        "%a %d %b  %H:%M"
+            // datetime_interval      "60"
+            // datetime_timezone      "Asia/Kolkata"   // IANA tz: https://docs.rs/chrono-tz/latest/chrono_tz/enum.Tz.html
+            //
+            // command_custom_command   "bash -c \"/home/madhur/.config/zellij/status-custom.sh\""
+            // command_custom_format    "#[fg=#5c6a72,bg=#2d353b] {stdout}"
+            // command_custom_interval  "10"
+            // command_custom_rendermode "static"
+            pipe_clock_format      "#[fg=#a7c080,bg=#2d353b,bold] {output} "
+            pipe_clock_rendermode  "static"
+            pipe_load_format       "#[fg=#5c6a72,bg=#2d353b] {output}"
+            pipe_load_rendermode   "static"
+
+            // Idle widget: switched from command_* to pipe_* due to zjstatus #247
+            // (command widget panics under zellij's WASMI runtime).
+            // Pushed by idle-shutdown.sh on every 15-min timer fire.
+            //
+            // command_idle_command   "bash -c \"/home/madhur/.config/zellij/zjstatus-idle-env.sh\""
+            // command_idle_format    "#[fg=#83c092,bg=#2d353b] {stdout}"
+            // command_idle_interval  "30"
+            // command_idle_rendermode "static"
+            pipe_idle_format       "#[fg=#83c092,bg=#2d353b] {output}"
+            pipe_idle_rendermode   "static"
+
+            // Second example: git branch in cwd (uncomment + add {command_git} to format_right)
+            // command_git_command   "bash -c \"git -C \\\"$HOME\\\" rev-parse --abbrev-ref HEAD 2>/dev/null || echo no-git\""
+            // command_git_format    "#[fg=#83c092]  {stdout} "
+            // command_git_interval  "15"
+            // command_git_rendermode "static"
+        }
+    }
+}

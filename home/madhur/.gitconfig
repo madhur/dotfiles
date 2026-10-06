@@ -1,0 +1,106 @@
+[user]
+	email = ahuja.madhur@gmail.com
+	name = Madhur Ahuja
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[pull]
+	rebase = true
+[core]
+	#pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
+	
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+    side-by-side = true
+    
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+[push]
+	autoSetupRemote = true
+
+[pull]
+
+    rebase = false
+
+
+[pager]
+
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+
+[color]
+
+    ui = true
+
+[color "branch"]
+
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+
+    meta = yellow
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    commit = yellow bold
+    whitespace = red reverse
+
+[color "status"]
+
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[color "diff-highlight"]
+
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+
+[safe]
+	directory = /home/madhur/gitpersonal/RediSearch
+
+
+[alias]
+    # Difftastic aliases, so `git dlog` is `git log` with difftastic and so on.
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
+
+     # `git log` with patches shown with difftastic.
+    dl = -c diff.external=difft log -p --ext-diff
+
+    # Show the most recent commit with difftastic.
+    ds = -c diff.external=difft show --ext-diff
+
+    # `git diff` with difftastic.
+    dft = -c diff.external=difft diff
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[includeIf "gitdir:/home/madhur/github/"]
+    path = /home/madhur/.gitconfig-work
+
+[includeIf "gitdir:/home/madhur/gitpersonal/"]
+    path = /home/madhur/.gitconfig-personal

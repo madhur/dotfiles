@@ -1,0 +1,10 @@
+
+Xft.dpi: 120
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xcursor.size: 48
+Xcursor.theme: Simp1e-Tokyo-Night
+

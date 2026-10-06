@@ -1,0 +1,171 @@
+
+
+alias mirrorUpdate='reflector --country in --latest 15 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose'
+
+alias cd..='cd ..'
+#alias pwd='pwd && pwd | xclip -sel clipboard'
+alias repo="cd ~/github"
+alias repop="cd ~/gitpersonal"
+alias c="clear"
+# No OSC-8 hyperlinks outside a graphical session (X11 or Wayland)
+if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then _eza_hyperlink="--hyperlink"; else _eza_hyperlink=""; fi
+alias ls="eza -aG -s modified --color=auto  --icons --group-directories-first $_eza_hyperlink"
+alias ll="eza -al -s modified --color=auto  --icons --group-directories-first $_eza_hyperlink"
+alias lll="eza -alT -s modified --color=auto  --icons --group-directories-first $_eza_hyperlink"
+alias llb="eza --absolute -R -1 -a --no-permissions --no-filesize --no-time --no-user"  # recursive list with bare absolute filenames, useful for xargs
+alias gs='git status '
+alias ga='git add .'
+alias gb='git branch '
+alias gc='git commit'
+alias gma='git commit -am'
+alias gd='git diff'
+alias gp='git push'
+alias gco='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+alias ac='ac = !git add . && git commit -am'
+alias acp='ac = !git add . && git commit -am "updated" && git push'
+alias gp='git pull'
+alias gst='git stash'
+alias gcom='git checkout master'
+alias gcor='git checkout release'
+alias gl='git log'
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gst='git stash'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gstd='git stash drop'
+alias gcl='git clone'
+alias gpp='git pull && git push'
+alias got='git '
+alias get='git '
+alias gpom='git pull origin master'
+alias gpor='git pull origin release'
+alias gpo='git pull origin'
+alias gfom='git fetch upstream master'
+alias gfp='git fetch upstream master && git push'
+alias gpum='git pull upstream master'
+alias gpur='git pull upstream release'
+
+alias fmvn='mvn clean package -DskipTests -Dspotbugs.skip=true -Dcheckstyle.skip=true -Djacoco.skip=true'
+alias fmvno='mvn clean package -DskipTests -Dspotbugs.skip=true -Dcheckstyle.skip=true -Djacoco.skip=true -o'
+
+alias gbo='gradle bootrun'
+alias gbi='gradle build install'
+alias gcbi='gradle clean build install'
+alias gb='gradle build'
+alias gc='gradle clean'
+alias gi='gradle install'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+#alias ll="ls -ltrah"
+alias la="ls -a"
+alias grep='grep --color=auto'
+alias k='kubectl'
+
+alias prettyjson='python -m json.tool'
+
+
+#alias flameshot="flatpak run org.flameshot.Flameshot"
+alias jssh="ssh -J jump "
+alias jscp="scp -o 'ProxyJump jump'"
+alias duh='du --all --human-readable --one-file-system --max-depth=1 | sort -h'
+
+# function scs() {
+#     systemctl status "$1"
+# }
+# function scr() {
+#     systemctl restart "$1"
+# }
+
+function scsu() {
+    systemctl status "$1" --user
+}
+function scru() {
+    systemctl restart "$1" --user
+}
+
+alias scs='sudo systemctl status'
+alias sc='sudo systemctl'
+alias scrr='sudo systemctl reload-or-restart'
+alias scr='sudo systemctl reload'
+alias sct='sudo systemctl start'
+
+alias vg="vagrant"
+
+alias j11="~/.sdkman/candidates/java/11.0.12-open/bin/java"
+alias j8="~/.sdkman/candidates/java/8.0.302-open/bin/java"
+alias prev="fzf --reverse --preview 'bat --style numbers,changes -s --color=always {}'"
+alias rgrep='rg --line-number --no-heading --color=never . | fzf --reverse --delimiter=":" --with-nth=1,2 --preview "bat --style numbers,changes -s --color=always --highlight-line {2} {1}" --preview-window "~3:+{2}-3"'
+
+alias pacman='sudo pacman'
+alias pac='pacman -S'   # install
+alias pacu='pacman -Syu'    # update, add 'a' to the list of letters to update AUR packages if you use yaourt
+alias pacr='pacman -Rs'   # remove
+alias pacs='pacman -Ss'      # search
+alias paci='pacman -Si'      # info
+alias paclo='pacman -Qdt'    # list orphans
+alias pacro='paclo && sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
+alias pacc='pacman -Scc'    # clean cache
+alias paclf='pacman -Ql'   # list files
+
+# friggin cool utility using fzf to list installed packages showing a preview of each
+
+alias pzf="yay -Qq | fzf --preview 'yay -Qil {}' --height=97% --layout=reverse --bind 'enter:execute(yay -Qil {} | less)'"
+
+alias search="grep -rnw '.' -e"
+alias pbat="bat -p"
+alias yay="yay -Pw; yay"
+#alias idea="flatpak run com.jetbrains.IntelliJ-IDEA-Community"
+alias cat='bat -pp -s'
+alias nnn="nnn -P p"
+alias lg="lazygit"
+alias rg="kitty +kitten hyperlinked_grep"
+alias icat="kitten icat"
+alias e='nvim'
+alias g="git"
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias d="kitty +kitten diff"
+alias c="clear"
+alias l='exa --icons --group-directories-first'
+alias nb='newsboat'
+
+# kubectl
+alias k='kubectl'
+alias kd='kubectl describe'
+alias kdd='kubectl describe deployment'
+alias kdp='kubectl describe pod'
+alias kei='kubectl exec -it'
+alias kg='kubectl get'
+alias kgall='kubectl get --all-namespaces all'
+alias kgd='kubectl get deployments'
+alias kgp='kubectl get pod'
+alias kgsvc='kubectl get service'
+alias kl='kubectl logs --all-containers=true'
+alias krm='kubectl delete'
+
+alias killf="ps -u madhur a | fzf --reverse | awk '{print $2}' | xargs kill -9"
+
+alias curltime="curl -w \"@$HOME/scripts/curlformat.txt\" -o /dev/null -s "
+alias lzd='lazydocker'
+
+alias gui='sudo systemctl isolate graphical.target'
+
+alias sudo='doas'
+alias editor='msedit'
+alias mp4='mpv'
+
+# idle-shutdown timer (toggles also push the bar value immediately, since the
+# 15s/1min timer is what normally pushes — see zjstatus #260 workaround)
+alias idleon='systemctl --user start idle-shutdown.timer; zellij pipe "zjstatus::pipe::pipe_idle::$(~/scripts/idle-remaining-plain.sh)" 2>/dev/null'
+alias idleoff='systemctl --user stop idle-shutdown.timer; zellij pipe "zjstatus::pipe::pipe_idle::$(~/scripts/idle-remaining-plain.sh)" 2>/dev/null'
+alias idlestat='systemctl --user is-active idle-shutdown.timer'
+
+alias mytasks='_strip_colors(){ sed "s/\${color orange}/\x1b[33m/g; s/\${color}/\x1b[0m/g; s/\${color[^}]*}//g"; }; echo "=== RECURRING ===" && cd ~/.config/conky && python upcoming_tasks.py status:pending due.before:2days recurrence: | _strip_colors; echo ""; echo "=== SHORT TERM GOALS ===" && cd ~/.config/conky && python upcoming_tasks.py -- status:pending -RECURRING -PARENT -CHILD +work due.any: | _strip_colors; echo ""; echo "=== HOME TASKS ===" && cd ~/.config/conky && python upcoming_tasks.py status:pending +home | _strip_colors'
+alias zcs='glow /home/madhur/.config/zellij/cheatsheet.md'

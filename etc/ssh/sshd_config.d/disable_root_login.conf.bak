@@ -1,0 +1,6 @@
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+UsePAM no
+PermitRootLogin no
+#PermitRootLogin prohibit-password
+AuthenticationMethods publickey,password

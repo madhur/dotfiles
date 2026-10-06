@@ -1,0 +1,11 @@
+# Check if file using carriage return or just new line
+head -1 /home/madhur/scripts/every_day.sh | od -c
+
+# To show the first 10 lines of <file>:
+head <file>
+
+# To show the first <number> lines of <file>:
+head -n <number> <file>
+
+# To show the first <number> bytes of <file>:
+head -c <number> <file>

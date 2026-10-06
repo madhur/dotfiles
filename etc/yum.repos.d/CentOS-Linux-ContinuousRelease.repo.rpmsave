@@ -1,0 +1,24 @@
+# CentOS-Linux-ContinuousRelease.repo
+#
+# The #mirrorlist system uses the connecting IP address of the client and the
+# update status of each mirror to pick current mirrors that are geographically
+# close to the client.  You should use this for CentOS updates unless you are
+# manually picking other mirrors.
+#
+# If the #mirrorlist does not work for you, you can try the commented out
+# baseurl line instead.
+#
+# The Continuous Release (CR) repository contains packages for the next minor
+# release of CentOS Linux.  This repository only has content in the time period
+# between an upstream release and the official CentOS Linux release.  These
+# packages have not been fully tested yet and should be considered beta
+# quality.  They are made available for people willing to test and provide
+# feedback for the next release.
+
+[cr]
+name=CentOS Linux $releasever - ContinuousRelease
+#mirrorlist=http://#mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=cr&infra=$infra
+baseurl=http://vault.centos.org/$contentdir/$releasever/cr/$basearch/os/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial

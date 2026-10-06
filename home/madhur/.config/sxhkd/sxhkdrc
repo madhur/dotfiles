@@ -1,0 +1,79 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+    kitty
+
+super + grave
+    kitten quick-access-terminal
+
+#calculator
+super + c
+    /home/madhur/scripts/start_calc.sh
+
+# program launcher
+super + shift + d
+    /home/madhur/scripts/old_launcher.sh
+
+
+# program launcher
+super + d
+    /home/madhur/scripts/launcher.sh
+
+super + b
+    rofi -show bt -modi "bt:/home/madhur/Desktop/python/bluetooth/bt_toggle.sh"
+
+#super  + s
+#    eww open bindkeys --toggle
+
+super + shift + s
+    eww open bindkeys_nvim --toggle 
+
+#new power menu
+super + x
+    key-power
+
+# Do brightness
+XF86MonBrightness{Up,Down}
+    brightness{ --up, --down}
+
+# run flameshot
+super + F12
+    /home/madhur/scripts/flameshot.sh
+
+super + F11
+    /home/madhur/.config/rofi/applets/bin/screenshot.sh
+
+super + F3
+    /home/madhur/scripts/codebrowser.sh
+
+super + F4
+    /home/madhur/scripts/homebrowser.sh
+
+
+# Copy VPN username
+# ctrl + m
+#     echo -n madhur.ahuja | xclip -selection clipboard
+
+# # Copy VPN Password
+# ctrl + comma
+#     echo -n junk | xclip -selection clipboard
+
+~button2
+    echo -n | xsel -n -i
+
+~button3
+   xqp 0 $(xdo id -N "" -n root) &&  jgmenu
+
+super+k
+   rofi -modi "processes:rofi-process-killer.sh" -show processes
+
+# Show notification history in rofi
+ctrl + grave
+    /home/madhur/scripts/dunst-history.sh
+
+# Close current notification
+ctrl + shift + grave
+    dunstctl close

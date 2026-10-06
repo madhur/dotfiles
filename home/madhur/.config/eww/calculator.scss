@@ -1,0 +1,36 @@
+
+* {
+    all: unset;
+    font-family: "JetBrains Mono";
+}
+
+.powermenu-box {
+    padding: 0 2px;
+    margin: 7px 7px 7px 0px;
+    background: inherit;
+
+ 
+}
+
+// powermenu
+.calculator-container {
+    background: $bg;
+    color: $fg;
+    padding: 10px;
+    
+    font-size: 16px;
+    
+    border: 0.5px solid #4c7899;
+
+    .calculator-input-box {
+
+        background-color: #1a1b26;
+        font-size: 36px;
+    }
+
+    .calculator-label-box {
+        font-size: 36px;
+        color: $fg;
+        background-color: #4A7F87;
+    }
+}

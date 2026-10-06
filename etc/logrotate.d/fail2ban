@@ -1,0 +1,11 @@
+#
+# Debian:
+# https://github.com/fail2ban/fail2ban/blob/debian/debian/fail2ban.logrotate
+
+/var/log/fail2ban.log {
+    missingok
+    notifempty
+    postrotate
+      /usr/bin/fail2ban-client flushlogs >/dev/null || true
+    endscript
+}

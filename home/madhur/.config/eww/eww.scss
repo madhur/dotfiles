@@ -1,0 +1,29 @@
+*{
+	all: unset;
+	font-family: "JetBrains Mono";
+}
+
+@import "colors.scss";
+@import "calendar.scss";
+@import "powermenu.scss";
+@import "calculator.scss";
+@import "uptime_graph.scss";
+
+.genwin {
+	background-color: #1a1b26;
+	border-radius: 0px;
+	padding: 20px;
+	border: 5px;
+	border-color: #4c7899;
+	border: 1px solid #4c7899;
+	//margin: 10px;
+}
+
+.keys {
+	color: #81a1c1;
+	font-size : 20px;
+	margin : 0px 0px 0px 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
