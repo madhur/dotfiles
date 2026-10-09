@@ -231,7 +231,7 @@ org.gnome.FileRoller.General compression-level 'normal'
 org.gnome.FileRoller.General editors @as []
 org.gnome.FileRoller.General encrypt-header false
 org.gnome.FileRoller.Listing list-mode 'as-folder'
-org.gnome.FileRoller.Listing name-column-width 1353
+org.gnome.FileRoller.Listing name-column-width 1367
 org.gnome.FileRoller.Listing show-path false
 org.gnome.FileRoller.Listing show-size true
 org.gnome.FileRoller.Listing show-time true
@@ -240,8 +240,8 @@ org.gnome.FileRoller.Listing sort-method 'name'
 org.gnome.FileRoller.Listing sort-type 'ascending'
 org.gnome.FileRoller.UI sidebar-width 200
 org.gnome.FileRoller.UI view-sidebar false
-org.gnome.FileRoller.UI window-height 695
-org.gnome.FileRoller.UI window-width 1903
+org.gnome.FileRoller.UI window-height 1062
+org.gnome.FileRoller.UI window-width 1917
 org.gnome.baobab.preferences excluded-uris @as []
 org.gnome.baobab.ui active-chart 'rings'
 org.gnome.baobab.ui is-maximized false
@@ -260,6 +260,7 @@ org.gnome.desktop.a11y.applications screen-keyboard-enabled false
 org.gnome.desktop.a11y.applications screen-magnifier-enabled false
 org.gnome.desktop.a11y.applications screen-reader-enabled false
 org.gnome.desktop.a11y.interface high-contrast false
+org.gnome.desktop.a11y.interface keyboard-focus-visible-timeout -1
 org.gnome.desktop.a11y.interface reduced-motion 'no-preference'
 org.gnome.desktop.a11y.interface show-status-shapes false
 org.gnome.desktop.a11y.keyboard bouncekeys-beep-reject false
@@ -430,6 +431,7 @@ org.gnome.desktop.peripherals.tablet keep-aspect false
 org.gnome.desktop.peripherals.tablet left-handed false
 org.gnome.desktop.peripherals.tablet mapping 'absolute'
 org.gnome.desktop.peripherals.tablet output ['', '', '']
+org.gnome.desktop.peripherals.touchscreen orientation-lock false
 org.gnome.desktop.peripherals.touchscreen output ['', '', '']
 org.gnome.desktop.peripherals.keyboard delay uint32 500
 org.gnome.desktop.peripherals.keyboard numlock-state false
@@ -437,23 +439,29 @@ org.gnome.desktop.peripherals.keyboard remember-numlock-state true
 org.gnome.desktop.peripherals.keyboard repeat true
 org.gnome.desktop.peripherals.keyboard repeat-interval uint32 30
 org.gnome.desktop.peripherals.mouse accel-profile 'default'
+org.gnome.desktop.peripherals.mouse custom-accel-config {'pointer-step': <1.0>, 'pointer-speeds': <[0.0, 1.0]>}
 org.gnome.desktop.peripherals.mouse double-click 400
 org.gnome.desktop.peripherals.mouse drag-threshold 8
 org.gnome.desktop.peripherals.mouse left-handed false
 org.gnome.desktop.peripherals.mouse middle-click-emulation false
 org.gnome.desktop.peripherals.mouse natural-scroll false
+org.gnome.desktop.peripherals.mouse scroll-wheel-emulation-button 0
+org.gnome.desktop.peripherals.mouse scroll-wheel-emulation-button-lock false
 org.gnome.desktop.peripherals.mouse speed 0.0
 org.gnome.desktop.peripherals.pointingstick accel-profile 'default'
+org.gnome.desktop.peripherals.pointingstick custom-accel-config {'pointer-step': <1.0>, 'pointer-speeds': <[0.0, 1.0]>}
 org.gnome.desktop.peripherals.pointingstick scroll-method 'default'
 org.gnome.desktop.peripherals.pointingstick speed 0.0
 org.gnome.desktop.peripherals.touchpad accel-profile 'default'
 org.gnome.desktop.peripherals.touchpad click-method 'fingers'
+org.gnome.desktop.peripherals.touchpad custom-accel-config {'pointer-step': <1.0>, 'pointer-speeds': <[0.0, 1.0]>}
 org.gnome.desktop.peripherals.touchpad disable-while-typing true
 org.gnome.desktop.peripherals.touchpad disable-while-typing-timeout uint32 500
 org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
 org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
 org.gnome.desktop.peripherals.touchpad middle-click-emulation false
 org.gnome.desktop.peripherals.touchpad natural-scroll true
+org.gnome.desktop.peripherals.touchpad scroll-speed 1.0
 org.gnome.desktop.peripherals.touchpad send-events 'enabled'
 org.gnome.desktop.peripherals.touchpad speed 0.0
 org.gnome.desktop.peripherals.touchpad tap-and-drag true
@@ -462,6 +470,7 @@ org.gnome.desktop.peripherals.touchpad tap-button-map 'default'
 org.gnome.desktop.peripherals.touchpad tap-to-click true
 org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 org.gnome.desktop.peripherals.trackball accel-profile 'default'
+org.gnome.desktop.peripherals.trackball custom-accel-config {'pointer-step': <1.0>, 'pointer-speeds': <[0.0, 1.0]>}
 org.gnome.desktop.peripherals.trackball middle-click-emulation false
 org.gnome.desktop.peripherals.trackball scroll-wheel-emulation-button 0
 org.gnome.desktop.peripherals.trackball scroll-wheel-emulation-button-lock false
@@ -515,7 +524,7 @@ org.gnome.desktop.sound event-sounds true
 org.gnome.desktop.sound input-feedback-sounds false
 org.gnome.desktop.sound theme-name '__custom'
 org.gnome.desktop.thumbnail-cache maximum-age 180
-org.gnome.desktop.thumbnail-cache maximum-size 512
+org.gnome.desktop.thumbnail-cache maximum-size 2048
 org.gnome.desktop.thumbnailers disable @as []
 org.gnome.desktop.thumbnailers disable-all false
 org.gnome.desktop.wm.keybindings activate-window-menu ['<Alt>space']

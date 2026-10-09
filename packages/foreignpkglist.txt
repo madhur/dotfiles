@@ -36,6 +36,7 @@ jd-gui-bin
 kaf-bin
 kafkactl
 lcov-git
+libwpe
 lightdm-settings
 litecli
 logkeys
@@ -91,6 +92,7 @@ waypaper
 windows95-bin
 wlroots0.18
 woeusb-ng
+wpebackend-fdo
 wscat
 xcolorsel
 xcursor-simp1e-tokyo-night

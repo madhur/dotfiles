@@ -192,7 +192,6 @@ libre
 libretro-core-info
 libtool
 libwnck3
-libwpe
 libxcrypt-compat
 libxfce4util
 lightdm
@@ -431,7 +430,6 @@ wl-clipboard
 wlsunset
 wol
 wpa_supplicant
-wpebackend-fdo
 x11vnc
 xbindkeys
 xclip
