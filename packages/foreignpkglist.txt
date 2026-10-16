@@ -6,6 +6,7 @@ bdf2psf-debian-unstable
 bento4
 brave-bin
 caffeine-ng
+cfait-bin
 cheat-bin
 downgrade
 elephant
