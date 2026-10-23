@@ -374,6 +374,7 @@ slurp
 smartmontools
 socat
 sof-firmware
+songrec
 sox
 sshfs
 sshpass

@@ -100,4 +100,5 @@ xcursor-simp1e-tokyo-night
 xqp
 yay
 yt-dlp-drop-in
+zapfast-bin
 zrok-bin
