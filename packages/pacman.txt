@@ -292,6 +292,7 @@ ppp
 pptpclient
 pre-commit
 prometheus-node-exporter
+proton-vpn-cli
 pv
 python
 python-capng
