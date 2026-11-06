@@ -13,9 +13,9 @@ gnome-46-2404               0+git.b31ceab-sdk0+git.ef6f7e9  177    latest/stable
 gnome-calculator            48.1                            972    latest/stable  canonical**     -
 gnome-core26                0+git.d122561-sdk0+git.1ee381d  33     latest/stable  canonical**     -
 gtk-common-themes           0.1-81-g442e511                 1535   latest/stable  canonical**     -
-indicator-sound-switcher    2.3.10.1                        173    latest/stable  yktoo           -
-insomnia                    13.3.1                          380    latest/stable  getinsomnia     -
-joplin-desktop              v3.7.21                         167    latest/stable  james-carroll*  -
+indicator-sound-switcher    2.4.0.0                         188    latest/stable  yktoo           -
+insomnia                    13.4.0                          383    latest/stable  getinsomnia     -
+joplin-desktop              v3.7.22                         169    latest/stable  james-carroll*  -
 kf5-5-104-qt-5-15-8-core22  5.104                           9      latest/stable  kde**           -
 mesa-2404                   25.2.8-snap288                  1839   latest/stable  canonical**     -
 mesa-2604                   26.0.3-snap278                  123    latest/stable  canonical**     -

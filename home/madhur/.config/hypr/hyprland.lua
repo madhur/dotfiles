@@ -248,7 +248,7 @@ hl.bind("SUPER + grave", hl.dsp.exec_cmd("kitten quick-access-terminal"))
 hl.bind("SUPER + F2",        hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
 hl.bind("SUPER + F1",        hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
 hl.bind("SUPER + F3",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-hl.bind(mainMod .. " + SUPER + F12",
+hl.bind(mainMod .. " + SHIFT + F12",
     hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 -- NOTE: this duplicates SUPER + F2 above (intentional in original?); last bind wins
 hl.bind("SUPER + F2",
