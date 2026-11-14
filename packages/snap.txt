@@ -5,7 +5,7 @@ core18                      20260901                        3084   latest/stable
 core20                      20260901                        2922   latest/stable  canonical**     base
 core22                      20260824                        2955   latest/stable  canonical**     base
 core24                      20260824                        2124   latest/stable  canonical**     base
-core26                      20260925                        646    latest/stable  canonical**     base
+core26                      20261023                        750    latest/stable  canonical**     base
 gnome-3-28-1804             3.28.0-19-g98f9e67.98f9e67      198    latest/stable  canonical**     -
 gnome-3-34-1804             0+git.3556cb3                   93     latest/stable  canonical**     -
 gnome-42-2204               0+git.4982e7b-sdk0+git.69b626a  263    latest/stable  canonical**     -
